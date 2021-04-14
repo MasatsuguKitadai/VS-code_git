@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{jsarticle}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+\author{来代 勝胤}
+\title{PIV計測 (1) -2}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+\addtocounter{page}{-1}
+
+\newgeometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
+
+\begin{flushleft}
+    {\large \textbf{【演習1】}\\
+        格子点$\left(i,j\right)$における渦度$\omega_z$$_i$$_,$$_j$を速度$u$$_i$$_,$$_j$，$v$$_i$$_,$$_j$を用いて，
+        中心差分で差分表示する．\\
+    }
+\end{flushleft}
+格子点$\left(i,j\right)$における$x$方向速度成分を$u$$_i$$_,$$_j$としたとき，
+            速度$u _{\left( i,j+1 \right)}$，$u _{\left( i,j-1 \right)}$をテーラー展開を用いて表すと，以下のようになる．\\
+            \begin{eqnarray}
+                \begin{aligned}
+                    u_{\left( i , j+1 \right)}
+                     & = u_{\left( i, j+\Delta y \right)}                                                 \\
+                     & = u_{\left( i , j \right)} + \Delta y \left( \frac{\partial u}{\partial y} \right)
+                    + \frac{\Delta y^2}{2!} \left( \frac{\partial^2 u}{\partial y^2}\right)
+                    + \frac{\Delta y^3}{3!} \left( \frac{\partial^3 u}{\partial y^3}\right) + ...         \\
+                     & = u_{\left( i , j \right)}
+                    + \Delta y \left( \frac{\partial u}{\partial y} \right)
+                    + \frac{\Delta y^2}{2!} \left( \frac{\partial^2 u}{\partial y^2}\right)
+                    + \rm{O}\left( \Delta \it{y^3} \right)
+                \end{aligned}
+            \end{eqnarray}
+            \\
+            \begin{eqnarray}
+                \begin{aligned}
+                    u_{\left( i , j-1 \right)}
+                     & = u_{\left( i, j-\Delta y \right)}                                                 \\
+                     & = u_{\left( i , j \right)} - \Delta y \left( \frac{\partial u}{\partial y} \right)
+                    + \frac{\Delta y^2}{2!} \left( \frac{\partial^2 u}{\partial y^2}\right)
+                    - \frac{\Delta y^3}{3!} \left( \frac{\partial^3 u}{\partial y^3}\right) + ...         \\
+                     & = u_{\left( i , j \right)}
+                    - \Delta y \left( \frac{\partial u}{\partial y} \right)
+                    + \frac{\Delta y^2}{2!} \left( \frac{\partial^2 u}{\partial y^2}\right)
+                    - \rm{O} \left( \Delta \it{y^3} \right)                                               \\
+                \end{aligned}
+            \end{eqnarray}
+            式(1),(2)より，
+            \begin{eqnarray}
+                u_{\left( i , j+1 \right)} - u_{\left( i , j-1\right)}
+                & = & 2 \Delta y \left( \frac{ \partial u}{\partial y} \right) + \rm{O} \left( \Delta \it{y} \right) \\
+                \left( \frac{ \partial u}{\partial y} \right)
+                & = & \frac{1}{2 \Delta y} \left\{ u_{\left( i , j+1 \right))} - u_{\left( i , j-1\right)} \right\}
+            \end{eqnarray}\\
+            同様に，格子点$\left(i,j\right)$における$y$方向速度成分を$v$$_i$$_,$$_j$としたとき，速度$v _{\left( i+1,j \right)}$，$v _{\left( i-1,j \right)}$
+をテーラー展開を用いて表すと，以下のようになる．
+\begin{eqnarray}
+    v_{\left( i+1 , j \right)} - v_{\left( i-1 , j\right)}
+    & = & 2 \Delta x \left( \frac{ \partial v}{\partial x} \right) + \rm{O} \left( \Delta \it{x} \right) \\
+    \left( \frac{ \partial v}{\partial x} \right)
+    & = & \frac{1}{2 \Delta x} \left\{ v_{\left( i+1 , j \right))} - v_{\left( i-1 , j \right)} \right\}
+\end{eqnarray}\\
+
+\begin{flushleft}
+    {\large \textbf{【Programs】}
+    }
+\end{flushleft}
+\small
+\begin{lstlisting}
+\end{lstlisting}
+
+\end{document}
