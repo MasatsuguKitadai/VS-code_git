@@ -1,0 +1,70 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-f",
+                "-c",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "ptex2pdf",
+            "command": "ptex2pdf",
+            "args": [
+                "-interaction=nonstopmode",
+                "-l",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "platex",
+            "command": "platex",
+            "args": [
+                "-interaction=nonstopmode",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pbibtex",
+            "command": "pbibtex",
+            "args": [
+                "-kanji=utf8",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "ptex2pdf",
+            "tools": [
+                "ptex2pdf",
+                "ptex2pdf"
+            ]
+        },
+        {
+            "name": "platex & pbibtex",
+            "tools": [
+                "platex",
+                "pbibtex",
+                "platex",
+                "ptex2pdf"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+    ],
+    "files.associations": {
+        "stdlib.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
