@@ -12,7 +12,7 @@ const int thred = 120;
 const char *input_image = "photo_imagej.bmp";              // name of input
 const char *output_image = "filtered_photo_Laplacian.bmp"; // name of output file
 const char *output_image_test = "photo_test.bmp";
-unsigned char header_buf[1000];
+unsigned char header_buf[1078];
 unsigned char image_in[width][height];
 unsigned char image_out[width][height];
 unsigned char image_out_test[width][height];
@@ -20,7 +20,7 @@ double Laplacian[width][height];
 FILE *infile;
 FILE *outfile;
 
-// x = 0 or y = 0
+// 0 < x < width 0 < y <  height
 double f1(unsigned char A1, unsigned char A2, unsigned char A3)
 {
     double f1[width][height];
@@ -119,7 +119,7 @@ int main()
     j = height - 1;
     for (i = 1; i < width - 1; i++)
     {
-        Laplacian[i][j] = f1(image_in[i + 1][j], image_in[i][j], image_in[i - 1][j]) + f3(image_in[i][j], image_in[i][j - 1], image_in[i][j - 2], image_in[i][j - 3]);
+        Laplacian[i][j] = 128 + f1(image_in[i + 1][j], image_in[i][j], image_in[i - 1][j]) + f3(image_in[i][j], image_in[i][j - 1], image_in[i][j - 2], image_in[i][j - 3]);
     }
 
     // case6: x=0, y=0
@@ -169,8 +169,8 @@ int main()
                 image_out[i][j] = Laplacian[i][j];
             }
 
-            // printf("%lf\t", Laplacian[i][j]);
-            // printf("%d\t", image_out[i][j]);
+            printf("Laplacian[%d][%d] = %lf\n", i, j, Laplacian[i][j]);
+            printf("image_out[%d][%d] = %d\n", i, j, image_out[i][j]);
         }
     }
     // Write filtered image data

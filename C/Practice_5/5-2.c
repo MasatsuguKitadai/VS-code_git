@@ -9,7 +9,7 @@ Think a Bit , Code a Bit , Test a Bit
 #define width 960
 #define height 540
 const int thred = 128;
-const char *input_image = "photo-imagej.bmp";    // name of input file
+const char *input_image = "photo_imagej.bmp";    // name of input file
 const char *output_image = "filtered_photo.bmp"; // name of output file
 unsigned char header_buf[1078];
 unsigned char image_in[width][height];
