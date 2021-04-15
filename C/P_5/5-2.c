@@ -1,7 +1,7 @@
 /*************************************************
-PROGRAM NAME : filtered_face . cpp
-AUTHER : Yohsuke Tanaka
-DATE :2014.12.18
+PROGRAM NAME : 5-2.c
+AUTHER : Masatsugu Kitadai
+DATE :
 Think a Bit , Code a Bit , Test a Bit
 **************************************************/
 #include <stdio.h>

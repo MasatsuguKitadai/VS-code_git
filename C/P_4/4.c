@@ -1,5 +1,5 @@
 /******************************************************************************
-PROGRAM NAME : practice_4
+PROGRAM NAME : 4.c
 AUTHER : Masatsugu Kitadai
 DATE : 8/4/2021
 Think a Bit , Code a Bit , Test a Bit

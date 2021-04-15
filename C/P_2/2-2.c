@@ -1,7 +1,7 @@
 /******************************************************************************
-PROGRAM NAME:sq-file-input.cpp
+PROGRAM NAME:2-2.c
 AUTHER: Masatsugu Kitadai
-DATE: 2020/4/4
+DATE:
 ******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>

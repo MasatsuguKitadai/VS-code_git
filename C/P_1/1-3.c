@@ -1,8 +1,7 @@
 /******************************************************************************
-PROGRAM NAME : practice_1-3
-AUTHER : Masatsugu Kitadai
-DATE : 13/12/2020
-Think a Bit! , Code a Bit!! , Test a Bit!!!
+PROGRAM NAME:1-3.c
+AUTHER: Masatsugu Kitadai
+DATE:
 ******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>

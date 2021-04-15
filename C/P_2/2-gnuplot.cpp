@@ -1,3 +1,9 @@
+/******************************************************************************
+PROGRAM NAME:2-gnuplot.cpp
+AUTHER: Masatsugu Kitadai
+DATE:
+******************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
