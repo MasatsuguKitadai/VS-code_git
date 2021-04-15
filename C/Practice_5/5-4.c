@@ -1,21 +1,21 @@
 /*************************************************
-PROGRAM NAME : 5-3.c
+PROGRAM NAME : 5-4.c
 AUTHER : Masatsugu Kitadai
 DATE :2021.4.15
 Think a Bit , Code a Bit , Test a Bit
 **************************************************/
 #include <stdio.h>
 #include <stdlib.h>
-#define width 960
-#define height 540
-const char *input_image = "photo_imagej.bmp";              // name of input
-const char *output_image = "filtered_photo_Laplacian.bmp"; // name of output file
-const char *output_image_test = "photo_test.bmp";
+#define width 1024
+#define height 682
+const char *input_image = "photo_2_imagej.bmp";             // name of input
+const char *output_image = "filtered_photo_Sharpening.bmp"; // name of output file
 unsigned char header_buf[1078];
 unsigned char image_in[height][width];
 unsigned char image_out[height][width];
 unsigned char image_out_test[height][width];
 double Laplacian[height][width];
+double Sharpening[height][width];
 FILE *infile;
 FILE *outfile;
 
@@ -57,17 +57,6 @@ int main()
     fread(header_buf, sizeof(unsigned char), 1078, infile); // Read Header
     fread(image_in, sizeof(image_in), 1, infile);           // Read 8 bit image intensity
     fclose(infile);
-
-    /*
-    // check the programs
-    for (j = 0; j < height; j++)
-    {
-        for (i = 0; i < width; i++)
-        {
-            printf("image_in[%d][%d] = %d\n", i, j, image_in[j][i]);
-        }
-    }
-*/
 
     // Laplacian Filter
 
@@ -153,43 +142,29 @@ int main()
     {
         for (i = 0; i < width; i++)
         {
-            // printf("Laplacian[%d][%d] = %lf\n", i, j, Laplacian[j][i]);
+            // Sharpening calculation
 
-            Laplacian[j][i] = 128 + Laplacian[j][i];
+            Sharpening[j][i] = image_in[j][i] - Laplacian[j][i];
 
-            if (Laplacian[j][i] > 255.0)
+            if (Sharpening[j][i] > 255.0)
             {
                 image_out[j][i] = 255;
             }
-            else if (Laplacian[j][i] < 0.0)
+            else if (Sharpening[j][i] < 0.0)
             {
                 image_out[j][i] = 0;
             }
             else
             {
-                image_out[j][i] = Laplacian[j][i];
+                image_out[j][i] = Sharpening[j][i];
             }
-
-            // printf("Laplacian[%d][%d] = %lf\n", j, i, Laplacian[j][i]);
-            // printf("image_out[%d][%d] = %d\n", j, i, image_out[j][i]);
         }
     }
-
     // Write filtered image data
-
     outfile = fopen(output_image, "wb");
     fwrite(header_buf, sizeof(unsigned char), 1078, outfile); // Write Header
     fwrite(image_out, sizeof(image_out), 1, outfile);         // Write 8 bit image intensity
     fclose(outfile);
-
-    // Check image data
-
-    /*
-    outfile = fopen(output_image_test, "wb");
-    fwrite(header_buf, sizeof(unsigned char), 1078, outfile); // Write Header
-    fwrite(image_in, sizeof(image_in), 1, outfile);           // Write 8 bit image intensity
-    fclose(outfile);
-*/
 
     return (0);
 }
