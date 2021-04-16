@@ -10,29 +10,34 @@ Think a Bit , Code a Bit , Test a Bit
 #define number 1000
 #define sigma 20e-6
 #define myu 70e-6
+#define split 10e-6
+#define n 15
 
-float random_1[number];
-float random_2[number];
-float nd[number];
-float z[number];
+double random_1[number];
+double random_2[number];
+double nd[number];
+double z[number];
+
+int histgram[n];
 
 FILE *output_file;                                // pointer for output file
 const char *output_data_file = "output_data.dat"; // name of output file
 
 /********************MAIN**************************/
-float main()
+double main()
 
 {
-    float PI;
+    int i, j;
+    double PI;
     PI = 4.0 * atan(1.0);
     // printf("RAND_MAX = %d\n", RAND_MAX);
 
     // generate random numbers
-    int i;
+
     for (i = 0; i < number; i++)
     {
-        random_1[i] = (float)rand() / (RAND_MAX + 1.0);
-        random_2[i] = (float)rand() / (RAND_MAX + 1.0);
+        random_1[i] = (double)rand() / (RAND_MAX + 1.0);
+        random_2[i] = (double)rand() / (RAND_MAX + 1.0);
 
         // printf("[%d] = %lf %lf\n", i, random_1[i], random_2[i]);
     }
@@ -86,9 +91,8 @@ float main()
     printf("Avrage\t\t= %lf\n", average);
     printf("Deviation\t= %lf\n", deviation);
 
-    //
+    // Sort
 
-    int j;
     double tmp;
 
     for (i = 0; i < number; ++i)
@@ -104,13 +108,34 @@ float main()
         }
     }
 
+    // classification
+
+    int rank;
+
+    for (i = 0; i < n; i++)
+    {
+        histgram[i] = 0;
+    }
+
+    for (i = 0; i < number; i++)
+    {
+        rank = (int)(z[i] / split);
+        histgram[rank] = histgram[rank] + 1;
+        // printf("rank[%d] = %d\n", i, rank);
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        printf("histgram[%d] = %d\n", i, histgram[i]);
+    }
+
     // wirte output_data file
 
     output_file = fopen(output_data_file, "w");
 
-    for (i = 0; i < number; i++)
+    for (i = 0; i < n; i++)
     {
-        fprintf(output_file, "%d\t %lf\n", i, z[i]);
+        fprintf(output_file, "%d\t %d\n", i, histgram[i]);
     }
 
     fclose(output_file);
