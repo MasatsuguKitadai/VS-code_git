@@ -124,10 +124,12 @@ double main()
         // printf("rank[%d] = %d\n", i, rank);
     }
 
+    /*
     for (i = 0; i < n; i++)
     {
         printf("histgram[%d] = %d\n", i, histgram[i]);
     }
+*/
 
     // wirte output_data file
 
