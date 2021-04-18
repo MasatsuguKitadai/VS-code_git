@@ -1,5 +1,5 @@
 /*************************************************
-PROGRAM NAME : 6-test.c
+PROGRAM NAME : 6-1.c
 AUTHER : Masatsugu Kitadai
 DATE :
 Think a Bit , Code a Bit , Test a Bit
@@ -7,7 +7,7 @@ Think a Bit , Code a Bit , Test a Bit
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define number 1000
+#define number 10000
 #define sigma 20e-6
 #define myu 70e-6
 #define split 10e-6
@@ -137,7 +137,7 @@ double main()
 
     for (i = 0; i < n; i++)
     {
-        fprintf(output_file, "%d\t %d\n", i, histgram[i]);
+        fprintf(output_file, "%d\t %d\n", i * 10, histgram[i]);
     }
 
     fclose(output_file);
