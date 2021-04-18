@@ -16,7 +16,7 @@ Think a Bit , Code a Bit , Test a Bit
 double random_1[number];
 double random_2[number];
 double nd[number];
-double z[number];
+double z[numbe];
 
 int histgram[n];
 
