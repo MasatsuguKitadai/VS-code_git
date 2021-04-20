@@ -10,14 +10,14 @@ Think a Bit , Code a Bit , Test a Bit
 #include <sys/stat.h>
 #include <time.h>
 
-#define num 1000
+#define num 100
 #define myu 70
 #define sigma 20
 #define x_grid 1024
 #define y_grid 1024
 
 double size;
-double image_in[x_grid][y_grid];
+int image_in[x_grid][y_grid];
 int image_out[x_grid][y_grid];
 unsigned int rand_max = RAND_MAX;
 
@@ -51,14 +51,15 @@ double main()
     {
         x = fabs(((double)rand() / (rand_max + 1)) * 1024);
         y = fabs(((double)rand() / (rand_max + 1)) * 1024);
-        brightness = rand() % 128 + 128;
+        brightness = 128 + fabs(((double)rand() / (rand_max + 1)) * 127);
         rand_1 = fabs((double)rand() / (rand_max + 1));
         rand_2 = fabs((double)rand() / (rand_max + 1));
         nd = sqrt(-2.0 * log(rand_1)) * cos(2.0 * PI * rand_2);
         size = myu + sigma * nd;
         r = size / 2.0;
 
-        // printf("%d\t%d\t%d\t%lf\n", x, y, brightness, r);
+        image_out[x][y] = brightness;
+        printf("image_out[%d][%d]\t=\t%d\n", x, y, image_out[x][y]);
 
         for (i = 0; i < y_grid; i++)
         {
