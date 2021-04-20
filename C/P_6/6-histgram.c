@@ -8,9 +8,9 @@ DATE: 2018.01.09
 #include <sys/stat.h>
 
 //out-input file name
-const char *write_file01 = "output_data.dat"; //Input file
-const char *write_file_dir = "Graph";         //Output file
-const char *output_graph = "histgram";        //Output file
+const char *write_file01 = "output_data_histgram.dat"; //Input file
+const char *write_file_dir = "Graph";                  //Output file
+const char *output_graph = "histgram";                 //Output file
 
 //Graph parameters for GNU
 void graph_GNU(); //histgram at png & eps

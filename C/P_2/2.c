@@ -1,7 +1,7 @@
 /******************************************************************************
-PROGRAM NAME:2-2.c
-AUTHER: Masatsugu Kitadai
-DATE:
+PROGRAM NAME :2-2.c
+AUTHER  : Masatsugu Kitadai
+DATE    :
 ******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>

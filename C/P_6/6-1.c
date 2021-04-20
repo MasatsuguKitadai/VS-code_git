@@ -7,10 +7,11 @@ Think a Bit , Code a Bit , Test a Bit
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <sys/stat.h>
 #define number 10000
-#define sigma 20e-6
-#define myu 70e-6
-#define split 10e-6
+#define sigma 20
+#define myu 70
+#define split 10
 #define n 15
 
 double random_1[number];
@@ -20,11 +21,20 @@ double z[number];
 
 int histgram[n];
 
-FILE *output_file;                                // pointer for output file
-const char *output_data_file = "output_data.dat"; // name of output file
+FILE *output_file_01; // pointer for output file
+FILE *output_file_02;
+const char *output_data_file_01 = "output_data_histgram.dat"; // name of output file
+const char *output_data_file_02 = "output_data.dat";
+const char *output_file_dir = "output";
+
+int movefile(const char *srcPath, const char *destPath)
+{
+    return !rename(srcPath, destPath);
+}
 
 /********************MAIN**************************/
-double main()
+double
+main()
 
 {
     int i, j;
@@ -42,7 +52,7 @@ double main()
         // printf("[%d] = %lf %lf\n", i, random_1[i], random_2[i]);
     }
 
-    // create normal distribution
+    // create normal variance
 
     for (i = 0; i < number; i++)
     {
@@ -60,7 +70,17 @@ double main()
         // printf("[%d]\t= %lf\n", i, z[i]);
     }
 
-    // calculate Average and Distribution
+    // wirte output_data file
+
+    output_file_02 = fopen(output_data_file_02, "w");
+
+    for (i = 0; i < number; i++)
+    {
+        fprintf(output_file_02, "%d\t %lf\n", i, z[i]);
+    }
+
+    fclose(output_file_02);
+    // calculate Average and Variance
 
     double sum_1, sum_2, average, deviation;
 
@@ -75,7 +95,7 @@ double main()
 
     average = sum_1 / number;
 
-    // 2. Distribution
+    // 2. Variance
 
     sum_2 = 0;
 
@@ -93,6 +113,7 @@ double main()
 
     // Sort
 
+    /*
     double tmp;
 
     for (i = 0; i < number; ++i)
@@ -107,6 +128,7 @@ double main()
             }
         }
     }
+*/
 
     // classification
 
@@ -131,16 +153,23 @@ double main()
     }
 */
 
-    // wirte output_data file
+    // create the new directries
 
-    output_file = fopen(output_data_file, "w");
+    mode_t mode = S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+    mkdir(output_file_dir, mode);
+
+    // wirte output_data file for histgram
+
+    output_file_01 = fopen(output_data_file_01, "w");
 
     for (i = 0; i < n; i++)
     {
-        fprintf(output_file, "%d\t %d\n", i * 10, histgram[i]);
+        fprintf(output_file_01, "%d %d\n", i * 10, histgram[i]);
     }
 
-    fclose(output_file);
+    fclose(output_file_01);
+
+    movefile("output_data.dat", "output/output_data.dat");
 
     return (0);
 }

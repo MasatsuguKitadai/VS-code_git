@@ -41,8 +41,10 @@ const char *output_data_file = "output_data.dat"; // name of output file
 
 const char *read_file_dir = "output";
 const char *read_file_header = "output_data";
+
 const char *write_file_dir_1 = "practice(3)";
 const char *write_file_header_1 = "Vorticity_map";
+
 const char *write_file_dir_2 = "practice(4)";
 const char *write_file_header_2 = "Difference_map";
 
@@ -265,7 +267,6 @@ double main()
 
     sprintf(read_file, "%s//%s.dat", read_file_dir, read_file_header);
     infile = fopen(read_file, "rb");
-    //printf("%s.dat\n", read_file_header);
 
     // create the vorcity field image from the culculated data
 

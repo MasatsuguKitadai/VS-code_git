@@ -160,6 +160,7 @@ int main()
             }
         }
     }
+
     // Write filtered image data
     outfile = fopen(output_image, "wb");
     fwrite(header_buf, sizeof(unsigned char), 1078, outfile); // Write Header
