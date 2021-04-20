@@ -8,6 +8,7 @@ Think a Bit , Code a Bit , Test a Bit
 #include <stdlib.h>
 #include <math.h>
 #include <sys/stat.h>
+#include <time.h>
 #define number 10000
 #define sigma 20
 #define myu 70
@@ -23,33 +24,29 @@ int histgram[n];
 
 FILE *output_file_01; // pointer for output file
 FILE *output_file_02;
-const char *output_data_file_01 = "output_data_histgram.dat"; // name of output file
-const char *output_data_file_02 = "output_data.dat";
+const char *output_data_file_01 = "output/output_data_histgram.dat"; // name of output file
+const char *output_data_file_02 = "output/output_data.dat";
 const char *output_file_dir = "output";
 
-int movefile(const char *srcPath, const char *destPath)
-{
-    return !rename(srcPath, destPath);
-}
-
 /********************MAIN**************************/
-double
-main()
+double main()
 
 {
     int i, j;
     double PI;
     PI = 4.0 * atan(1.0);
-    // printf("RAND_MAX = %d\n", RAND_MAX);
 
     // generate random numbers
 
+    srand(time(NULL));
+    int rand_max = RAND_MAX;
+
     for (i = 0; i < number; i++)
     {
-        random_1[i] = (double)rand() / (RAND_MAX + 1.0);
-        random_2[i] = (double)rand() / (RAND_MAX + 1.0);
+        random_1[i] = fabs((double)rand() / (rand_max + 1));
+        random_2[i] = fabs((double)rand() / (rand_max + 1));
 
-        // printf("[%d] = %lf %lf\n", i, random_1[i], random_2[i]);
+        printf("[%d] = %lf %lf\n", i, random_1[i], random_2[i]);
     }
 
     // create normal variance
@@ -82,7 +79,7 @@ main()
     fclose(output_file_02);
     // calculate Average and Variance
 
-    double sum_1, sum_2, average, deviation;
+    double sum_1, sum_2, average, variance;
 
     // 1. Average
 
@@ -104,31 +101,12 @@ main()
         sum_2 = sum_2 + (z[i] - average) * (z[i] - average);
     }
 
-    deviation = sqrt(sum_2 / number);
+    variance = sqrt(sum_2 / number);
 
     // output　calculation results
 
     printf("Avrage\t\t= %lf\n", average);
-    printf("Deviation\t= %lf\n", deviation);
-
-    // Sort
-
-    /*
-    double tmp;
-
-    for (i = 0; i < number; ++i)
-    {
-        for (j = i + 1; j < number; ++j)
-        {
-            if (z[i] > z[j])
-            {
-                tmp = z[i];
-                z[i] = z[j];
-                z[j] = tmp;
-            }
-        }
-    }
-*/
+    printf("Variance\t= %lf\n", variance);
 
     // classification
 
@@ -168,8 +146,6 @@ main()
     }
 
     fclose(output_file_01);
-
-    movefile("output_data.dat", "output/output_data.dat");
 
     return (0);
 }
