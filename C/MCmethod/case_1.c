@@ -7,7 +7,7 @@ DATE         :2021/4/21
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#define num 10000
+#define num 500
 
 int i;
 double x, y, f, s1, s2, a, b, PI;
@@ -29,7 +29,7 @@ const char *write_file = "Graph/case_1.png";
 
 const char *xxlabel = "";
 const int x_min = 0;
-const int x_max = num;
+const int x_max = num - 1;
 const char *yylabel = "";
 const int y_min = 0;
 const int y_max = 1;
@@ -42,9 +42,10 @@ main()
     srand(time(NULL));
     PI = 4.0 * atan(1.0);
 
-    for (i = 0; i < num; i++)
+    for (i = 0; i < num + 1; i++)
     {
         r[i] = fabs((double)rand() / (rand_max + 1));
+        // printf("%lf\n", r[i]);
     }
 
     s1 = 0;
@@ -70,17 +71,18 @@ main()
             s2 = s2 + 1;
         }
 
-        a = 1.0 * (s1 / i + 1);
-        b = 1.0 * (s2 / i + 1);
+        a = (s1 / (i + 1));
+        b = (s2 / (i + 1));
 
         A[i] = a;
+        // printf("[%d] %lf,%lf,%lf,%lf\n", i, x, f, y, A[i]);
     }
 
     printf("a_f>y = %lf\n", A[num - 1]);
 
     output_file = fopen(output_data_file, "w");
 
-    for (i = 0; i < num; i++)
+    for (i = 0; i < num + 1; i++)
     {
         fprintf(output_file, "%d\t%lf\n", i + 1, A[i]);
     }
@@ -111,7 +113,7 @@ main()
     fprintf(gp, "set xlabel '%s'offset 0.0,0.5\n", xxlabel);
     fprintf(gp, "set yrange [%d:%d]\n", y_min, y_max);
     fprintf(gp, "set ylabel '%s'offset -0.5,0.0\n", yylabel);
-    fprintf(gp, "plot '%s' using 1:2 with lines\n", read_file);
+    fprintf(gp, "plot '%s' using 1:2 with lines lc 'black'\n", read_file);
 
     fflush(gp); //Clean up Data
 
