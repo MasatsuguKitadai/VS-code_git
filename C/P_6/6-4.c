@@ -59,11 +59,22 @@ double main()
 
     // image array
 
-    for (i = 0; i < num; i++)
+    int r;
+    int x, y, brightness;
+
+    for (i = 0; i < y_grid; i++)
     {
-        x[i] = fabs(((double)rand() / (rand_max + 1)) * 1024);
-        y[i] = fabs(((double)rand() / (rand_max + 1)) * 1024);
-        brightness[i] = 128 + fabs(((double)rand() / (rand_max + 1)) * 127);
+        for (j = 0; j < x_grid; j++)
+        {
+            image_out[i][j] = 0;
+        }
+    }
+
+    for (k = 0; k < num; k++)
+    {
+        x = fabs(((double)rand() / (rand_max + 1)) * 1024);
+        y = fabs(((double)rand() / (rand_max + 1)) * 1024);
+        brightness = rand() % 128 + 128;
         rand_1 = fabs((double)rand() / (rand_max + 1));
         rand_2 = fabs((double)rand() / (rand_max + 1));
         nd = sqrt(-2.0 * log(rand_1)) * cos(2.0 * PI * rand_2);
@@ -86,6 +97,7 @@ double main()
 
             for (k = 0; k < num; k++)
             {
+
                 image_in = brightness[k] * exp(-100 * ((j - x[k]) * (j - x[k]) + (i - y[k]) * (i - y[k])) / (2 * r[k] * r[k]));
 
                 if (image_tmp < image_in)
