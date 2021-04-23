@@ -2,7 +2,7 @@
 
 program main
     implicit none
-    integer, parameter :: num = 501 
+    integer, parameter :: num = 100001
     integer i
     real x, y, f, s1, s2, a, b, pi
     real r(num)
