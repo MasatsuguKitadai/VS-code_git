@@ -1,0 +1,137 @@
+\documentclass[12pt,a4paper]{jsarticle}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+\author{来代 勝胤}
+\title{モンテカルロ法による面積計算}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+\addtocounter{page}{-1}
+
+\newgeometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
+
+\begin{flushleft}
+    {
+        \LARGE \textbf{}
+    }
+\end{flushleft}
+
+\section{理論}
+
+以下の5つの曲線と、$x=0$、$x=1$、$y=0$が囲む面積を求める。
+
+\begin{eqnarray}
+    f(x)=&x\\
+    f(x)=&x^2\\
+    f(x)=&\cos\left(\frac{\pi}{2}x\right)  \\
+    f(x)=&\sin\left(\pi x\right) \\
+    f(x)=&\exp\left(-x^2\right)
+\end{eqnarray}
+
+乱数を用いたモンテカルロ法で面積を評価する。
+$n$回目に発生させた乱数を$r^n$として、設定点座標を$\left(r^n, r^{n+1}\right)$で与える。\\
+\begin{center}
+    設定点の$y$座標          $r^{n+1}$\\
+    設定点の$x$座標の関数値　$f\left(r^n\right)$
+\end{center}
+上記、2式の大小を比較し、$r^{n+1}>f(r^n)$であれば、$S_1$領域、$r^{n+1}<f(r^n)$であれば$S_2$領域に属するものと判断できる。
+ここで、設定点を$N$点としたときに、今回の場合においては$S_2$領域に属する設定点の比率から面積を求めることが可能である。\\
+\newpage
+\small
+\begin{lstlisting}
+    !Program Name : report.f90
+
+    program main
+    
+        implicit none
+        integer, parameter :: num = 10000
+        integer, parameter :: case = 5
+        integer i, j, n
+        real x, y, a, b, pi
+        real f(case),s(case)
+        real r(num + 1)
+        real area(num + 1,case)
+    
+        !** create random number *********************
+        
+        integer :: seedsize
+        integer, allocatable :: seed(:)
+        
+        call random_seed(size = seedsize)       
+        allocate(seed(seedsize))               
+        do j = 1, seedsize
+            call system_clock(count = seed(j)) 
+        end do
+        call random_seed(put = seed(:))         
+        
+        !********************************************
+    
+        pi = 4.0 *atan(1.0)
+        ! write(6,*)'pi = ',pi
+    
+        call random_number(r)
+    
+        do 10 j = 1 ,case
+           s(j) = 0
+        10 continue
+    
+        open(17, file = 'output/result.dat', status='replace')
+    
+        do 20 i = 1, num
+            x = r(i)
+            y = r(i + 1)
+        
+            f(1) = x                  !case_1
+            f(2) = x*x                !case_2
+            f(3) = cos(pi / 2.0 * x)  !case_3
+            f(4) = sin(pi * x)        !case_4
+            f(5) = exp(-x * x)        !case_5
+    
+            do 100 j = 1, 5   
+                if (f(j) < y) then
+                    s(j) = s(j) + 1
+                end if    
+                a = (s(j)/i)
+                area(i,j) = a
+            100 continue
+            20 continue
+    
+    do 30 i = 1, num
+        write (17,*) i,area(i,1),area(i,2),area(i,3),area(i,4),area(i,5)
+    30 continue
+    
+    close(17)
+    
+    
+    end program
+\end{lstlisting}
+
+\end{document}

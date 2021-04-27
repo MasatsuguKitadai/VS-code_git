@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.4.14)  23 APR 2021 16:34
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.4.14)  26 APR 2021 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/home/kitadiai/Git_share/VScode_git/Tex/Practice_4/practice_4
-(/home/kitadiai/Git_share/VScode_git/Tex/Practice_4/practice_4.tex
+**/home/kitadiai/Git_share/VScode_git/Tex/MCmethod/report
+(/home/kitadiai/Git_share/VScode_git/Tex/MCmethod/report.tex
 pLaTeX2e <2020-02-02>+2 (based on LaTeX2e <2020-02-02> patch level 2)
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/02/02 jsclasses (okumura, texjporg)
@@ -192,8 +192,8 @@ File: l3backend-dvips.def 2020-02-03 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count270
 \g__pdf_backend_link_int=\count271
 \g__pdf_backend_link_sf_int=\count272
-) (./practice_4.aux)
-\openout1 = `practice_4.aux'.
+) (./report.aux)
+\openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
@@ -301,41 +301,50 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <12> not available
-(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 42.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 42.
+LaTeX Font Info:    Font shape `JT1/mc/b/n' in size <17.28> not available
+(Font)              Font shape `JT1/mc/bx/n' tried instead on input line 43.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 42.
-LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <12> not available
-(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 42.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 42.
+(Font)              scaled to size 16.60605pt on input line 43.
+LaTeX Font Info:    Font shape `JY1/mc/b/n' in size <17.28> not available
+(Font)              Font shape `JY1/mc/bx/n' tried instead on input line 43.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 42.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 47.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 47.
+(Font)              scaled to size 16.60605pt on input line 43.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 96.
+(Font)              scaled to size 13.83836pt on input line 47.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 96.
+(Font)              scaled to size 13.83836pt on input line 47.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 97.
+(Font)              scaled to size 13.83836pt on input line 47.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 97.
+(Font)              scaled to size 13.83836pt on input line 47.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 49.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 49.
  [1
 
 
-] (./practice_4.aux) ) 
+]
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 68.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 68.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 69.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 69.
+ [2] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 4328 strings out of 481768
- 56406 string characters out of 5933620
- 311540 words of memory out of 5000000
- 19718 multiletter control sequences out of 15000+600000
- 546745 words of font info for 90 fonts, out of 8000000 for 9000
+ 4332 strings out of 481768
+ 56446 string characters out of 5933620
+ 428530 words of memory out of 5000000
+ 19723 multiletter control sequences out of 15000+600000
+ 546868 words of font info for 93 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 30i,13n,36p,274b,1070s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,7n,36p,268b,1147s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on practice_4.dvi (2 pages, 5536 bytes).
+Output written on report.dvi (3 pages, 6520 bytes).
