@@ -65,21 +65,34 @@ $n$回目に発生させた乱数を$r^n$として、設定点座標を$\left(r^
 上記、2式の大小を比較し、$r^{n+1}>f(r^n)$であれば、$S_1$領域、$r^{n+1}<f(r^n)$であれば$S_2$領域に属するものと判断できる。
 ここで、設定点を$N$点としたときに、今回の場合においては$S_2$領域に属する設定点の比率から面積を求めることが可能である。\\
 \section{解析解}
-\begin{eqnarray*}
-    f\left(x\right)=x\\
-    s=\int_0^1f\left(x\right)dx=\left[\frac{1}{2}x^2\right]_0^1=\frac{1}{2}=0.5\\
-    f\left(x\right)=x^2\\
-    s=\int_0^1f\left(x\right)dx=\left[\frac{1}{3}x^3\right]_0^1=\frac{1}{3}=0.333\dots\\
-    f\left(x\right)=\cos\left(\frac{\pi}{2}x\right)\\
-    s=\int_0^1f\left(x\right)dx=\left[\frac{2}{\pi}\sin\left(\frac{\pi}{2}x\right)\right]_0^1=\frac{2}{\pi}\\
-    f\left(x\right)=\sin\left(\pi x\right)\\
-    s=\int_0^1f\left(x\right)dx=\left[-\frac{1}{\pi}\cos\left(\pi x\right)\right]_0^1=\frac{2}{\pi}\\
-    f\left(x\right)=\exp\left(-x^2\right)\\
-    s=\int_0^1f\left(x\right)dx=
-\end{eqnarray*}
-\newpage
+\subsection{$f\left(x\right)=x$について}
+\begin{eqnarray}
+    S=\int_0^1f\left(x\right)dx=\left[\frac{1}{2}x^2\right]_0^1=\frac{1}{2}=0.5
+\end{eqnarray}
+\subsection{$f\left(x\right)=x^2$について}
+\begin{eqnarray}
+    S=\int_0^1f\left(x\right)dx=\left[\frac{1}{3}x^3\right]_0^1=\frac{1}{3}=0.333\dots
+\end{eqnarray}
+\subsection{$f\left(x\right)=\cos\left(\frac{\pi}{2}x\right)$について}
+\begin{eqnarray}
+    S=\int_0^1f\left(x\right)dx=\left[\frac{2}{\pi}\sin\left(\frac{\pi}{2}x\right)\right]_0^1=\frac{2}{\pi}=0.636619\dots
+\end{eqnarray}
+\subsection{$f\left(x\right)=\sin\left(\pi x\right)$について}
+\begin{eqnarray}
+    S=\int_0^1f\left(x\right)dx=\left[-\frac{1}{\pi}\cos\left(\pi x\right)\right]_0^1=\frac{2}{\pi}=0.636619\dots
+\end{eqnarray}
+\subsection{$f\left(x\right)=\exp\left(-x^2\right)$について}
+誤差関数$erf(t)$の定義、\\
+\begin{eqnarray}
+    erf\left(t\right)=\frac{2}{\sqrt{\pi}}\exp\int_0^t\left(-x^2\right)dx
+\end{eqnarray}
+より、求める解析解は以下のように表すことができる。
+\begin{eqnarray}
+    S=\int_0^1\exp\left(-x^2\right)=\frac{\sqrt{\pi}}{2}erf\left(1\right)=\frac{\sqrt{\pi}}{2}×0.8427=0.746823\dots
+\end{eqnarray}
+
 \section{結果}
-今回、パラメータとなる設定点数$N$に関して、$N=10000$と設定し計算を行った。\\
+今回、パラメータとなる設定点数$N$に関して、$N=5000$と設定し計算を行った。\\
 ここで、検討事項である「設定点$N$と面積算出値の関係」を図１に、「面積算出値と解析解との誤差」を図２に示す。
 
 \section{考察}
@@ -138,7 +151,7 @@ $n$回目に発生させた乱数を$r^n$として、設定点座標を$\left(r^
             f(5) = exp(-x * x)        !case_5
     
             do 100 j = 1, 5   
-                if (f(j) < y) then
+                if (f(j) > y) then
                     s(j) = s(j) + 1
                 end if    
                 a = (s(j)/i)

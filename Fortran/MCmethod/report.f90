@@ -48,7 +48,7 @@ program main
         f(5) = exp(-x * x)        !case_5
 
         do 100 j = 1, 5   
-            if (f(j) < y) then
+            if (f(j) > y) then
                 s(j) = s(j) + 1
             end if    
             a = (s(j)/i)
