@@ -68,7 +68,7 @@ program main
     f_2 = 1.0/3.0
     f_3 = 2.0/pi
     f_4 = 2.0/pi
-    f_5 = erf(1.0)
+    f_5 = sqrt(pi)/2*erf(1.0)
 
     do 40 i = 1, num
         dif(i,1) = area(i,1) - f_1
