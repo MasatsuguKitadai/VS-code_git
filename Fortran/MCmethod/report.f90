@@ -3,7 +3,7 @@
 program main
 
     implicit none
-    integer, parameter :: num = 10000
+    integer, parameter :: num = 5000
     integer, parameter :: case = 5
     integer i, j, n
     real x, y, a, b, pi, f_1, f_2, f_3, f_4, f_5
