@@ -35,8 +35,6 @@ program main
        s(j) = 0
     10 continue
 
-    open(17, file = 'result/result_1000000.dat', status='replace')
-
     do 20 i = 1, num
         x = r(i)
         y = r(i + 1)
@@ -56,14 +54,6 @@ program main
         100 continue
         20 continue
 
-    do 30 i = 1, num
-        write (17,*) i,area(i,1),area(i,2),area(i,3),area(i,4),area(i,5)
-    30 continue
-
-    close(17)
-
-    open(18, file= 'result/difference_1000000.dat', status='replace')
-
     f_1 = 1.0/2.0
     f_2 = 1.0/3.0
     f_3 = 2.0/pi
@@ -77,12 +67,6 @@ program main
         dif(i,4) = area(i,4) - f_4
         dif(i,5) = area(i,5) - f_5
     40 continue
-
-    do 50 i = 1, num
-        write (18,*) i,dif(i,1),dif(i,2),dif(i,3),dif(i,4),dif(i,5)
-    50 continue
-
-    close(18)
 
     write (6,*) num, dif(num,1),dif(num,2),dif(num,3),dif(num,4),dif(num,5)
 
