@@ -43,11 +43,8 @@ lineskip=-0.5ex
         \LARGE \textbf{}
     }
 \end{flushleft}
-
 \section{理論}
-
 以下の5つの曲線と、$x=0$、$x=1$、$y=0$が囲む面積を求める。
-
 \begin{eqnarray}
     f(x)=&x\\
     f(x)=&x^2\\
@@ -55,7 +52,6 @@ lineskip=-0.5ex
     f(x)=&\sin\left(\pi x\right) \\
     f(x)=&\exp\left(-x^2\right)
 \end{eqnarray}
-
 乱数を用いたモンテカルロ法で面積を評価する。
 $n$回目に発生させた乱数を$r^n$として、設定点座標を$\left(r^n, r^{n+1}\right)$で与える。\\
 \begin{center}
@@ -90,15 +86,28 @@ $n$回目に発生させた乱数を$r^n$として、設定点座標を$\left(r^
 \begin{eqnarray}
     S=\int_0^1\exp\left(-x^2\right)=\frac{\sqrt{\pi}}{2}erf\left(1\right)=\frac{\sqrt{\pi}}{2}×0.8427=0.746823\dots
 \end{eqnarray}
-
 \section{結果}
 今回、パラメータとなる設定点数$N$に関して、$N=5000$と設定し計算を行った。\\
 ここで、検討事項である「設定点$N$と面積算出値の関係」を図１に、「面積算出値と解析解との誤差」を図２に示す。
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=180mm]{result.png}
+        \caption{図1 設定点$N$と面積算出値の関係}
+    \end{center}
+\end{figure}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=180mm]{error.png}
+        \caption{図2 面積算出値と解析解との誤差}
+    \end{center}
+\end{figure}
 
+\newpage
 \section{考察}
 
 \newpage
 \section{プログラム}
+今回使用したプログラムを以下に示す。
 \small
 \begin{lstlisting}
     ! Program Name : report.f90
