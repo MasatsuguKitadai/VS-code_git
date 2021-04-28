@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.4.14)  28 APR 2021 12:16
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.4.14)  28 APR 2021 12:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -333,20 +333,20 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 
 ]
-File: result_0-5000.png Graphic file (type bmp)
-<result_0-5000.png>
+File: Graph/result_0-5000.png Graphic file (type bmp)
+<Graph/result_0-5000.png>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 95.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 95.
-File: result_0-200.png Graphic file (type bmp)
-<result_0-200.png>
-File: result_0-1500.png Graphic file (type bmp)
-<result_0-1500.png>
-File: error_0-5000.png Graphic file (type bmp)
-<error_0-5000.png>
-File: error_4500-5000.png Graphic file (type bmp)
-<error_4500-5000.png>
+File: Graph/result_0-200.png Graphic file (type bmp)
+<Graph/result_0-200.png>
+File: Graph/result_0-1500.png Graphic file (type bmp)
+<Graph/result_0-1500.png>
+File: Graph/error_0-5000.png Graphic file (type bmp)
+<Graph/error_0-5000.png>
+File: Graph/error_4500-5000.png Graphic file (type bmp)
+<Graph/error_4500-5000.png>
  [2] [3] [4]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 146.
@@ -354,12 +354,12 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 146.
  [5] [6] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 4368 strings out of 481768
- 57153 string characters out of 5933620
+ 4365 strings out of 481768
+ 57082 string characters out of 5933620
  416530 words of memory out of 5000000
  19744 multiletter control sequences out of 15000+600000
  548702 words of font info for 101 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  30i,8n,36p,268b,1719s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (7 pages, 15692 bytes).
+Output written on report.dvi (7 pages, 15724 bytes).
