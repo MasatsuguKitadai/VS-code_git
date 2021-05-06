@@ -115,8 +115,8 @@ main()
     fprintf(gp, "set ylabel '%s'offset -0.5,0.0\n", yylabel);
     fprintf(gp, "plot '%s' using 1:2 with lines lc 'black'\n", read_file);
 
-    fflush(gp); //Clean up Data
-
+    fflush(gp);            //Clean up Data
+    fprintf(gp, "exit\n"); // Quit gnuplot
     pclose(gp);
 
     fclose(infile);
