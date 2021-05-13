@@ -1,0 +1,65 @@
+\documentclass[twocolumn,a4j]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+\makeatletter
+\def\@maketitle
+{
+\begin{center}
+{\LARGE \@title \par}
+\end{center}
+\par\vskip 1.5em
+}
+\makeatother
+
+\author{}
+\title{資料収集について}
+\date{}
+
+\begin{document}
+\columnseprule=0.1mm
+\maketitle
+\section{\large 収集内容について}
+\begin{itemize}
+    \item レイノルズ数の違いによる流れ場への影響
+    \item 撥水性地面板の影響
+\end{itemize}
+\section{\large 文献}
+【レイノルズ数について】
+\begin{itemize}
+    \item 「タイヤ周りにおける3次元剥離流れ構造の実験的研究」
+\end{itemize}
+【撥水性について】\\
+
+\end{document}
