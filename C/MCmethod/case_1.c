@@ -118,7 +118,7 @@ main()
     fflush(gp); //Clean up Data
 
     pclose(gp);
-
+    fprintf(gp, "exit\n"); // Quit gnuplot
     fclose(infile);
 
     return (0);
