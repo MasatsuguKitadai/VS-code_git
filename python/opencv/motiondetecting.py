@@ -1,72 +1,51 @@
-import time
-import datetime
 import cv2
+import time
 
-# 画像保存ディレクトリ
-save_dir = './image/'
-file_suffix = 'detect.jpg'
+movie = cv2.VideoCapture('C:/Users/Kitadai/Videos/test.mp4')
 
-# カメラ映像を取得
-cam = cv2.VideoCapture('http://192.168.0.3:4747/video')
-# Video Graphics Array（略称:VGA）を設定
-cam.set(3, 640)  # set video 横
-cam.set(4, 480)  # set video 高さ
-
-# 2値化したときのピクセル値
-DELTA_MAX = 255
-# ドットの変化を検知する閾値
-DOT = 8
-# 比較用のデータを格納
-avg = None
+red = (0, 0, 255) # 枠線の色
+before = None # 前回の画像を保存する変数
+fps = int(movie.get(cv2.CAP_PROP_FPS)) #動画のFPSを取得
 
 while True:
-    # 1フレームずつ取得する。
-    ret, frame = cam.read()
-    if not ret:
-        break
-    # 画像ファイル名用の時間取得
-    date = datetime.datetime.now()
-    file_name = str(date) + file_suffix
-
-    # グレースケールに変換
+    # 画像を取得
+    ret, frame = movie.read()
+    # 再生が終了したらループを抜ける
+    if ret == False: break
+    # 白黒画像に変換
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # 比較用のフレームを取得するavgがNoneの場合進むつまり、値があればコピーしていく
-    if avg is None:
-        avg = gray.copy().astype("float")
+    if before is None:
+        before = gray.astype("float")
         continue
+    
+    #現在のフレームと移動平均との差を計算
+    cv2.accumulateWeighted(gray, before, 0.5)
+    frameDelta = cv2.absdiff(gray, cv2.convertScaleAbs(before))
 
-    # 現在のフレームと移動平均との差を計算
-    cv2.accumulateWeighted(gray, avg, 0.6)
-    frameDelta = cv2.absdiff(gray, cv2.convertScaleAbs(avg))
+    #frameDeltaの画像を２値化
+    thresh = cv2.threshold(frameDelta, 3, 255, cv2.THRESH_BINARY)[1]
+    
+    #輪郭のデータを得る
+    contourss = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0]
 
-    # デルタ画像を閾値処理を行う 閾値処理された後の二値画像が帰ってくる
-    thresh = cv2.threshold(frameDelta, DOT, DELTA_MAX, cv2.THRESH_BINARY)[1]
+    #ウィンドウでの再生速度を元動画と合わせる
+    time.sleep(1/fps)
 
-    # 画像の閾値に輪郭線を入れる　戻り値は(画像、輪郭、階層)
-    img, contours, hierarchy = cv2.findContours(
-        thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # 差分があった点を画面に描く
+    for target in contours:
+        x, y, w, h = cv2.boundingRect(target)
+        if w < 30: continue # 小さな変更点は無視
+        frame = cv2.rectangle(frame,(x, y), (x+w, y+h), red, 2)
 
-    # 輪郭の面積を求めてデータサイズを超えるものを見つけた場合検知とする
-    max_area = 0
-    for cnt in contours:
-        area = cv2.contourArea(cnt)  # この時の輪郭の値を計算して面積を求める
-        if max_area < area:
-            max_area = area
-        if max_area > 1500:  # 面積は目的に適した値に調節
-            frame = cv2.drawContours(frame, contours, -1, (0, 255, 0), 3)
-            cv2.imwrite(save_dir + file_name, frame)
-            print("動体検知しました")
-        break
-    else:
-        pass
+    # ウィンドウで表示
+    # cv2.imshow('target_frame', gray)
+    # cv2.imshow('target_frame', frameDelta)
+    # cv2.imshow('target_frame', thresh)
+    # cv2.imshow('target_frame', contours)
+    cv2.imshow('target_frame', frame)
 
-    frame = cv2.drawContours(frame, contours, -1, (0, 255, 0), 3)
-    # 結果を出力
-    cv2.imshow("Frame", frame)
-    key = cv2.waitKey(30)
-    if key == 27:
-        break
+    # Enterキーが押されたらループを抜ける
+    if cv2.waitKey(1) == 13: break
 
-cam.release()
-cv2.destroyAllWindows()
+cv2.destroyAllWindows() # ウィンドウを破棄
