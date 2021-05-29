@@ -6,13 +6,10 @@ import pyautogui
 # lab_windows
 # movie = cv2.VideoCapture('C:/Users/Kitadai/Videos/test.mp4')
 
-# droidcam
-movie = cv2.VideoCapture('http://192.168.0.3:4747/video')
+# webcam for ubuntu
+movie = cv2.VideoCapture(2)
 
-# iriunwebcam for ubuntu
-# movie = cv2.VideoCapture(1)
-
-# iriunwebcam for windows
+# webcam for windows
 # movie = cv2.VideoCapture(0)
 
 before = None  # 前回の画像を保存する変数
