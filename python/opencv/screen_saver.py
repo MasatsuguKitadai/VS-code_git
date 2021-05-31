@@ -9,8 +9,16 @@ import pyautogui
 # webcam for ubuntu
 movie = cv2.VideoCapture(2)
 
+<<<<<<< HEAD
+# iriunwebcam for ubuntu
+# movie = cv2.VideoCapture(1)
+
+# webcamera for windows
+movie = cv2.VideoCapture(1)
+=======
 # webcam for windows
 # movie = cv2.VideoCapture(0)
+>>>>>>> 54a838972b6b7793b01024bf599046ceb8a44ec0
 
 before = None  # 前回の画像を保存する変数
 fps = int(movie.get(cv2.CAP_PROP_FPS))  # 動画のFPSを取得
@@ -54,7 +62,7 @@ while True:
     # cv2.imshow('target_frame', gray)
     # cv2.imshow('target_frame', frameDelta)
     # cv2.imshow('target_frame', thresh)
-    # cv2.imshow('target_frame', contours)
+    cv2.imshow('target_frame', contours)
 
     pixel_number = np.size(contours)  # 全ピクセル数をpixel_numberに代入
     pixel_sum = np.sum(contours)  # 全ピクセルの輝度の合計をpixel_sumに代入
@@ -62,11 +70,15 @@ while True:
     print(white_pixel_number)  # 白いピクセルの数を表示
 
     # 白いピクセルの数が一定値を超えたら画面を変更 or Enterキーが押されたらループを抜ける
+<<<<<<< HEAD
+    if white_pixel_number > 10000:
+        pyautogui.hotkey('winleft','winright','d')
+=======
     if white_pixel_number > 9000:
         pyautogui.hotkey('winleft', 'winright', 'd')
+>>>>>>> 54a838972b6b7793b01024bf599046ceb8a44ec0
         break
-
     elif cv2.waitKey(1) == 13:
-        break
+         break
 
 cv2.destroyAllWindows()  # ウィンドウを破棄
