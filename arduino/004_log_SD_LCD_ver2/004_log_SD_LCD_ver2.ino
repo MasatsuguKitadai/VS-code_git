@@ -11,6 +11,8 @@ DATE        : 2021/4/30
 #include "SSD1306AsciiAvrI2c.h"
 #include <DS3232RTC.h>
 
+/***********************************************************/
+
 // Thermcouple
 int thermoDO = 4;
 int thermoCS = 5;
@@ -35,9 +37,12 @@ int s = 0;
 int t = 0;
 int k = 0;
 
+/***********************************************************/
+
 void setup() {
   Serial.begin(9600);
-  
+
+  // setup MAX6675
   // use Arduino pins 
   pinMode(vccPin, OUTPUT); digitalWrite(vccPin, HIGH);
   pinMode(gndPin, OUTPUT); digitalWrite(gndPin, LOW);
@@ -92,6 +97,8 @@ void setup() {
   datafile.println();
   datafile.close();
 }
+
+/***********************************************************/
 
 void loop() 
 { 
