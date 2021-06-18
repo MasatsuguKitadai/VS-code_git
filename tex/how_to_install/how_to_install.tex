@@ -1,0 +1,86 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+
+\hypersetup{
+	colorlinks=false, % リンクに色をつけない設定
+	bookmarks=true, % 以下ブックマークに関する設定
+	bookmarksnumbered=true,
+	pdfborder={0 0 0},
+	bookmarkstype=toc
+}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+\author{}
+\title{プログラミング環境構築手順}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{\large 概要}
+プログラミングの環境構築にあたって、
+目標は「windowsユーザがc言語、pythonでコーディングができる状態」とします。
+\section{\large ubuntu のセットアップ}
+\subsection{WSL の有効化}
+\subsection{ubuntuのインストール}
+\subsection{ubuntuの初期設定}
+\subsection{Vscodeの設定}
+\section{\large Tex のセットアップ}
+\subsection{Tex live のインストール}
+\textcolor{blue}{\href{http://www.tug.org/texlive/acquire-netinstall.html}{ここ}} から、Tex Liveのセットアップファイルをダウンロードする。\\
+「 install-tl-windows.exe 」をクリックするとファイルのダウンロードが始まる。\\
+ダウンロードしたファイルを起動し、手順に沿って進める。（基本、Enter連続でOK）\\
+※ インストールは長時間かかります。(3時間程度)
+インストールが完了したら、PCを再起動する。
+\subsection{環境変数の設定}
+環境変数とは、
+\subsection{VScodeの設定}
+PCの再起動後、VScodeを起動する。
+Extentions [Ctrl + Shift + x]から、LaTex workshop をインストールする。
+その後、settings json を開く。
+このmanualフォルダ内の「json\_forTex.txt」の内容をコピー＆ペーストして保存する。
+左下の歯車マークをクリックし、「Command Palette」 をクリックする。\\
+出てきた検索欄に、「LaTex Workshop: Build with recipe」と入力し、「latexmk」を選択する。
+terminal [Ctrl + Shift + @]から新規ターミナルを開く。\\
+ターミナルで、「mktexler」と入力し「Enter」を押す。\\
+その後、アプリを再起動する。\\
+\subsection{Texの動作確認}
+フォルダ内の「test.tex」を任意のフォルダにコピーし、VScodから「test.tex」を開き、
+[Ctrl + Alt + b]でファイルのビルド(pdfファイルの生成のこと)を行う。\\
+フォルダ内に、「（ファイル名）.aux」、「（ファイル名）.log」、「（ファイル名）.pdf」が生成されれば、無事に環境が構築されている。
+[Ctrl + Alt + v]でpdfファイルを表示することができる。
+\end{document}
