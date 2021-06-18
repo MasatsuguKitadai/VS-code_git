@@ -56,18 +56,23 @@ lineskip=-0.5ex
 目標は「windowsユーザがc言語、pythonでコーディングができる状態」とします。
 \section{\large ubuntu のセットアップ}
 \subsection{WSL の有効化}
+windowsキーを押して、「windowsの機能の有効化または無効化」を選択する。
+その中の、「Linux用 Windows サブシステム」に「」
 \subsection{ubuntuのインストール}
 \subsection{ubuntuの初期設定}
-\subsection{Vscodeの設定}
+\subsection{VScodeの設定}
 \section{\large Tex のセットアップ}
 \subsection{Tex live のインストール}
 \textcolor{blue}{\href{http://www.tug.org/texlive/acquire-netinstall.html}{ここ}} から、Tex Liveのセットアップファイルをダウンロードする。\\
 「 install-tl-windows.exe 」をクリックするとファイルのダウンロードが始まる。\\
 ダウンロードしたファイルを起動し、手順に沿って進める。（基本、Enter連続でOK）\\
-※ インストールは長時間かかります。(3時間程度)
+※ インストールは長時間かかります。(3時間程度)\\
 インストールが完了したら、PCを再起動する。
 \subsection{環境変数の設定}
-環境変数とは、
+windowsキーを押して、「環境変数を編集」を入力し選択する。
+上段の「○○のユーザー環境変数(U)」の欄にある、「Path」を選択し「編集」を選択する。\\
+「環境変数名の編集」が開いたら、右欄にある「新規(N)」を選択し「編集」を選択する。\\
+「C:￥texlive￥2021￥bin￥win32」を入力してタブを閉じる。(バージョンは適宜変える必要あり)
 \subsection{VScodeの設定}
 PCの再起動後、VScodeを起動する。
 Extentions [Ctrl + Shift + x]から、LaTex workshop をインストールする。

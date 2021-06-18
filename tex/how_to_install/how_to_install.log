@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  11 JUN 2021 17:40
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  18 JUN 2021 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**c:/Users/Kitadai/git/lab/05_others/manual/how_to_install
-(c:/Users/Kitadai/git/lab/05_others/manual/how_to_install.tex
+**c:/Users/Kitadai/git_windows/code/tex/how_to_install/how_to_install
+(c:/Users/Kitadai/git_windows/code/tex/how_to_install/how_to_install.tex
 pLaTeX2e <2021-06-01>+1 (based on LaTeX2e <2021-06-01>)
 L3 programming layer <2021-06-01> (c:/texlive/2021/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/10/09 jsclasses (okumura, texjporg)
@@ -434,15 +434,15 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 ] [2] (./how_to_install.aux)
 Package rerunfilecheck Info: File `how_to_install.out' has not changed.
-(rerunfilecheck)             Checksum: 853D49E7D712D6F695D468FDA22DC5DF;715.
+(rerunfilecheck)             Checksum: 1D28F0D85420AFB5B4CB52655F167111;715.
  ) 
 Here is how much of TeX's memory you used:
  10869 strings out of 478987
- 156654 string characters out of 5865292
- 488742 words of memory out of 5000000
+ 156687 string characters out of 5865292
+ 489742 words of memory out of 5000000
  28909 multiletter control sequences out of 15000+600000
  415216 words of font info for 81 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,5n,66p,347b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,5n,66p,358b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on how_to_install.dvi (2 pages, 5904 bytes).
+Output written on how_to_install.dvi (2 pages, 6740 bytes).
