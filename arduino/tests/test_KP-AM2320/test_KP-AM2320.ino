@@ -1,7 +1,7 @@
-#include 
+#include <Wire.h>
 void setup() {
   Wire.begin();       
-  Serial.begin(115200);
+  Serial.begin(9600);
   delay(100); 
 }
 void loop() {

@@ -31,7 +31,7 @@ char filename[20] = "datalog.txt";
 #define I2C_ADDRESS 0x3C
 SSD1306AsciiAvrI2c oled;
 
-// setting i
+// setting
 int i = 0;
 int s = 0;
 int t = 0;
