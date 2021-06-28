@@ -1,0 +1,89 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+
+\hypersetup{
+	colorlinks=false, % リンクに色をつけない設定
+	bookmarks=true, % 以下ブックマークに関する設定
+	bookmarksnumbered=true,
+	pdfborder={0 0 0},
+	bookmarkstype=toc
+}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+
+
+\author{}
+\title{数学}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{微積分}
+\subsection{多変数関数の極値}
+\begin{itembox}[l]{定理 4.3.3 極値を持つ必要条件}
+    $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば、
+    $f_x\left(a,b\right)=f_y\left(a,b\right)=0$ である。
+\end{itembox}
+\begin{itembox}[l]{定理 4.3.4 極値の判定}
+    $f\left(x,y\right)$は$C^2$の関数であり、点$\left(a,b\right)$において
+    $f_x\left(a,b\right)=f_y\left(a, b\right)=0$であるとする.\\
+    判別式を、$D=f_{xx}\left(a,b\right)f_{yy}\left(a,b\right)-f_{xy}(a,b)^2$と定義する。
+    \begin{enumerate}
+        \item $D>0$とする。\\
+        $f_{xx}\left(a,b\right)>0$ならば、$f$は点$\left(a,b\right)$で極小値をとる。\\
+        $f_{xx}\left(a,b\right)<0$ならば、$f$は点$\left(a,b\right)$で極大値をとる。
+        \item $D<0$ならば、$f$は点$\left(a,b\right)$で極値をとらない。
+    \end{enumerate}
+\end{itembox}
+
+\subsection{接線の方程式}
+\begin{itembox}[l]{定理 4.4.1 陰関数の定理}
+$f\left(x,y\right)$が$C^1$級の関数で、$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば、\\
+$a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で、$\phi\left(a\right)=b$となるものが存在する。\\
+このとき、$y=\phi\left(x\right)$は微分可能で、次の式が成り立つ。
+\begin{center}
+    $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
+すなわち、$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
+\end{center}
+\end{itembox}
+\begin{itembox}[l]{例題 }
+    
+\end{itembox}
+
+\end{document}
