@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /*****common part*****/
 
 html {
@@ -29,7 +28,6 @@ img {
     max-width: 100%;
 }
 
-
 /*****header*****/
 
 header {
@@ -53,7 +51,6 @@ header {
 .top h2 {
     font-size: 140%;
 }
-
 
 /*****navigator*****/
 
@@ -94,15 +91,21 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-
 /*****line*****/
+
+.line {
+    width: 100%;
+    height: 5px;
+    background-color: #435847;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
 
 .line_1 {
     width: 100%;
-    height: 3px;
+    height: 1px;
     background-color: #435847;
 }
-
 
 /*****main*****/
 
@@ -111,19 +114,9 @@ main {
     flex: 1;
 }
 
-.news_box {
-    text-align: center;
-}
-
-main iframe {
-    max-width: 100%;
-}
-
 main h3 {
     max-width: 800px;
     margin: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
 }
 
 main h3 strong {
@@ -131,26 +124,36 @@ main h3 strong {
     text-decoration: underline 2px;
 }
 
+.newsbox {
+    max-width: 900px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .newslist {
     list-style: none;
     max-width: 800px;
+    max-height: 300px;
     margin: auto;
+    overflow-y: scroll;
 }
 
 .newslist li {
     display: flex;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
 }
 
 time {
+    vertical-align: middle;
     margin-left: 2%;
 }
 
 .news {
+    vertical-align: middle;
     margin-left: 2%;
 }
-
 
 /*****footer*****/
 
