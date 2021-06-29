@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  28 JUN 2021 18:33
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  29 JUN 2021 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**c:/Users/Kitadai/git_windows/code/tex/study/math
-(c:/Users/Kitadai/git_windows/code/tex/study/math.tex
+**c:/Users/Kitadai/git_windows/code/tex/study/05_thermodynamics/thermodynamics
+(c:/Users/Kitadai/git_windows/code/tex/study/05_thermodynamics/thermodynamics.tex
 pLaTeX2e <2021-06-01>+1 (based on LaTeX2e <2021-06-01>)
 L3 programming layer <2021-06-01> (c:/texlive/2021/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/10/09 jsclasses (okumura, texjporg)
@@ -343,8 +343,8 @@ File: l3backend-dvips.def 2021-05-07 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count298
 \g__pdf_backend_link_int=\count299
 \g__pdf_backend_link_sf_int=\count300
-) (./math.aux)
-\openout1 = `math.aux'.
+) (./thermodynamics.aux)
+\openout1 = `thermodynamics.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
@@ -417,9 +417,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 54.
 LaTeX Info: Redefining \pageref on input line 54.
 LaTeX Info: Redefining \nameref on input line 54.
- (./math.out) (./math.out)
+ (./thermodynamics.out) (./thermodynamics.out)
 \@outlinefile=\write3
-\openout3 = `math.out'.
+\openout3 = `thermodynamics.out'.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 16.60605pt on input line 56.
@@ -438,41 +438,19 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 58.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 58.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 60.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 60.
+) [1
 
-Underfull \hbox (badness 10000) detected at line 87
-[]$[]$[]
- []
-
-[1
-
-] (./math.aux)
-Package rerunfilecheck Info: File `math.out' has not changed.
-(rerunfilecheck)             Checksum: 052CD2DACA05AED51468F7DD23680DCC;194.
+] (./thermodynamics.aux)
+Package rerunfilecheck Info: File `thermodynamics.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10962 strings out of 478987
- 157654 string characters out of 5865292
- 502773 words of memory out of 5000000
- 28993 multiletter control sequences out of 15000+600000
- 417195 words of font info for 92 fonts, out of 8000000 for 9000
+ 10939 strings out of 478987
+ 157614 string characters out of 5865292
+ 480610 words of memory out of 5000000
+ 28973 multiletter control sequences out of 15000+600000
+ 413557 words of font info for 73 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,7n,66p,261b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,5n,66p,289b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on math.dvi (1 page, 5100 bytes).
+Output written on thermodynamics.dvi (1 page, 916 bytes).

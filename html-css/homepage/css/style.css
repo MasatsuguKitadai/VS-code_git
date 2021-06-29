@@ -1,119 +1,165 @@
 @charset "UTF-8";
 
 /*****common part*****/
+
 html {
-  font-size: 100%;
-  max-width: 100%;
-  max-height: 100%;
+    font-size: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 body {
-  font-family: "Yu Gothic Medium", "遊ゴシック Medium", YuGothic, "遊ゴシック体",
-    "ヒラギノ角ゴ Pro w3", sans-serif;
-  color: black;
-  margin: 0;
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
+    font-family: "Yu Gothic Medium", "遊ゴシック Medium", YuGothic, "遊ゴシック体", "ヒラギノ角ゴ Pro w3", sans-serif;
+    color: #435847;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
 }
 
 nav {
-  font-family: "Yu Gothic Medium", "遊ゴシック Medium", YuGothic, "遊ゴシック体",
-    "ヒラギノ角ゴ Pro w3", sans-serif;
+    font-family: "Yu Gothic Medium", "遊ゴシック Medium", YuGothic, "遊ゴシック体", "ヒラギノ角ゴ Pro w3", sans-serif;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
+
 
 /*****header*****/
 
 header {
-  color: #ebe9da;
-  background-color: #435847;
-  display: flex;
-  justify-content: space-around;
+    color: #ebe9da;
+    background-color: #435847;
+    display: flex;
+    justify-content: space-around;
 }
 
 .top {
-  width: 30%;
-  margin-left: 5%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    width: 30%;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .top h1 {
-  font-size: 180%;
+    font-size: 180%;
 }
 
 .top h2 {
-  font-size: 140%;
+    font-size: 140%;
 }
+
 
 /*****navigator*****/
 
 nav {
-  font-size: 140%;
-  width: 70%;
-  margin-right: 5%;
-  margin-bottom: 0.8%;
-  margin-top: auto;
+    font-size: 140%;
+    width: 70%;
+    margin-right: 5%;
+    margin-bottom: 0.8%;
+    margin-top: auto;
 }
 
 nav ul {
-  list-style: none;
-  text-align: right;
+    list-style: none;
+    text-align: right;
 }
 
 nav ul li {
-  display: inline-block;
-  margin-left: 4%;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 4%;
 }
 
 nav ul li a {
-  color: #ebe9da;
-  text-decoration: none;
+    color: #ebe9da;
+    text-decoration: none;
 }
 
 nav ul li a::after {
-  border-bottom: solid 2px;
-  bottom: 0;
-  content: "";
-  display: block;
-  transition: all 0.2s ease;
-  -webkit-transition: all 0.2s ease;
-  width: 0;
+    border-top: solid 2px;
+    content: "";
+    display: block;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    width: 0;
 }
 
 nav ul li a:hover::after {
-  width: 100%;
+    width: 100%;
 }
+
 
 /*****line*****/
+
 .line_1 {
-  width: 100%;
-  height: 10px;
-  background-color: #ba2a2a;
+    width: 100%;
+    height: 3px;
+    background-color: #435847;
 }
 
+
 /*****main*****/
+
 main {
-  background: #ebe9da;
-  flex: 1;
+    background: #ebe9da;
+    flex: 1;
 }
+
+.news_box {
+    text-align: center;
+}
+
+main iframe {
+    max-width: 100%;
+}
+
+main h3 {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+main h3 strong {
+    color: #ba2a2a;
+    text-decoration: underline 2px;
+}
+
+.newslist {
+    list-style: none;
+    max-width: 800px;
+    margin: auto;
+}
+
+.newslist li {
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+time {
+    margin-left: 2%;
+}
+
+.news {
+    margin-left: 2%;
+}
+
 
 /*****footer*****/
 
 footer {
-  background-color: #435847;
-  padding: 10px 0;
+    background-color: #435847;
+    padding: 10px 0;
 }
 
 footer p {
-  color: #ebe9da;
-  text-align: center;
+    color: #ebe9da;
+    text-align: center;
 }
