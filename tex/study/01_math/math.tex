@@ -54,8 +54,55 @@ lineskip=-0.5ex
 \begin{document}
 \maketitle
 
+\section{線形代数}
+\subsection{行列式}
+\subsubsection{余因子行列とクラメールの公式　P.54}
+$n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる$n-1$次正方行列を$A_{ij}$と書く。
+\begin{itembox}[l]{余因子展開}
+    \begin{enumerate}
+        \item 第$j$列に関する余因子展開\\
+              $\left|A\right|=(-1)^{1+j}a_{1j}\left|A_{1j}\right|+(-1)^{2+j}a_{2j}\left|A_{2j}\right|+ \dots +(-1)^{n+j}a_{nj}\left|A_{nj}\right|$
+        \item 第$i$行に関する余因子展開\\
+              $\left|A\right|=(-1)^{i+1}a_{1j}\left|A_{i1}\right|+(-1)^{i+2}a_{i2}\left|A_{i2}\right|+ \dots +(-1)^{i+n}a_{in}\left|A_{in}\right|$
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{余因子行列}
+    $n$次正方行列$\left|a_{ij}\right|$に対し、
+    \begin{center}
+        $\check{a}_{ij}=\left(-1\right)^{i+j}\left|A_{ji}\right|$
+    \end{center}
+    さらに、以下のようにおき、$A$の余因子行列という。
+    \begin{center}
+        $\tilde{A}=\left[\check{a}_{ij}\right]$
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{定理3.4.1}
+    正方行列$A$の余因子行列を$\tilde{A}$とすると、以下の関係が成立する。
+    \begin{center}
+        $A\tilde{A}=\tilde{A}A=dE\left (d=\rm{det}\left(A\right)\right)$
+    \end{center}
+\end{itembox}
+\subsubsection{固有値と固有ベクトル (P.98)}
+\subsubsection{行列の対角化}
+正方行列$A$が与えられたとき、$B=P^{-1}AP$が対角行列になるような生息行列$P$と対角行列$B$を
+求めることを行列$A$の対角化という。
+\begin{itembox}[l]{固有多項式}
+    正方行列$A$に対し、以下の多項式$g_A\left(t\right)$を$A$の固有多項式という。
+    \begin{center}
+        $g_A\left(t\right) = \left|tE-A\right| $
+    \end{center}
+\end{itembox}
+\subsubsection{対角化可能性}
+正方行列$A$は常に対角化されるとは限らない。
+\begin{itembox}[l]{対角化の条件}
+    $A$が$N$次の正方行列のとき、「$A$が対角化可能」とは
+    $A$が$N$個の独立な固有ベクトルを持つことと同値である。
+\end{itembox}
 \section{微積分}
-\subsection{多変数関数の極値}
+\subsection{多変数関数}
+\subsubsection{偏微分}
+多変数関数の微分　→　偏微分
+\subsubsection{多変数関数の極値}
 \begin{itembox}[l]{定理 4.3.3 極値を持つ必要条件}
     $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば、
     $f_x\left(a,b\right)=f_y\left(a,b\right)=0$ である。
@@ -66,24 +113,24 @@ lineskip=-0.5ex
     判別式を、$D=f_{xx}\left(a,b\right)f_{yy}\left(a,b\right)-f_{xy}(a,b)^2$と定義する。
     \begin{enumerate}
         \item $D>0$とする。\\
-        $f_{xx}\left(a,b\right)>0$ならば、$f$は点$\left(a,b\right)$で極小値をとる。\\
-        $f_{xx}\left(a,b\right)<0$ならば、$f$は点$\left(a,b\right)$で極大値をとる。
+              $f_{xx}\left(a,b\right)>0$ならば、$f$は点$\left(a,b\right)$で極小値をとる。\\
+              $f_{xx}\left(a,b\right)<0$ならば、$f$は点$\left(a,b\right)$で極大値をとる。
         \item $D<0$ならば、$f$は点$\left(a,b\right)$で極値をとらない。
     \end{enumerate}
 \end{itembox}
 
-\subsection{接線の方程式}
+\subsubsection{接線の方程式}
 \begin{itembox}[l]{定理 4.4.1 陰関数の定理}
-$f\left(x,y\right)$が$C^1$級の関数で、$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば、\\
-$a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で、$\phi\left(a\right)=b$となるものが存在する。\\
-このとき、$y=\phi\left(x\right)$は微分可能で、次の式が成り立つ。
-\begin{center}
-    $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
-すなわち、$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
-\end{center}
+    $f\left(x,y\right)$が$C^1$級の関数で、$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば、\\
+    $a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で、$\phi\left(a\right)=b$となるものが存在する。\\
+    このとき、$y=\phi\left(x\right)$は微分可能で、次の式が成り立つ。
+    \begin{center}
+        $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
+        すなわち、$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
+    \end{center}
 \end{itembox}
 \begin{itembox}[l]{例題 }
-    
+
 \end{itembox}
 
 \end{document}
