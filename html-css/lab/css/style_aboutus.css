@@ -102,94 +102,138 @@ nav ul li a:hover{
     background-color: #0ae;
 }
 
-
-/********************************/
-
-body{
-    background-image: url(../images/home_3.png);
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-}
-
 /********************************/
 
 main{
     flex: 1;
     display: flex;
-    align-items: center;
-    margin-left: 80px;
-    margin-right: 80px;
+    flex-flow: column;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-h3 {
-    font-size: 120px;
+.title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     height: 150px;
 }
 
-h4,h5 {
-    font-size: 30px;
-    height: 50px;
-}
-
-h4 {
-    margin-top: 30px;
-}
-
-.left_box {
-    flex: 1;
-    height: 680px;
+.row_1 {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
-.name{
-    padding-top: 50px;
-    padding-bottom: 50px;
+.color_bar{
+    width: 15px;
+    height: 100%;
+    background-color: #ffa500;;
 }
 
-.right_box {
-    width: 800px;
-    height: 680px;
-    display: flex;
-    flex-direction: column;
-}
-
-.news_box{
-    flex: 1;
+.box_1 {
     width: 100%;
+    height: 50px;
 }
 
-.see_more {
-    height: 50px;
+.row_1 h3{
+    height: 100%;
+    font-size: 60px;
+    margin-left: 15px;
+}
+
+.row_2 {
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.row_2 ul {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin-left: 30%;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+}
+
+.row_2 ul li{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.row_2 ul li a{
+    text-decoration: none;
+    color: black;
+    transition: all .3s ease 0s;
+}
+
+.row_2 ul li a:hover{
+    color: #ffa500;;
+}
+
+.bar {
+    width: 3px;
+    height: 100%;
     background-color: black;
 }
 
-.see_more p {
-    flex: 1;
-    font-size: 20px;
-    text-align: center;
-    color: #fff;
+.line_1 {
+    width: 100%;
+    height: 15px;
+}
+
+.line_2 {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+}
+
+.main_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chapter {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chaptername {
+    width: 200px;
+    height: 100%;
     margin: auto;
+    margin-left: 15px;
 }
 
-.see_more p a{
-    color: #fff;
-    display: inline-block;
-	transition: all .3s ease 0s;
-    text-decoration: none;
+.chaptername h4 {
+    height: 100%;
+    font-size: 30px;
+    color: #ffa500;;
 }
 
-.see_more p a:hover{
-    color: #0ae;
-    cursor: pointer;
-	transform: scale(1.2);
+.chaptername p {
+    height: 100%;
+    font-size: 20px;
 }
+
+.chapter p {
+height: 100%;
+flex: 1;
+}
+
+.space {
+    width: 100%;
+    height: 30px;
+}
+
+.boundaryline {
+    width: 100%;
+    height: 3px;
+    background-color: gray;
+}
+
+/********************************/
 
 footer {
     background-color: black;
