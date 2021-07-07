@@ -22,6 +22,7 @@ char filename[20] = "tmp_log.dat";
 
 // number
 int i = 0;
+int j = 0;
 
 /***********************************************************/
 
@@ -70,6 +71,7 @@ void setup() {
 void loop() { 
 
     i = i + 1;
+    j = j + 1;
 
     // KP-AM2320
     float humidity = 0.00;
@@ -80,7 +82,7 @@ void loop() {
     Wire.write(0x00);
     Wire.write(0x04);
     Wire.endTransmission();  
-    delay(1000); // ここにないといけないみたい
+    delay(000); // ここにないといけないみたい
 
     int ans = Wire.requestFrom(0x5c,6);
     while(Wire.available() !=0){   
@@ -145,7 +147,8 @@ void loop() {
     datafile.print(":");
     datafile.print(minute());
     datafile.print('\t');
-    
+    datafile.print(j);
+    datafile.print('\t')
     datafile.print(temperature);
     datafile.print('\t');
     datafile.print(humidity);
