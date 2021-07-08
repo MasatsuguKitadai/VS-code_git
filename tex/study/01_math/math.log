@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  1 JUL 2021 16:35
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  8 JUL 2021 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -326,48 +326,70 @@ Package: tascmac 2020/01/15 v2.1 ascmac package (community edition)
 \@@bwsp=\box81
 \@bcal=\count296
 \shaderule=\dimen197
-))
-Package hyperref Info: Option `colorlinks' set `false' on input line 28.
+)) (c:/texlive/2021/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks28
+) (c:/texlive/2021/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+ (c:/texlive/2021/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+\col@sep=\dimen198
+\ar@mcellbox=\box82
+\extrarowheight=\dimen199
+\NC@list=\toks29
+\extratabsurround=\skip56
+\backup@length=\skip57
+\ar@cellbox=\box83
+)
+\TX@col@width=\dimen256
+\TX@old@table=\dimen257
+\TX@old@col=\dimen258
+\TX@target=\dimen259
+\TX@delta=\dimen260
+\TX@cols=\count297
+\TX@ftn=\toks30
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 30.
 
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 28.
+(hyperref)                setting the option has no effect on input line 30.
 
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 28.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 30.
 (c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 File: l3backend-dvips.def 2021-05-07 L3 backend support: dvips
-\l__pdf_internal_box=\box82
-\g__pdf_backend_object_int=\count297
-\l__pdf_backend_content_box=\box83
-\l__pdf_backend_model_box=\box84
-\g__pdf_backend_annotation_int=\count298
-\g__pdf_backend_link_int=\count299
-\g__pdf_backend_link_sf_int=\count300
+\l__pdf_internal_box=\box84
+\g__pdf_backend_object_int=\count298
+\l__pdf_backend_content_box=\box85
+\l__pdf_backend_model_box=\box86
+\g__pdf_backend_annotation_int=\count299
+\g__pdf_backend_link_int=\count300
+\g__pdf_backend_link_sf_int=\count301
 ) (./math.aux)
 \openout1 = `math.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -403,8 +425,8 @@ LaTeX Font Info:    ... okay on input line 54.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count301
-Package hyperref Info: Link coloring OFF on input line 54.
+\c@lstlisting=\count302
+Package hyperref Info: Link coloring OFF on input line 56.
 (c:/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (c:/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -412,71 +434,71 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count302
+\c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 56.
+LaTeX Info: Redefining \pageref on input line 56.
+LaTeX Info: Redefining \nameref on input line 56.
  (./math.out) (./math.out)
 \@outlinefile=\write3
 \openout3 = `math.out'.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 56.
+(Font)              scaled to size 16.60605pt on input line 58.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 56.
+(Font)              scaled to size 16.60605pt on input line 58.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 56.
+(Font)              scaled to size 11.53198pt on input line 58.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 56.
+(Font)              scaled to size 11.53198pt on input line 58.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 56.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
+(Font)              scaled to size 5.76599pt on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
+(Font)              scaled to size 13.83836pt on input line 59.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
+(Font)              scaled to size 13.83836pt on input line 59.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
+(Font)              scaled to size 13.83836pt on input line 59.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 57.
+(Font)              scaled to size 13.83836pt on input line 59.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 58.
+(Font)              scaled to size 11.53198pt on input line 60.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 58.
+(Font)              scaled to size 11.53198pt on input line 60.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 59.
+(Font)              scaled to size 9.60999pt on input line 61.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 59.
+(Font)              scaled to size 9.60999pt on input line 61.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 60.
+(Font)              scaled to size 6.72699pt on input line 62.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 60.
- [1
+(Font)              scaled to size 4.805pt on input line 62.
 
-]
-Underfull \hbox (badness 10000) detected at line 134
+Underfull \hbox (badness 10000) detected at line 88
 []$[]$[]
  []
 
-[2] (./math.aux)
+[1
+
+] [2] [3] [4] [5] (./math.aux)
 Package rerunfilecheck Info: File `math.out' has not changed.
-(rerunfilecheck)             Checksum: 19C6410B8593514F6FBCF66258C790CE;225.
+(rerunfilecheck)             Checksum: 2EE2B9F546DF23868E9AFA85361C2DAB;668.
  ) 
 Here is how much of TeX's memory you used:
- 10965 strings out of 478987
- 157710 string characters out of 5865292
- 504828 words of memory out of 5000000
- 28995 multiletter control sequences out of 15000+600000
+ 11098 strings out of 478987
+ 159470 string characters out of 5865292
+ 505541 words of memory out of 5000000
+ 29120 multiletter control sequences out of 15000+600000
  417781 words of font info for 95 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,7n,66p,269b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,66p,269b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on math.dvi (2 pages, 10208 bytes).
+Output written on math.dvi (5 pages, 18952 bytes).

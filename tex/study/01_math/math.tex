@@ -18,6 +18,8 @@
 \usepackage{color}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{tabularx}
 
 \hypersetup{
 	colorlinks=false, % リンクに色をつけない設定
@@ -56,10 +58,10 @@ lineskip=-0.5ex
 
 \section{線形代数}
 \subsection{行列式}
-\subsubsection{余因子行列とクラメールの公式　P.54}
-$n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる$n-1$次正方行列を$A_{ij}$と書く。
+\subsubsection{余因子行列とクラメールの公式}
+$n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる$n-1$次正方行列を$A_{ij}$と書く.
 \begin{itembox}[l]{余因子展開}
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item 第$j$列に関する余因子展開\\
               $\left|A\right|=(-1)^{1+j}a_{1j}\left|A_{1j}\right|+(-1)^{2+j}a_{2j}\left|A_{2j}\right|+ \dots +(-1)^{n+j}a_{nj}\left|A_{nj}\right|$
         \item 第$i$行に関する余因子展開\\
@@ -67,70 +69,152 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
     \end{enumerate}
 \end{itembox}
 \begin{itembox}[l]{余因子行列}
-    $n$次正方行列$\left|a_{ij}\right|$に対し、
+    $n$次正方行列$\left|a_{ij}\right|$に対し,
     \begin{center}
         $\check{a}_{ij}=\left(-1\right)^{i+j}\left|A_{ji}\right|$
     \end{center}
-    さらに、以下のようにおき、$A$の余因子行列という。
+    さらに,以下のようにおき,$A$の余因子行列という.
     \begin{center}
         $\tilde{A}=\left[\check{a}_{ij}\right]$
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{定理3.4.1}
-    正方行列$A$の余因子行列を$\tilde{A}$とすると、以下の関係が成立する。
+    正方行列$A$の余因子行列を$\tilde{A}$とすると,以下の関係が成立する.
     \begin{center}
         $A\tilde{A}=\tilde{A}A=dE\left (d=\rm{det}\left(A\right)\right)$
     \end{center}
 \end{itembox}
-\subsubsection{固有値と固有ベクトル (P.98)}
+\begin{itembox}[l]{クラメールの公式}
+\end{itembox}
+\subsection{連立一次方程式,基本変形}
+\subsubsection{連立一次方程式の消去法による解法}
+\begin{enumerate}[(i)]
+    \item 連立一次方程式より拡大係数行列を抽出（行列のデータ化）
+    \item 抽出した拡大係数行列を簡約化する（未知数の整理）
+    \item 簡約化の結果を連立一次方程式に還元し解を作成する
+\end{enumerate}
+\subsubsection{解が不定の場合}
+「1式に1未知数」という形は,一般には成り立たない.そこで,「1式に1未知数」に近い形に整理したものが\textgt{階段行列(=簡約行列)}である.
+一般の連立1次方程式の場合,未知数,方程式の本数,任意定数の間には以下の関係が成り立つ.
+\begin{center}
+    (未知数の個数) = (有効な方程式の数) + (任意定数の数)
+\end{center}
+\subsection{固有値と固有ベクトルの計算}
+\subsubsection{固有値と固有ベクトル}
+\begin{itembox}[l]{定義}
+    $n$次正方行列$A$とスカラー$\lambda$に対し,
+    \begin{center}
+        $Ax=\lambda x$
+    \end{center}
+    となる\textgt{零ベクトル$o$ではないベクトル$x$}が存在するとき,$\lambda$を$A$の固有値といい,\\
+    $\lambda$に対し上の条件を満たす$o$ではないベクトル$x$を$A$の固有ベクトルという.
+    また,固有値を求める際には,$|\lambda E-A|=0$を解けば良い.
+\end{itembox}
 \subsubsection{行列の対角化}
-正方行列$A$が与えられたとき、$B=P^{-1}AP$が対角行列になるような生息行列$P$と対角行列$B$を
-求めることを行列$A$の対角化という。
+正方行列$A$が与えられたとき,$B=P^{-1}AP$が対角行列になるような生息行列$P$と対角行列$B$を
+求めることを行列$A$の対角化という.
 \begin{itembox}[l]{固有多項式}
-    正方行列$A$に対し、以下の多項式$g_A\left(t\right)$を$A$の固有多項式という。
+    正方行列$A$に対し,以下の多項式$g_A\left(t\right)$を$A$の固有多項式という.
     \begin{center}
         $g_A\left(t\right) = \left|tE-A\right| $
     \end{center}
 \end{itembox}
 \subsubsection{対角化可能性}
-正方行列$A$は常に対角化されるとは限らない。
+正方行列$A$は常に対角化されるとは限らない.
 \begin{itembox}[l]{対角化の条件}
-    $A$が$N$次の正方行列のとき、「$A$が対角化可能」とは
-    $A$が$N$個の独立な固有ベクトルを持つことと同値である。
+    $A$が$N$次の正方行列のとき,「$A$が対角化可能」とは
+    $A$が$N$個の独立な固有ベクトルを持つことと同値である.
+    （固有値の重複度と固有空間の次元が一致している）
 \end{itembox}
+\subsubsection{対角化の手順}
+対角化の作業は以下の手順で行われる.
+\begin{enumerate}[(i)]
+    \item 固有値の計算
+    \item 各固有値に対する固有ベクトルの計算
+    \item 上の手順で得られた（一次独立な）固有ベクトルの組を並べてできた行列を$P$としたとき,\\
+          この$P$は正則行列であり,$P^{-1}AP$は対角行列となる.
+\end{enumerate}
+\newpage
 \section{微積分}
+\subsection{関数のべき級数展開}
+関数のべき級数展開とは,関数を多項式で近似していくことを指す.
+工学分野では,必要不可欠なツールであり,出題内容として(1) 関数を展開す問題
+(2) 近似・誤差の評価という2種類が主なものである.
+\subsubsection{Taylor展開}
+\begin{itembox}[l]{Taylor展開}
+    \begin{center}
+        $f\left(x\right)=f\left(0\right)+f^{\left(1\right)}\left(0\right)x
+            +\dfrac{f^{\left(2\right)}\left(0\right)}{2}x^2
+            +\dfrac{f^{\left(3\right)}\left(0\right)}{3}x^3
+            +\dots
+            +\dfrac{f^{\left(n\right)}\left(0\right)}{n}x^n$
+    \end{center}
+\end{itembox}
+\subsection{1変数の積分}
+\subsubsection{偶関数と奇関数}
+
 \subsection{多変数関数}
 \subsubsection{偏微分}
 多変数関数の微分　→　偏微分
 \subsubsection{多変数関数の極値}
 \begin{itembox}[l]{定理 4.3.3 極値を持つ必要条件}
-    $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば、
-    $f_x\left(a,b\right)=f_y\left(a,b\right)=0$ である。
+    $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば,
+    $f_x\left(a,b\right)=f_y\left(a,b\right)=0$ である.
 \end{itembox}
-\begin{itembox}[l]{定理 4.3.4 極値の判定}
-    $f\left(x,y\right)$は$C^2$の関数であり、点$\left(a,b\right)$において
+\begin{itembox}[l]{定理 極値の判定}
+    $f\left(x,y\right)$は$C^2$の関数であり,点$\left(a,b\right)$において
     $f_x\left(a,b\right)=f_y\left(a, b\right)=0$であるとする.\\
-    判別式を、$D=f_{xx}\left(a,b\right)f_{yy}\left(a,b\right)-f_{xy}(a,b)^2$と定義する。
-    \begin{enumerate}
-        \item $D>0$とする。\\
-              $f_{xx}\left(a,b\right)>0$ならば、$f$は点$\left(a,b\right)$で極小値をとる。\\
-              $f_{xx}\left(a,b\right)<0$ならば、$f$は点$\left(a,b\right)$で極大値をとる。
-        \item $D<0$ならば、$f$は点$\left(a,b\right)$で極値をとらない。
+    判別式を,$D=f_{xx}\left(a,b\right)f_{yy}\left(a,b\right)-{f_{xy}(a,b)}^2$と定義する.
+    \begin{enumerate}[(1)]
+        \item $D>0$とする.\\
+              $f_{xx}\left(a,b\right)>0$ならば,$f$は点$\left(a,b\right)$で極小値をとる.\\
+              $f_{xx}\left(a,b\right)<0$ならば,$f$は点$\left(a,b\right)$で極大値をとる.
+        \item $D<0$ならば,$f$は点$\left(a,b\right)$で極値をとらない.
     \end{enumerate}
 \end{itembox}
-
-\subsubsection{接線の方程式}
-\begin{itembox}[l]{定理 4.4.1 陰関数の定理}
-    $f\left(x,y\right)$が$C^1$級の関数で、$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば、\\
-    $a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で、$\phi\left(a\right)=b$となるものが存在する。\\
-    このとき、$y=\phi\left(x\right)$は微分可能で、次の式が成り立つ。
+\subsubsection{接平面の方程式}
+関数のグラフ$z=f\left(x,y\right)$は空間内の局面を定める。この曲面上の$p(x_0,y_0,z_0)$における接平面の方程式は、
+\begin{itembox}[l]{接平面の方程式}
     \begin{center}
-        $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
-        すなわち、$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
+        $z-z_0=f_x\left(x_0,y_0\right)\left(x-x_0\right)+f_y\left(x_0,y_0\right)\left(y-y_0\right)$
     \end{center}
 \end{itembox}
-\begin{itembox}[l]{例題 }
-
+により与えられる。
+\subsubsection{接線の方程式と陰関数の定理}
+\begin{itembox}[l]{定理 4.4.1 陰関数の定理}
+    $f\left(x,y\right)$が$C^1$級の関数で,$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば,\\
+    $a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で,$\phi\left(a\right)=b$となるものが存在する.\\
+    このとき,$y=\phi\left(x\right)$は微分可能で,次の式が成り立つ.
+    \begin{center}
+        $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
+        すなわち,$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
+    \end{center}
+\end{itembox}
+\newpage
+\section{材料力学}
+\subsection{重要公式}
+\begin{itembox}[l]{引張・圧縮}
+    \begin{center}
+        \begin{eqnarray*}
+            \sigma&=&\dfrac{P}{A}\\
+            \varepsilon&=&\dfrac{\lambda}{L}\\
+            \sigma&=&E\varepsilon\\
+            P&=&\dfrac{AE}{l}\lambda=AE\varepsilon
+        \end{eqnarray*}
+        $AE$  :引張剛性
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ねじり}
+    \begin{center}
+        \begin{eqnarray*}
+            \tau\left(r\right)&=&\dfrac{T}{I_p} r\\
+            \gamma\left(r\right)&=&\dfrac{\lambda\left(r\right)}{L}=\dfrac{\varphi}{L}r=\theta r\\
+            \tau\left(r\right)&=&G\gamma\left(r\right)=G\theta r\\
+            T&=&\dfrac{I_pG}{L}\varphi
+        \end{eqnarray*}
+        $\theta=\dfrac{\varphi}{L}$ :比ねじれ角\\
+        $I_pG$  :ねじれ剛性
+    \end{center}
 \end{itembox}
 
 \end{document}
