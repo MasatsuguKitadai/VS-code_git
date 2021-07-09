@@ -56,6 +56,10 @@ lineskip=-0.5ex
 \begin{document}
 \maketitle
 
+\section{基本知識}
+\subsection{平方根}
+$\sqrt{a^2}=|a|$
+
 \section{線形代数}
 \subsection{行列式}
 \subsubsection{余因子行列とクラメールの公式}
@@ -97,7 +101,7 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
 「1式に1未知数」という形は,一般には成り立たない.そこで,「1式に1未知数」に近い形に整理したものが\textgt{階段行列(=簡約行列)}である.
 一般の連立1次方程式の場合,未知数,方程式の本数,任意定数の間には以下の関係が成り立つ.
 \begin{center}
-    (未知数の個数) = (有効な方程式の数) + (任意定数の数)
+    \textgt{(未知数の個数) = (有効な方程式の数) + (任意定数の数)}
 \end{center}
 \subsection{固有値と固有ベクトルの計算}
 \subsubsection{固有値と固有ベクトル}
@@ -136,9 +140,17 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
 \end{enumerate}
 \newpage
 \section{微積分}
+\subsection{微分の公式}
+\begin{itembox}[l]{微分の公式}
+    \begin{eqnarray*}
+        y&=&\arcsin\left(x\right)\quad\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-x^2}}\\
+        y&=&\arccos\left(x\right)\quad\dfrac{dy}{dx}=-\dfrac{1}{\sqrt{1-x^2}}\\
+        y&=&\arctan\left(x\right)\quad\dfrac{dy}{dx}=\dfrac{1}{1+x^2}
+    \end{eqnarray*}
+\end{itembox}
 \subsection{関数のべき級数展開}
 関数のべき級数展開とは,関数を多項式で近似していくことを指す.
-工学分野では,必要不可欠なツールであり,出題内容として(1) 関数を展開す問題
+工学分野では,必要不可欠なツールであり,出題内容として(1) 関数を展開する問題
 (2) 近似・誤差の評価という2種類が主なものである.
 \subsubsection{Taylor展開}
 \begin{itembox}[l]{Taylor展開}
@@ -190,6 +202,124 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
         すなわち,$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
     \end{center}
 \end{itembox}
+\subsection{重積分}
+\subsubsection{主な解法スキーム}
+\begin{enumerate}[(1)]
+    \item 基本形\\
+          (重積分)→\textgt{計算用の式変換}→(累次積分)→\textgt{計算の実行}→(値)
+    \item 積分の順序変更\\
+          (重積分)→\textgt{計算用の式変換・問題の差し戻し}→(累次積分)→\textgt{計算の実行}→(値)
+    \item 変数変換\\
+          (重積分1)→\textgt{変数の変更}→(重積分2)→\textgt{計算用の式変換}→(累次積分)→\textgt{計算の実行}→(値)
+\end{enumerate}
+\subsubsection{具体的な手順}
+\begin{enumerate}[(1)]
+    \item 積分領域(範囲)を求める
+\end{enumerate}
+\subsubsection{積分区間の変換}
+積分区分を変換する際は、固定されていない変数を固定して区間を考える。\\
+※ 区間に$x$が含まれる場合は、「$x$を固定した」ということ → 変数を変換する場合は、「$y$を固定」して考える
+\subsubsection{変数変換公式}
+\begin{itembox}[l]{ヤコビ行列}
+    $st$平面の有界な領域$E$で定義された$C^1$級関数$x=\varphi\left(s,t\right)$、$y=\psi\left(s,t\right)$に対して\\
+    (1) $E$の各点でJacobi行列
+    \begin{center}
+        $J=\dfrac{\partial\left(x,y\right)}{\partial\left(s,t\right)}=\begin{bmatrix}
+                x_s & x_t \\
+                y_s & y_t \\
+            \end{bmatrix}
+        $
+    \end{center}
+    の行列式$J=x_sy_t-x_ty_s$は$0$ではない。\\\\
+    (2) 写像$F\left(s,t\right)=\left(\varphi\left(s,t\right),\psi\left(s,t\right)\right)$は
+    $E$から$E$の像$D=F\left(E\right)$への1対1の写像である
+    という上記の2つの条件が成立するとき、連続関数$s\left(x,y\right)$に対して以下の式が成立する。\\
+    \begin{center}
+        $\displaystyle\iint_Df\left(x,y\right)dxdy=\iint_Ef\left(\varphi\left(s,t\right),\psi\left(s,t\right)\right)|J|dsdt$
+    \end{center}
+    ヤコビヤンは\textgt{絶対値}をかける!!
+\end{itembox}
+【代表的なヤコビ行列】\\
+・デカルト座標から極座標への変換\\
+$x=r\cos\theta,y=r\sin\theta$すると、\\
+\begin{center}
+    $|J|=\dfrac{\partial\left(x,y\right)}{\partial\left(r,\theta\right)}=
+        \begin{bmatrix}
+            x_r & x_\theta \\
+            y_r & y_\theta \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            \sin\theta & r\cos\theta  \\
+            \cos\theta & -r\sin\theta \\
+        \end{bmatrix}
+        =r
+    $
+\end{center}
+\section{微分方程式}
+\subsection{1階常微分方程式}
+\subsubsection{直接微分形}
+\begin{center}
+    $\dfrac{dy}{dx}=f\left(x\right)$
+\end{center}
+の形を\textgt{直接微分形}という。
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 方程式を標準形に直す\\
+              $\dfrac{dy}{dx}=f\left(x\right)$
+        \item 両辺を積分して一般解を求める
+        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsubsection{変数分離形}
+\begin{center}
+    $g\left(y\right)\dfrac{dy}{dx}=f\left(x\right)$
+\end{center}
+の形を\textgt{変数分離形}という。
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 方程式を標準形に直す\\
+              $g\left(y\right)\dfrac{dy}{dx}=f\left(x\right)$
+        \item 両辺を$x$で積分する
+        \item 変形しきれいな形に直して一般解とする
+        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsubsection{$y'=f\left(\alpha x+\beta y+\gamma\right)$の形}
+$y'=f\left(\alpha x+\beta y+\gamma\right)$の$\alpha x+\beta y+\gamma$がひとかたまりになっている場合は、
+$u=\alpha x+\beta y+\gamma$とおくことで、変数分離形に帰着される。
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item $u=\alpha x+\beta y+\gamma$とおいて、$x$で微分し、$y'$を求める
+              \\$u'=\alpha+\beta y'$
+        \item 元の方程式に代入して整理し、変数微分形の形にする
+        \item 変数分離形の一般解を求める
+        \item $u$を元の式に代入して一般解を求める
+        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsubsection{同次形}
+\begin{center}
+    $\dfrac{dy}{dx}=f\left(\dfrac{y}{x}\right)$
+\end{center}
+の形の微分方程式を\textgt{同次形}という。
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 方程式を標準形に直す\\
+              $\dfrac{dy}{dx}=f\left(\dfrac{y}{x}\right)$
+        \item $\dfrac{y}{x}=u$とおいて標準形に代入し、$u$と$x$の方程式に直す。
+        \item 両辺を$x$で積分して関数$u$を求める
+        \item $u=\dfrac{y}{x}$とおいて元に戻し、一般解$y$を求める
+        \item $f\left(u\right)-u=0$をみたす$u=a$(定数)があるとき、これから得られる$y=ax$も解となる。\\
+              また、これが一般解に含まれるかどうか調べる。
+        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsection{線形微分方程式}
+$P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を$x$の関数とするとき\\
+$y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)$
+を\textgt{$n$階微分方程式}という。\\
+また、$Q\left(x\right)=0$のとき\textgt{同次方程式}という。
 \newpage
 \section{材料力学}
 \subsection{重要公式}

@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  8 JUL 2021 17:54
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  9 JUL 2021 18:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -473,32 +473,32 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 60.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 60.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 61.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 61.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 61.
+(Font)              scaled to size 9.60999pt on input line 65.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 61.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 62.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 62.
+(Font)              scaled to size 9.60999pt on input line 65.
 
-Underfull \hbox (badness 10000) detected at line 88
+Underfull \hbox (badness 10000) detected at line 92
 []$[]$[]
  []
 
 [1
 
-] [2] [3] [4] [5] (./math.aux)
+] [2] [3] [4] [5] [6] [7] (./math.aux)
 Package rerunfilecheck Info: File `math.out' has not changed.
-(rerunfilecheck)             Checksum: 2EE2B9F546DF23868E9AFA85361C2DAB;668.
+(rerunfilecheck)             Checksum: EA51BC3025D75F5041CDEBDF0077C28C;1117.
  ) 
 Here is how much of TeX's memory you used:
- 11098 strings out of 478987
- 159470 string characters out of 5865292
- 505541 words of memory out of 5000000
- 29120 multiletter control sequences out of 15000+600000
+ 11100 strings out of 478987
+ 159492 string characters out of 5865292
+ 506996 words of memory out of 5000000
+ 29122 multiletter control sequences out of 15000+600000
  417781 words of font info for 95 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,10n,66p,269b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,66p,269b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on math.dvi (5 pages, 18952 bytes).
+Output written on math.dvi (7 pages, 32472 bytes).
