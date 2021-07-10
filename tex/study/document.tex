@@ -50,7 +50,7 @@ lineskip=-0.5ex
 
 
 \author{}
-\title{数学}
+\title{大学院入試対策}
 \date{}
 
 \begin{document}
@@ -322,8 +322,8 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
 また、$Q\left(x\right)=0$のとき\textgt{同次方程式}という。
 \newpage
 \section{材料力学}
-\subsection{重要公式}
-\begin{itembox}[l]{引張・圧縮}
+\subsection{引張・圧縮}
+\begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
             \sigma&=&\dfrac{P}{A}\\
@@ -334,7 +334,8 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
         $AE$  :引張剛性
     \end{center}
 \end{itembox}
-\begin{itembox}[l]{ねじり}
+\subsection{ねじり・せん断応力}
+\begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
             \tau\left(r\right)&=&\dfrac{T}{I_p} r\\
@@ -342,8 +343,40 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
             \tau\left(r\right)&=&G\gamma\left(r\right)=G\theta r\\
             T&=&\dfrac{I_pG}{L}\varphi
         \end{eqnarray*}
+        $I_p$ :断面二次極モーメント\\
         $\theta=\dfrac{\varphi}{L}$ :比ねじれ角\\
         $I_pG$  :ねじれ剛性
+    \end{center}
+\end{itembox}
+\subsection{曲げ}
+\begin{itembox}[l]{重要公式}
+    \begin{center}
+        \begin{eqnarray*}
+            \sigma_z\left(z\right)&=&\dfrac{M}{I_z}z
+        \end{eqnarray*}
+        $I_z$ :断面二次モーメント
+    \end{center}
+\end{itembox}
+\subsection{たわみの微分方程式}
+\begin{itembox}[l]{たわみの微分方程式}
+    \begin{center}
+        $\dfrac{d^2w}{dx^2}=-\dfrac{M}{EI_z}$\\
+        $\dfrac{dw}{dx}=\theta\left(x\right)$ ：たわみ角 (1回積分)\\
+        $w\left(x\right)$ :たわみ (２回積分)
+    \end{center}
+\end{itembox}
+\subsection{線膨張係数と熱応力}
+\begin{itembox}[l]{熱ひずみの公式}
+    \begin{center}
+        $\varepsilon=\alpha\Delta T$
+    \end{center}
+\end{itembox}
+\subsection{破断説}
+\section{流体力学}
+\subsection{流体のエネルギー保存則}
+\begin{itembox}[l]{ベルヌーイの定理}
+    \begin{center}
+        $\dfrac{1}{2}\dot{m}v^2+\dot{m}\dfrac{p}{\rho}+\dot{m}gz=const$
     \end{center}
 \end{itembox}
 
