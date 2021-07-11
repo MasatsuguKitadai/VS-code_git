@@ -59,40 +59,42 @@ lineskip=-0.5ex
 \section{基本知識}
 \subsection{平方根}
 $\sqrt{a^2}=|a|$
-
+\subsection{オイラーの公式}
+\begin{itembox}[l]{オイラーの公式}
+    \begin{center}
+        $e^{i\theta}=\cos\theta+i\sin\theta$
+    \end{center}
+\end{itembox}
 \section{線形代数}
-\subsection{行列式}
-\subsubsection{余因子行列とクラメールの公式}
-$n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる$n-1$次正方行列を$A_{ij}$と書く.
-\begin{itembox}[l]{余因子展開}
-    \begin{enumerate}[(1)]
-        \item 第$j$列に関する余因子展開\\
-              $\left|A\right|=(-1)^{1+j}a_{1j}\left|A_{1j}\right|+(-1)^{2+j}a_{2j}\left|A_{2j}\right|+ \dots +(-1)^{n+j}a_{nj}\left|A_{nj}\right|$
-        \item 第$i$行に関する余因子展開\\
-              $\left|A\right|=(-1)^{i+1}a_{1j}\left|A_{i1}\right|+(-1)^{i+2}a_{i2}\left|A_{i2}\right|+ \dots +(-1)^{i+n}a_{in}\left|A_{in}\right|$
-    \end{enumerate}
+\subsection{行列}
+\subsubsection{行列演算の性質}
+基本的には、普通の計算と同じ。
+ただし、\textgt{積}には注意が必要。
+\begin{itembox}[l]{行列演算特有の性質}
+    \begin{eqnarray*}
+        \left(AB\right)C&=&A\left(BC\right)\\
+        A\left(B+C\right)&=&AB+AC\\
+        \left(A+B\right)&=&AC+BC\\
+        AB&\neq& BA
+    \end{eqnarray*}
+    ※ 積をとる順番に注意する\\
+    ※ 積の交換法則のみ成り立たない!!
 \end{itembox}
-\begin{itembox}[l]{余因子行列}
-    $n$次正方行列$\left|a_{ij}\right|$に対し,
-    \begin{center}
-        $\check{a}_{ij}=\left(-1\right)^{i+j}\left|A_{ji}\right|$
-    \end{center}
-    さらに,以下のようにおき,$A$の余因子行列という.
-    \begin{center}
-        $\tilde{A}=\left[\check{a}_{ij}\right]$
-    \end{center}
+\subsection{一次独立・一次従属}
+\begin{itembox}[l]{物理的な意味}
+    ある2つのベクトル$a,b\left(a\neq 0,b\neq 0\right)$が存在し、
+    それらが並行でない$\left(a\not\parallel b\right)$とき、\textgt{一次独立である}という。\\
+    また、それらが、平行である$\left(a\parallel b\right)$とき、\textgt{一次従属である}という。
 \end{itembox}
-\begin{itembox}[l]{定理3.4.1}
-    正方行列$A$の余因子行列を$\tilde{A}$とすると,以下の関係が成立する.
-    \begin{center}
-        $A\tilde{A}=\tilde{A}A=dE\left (d=\rm{det}\left(A\right)\right)$
-    \end{center}
-\end{itembox}
-\begin{itembox}[l]{クラメールの公式}
-\end{itembox}
-\subsection{連立一次方程式,基本変形}
+\subsection{連立一次方程式}
+\subsubsection{行列の基本変形}
+\begin{enumerate}[(1)]
+    \item 1つの行を何倍か($\neq0$倍)する
+    \item 2つの行を入れ替える
+    \item 1つの行にほかの行の何倍かを加える
+\end{enumerate}
 \subsubsection{連立一次方程式の消去法による解法}
-\begin{enumerate}[(i)]
+\begin{enumerate}[(1)]
     \item 連立一次方程式より拡大係数行列を抽出（行列のデータ化）
     \item 抽出した拡大係数行列を簡約化する（未知数の整理）
     \item 簡約化の結果を連立一次方程式に還元し解を作成する
@@ -103,36 +105,171 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
 \begin{center}
     \textgt{(未知数の個数) = (有効な方程式の数) + (任意定数の数)}
 \end{center}
+\subsubsection{単位行列}
+\begin{itembox}[l]{定義}
+    \begin{center}
+        $E=
+            \begin{bmatrix}
+                1      & 0      & \cdots & 0      \\
+                0      & 1      & \cdots & 0      \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0      & 0      & \cdots & 1      \\
+            \end{bmatrix}
+            \quad AE=EA=A
+        $
+        \quad(対角成分は$1$、他は$0$)
+    \end{center}
+\end{itembox}
+\subsubsection{逆行列}
+\begin{itembox}[l]{定義}
+    $n$次正方行列$A$に対して、
+    \begin{center}
+        $AX=XA=E$
+    \end{center}
+    となる正方行列$X$が存在するとき、$A$は\textgt{正則である}といい、$X$を$A$の\textgt{逆行列}であるという.\\
+    一般に「$X$」を「$A^{-1}$」という記号で表す.\\
+    ※「正則である」=「逆行列を持つ」という意味
+\end{itembox}
+\begin{itembox}[l]{定理}
+    $n$次正方行列$A$が正則であるとき、その逆行列$A^{-1}$は、以下のように表せる。
+    \begin{center}
+        $A^{-1}=\dfrac{1}{|A|}\tilde{A}$
+    \end{center}
+    ※ $\tilde{A}$は余因子行列
+\end{itembox}
+\\
+$n$次正方行列$A$が正則であるとは\dots
+\begin{enumerate}[(1)]
+    \item rank$\left(A\right)=n$\quad すなわち、\textgt{連立方程式の解が一意に定まる}ということ!!
+    \item $\left|A\right|\neq0$
+\end{enumerate}
+\subsubsection{逆行列の掃出法}
+$AX=E$\quad を満たす、$x$を求めれば、それが$A^{-1}$になる。
+\begin{eqnarray*}
+    X&=&\left(x_1,x_2,\cdots,x_n\right)\\
+    E&=&\left(e_1,e_2,\cdots,e_n\right)
+\end{eqnarray*}
+※$x_i$ : $n$次元列ベクトル\quad $e_i$ : $n$次元単位ベクトル\\
+を用いて、
+\begin{eqnarray*}
+    A\left(x_1,x_2,\cdots,x_n\right)&=&\left(e_1,e_2,\cdots,e_n\right)\\
+    \left(Ax_1,Ax_2,\cdots,Ax_n\right)&=&\left(e_1,e_2,\cdots,e_n\right)
+\end{eqnarray*}
+すなわち、以下の式を解けばよい。
+\begin{eqnarray*}
+    Ax_i=e_i \left(i=1,2,\cdots,n\right)
+\end{eqnarray*}
+ここで、拡大係数行列を考える.
+\begin{eqnarray*}
+    \left(A|e_i\right) \rightarrow \left(E|C_i\right)
+\end{eqnarray*}
+上記のように掃出法から連立方程式を解くと、
+\begin{eqnarray*}
+    X=\left(x_1,x_2,\cdots,x_n\right)=\left(C_1,C_2,\cdots,C_n\right)
+\end{eqnarray*}
+が求める$A^{-1}$となる。
+\subsection{行列式}
+\subsubsection{行列式の性質}
+※ 同じ行(列)を含む行列式の値$0$になる。(行列式の交代性より)
+\subsubsection{余因子行列とクラメールの公式}
+$n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる
+$n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
+\begin{itembox}[l]{余因子行列}
+    $n$次正方行列$\left[a_{ij}\right]$に対し,以下の式から得られる値$\tilde{a}_{ij}$を
+    \textgt{余因子}という。
+    \begin{center}
+        $\tilde{a}_{ij}=\left(-1\right)^{i+j}\left|A_{ij}\right|$
+    \end{center}
+    さらに,以下のように余因子をおいた行列$\tilde{A}$を,$A$の\textgt{余因子行列}という.(転置があることに注意!!)
+    \begin{center}
+        $\tilde{A}=\left[\tilde{a}_{ij}\right]^t$
+    \end{center}
+    ※ 「転置をとる」とは、「添え字の順番が逆になる」ということ!!
+\end{itembox}
+\begin{itembox}[l]{余因子展開}
+    \begin{enumerate}[(1)]
+        \item 第$i$行に関する余因子展開\\
+              $\left|A\right|=(-1)^{i+1}a_{i1}\left|A_{i1}\right|+(-1)^{i+2}a_{i2}\left|A_{i2}\right|+ \dots +(-1)^{i+n}a_{in}\left|A_{in}\right|
+                  =a_{i1}\tilde{a}_{i1}+a_{i2}\tilde{a}_{i2}+\cdots +a_{in}\tilde{a}_{in}$
+        \item 第$j$列に関する余因子展開\\
+              $\left|A\right|=(-1)^{1+j}a_{1j}\left|A_{1j}\right|+(-1)^{2+j}a_{2j}\left|A_{2j}\right|+ \dots +(-1)^{n+j}a_{nj}\left|A_{nj}\right|
+                  =a_{1j}\tilde{a}_{1j}+a_{2j}\tilde{a}_{2j}+\cdots +a_{nj}\tilde{a}_{nj}$
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{定理}
+    正方行列$A$の余因子行列を$\tilde{A}$とすると,以下の関係が成立する.
+    \begin{center}
+        $A\tilde{A}=\tilde{A}A=dE\quad\left(d=\rm{det}\left(A\right)\right)$
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{クラメールの公式}
+\end{itembox}
 \subsection{固有値と固有ベクトルの計算}
-\subsubsection{固有値と固有ベクトル}
+\subsubsection{固有値と固有ベクトル固有値・固有ベクトルの物理的な意味}
+あるベクトル$X$があるとき,それにある行列$A$をかけると,
+そのベクトル$X$の\textgt{方向}は変わらず\textgt{倍率}のみ変化する.\\
+そのベクトルを\textgt{固有ベクトル},倍率を\textgt{固有値}という.\\
+\subsubsection{固有値と固有ベクトルの定義}
 \begin{itembox}[l]{定義}
     $n$次正方行列$A$とスカラー$\lambda$に対し,
     \begin{center}
         $Ax=\lambda x$
     \end{center}
-    となる\textgt{零ベクトル$o$ではないベクトル$x$}が存在するとき,$\lambda$を$A$の固有値といい,\\
-    $\lambda$に対し上の条件を満たす$o$ではないベクトル$x$を$A$の固有ベクトルという.
+    となる\textgt{零ベクトル$o$ではないベクトル$x$}が存在するとき,$\lambda$を$A$の\textgt{固有値}といい,\\
+    $\lambda$に対し上の条件を満たす$o$ではないベクトル$x$を$A$の\textgt{固有ベクトル}という.\\
     また,固有値を求める際には,$|\lambda E-A|=0$を解けば良い.
 \end{itembox}
 \subsubsection{行列の対角化}
-正方行列$A$が与えられたとき,$B=P^{-1}AP$が対角行列になるような生息行列$P$と対角行列$B$を
-求めることを行列$A$の対角化という.
-\begin{itembox}[l]{固有多項式}
-    正方行列$A$に対し,以下の多項式$g_A\left(t\right)$を$A$の固有多項式という.
+正方行列$A$が与えられたとき,$B=P^{-1}AP$が対角行列になるような正則行列$P$と対角行列$B$を求めることを
+行列$A$の\textgt{対角化}という.\\
+特に$P,B$が実数(複素数)を成分とする行列でとれるとき,$A$は\textgt{実数体上(複素数体上)対角化}されるという.
+\begin{itembox}[l]{定義}
+    $n$次正方行列に対し,適当な正則行列$P$が存在して,\\
     \begin{center}
-        $g_A\left(t\right) = \left|tE-A\right| $
+        $P^{-1}AP=
+            \begin{bmatrix}
+                \lambda_1 &           & \cdots & 0         \\
+                          & \lambda_2 &        & \vdots    \\
+                \vdots    &           & \ddots &           \\
+                0         & \cdots    &        & \lambda_n \\
+            \end{bmatrix}
+        $
     \end{center}
+    のような対角行列にできるとき,行列$A$は\textgt{対角化可能である}といい,
+    このときの行列$P$を\textgt{変換行列}という.\\
+\end{itembox}
+\begin{itembox}[l]{定理}
+    $n$次正方行列$A$の一次独立な固有ベクトルを$x_1,x_2,\cdots,x_n$とする.\\
+    それらを並べた行列$\left(x_1,x_2,\cdots,x_n\right)$を$P$とすると,
+    行列$A$は次のように対角化できる.
+    \begin{center}
+        $P^{-1}AP=
+            \begin{bmatrix}
+                \lambda_1 &           & \cdots & 0         \\
+                          & \lambda_2 &        & \vdots    \\
+                \vdots    &           & \ddots &           \\
+                0         & \cdots    &        & \lambda_n \\
+            \end{bmatrix}
+        $
+    \end{center}
+    ※ $\lambda_n$は行列Aの固有値
+    ※対角化行列は1つだけではない!! → 固有ベクトルを並べる順番によって変化する
 \end{itembox}
 \subsubsection{対角化可能性}
 正方行列$A$は常に対角化されるとは限らない.
+\begin{itembox}[l]{定理}
+    $n$次正方行列$A$の異なる固有値$\lambda_1,\lambda_2,\cdots,\lambda_k$に対する
+    固有ベクトル$x_1,x_2,\cdots,x_k$は\textgt{一次独立}である.$\left(1\leq k\leq n\right)$
+\end{itembox}
 \begin{itembox}[l]{対角化の条件}
-    $A$が$N$次の正方行列のとき,「$A$が対角化可能」とは
-    $A$が$N$個の独立な固有ベクトルを持つことと同値である.
-    （固有値の重複度と固有空間の次元が一致している）
+    $A$が$N$次の正方行列のとき,\textgt{$A$が対角化可能} とは
+    \textgt{$A$が$N$個の独立な固有ベクトルを持つこと}と同値である.\\
+    ※ 重要なことは,\textgt{$n$本の一次独立な固有ベクトル}がとれるかどうか!!\\
+    ※ 重解がある場合も、その数の固有ベクトルを得ることができる可能性がある!!
 \end{itembox}
 \subsubsection{対角化の手順}
 対角化の作業は以下の手順で行われる.
-\begin{enumerate}[(i)]
+\begin{enumerate}[(1)]
     \item 固有値の計算
     \item 各固有値に対する固有ベクトルの計算
     \item 上の手順で得られた（一次独立な）固有ベクトルの組を並べてできた行列を$P$としたとき,\\
@@ -140,12 +277,13 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
 \end{enumerate}
 \newpage
 \section{微積分}
-\subsection{微分の公式}
-\begin{itembox}[l]{微分の公式}
+\subsection{基本的な微分}
+\begin{itembox}[l]{基本的な関数の導関数}
     \begin{eqnarray*}
-        y&=&\arcsin\left(x\right)\quad\dfrac{dy}{dx}=\dfrac{1}{\sqrt{1-x^2}}\\
-        y&=&\arccos\left(x\right)\quad\dfrac{dy}{dx}=-\dfrac{1}{\sqrt{1-x^2}}\\
-        y&=&\arctan\left(x\right)\quad\dfrac{dy}{dx}=\dfrac{1}{1+x^2}
+        \dfrac{dy}{dx}a^x&=&\left(\log a\right)a^x\\
+        \dfrac{dy}{dx}\mathrm{Sin}^{-1}\left(x\right)&=&\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{dy}{dx}\mathrm{Cos}^{-1}\left(x\right)&=&-\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{dy}{dx}\mathrm{Tan}^{-1}\left(x\right)&=&\dfrac{1}{1+x^2}
     \end{eqnarray*}
 \end{itembox}
 \subsection{関数のべき級数展開}
@@ -169,7 +307,7 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
 \subsubsection{偏微分}
 多変数関数の微分　→　偏微分
 \subsubsection{多変数関数の極値}
-\begin{itembox}[l]{定理 4.3.3 極値を持つ必要条件}
+\begin{itembox}[l]{定理 極値を持つ必要条件}
     $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば,
     $f_x\left(a,b\right)=f_y\left(a,b\right)=0$ である.
 \end{itembox}
@@ -184,22 +322,27 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
         \item $D<0$ならば,$f$は点$\left(a,b\right)$で極値をとらない.
     \end{enumerate}
 \end{itembox}
-\subsubsection{接平面の方程式}
-関数のグラフ$z=f\left(x,y\right)$は空間内の局面を定める。この曲面上の$p(x_0,y_0,z_0)$における接平面の方程式は、
+\subsubsection{接平面の方程式・法線の方程式}
+関数のグラフ$z=f\left(x,y\right)$は空間内の局面を定める.この曲面上の$p(a,b,f\left(a,b\right))$における接平面の方程式は,
+以下のように求めることができる。
 \begin{itembox}[l]{接平面の方程式}
     \begin{center}
-        $z-z_0=f_x\left(x_0,y_0\right)\left(x-x_0\right)+f_y\left(x_0,y_0\right)\left(y-y_0\right)$
+        $z-f\left(a,b\right)=f_x\left(a,b\right)\left(x-a\right)+f_y\left(a,b\right)\left(y-b\right)$
     \end{center}
 \end{itembox}
-により与えられる。
-\subsubsection{接線の方程式と陰関数の定理}
-\begin{itembox}[l]{定理 4.4.1 陰関数の定理}
+\begin{itembox}[l]{法線の方程式}
+    \begin{center}
+        $\dfrac{x-a}{f_x\left(a,b\right)}=\dfrac{y-b}{f_y\left(a,b\right)}=\dfrac{z-f\left(a,b\right)}{-1}$
+    \end{center}
+\end{itembox}
+\subsubsection{陰関数の定理}
+\begin{itembox}[l]{陰関数の定理}
     $f\left(x,y\right)$が$C^1$級の関数で,$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば,\\
     $a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で,$\phi\left(a\right)=b$となるものが存在する.\\
     このとき,$y=\phi\left(x\right)$は微分可能で,次の式が成り立つ.
     \begin{center}
         $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
-        すなわち,$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
+        \quad すなわち,\quad$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
     \end{center}
 \end{itembox}
 \subsection{重積分}
@@ -217,11 +360,22 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
     \item 積分領域(範囲)を求める
 \end{enumerate}
 \subsubsection{積分区間の変換}
-積分区分を変換する際は、固定されていない変数を固定して区間を考える。\\
-※ 区間に$x$が含まれる場合は、「$x$を固定した」ということ → 変数を変換する場合は、「$y$を固定」して考える
+積分区分を変換する際は,固定されていない変数を固定して区間を考える.\\
+※ 区間に$x$が含まれる場合は,「$x$を固定した」ということ → 変数を変換する場合は,「$y$を固定」して考える
+\begin{itembox}[l]{代表的な変数変換}
+    \begin{enumerate}[(1)]
+        \item 円\quad $\left(x^2+y^2=a^2\right)$\\
+              $x=r\cos\theta,\quad y=r\sin\theta$とおく
+        \item 楕円\quad $\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\right)$\\
+              $x=ar\cos\theta,\quad y=br\sin\theta$とおく
+        \item $x$軸方向に$b$だけ中心がズレた円\quad $\left(\left(x-b\right)^2+y^2=a^2\right)$\\
+              $x=r\cos\theta,\quad y=r\sin\theta$とおく\\
+              範囲は原点を基準に考えること!!
+    \end{enumerate}
+\end{itembox}
 \subsubsection{変数変換公式}
 \begin{itembox}[l]{ヤコビ行列}
-    $st$平面の有界な領域$E$で定義された$C^1$級関数$x=\varphi\left(s,t\right)$、$y=\psi\left(s,t\right)$に対して\\
+    $st$平面の有界な領域$E$で定義された$C^1$級関数$x=\varphi\left(s,t\right)$,$y=\psi\left(s,t\right)$に対して\\
     (1) $E$の各点でJacobi行列
     \begin{center}
         $J=\dfrac{\partial\left(x,y\right)}{\partial\left(s,t\right)}=\begin{bmatrix}
@@ -230,10 +384,10 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
             \end{bmatrix}
         $
     \end{center}
-    の行列式$J=x_sy_t-x_ty_s$は$0$ではない。\\\\
+    の行列式$J=x_sy_t-x_ty_s$は$0$ではない.\\\\
     (2) 写像$F\left(s,t\right)=\left(\varphi\left(s,t\right),\psi\left(s,t\right)\right)$は
     $E$から$E$の像$D=F\left(E\right)$への1対1の写像である
-    という上記の2つの条件が成立するとき、連続関数$s\left(x,y\right)$に対して以下の式が成立する。\\
+    という上記の2つの条件が成立するとき,連続関数$s\left(x,y\right)$に対して以下の式が成立する.\\
     \begin{center}
         $\displaystyle\iint_Df\left(x,y\right)dxdy=\iint_Ef\left(\varphi\left(s,t\right),\psi\left(s,t\right)\right)|J|dsdt$
     \end{center}
@@ -241,7 +395,7 @@ $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除い
 \end{itembox}
 【代表的なヤコビ行列】\\
 ・デカルト座標から極座標への変換\\
-$x=r\cos\theta,y=r\sin\theta$すると、\\
+$x=r\cos\theta,y=r\sin\theta$すると,\\
 \begin{center}
     $|J|=\dfrac{\partial\left(x,y\right)}{\partial\left(r,\theta\right)}=
         \begin{bmatrix}
@@ -256,73 +410,127 @@ $x=r\cos\theta,y=r\sin\theta$すると、\\
         =r
     $
 \end{center}
+\newpage
 \section{微分方程式}
+\subsection{微分方程式とは}
+\begin{itembox}[l]{微分方程式の目的}
+    \begin{center}
+        普通の方程式は\dots\qquad\textgt{数}を探すことが目的\\
+        微分方程式は\dots\qquad\textgt{関数}を探すことが目的
+    \end{center}
+\end{itembox}
+任意定数を含む解を\textgt{一般解}という。また一般解に対して、初期条件を与えて求まる解を\textgt{特殊解}という。
+\begin{itembox}[l]{例)\quad$y'=2x+3,y\left(0\right)=0$を解く}
+    \begin{center}
+        \textgt{一般解}(任意定数:$C$を含む関数)は、両辺を$x$で積分して\\
+        $y=x^2+3x+C$\\
+        初期条件$y\left(0\right)=0$を与えると、$C=0$が定まるので、
+        \textgt{特殊解}が以下のように求まる。\\
+        $y=x^2+3x$
+    \end{center}
+\end{itembox}
+※ 一般解の中に、任意定数が無限大の場合も含めて良い!! (慣習)
+\subsubsection{微分方程式の解の一意性}
 \subsection{1階常微分方程式}
 \subsubsection{直接微分形}
 \begin{center}
     $\dfrac{dy}{dx}=f\left(x\right)$
 \end{center}
-の形を\textgt{直接微分形}という。
+の形を\textgt{直接微分形}という.
 \begin{itembox}[l]{解法}
     \begin{enumerate}[(1)]
-        \item 方程式を標準形に直す\\
-              $\dfrac{dy}{dx}=f\left(x\right)$
+        \item 方程式を標準形に直す
         \item 両辺を積分して一般解を求める
-        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
     \end{enumerate}
 \end{itembox}
 \subsubsection{変数分離形}
 \begin{center}
     $g\left(y\right)\dfrac{dy}{dx}=f\left(x\right)$
 \end{center}
-の形を\textgt{変数分離形}という。
+の形を\textgt{変数分離形}という.
 \begin{itembox}[l]{解法}
     \begin{enumerate}[(1)]
-        \item 方程式を標準形に直す\\
-              $g\left(y\right)\dfrac{dy}{dx}=f\left(x\right)$
+        \item 方程式を標準形に直す
         \item 両辺を$x$で積分する
         \item 変形しきれいな形に直して一般解とする
-        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
-    \end{enumerate}
-\end{itembox}
-\subsubsection{$y'=f\left(\alpha x+\beta y+\gamma\right)$の形}
-$y'=f\left(\alpha x+\beta y+\gamma\right)$の$\alpha x+\beta y+\gamma$がひとかたまりになっている場合は、
-$u=\alpha x+\beta y+\gamma$とおくことで、変数分離形に帰着される。
-\begin{itembox}[l]{解法}
-    \begin{enumerate}[(1)]
-        \item $u=\alpha x+\beta y+\gamma$とおいて、$x$で微分し、$y'$を求める
-              \\$u'=\alpha+\beta y'$
-        \item 元の方程式に代入して整理し、変数微分形の形にする
-        \item 変数分離形の一般解を求める
-        \item $u$を元の式に代入して一般解を求める
-        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
     \end{enumerate}
 \end{itembox}
 \subsubsection{同次形}
 \begin{center}
     $\dfrac{dy}{dx}=f\left(\dfrac{y}{x}\right)$
 \end{center}
-の形の微分方程式を\textgt{同次形}という。
+の形の微分方程式を\textgt{同次形}という.
 \begin{itembox}[l]{解法}
     \begin{enumerate}[(1)]
-        \item 方程式を標準形に直す\\
-              $\dfrac{dy}{dx}=f\left(\dfrac{y}{x}\right)$
-        \item $\dfrac{y}{x}=u$とおいて標準形に代入し、$u$と$x$の方程式に直す。
+        \item 方程式を標準形に直す
+        \item $\dfrac{y}{x}=u$とおいて標準形に代入し,$u$と$x$の方程式に直す.\quad(変数分離形に帰着される)
         \item 両辺を$x$で積分して関数$u$を求める
-        \item $u=\dfrac{y}{x}$とおいて元に戻し、一般解$y$を求める
-        \item $f\left(u\right)-u=0$をみたす$u=a$(定数)があるとき、これから得られる$y=ax$も解となる。\\
-              また、これが一般解に含まれるかどうか調べる。
-        \item 特殊解を求める際は、初期条件を代入して積分定数を求める
+        \item $u=\dfrac{y}{x}$をもとに戻し,一般解$y$を求める
+        \item $f\left(u\right)-u=0$をみたす$u=a$(定数)があるとき,これから得られる$y=ax$も解となる.\\
+              また,これが一般解に含まれるかどうか調べる.
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
+    \end{enumerate}
+    ※ 変数部分が$\dfrac{y}{x}$のみで表せる関数に変形する\\
+\end{itembox}
+\subsubsection{$y'=f\left(\alpha x+\beta y+\gamma\right)$の形}
+$y'=f\left(\alpha x+\beta y+\gamma\right)$の$\alpha x+\beta y+\gamma$がひとかたまりになっている場合は,
+$u=\alpha x+\beta y+\gamma$とおくことで,変数分離形に帰着される.
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item $u=\alpha x+\beta y+\gamma$とおいて,$x$で微分し$y'$を求める
+              \quad$u'=\alpha+\beta y'\leftrightarrow y'=\dfrac{u'-\alpha}{\beta}$
+        \item 元の方程式に代入して整理し,変数微分形の形にする
+        \item 変数分離形の一般解を求める
+        \item $u$を元の式に代入して一般解を求める
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
     \end{enumerate}
 \end{itembox}
 \subsection{線形微分方程式}
 $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を$x$の関数とするとき\\
 $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)$
-を\textgt{$n$階微分方程式}という。\\
-また、$Q\left(x\right)=0$のとき\textgt{同次方程式}という。
+を\textgt{$n$階微分方程式}という.\\
+また,$Q\left(x\right)=0$のとき\textgt{同次方程式(斉次方程式)},$Q\left(x\right)\neq0$のとき\textgt{非同次方程式(非斉次方程式)}という.
+\subsubsection{1階線形微分方程式}
+\begin{eqnarray*}
+    y'+p\left(x\right)y=q\left(x\right)
+\end{eqnarray*}
+の形の\textgt{非同次方程式}を解くことを考える。\\
+※ 同次方程式の場合は変数分離形で考えれば解ける!!\\
+\begin{itembox}[l]{解法(i) 特殊解$y=\alpha\left(x\right)$がわかっている場合}
+    \begin{enumerate}[(1)]
+        \item $y'+p\left(x\right)y=q\left(x\right)$に、$\alpha\left(x\right)$を代入して
+              $\left(\alpha'+p\left(x\right)\alpha=q\left(x\right)\right)$もとの式から引く
+        \item $Y=y-\alpha$とおくと、$Y'+p\left(x\right)Y=0$の同次方程式に変形できる
+        \item 変数分離形として一般解を求め、$Y=y-\alpha$を代入して変数をもとに戻す
+    \end{enumerate}
+\end{itembox}
+\begin{center}
+    \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
+\end{center}
+\begin{itembox}[l]{解法(ii) 定数変化法}
+    考え方 : 特殊解は一般解に似てるかも\dots
+    \begin{enumerate}[(1)]
+        \item 同次方程式$y'+p\left(x\right)y=0$を解く
+        \item 定数$C$を関数$C\left(x\right)$に変化させ、非同次方程式に代入する\\
+              同次方程式の一般解 : $y=C\exp\left(-\int p\left(x\right)dx\right)$より、\\
+              $\left(C\left(x\right)\exp\left(-\int p\left(x\right)dx\right)\right)'+p\left(x\right)C\left(x\right)\exp\left(-\int p\left(x\right)dx\right)=q\left(x\right)$を得る
+        \item $\left(C\left(x\right)\exp\left(-\int p\left(x\right)dx\right)\right)'$を2つの関数の微分だと考え式を整理すると、\\
+              $C'\left(x\right)\exp\left(-\int p\left(x\right)dx\right)=q\left(x\right)$を得ることができる
+        \item 式を整理し両辺を$x$で積分すると、$C\left(x\right)=\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx$が求まる\\
+              ※ \textgt{特殊解が1つでも求まればいい}ので\textgt{積分定数はつけなくて良い}!!
+        \item $C\left(x\right)$をもとの式に戻すと、$y=\left[\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx\right]\exp\left(-\int p\left(x\right)dx\right)$
+              という特殊解が求まる
+        \item 同次解の一般解と特殊解の和をとると以下のように一般解を求めることができる\\
+              $y=\exp\left(-\int p\left(x\right)dx\right)\left[\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx+C\right]$
+    \end{enumerate}
+\end{itembox}
+※ 特殊解は「$y=\cdots$」の形で出てくる ($C\left(x\right)$は\textgt{特殊解でない}!!)
 \newpage
 \section{材料力学}
 \subsection{引張・圧縮}
+\subsubsection{重要公式}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -335,6 +543,7 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
     \end{center}
 \end{itembox}
 \subsection{ねじり・せん断応力}
+\subsubsection{重要公式}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -349,18 +558,33 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
     \end{center}
 \end{itembox}
 \subsection{曲げ}
+\subsubsection{重要公式}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
-            \sigma_z\left(z\right)&=&\dfrac{M}{I_z}z
+            \sigma_z\left(z\right)&=&\dfrac{M}{I}z
         \end{eqnarray*}
-        $I_z$ :断面二次モーメント
+        $I$ :断面二次モーメント
+    \end{center}
+\end{itembox}
+\subsubsection{断面二次モーメント}
+断面二次モーメントは,部材の断面形状の特性を表した値であり,
+その形状が曲げに対してどのくらい\textgt{硬い}のかを表す.
+また,以下の式を用いて求めることができる.
+\begin{center}
+    $\displaystyle I=\int_Az^2dA$
+\end{center}
+\begin{itembox}[l]{代表的な断面二次モーメント}
+    \begin{center}
+        長方形\quad$\dfrac{bh^3}{12}$
+        円\qquad$\dfrac{\pi D^4}{64}$
+        三角形\quad$\dfrac{bh^3}{36}$
     \end{center}
 \end{itembox}
 \subsection{たわみの微分方程式}
 \begin{itembox}[l]{たわみの微分方程式}
     \begin{center}
-        $\dfrac{d^2w}{dx^2}=-\dfrac{M}{EI_z}$\\
+        $\dfrac{d^2w}{dx^2}=-\dfrac{M}{EI}$\\
         $\dfrac{dw}{dx}=\theta\left(x\right)$ ：たわみ角 (1回積分)\\
         $w\left(x\right)$ :たわみ (２回積分)
     \end{center}
