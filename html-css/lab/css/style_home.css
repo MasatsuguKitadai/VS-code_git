@@ -85,7 +85,6 @@ nav ul li{
 
 nav ul li a{
     color: #fff;
-    display: inline-block;
     transition: all .3s ease 0s;
     text-decoration: none;
 }
