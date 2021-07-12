@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  12 JUL 2021 17:56
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  12 JUL 2021 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -477,20 +477,21 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 61.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 61.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 70.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 70.
  [1
 
-] [2]
-Underfull \hbox (badness 10000) detected at line 206
+]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 71.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 71.
+ [2] [3]
+Underfull \hbox (badness 10000) detected at line 207
 []$[]$[]
  []
 
-[3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+[4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
 File: images/continuity_equation.jpg Graphic file (type bmp)
- <images/continuity_equation.jpg> [19] [20] (./document.aux)
+ <images/continuity_equation.jpg> [20] [21] (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 2A63D11EB154F3A7ABDA379B43F9F565;2472.
  ) 
@@ -501,6 +502,6 @@ Here is how much of TeX's memory you used:
  29128 multiletter control sequences out of 15000+600000
  417781 words of font info for 95 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,12n,66p,317b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,66p,317b,399s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.dvi (20 pages, 80536 bytes).
+Output written on document.dvi (21 pages, 80856 bytes).

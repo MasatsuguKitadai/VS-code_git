@@ -89,7 +89,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #7f00ff;
+    color: #0ae;
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -97,7 +97,7 @@ nav ul li a:hover {
 .nav_box {
     width: 100px;
     height: 100px;
-    background-color: #7f00ff;
+    background-color: #0ae;
 }
 
 /********************************/
@@ -125,7 +125,7 @@ main {
 .color_bar {
     width: 15px;
     height: 100px;
-    background-color: #7f00ff;
+    background-color: #0ae;
 }
 
 .box_1 {
