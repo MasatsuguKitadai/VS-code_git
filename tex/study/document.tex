@@ -11,6 +11,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
 \usepackage{listings}
 \usepackage{listings,jvlisting}
 \usepackage{geometry}
@@ -20,6 +21,9 @@
 \usepackage{ascmac}
 \usepackage{enumerate}
 \usepackage{tabularx}
+
+\renewcommand{\figurename}{fig.}
+\renewcommand{\tablename}{table }
 
 \hypersetup{
 	colorlinks=false, % リンクに色をつけない設定
@@ -745,19 +749,65 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 \section{熱力学}
 \newpage
 \section{流体力学}
+\subsection{粘性流体の力学}
+流体の運動における未知量は、\textgt{速度、圧力、密度、温度}である。\\
+また、\textgt{時間$\left(t\right)$、空間$\left(x,y,z\right)$}の関数である。\\
+\begin{eqnarray*}
+    (圧縮性流体)&&\quad 未知量は4つ\quad 速度\left(u,v,w\right),圧力\left(p\right)\\
+    (非圧縮性流体)&&\quad 未知量は6つ\quad 速度\left(u,v,w\right),圧力\left(p\right),密度\left(\rho\right),温度\left(T\right)
+\end{eqnarray*}
 \subsection{流体の質量保存則}
 \begin{itembox}[l]{連続の式}
     \begin{eqnarray*}
-        \dfrac{\partial\rho}{\partial t}+\dfrac{\partial u}{\partial x}+\dfrac{\partial v}{\partial y}+\dfrac{\partial w}{\partial z}&=&0\quad(3次元)\\
-        \dfrac{\partial\rho}{\partial t}+\dfrac{\partial u}{\partial x}+\dfrac{\partial v}{\partial y}&=&0\quad(2次元)
+        \dfrac{\partial\rho}{\partial t}+\dfrac{\partial \left(\rho u\right)}{\partial x}+\dfrac{\partial \left(\rho v\right)}{\partial y}+\dfrac{\partial \left(\rho w\right)}{\partial z}&=&0\quad(3次元)\\
+        \dfrac{\partial\rho}{\partial t}+\dfrac{\partial \left(\rho u\right)}{\partial x}+\dfrac{\partial \left(\rho v\right)}{\partial y}&=&0\quad(2次元)
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{2次元の連続の式の導出}
 \begin{figure}[htbp]
     \begin{center}
-        \includegraphics[width=50mm]{images/continuity_equation.jpg}
+        \includegraphics[width=120mm]{images/continuity_equation.jpg}
+        \caption{R3 試験問題[7]}
     \end{center}
 \end{figure}
+図1において、連続の式を導出する。
+\begin{itembox}[l]{Point}
+    \begin{center}
+        流れについて\textgt{空間}および\textgt{時間}の観点から保存則を立てる!!
+    \end{center}
+\end{itembox}
+\noindent$\delta t$間に流入する流体の質量を$M_{in}$、$\delta t$間に流出する流体の質量を$M_{out}$、$\delta t$間の質量増加量を$\Delta M$とすると、\\
+・\textgt{流入・流出量(空間的観点)}
+\begin{eqnarray*}
+    M_{in}&=&\left(\rho u\right)_{x-\frac{1}{2}\delta x}\delta y \delta t+\left(\rho v\right)_{y-\frac{1}{2}\delta y}\delta x \delta t\\
+    M_{out}&=&\left(\rho u\right)_{x+\frac{1}{2}\delta x}\delta y \delta t+\left(\rho v\right)_{y+\frac{1}{2}\delta y}\delta x \delta t\\
+\end{eqnarray*}
+\noindent
+・\textgt{質量増加量(時間的観点)}
+\begin{eqnarray*}
+    \Delta M=\left(\rho\right)_{t+\frac{1}{2}\delta t}\delta x \delta y+\left(\rho\right)_{t-\frac{1}{2}\delta t}\delta x \delta y
+\end{eqnarray*}
+質量保存則より、
+\begin{eqnarray*}
+    (質量増加量)&=&(流入量)-(流出量)\\
+    \Delta M&=&\quad M_{in}\quad -\quad M_{out}\\
+\end{eqnarray*}
+※ 「増加量」は「流入量」$\geq$「流出量」のときに増加する\\
+ここで、$\delta x, \delta y, \delta t$のオーダまでTaylor級数展開すると\\
+\begin{eqnarray*}
+    \left(\rho u\right)_{x\pm \frac{1}{2}\delta x}&=&\rho u\pm \frac{\delta x}{2}\frac{\partial\left(\rho u\right)}{\partial x}+O\left(\delta x^2\right)\\
+    \left(\rho v\right)_{y\pm \frac{1}{2}\delta y}&=&\rho v\pm \frac{\delta y}{2}\frac{\partial\left(\rho v\right)}{\partial y}+O\left(\delta y^2\right)\\
+    \left(\rho\right)_{t\pm \frac{1}{2}\delta t}&=&\rho \pm \frac{\delta t}{2}\frac{\partial \rho}{\partial t}+O\left(\delta t^2\right)
+\end{eqnarray*}
+したがって、上式を代入すると、
+\begin{eqnarray*}
+    \dfrac{\partial p}{\partial t}\delta x \delta y \delta t&=&-\left(\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}\right)\delta x \delta y \delta t\\
+\end{eqnarray*}
+これを変形して、
+\begin{eqnarray*}
+    \dfrac{\partial p}{\partial t}+\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}&=&0
+\end{eqnarray*}
+以上より、2次元空間における連続の式を導くことができた。
 \subsection{流体のエネルギー保存則}
 \begin{itembox}[l]{ベルヌーイの定理}
     \begin{center}
@@ -767,11 +817,20 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 ※ ベルヌーイの定理は、\textgt{エネルギー保存則}であるのでエネルギーの損失 (圧力損失 等) がある場合は適用できない!!\\
 → 運動量保存則が適用される
 \subsection{流体の運動量の法則}
+\begin{itembox}[l]{運動量保存則}
+    \begin{eqnarray*}
+        \displaystyle \Sigma mv=Ft
+    \end{eqnarray*}
+    両辺を時間$t$で微分すると、
+    \begin{eqnarray*}
+        \displaystyle \Sigma \dot{m}v=F
+    \end{eqnarray*}
+\end{itembox}
 \subsection{流体の運動方程式}
 \begin{itembox}[l]{ナビエ・ストークス方程式(2次元)}
     \begin{eqnarray*}
-        \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+\nu\left(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}\right)\quad(x方向)+f_x\\
-        \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial y}+\nu\left(\dfrac{\partial^2 v}{\partial x^2}+\dfrac{\partial^2 v}{\partial y^2}\right)\quad(y方向)+f_y
+        \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+\nu\left(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}\right)+f_x\quad(x方向)\\
+        \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial y}+\nu\left(\dfrac{\partial^2 v}{\partial x^2}+\dfrac{\partial^2 v}{\partial y^2}\right)+f_y\quad(y方向)
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{2次元のナビエ・ストークス方程式の導出}
