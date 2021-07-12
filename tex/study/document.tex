@@ -301,6 +301,29 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{center}
 \end{itembox}
 \subsection{1変数の積分}
+\subsubsection{広義積分}
+何らかの定積分の積分区間を動かし、極限をとったものを\textgt{広義積分}という。\\
+考え方 : めんどくさい処理(極限をとる)を後回しにする
+\begin{center}
+    $\displaystyle\int ^1_{-1} \dfrac{1}{\sqrt{|x|}}dx$
+\end{center}
+を解くことを考える。
+はじめに、絶対値の区間について積分を分ける。
+\begin{eqnarray*}
+    \displaystyle\int ^1_{-1} \dfrac{1}{\sqrt{|x|}}dx=\int ^0_{-1} \dfrac{1}{\sqrt{-x}}+\int ^1_{0} \dfrac{1}{\sqrt{x}}dx
+\end{eqnarray*}
+このままだと、$0$で発散してしまう。\\
+ここで、$x=0$の\textgt{近傍$\left(-\varepsilon,\varepsilon'\right)$を除いた区間の積分}を求め、
+後に近傍の幅を狭めていき\textgt{近傍$\left(-\varepsilon,\varepsilon'\right)$を除いた区間の積分}を求める。
+\begin{eqnarray*}
+    \displaystyle
+    \int ^1_{-1} \dfrac{1}{\sqrt{|x|}}dx&=&\int ^0_{-1} \dfrac{1}{\sqrt{-x}}+\int ^1_{0} \dfrac{1}{\sqrt{x}}dx\\
+    &=&\lim_{\varepsilon\rightarrow 0}\int ^{-\varepsilon}_{-1} \dfrac{1}{\sqrt{-x}}+\lim_{\varepsilon'\rightarrow 0}\int ^1_{\varepsilon'} \dfrac{1}{\sqrt{x}}dx\\
+    &=&\lim_{\varepsilon\rightarrow 0}\left[-2\sqrt{-x}\right]^{-\varepsilon}_{-1}+\lim_{\varepsilon'\rightarrow0}\left[2\sqrt{x}\right]^{1}_{\varepsilon}\\
+    &=&\lim_{\varepsilon\rightarrow 0}\left(-2\sqrt{\varepsilon}+2\sqrt{1}\right)+\lim_{\varepsilon'\rightarrow0}\left(2\sqrt{1}-1\sqrt{\varepsilon'}\right)\\
+    &=&2\sqrt{1}+2\sqrt{1}\\
+    &=&4
+\end{eqnarray*}
 \subsubsection{偶関数と奇関数}
 
 \subsection{多変数関数}
@@ -328,6 +351,18 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \begin{itembox}[l]{接平面の方程式}
     \begin{center}
         $z-f\left(a,b\right)=f_x\left(a,b\right)\left(x-a\right)+f_y\left(a,b\right)\left(y-b\right)$
+    \end{center}
+\end{itembox}
+また、法線ベクトル、法線の方程式は、以下のように求めることができる。
+\begin{itembox}[l]{法線ベクトル}
+    \begin{center}
+        $ \vec{n}=
+            \begin{bmatrix}
+                f_x\left(a,b\right) \\
+                f_y\left(a,b\right) \\
+                -1                  \\
+            \end{bmatrix}
+        $
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{法線の方程式}
@@ -526,7 +561,82 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
               $y=\exp\left(-\int p\left(x\right)dx\right)\left[\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx+C\right]$
     \end{enumerate}
 \end{itembox}
-※ 特殊解は「$y=\cdots$」の形で出てくる ($C\left(x\right)$は\textgt{特殊解でない}!!)
+※ 特殊解は「$y=\cdots$」の形で出てくる ($C\left(x\right)$は\textgt{特殊解でない}!!)\\
+\begin{itembox}[l]{解法(iii) 積分因子}
+    \begin{enumerate}[(1)]
+        \item 両辺に$\exp{\left(\int p\left(x\right)dx\right)}$(\textgt{積分因子})をかけると(ここでは積分因子は必要ない)\\
+              $\exp{\left(\int p\left(x\right)dx\right)}y'+\exp{\left(\int p\left(x\right)dx\right)}p\left(x\right)y=\exp{\left(\int p\left(x\right)dx\right)}q\left(x\right)$\\
+              上式を変形すると、以下のように変形できる\\
+              $\left[\exp{\left(\int p\left(x\right)dx\right)}y\right]'=\exp{\left(\int p\left(x\right)dx\right)}q\left(x\right)$
+        \item 両辺を$x$で積分\\
+              $\exp{\left(\int p\left(x\right)dx\right)}y=\int q\left(x\right)\exp{\left(\int p\left(x\right)dx\right)}dx+C$\\
+              整理すると、\\
+              $y=\exp{\left(-\int p\left(x\right)dx\right)}\left[\int q\left(x\right)\exp{\left(\int p\left(x\right)dx\right)}dx+C\right]$
+        \item 定数変化法と同じ一般解が得られる
+    \end{enumerate}
+\end{itembox}
+\subsubsection{ベルヌーイの微分方程式}
+\begin{eqnarray*}
+    y'+p\left(x\right)y=q\left(x\right)y^{\alpha}\quad\left(\alpha\neq 0,1\right)
+\end{eqnarray*}
+\textgt{非線形微分方程式}とは、$y,y'$に対して一次ではないもののこと\\
+非線形微分方程式には、\textgt{一般的な解法はない}!!
+\begin{itembox}[l]{解法}
+    考え方 : $y^{\alpha}$がなければいいな\dots
+    \begin{enumerate}[(1)]
+        \item $y^{\alpha}\neq 0$のとき、両辺を$y^{\alpha}$で割る\\
+              $y^{-\alpha} y'+p\left(x\right)y^{1-\alpha}=q\left(x\right)$
+        \item $u=y^{1-\alpha}$とおく、このとき$u'=\left(1-\alpha\right)y^{-\alpha}y'$となるので、\\
+              $\dfrac{1}{1-\alpha}u'+p\left(x\right)u=q\left(x\right)$と変形できる
+        \item 両辺に$\left(1-\alpha\right)$をかけると\\
+              $u'+\left(1-\alpha\right)p\left(x\right)u=\left(1-\alpha\right)q\left(x\right)$
+        \item 線形の微分方程式に帰着できる
+    \end{enumerate}
+\end{itembox}
+\subsection{完全微分方程式}
+\begin{center}
+    $F_x\left(x,y\right)dx+F_y\left(x,y\right)dy=0$ (関数$F\left(x,y\right)$の全微分)
+\end{center}
+の形の微分方程式を\textgt{完全微分方程式}という。
+\begin{itembox}[l]{解法}
+    考え方 : $P\left(x,y\right)dx+Q\left(x,y\right)dy=0$の完全微分形であれば解ける!!\\
+    ※ 完全微分形 → $P\left(x\right)=F_x\left(x,y\right),Q\left(x,y\right)=F_y\left(x,y\right)$
+    \begin{enumerate}[(1)]
+        \item  $dF=F_x\left(x,y\right)dx+F_y\left(x,y\right)dy=0$より、一般解は$F\left(x,y\right)=C$
+    \end{enumerate}
+\end{itembox}
+その完全微分形になる$F\left(x,y\right)$が存在するかどうかをどう判定するのか??
+\begin{itembox}[l]{定理}
+    $P\left(x,y\right),Q\left(x,y\right)$がある領域内で$x,y$に関する偏導関数が連続であるとき、\\
+    $P\left(x,y\right)dx+Q\left(x,y\right)dy=0$の完全微分形である必要十分条件は、領域$D$内で
+    \begin{eqnarray*}
+        P_y\left(x,y\right)+Q_x\left(x,y\right)=0
+    \end{eqnarray*}
+    が成り立つことである。
+\end{itembox}
+\subsubsection{具体的な$F\left(x,y\right)$の探し方}
+$F_x\left(x,y\right)=P\left(x,y\right)$より、
+\begin{center}
+    $F\left(x,y\right)=\displaystyle\int P\left(x,y\right)dx+G\left(y\right)$
+\end{center}
+これを、$F_x\left(x,y\right)=Q\left(x,y\right)$に代入して
+\begin{center}
+    $\displaystyle\dfrac{dG\left(y\right)}{dy}=Q\left(x,y\right)-\dfrac{\partial}{\partial y}\int P\left(x,y\right)dx$
+\end{center}
+上式が$G\left(x\right)$が満たさなければならない条件である。ここで、$y$で両辺を積分すると、
+\begin{center}
+    $\displaystyle G\left(y\right)=\int \left[Q\left(x,y\right)-\dfrac{\partial}{\partial y}\int P\left(x,y\right)dx\right]$
+\end{center}
+※ 積分の中身は、\textgt{$x$を含まない式}になっている!!\\
+上式の形より、$Q\left(x\right)$のうち、$x$を含む項は$\dfrac{\partial}{\partial y}\int P\left(x,y\right)dx$から現れる項と相殺する。\\
+したがって、$G\left(y\right)=$「$\int Q\left(x,y\right)dy$のうち$y$のみを含む項」であるといえる。
+\begin{itembox}[l]{まとめ}
+    \begin{enumerate}[(1)]
+        \item $I=\int P\left(x,y\right)dx,J=\int Q\left(x,y\right)dy$とする(積分定数は不要)
+        \item $J$の項のうち$y$のみを含む項を$I$に加えたものを$F\left(x,y\right)$とする(この逆も可能)
+        \item $F\left(x,y\right)=C$が一般解となる
+    \end{enumerate}
+\end{itembox}
 \newpage
 \section{材料力学}
 \subsection{引張・圧縮}
@@ -537,9 +647,9 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
             \sigma&=&\dfrac{P}{A}\\
             \varepsilon&=&\dfrac{\lambda}{L}\\
             \sigma&=&E\varepsilon\\
-            P&=&\dfrac{AE}{l}\lambda=AE\varepsilon
+            P&=&\dfrac{AE}{l}\lambda=AE\varepsilon\\
+            AE&:&引張剛性
         \end{eqnarray*}
-        $AE$  :引張剛性
     \end{center}
 \end{itembox}
 \subsection{ねじり・せん断応力}
@@ -550,12 +660,40 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
             \tau\left(r\right)&=&\dfrac{T}{I_p} r\\
             \gamma\left(r\right)&=&\dfrac{\lambda\left(r\right)}{L}=\dfrac{\varphi}{L}r=\theta r\\
             \tau\left(r\right)&=&G\gamma\left(r\right)=G\theta r\\
-            T&=&\dfrac{I_pG}{L}\varphi
+            T&=&\dfrac{I_pG}{L}\varphi\\
+            I_p&:&断面二次極モーメント\\
+            \theta=\dfrac{\varphi}{L}&:&比ねじれ角\\
+            I_pG&:&ねじれ剛性
         \end{eqnarray*}
-        $I_p$ :断面二次極モーメント\\
-        $\theta=\dfrac{\varphi}{L}$ :比ねじれ角\\
-        $I_pG$  :ねじれ剛性
     \end{center}
+\end{itembox}
+\subsubsection{断面二次極モーメント}
+半径$r$に関する(極座標に関する)断面二次モーメントのことを\textgt{断面二次極モーメント}という。
+\begin{itembox}[l]{断面二次極モーメント}
+    \begin{eqnarray*}
+        \displaystyle I_p=\int r^2dA
+    \end{eqnarray*}
+\end{itembox}
+ここで、$x=r\cos\theta,y=\sin\theta$とすると、$r^2=x^2+y^2$と表せるので、
+\begin{eqnarray*}
+    \displaystyle I_p=\int r^2dA=\int \left(x^2+y^2\right)dA=\int x^2dA+\int y^2dA
+\end{eqnarray*}
+ここで、ある図形に対して直交座標系を考え、$x$軸及び$y$軸における断面二次モーメントをそれぞれ$I_x,I_y$とすると、
+\begin{eqnarray*}
+    \displaystyle
+    I_x&=&\int x^2dAa\\
+    I_y&=&\int y^2dA
+\end{eqnarray*}
+であるので、断面二次極モーメントは以下のように表すことができる。
+\begin{eqnarray*}
+    I_p=I_x+I_y
+\end{eqnarray*}
+したがって、断面二次極モーメントは直交座標系における\textgt{$x$軸、$y$軸の断面二次モーメントを足し合わせた値}になる.\\
+\begin{itembox}[l]{代表的な断面二次極モーメント}
+    \begin{eqnarray*}
+        円\qquad&&\dfrac{\pi D^4}{32}\quad(直径:D)\\
+        円筒\quad&&\dfrac{\pi}{32}\left(D_1^2-D_2^2\right)\quad(外径:D_1,内径:D_2))\\
+    \end{eqnarray*}
 \end{itembox}
 \subsection{曲げ}
 \subsubsection{重要公式}
@@ -570,24 +708,25 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
 \subsubsection{断面二次モーメント}
 断面二次モーメントは,部材の断面形状の特性を表した値であり,
 その形状が曲げに対してどのくらい\textgt{硬い}のかを表す.
-また,以下の式を用いて求めることができる.
-\begin{center}
-    $\displaystyle I=\int_Az^2dA$
-\end{center}
+\begin{itembox}[l]{断面二次モーメント}
+    \begin{eqnarray*}
+        \displaystyle I=\int_Az^2dA
+    \end{eqnarray*}
+\end{itembox}
 \begin{itembox}[l]{代表的な断面二次モーメント}
-    \begin{center}
-        長方形\quad$\dfrac{bh^3}{12}$
-        円\qquad$\dfrac{\pi D^4}{64}$
-        三角形\quad$\dfrac{bh^3}{36}$
-    \end{center}
+    \begin{eqnarray*}
+        長方形\quad&&\dfrac{bh^3}{12}\quad(高さ:h,幅:b)\\
+        円\qquad&&\dfrac{\pi D^4}{64}\quad(直径:D)\\
+        三角形\quad&&\dfrac{bh^3}{36}\quad(高さ:h,幅:b)\\
+    \end{eqnarray*}
 \end{itembox}
 \subsection{たわみの微分方程式}
 \begin{itembox}[l]{たわみの微分方程式}
-    \begin{center}
-        $\dfrac{d^2w}{dx^2}=-\dfrac{M}{EI}$\\
-        $\dfrac{dw}{dx}=\theta\left(x\right)$ ：たわみ角 (1回積分)\\
-        $w\left(x\right)$ :たわみ (２回積分)
-    \end{center}
+    \begin{eqnarray*}
+        \dfrac{d^2w}{dx^2}&=&-\dfrac{M}{EI}\\
+        \dfrac{dw}{dx}&=&\theta\left(x\right):たわみ角 (1回積分)\\
+        &&w\left(x\right):たわみ(2回積分)
+    \end{eqnarray*}
 \end{itembox}
 \subsection{線膨張係数と熱応力}
 \begin{itembox}[l]{熱ひずみの公式}
@@ -595,13 +734,61 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
         $\varepsilon=\alpha\Delta T$
     \end{center}
 \end{itembox}
-\subsection{破断説}
+\subsection{材料の破断説}
+\subsubsection{最大主応力説}
+\subsubsection{最大せん断応力説}
+\subsubsection{せん断ひずみエネルギー説}
+\newpage
+\section{機械力学}
+\newpage
+\section{熱力学}
+\newpage
 \section{流体力学}
+\subsection{流体の質量保存則}
+\begin{itembox}[l]{連続の式}
+    \begin{eqnarray*}
+        \dfrac{\partial\rho}{\partial t}+\dfrac{\partial u}{\partial x}+\dfrac{\partial v}{\partial y}+\dfrac{\partial w}{\partial z}&=&0\quad(3次元)\\
+        \dfrac{\partial\rho}{\partial t}+\dfrac{\partial u}{\partial x}+\dfrac{\partial v}{\partial y}&=&0\quad(2次元)
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{2次元の連続の式の導出}
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=50mm]{images/continuity_equation.jpg}
+    \end{center}
+\end{figure}
 \subsection{流体のエネルギー保存則}
 \begin{itembox}[l]{ベルヌーイの定理}
     \begin{center}
         $\dfrac{1}{2}\dot{m}v^2+\dot{m}\dfrac{p}{\rho}+\dot{m}gz=const$
     \end{center}
 \end{itembox}
-
+※ ベルヌーイの定理は、\textgt{エネルギー保存則}であるのでエネルギーの損失 (圧力損失 等) がある場合は適用できない!!\\
+→ 運動量保存則が適用される
+\subsection{流体の運動量の法則}
+\subsection{流体の運動方程式}
+\begin{itembox}[l]{ナビエ・ストークス方程式(2次元)}
+    \begin{eqnarray*}
+        \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+\nu\left(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}\right)\quad(x方向)+f_x\\
+        \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial y}+\nu\left(\dfrac{\partial^2 v}{\partial x^2}+\dfrac{\partial^2 v}{\partial y^2}\right)\quad(y方向)+f_y
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{2次元のナビエ・ストークス方程式の導出}
+\subsection{流体のせん断応力}
+流体の流れに平行な軸を$x$軸、垂直な軸を$y$とすると,せん断応力$\tau\left(y\right)$は以下のように表せる。
+\begin{itembox}[l]{せん断応力(2次元)}
+    \begin{eqnarray*}
+        \tau\left(y\right)=\dfrac{du}{dy}
+    \end{eqnarray*}
+\end{itembox}
+\subsection{レイノルズ数}
+\begin{itembox}[l]{レイノルズ数}
+    \begin{eqnarray*}
+        \mathrm{Re}&=&\dfrac{UL}{\nu}\\
+        \mathrm{Re} &:& レイノルズ数\\
+        U &:& 代表速度\\
+        L &:& 代表長さ\\
+        \nu &:& 動粘性係数
+    \end{eqnarray*}
+\end{itembox}
 \end{document}
