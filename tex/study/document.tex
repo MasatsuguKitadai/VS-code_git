@@ -295,15 +295,34 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 関数のべき級数展開とは,関数を多項式で近似していくことを指す.
 工学分野では,必要不可欠なツールであり,出題内容として(1) 関数を展開する問題
 (2) 近似・誤差の評価という2種類が主なものである.
+※ 複雑な関数を\textgt{多項式}で表すことができる!!
 \subsubsection{Taylor展開}
-\begin{itembox}[l]{Taylor展開}
-    \begin{center}
-        $f\left(x\right)=f\left(0\right)+f^{\left(1\right)}\left(0\right)x
-            +\dfrac{f^{\left(2\right)}\left(0\right)}{2}x^2
-            +\dfrac{f^{\left(3\right)}\left(0\right)}{3}x^3
-            +\dots
-            +\dfrac{f^{\left(n\right)}\left(0\right)}{n}x^n$
-    \end{center}
+点$a$周りのTaylor展開は以下のように書き表せる。
+\begin{itembox}[l]{taylor展開}
+    \begin{eqnarray*}
+        f\left(x\right)&=&
+        \displaystyle\sum_{n=a}^{\infty}{\dfrac{f^{\left(n\right)}\left(a\right)}{n!}}\left(x-a\right)^n\\
+        &=&
+        f\left(a\right)
+        +f^{\left(1\right)}\left(a\right)\left(x-a\right)
+        +\dfrac{f^{\left(2\right)}\left(a\right)}{2!}\left(x-a\right)^2
+        +\dfrac{f^{\left(3\right)}\left(a\right)}{3!}\left(x-a\right)^3
+        +\cdots
+        +\dfrac{f^{\left(n\right)}\left(a\right)}{n!}\left(x-a\right)^n+\cdots\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{Maclaurin展開}
+特に、$a=0$(原点周り)におけるTaylor展開のことを\textgt{Maclaurin展開}という。
+\begin{itembox}[l]{Maclaurin展開}
+    \begin{eqnarray*}
+        f\left(x\right)=
+        \displaystyle\sum_{n=0}^{\infty}{\dfrac{f^{\left(n\right)}\left(0\right)}{n!}}x^n=
+        f\left(0\right)+f^{\left(1\right)}\left(0\right)x
+        +\dfrac{f^{\left(2\right)}\left(0\right)}{2!}x^2
+        +\dfrac{f^{\left(3\right)}\left(0\right)}{3!}x^3
+        +\cdots
+        +\dfrac{f^{\left(n\right)}\left(0\right)}{n!}x^n+\cdots
+    \end{eqnarray*}
 \end{itembox}
 \subsection{1変数の積分}
 \subsubsection{広義積分}
@@ -763,51 +782,6 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
         \dfrac{\partial\rho}{\partial t}+\dfrac{\partial \left(\rho u\right)}{\partial x}+\dfrac{\partial \left(\rho v\right)}{\partial y}&=&0\quad(2次元)
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{2次元の連続の式の導出}
-\begin{figure}[htbp]
-    \begin{center}
-        \includegraphics[width=120mm]{images/continuity_equation.jpg}
-        \caption{R3 試験問題[7]}
-    \end{center}
-\end{figure}
-図1において、連続の式を導出する。
-\begin{itembox}[l]{Point}
-    \begin{center}
-        流れについて\textgt{空間}および\textgt{時間}の観点から保存則を立てる!!
-    \end{center}
-\end{itembox}
-\noindent$\delta t$間に流入する流体の質量を$M_{in}$、$\delta t$間に流出する流体の質量を$M_{out}$、$\delta t$間の質量増加量を$\Delta M$とすると、\\
-・\textgt{流入・流出量(空間的観点)}
-\begin{eqnarray*}
-    M_{in}&=&\left(\rho u\right)_{x-\frac{1}{2}\delta x}\delta y \delta t+\left(\rho v\right)_{y-\frac{1}{2}\delta y}\delta x \delta t\\
-    M_{out}&=&\left(\rho u\right)_{x+\frac{1}{2}\delta x}\delta y \delta t+\left(\rho v\right)_{y+\frac{1}{2}\delta y}\delta x \delta t\\
-\end{eqnarray*}
-\noindent
-・\textgt{質量増加量(時間的観点)}
-\begin{eqnarray*}
-    \Delta M=\left(\rho\right)_{t+\frac{1}{2}\delta t}\delta x \delta y+\left(\rho\right)_{t-\frac{1}{2}\delta t}\delta x \delta y
-\end{eqnarray*}
-質量保存則より、
-\begin{eqnarray*}
-    (質量増加量)&=&(流入量)-(流出量)\\
-    \Delta M&=&\quad M_{in}\quad -\quad M_{out}\\
-\end{eqnarray*}
-※ 「増加量」は「流入量」$\geq$「流出量」のときに増加する\\
-ここで、$\delta x, \delta y, \delta t$のオーダまでTaylor級数展開すると\\
-\begin{eqnarray*}
-    \left(\rho u\right)_{x\pm \frac{1}{2}\delta x}&=&\rho u\pm \frac{\delta x}{2}\frac{\partial\left(\rho u\right)}{\partial x}+O\left(\delta x^2\right)\\
-    \left(\rho v\right)_{y\pm \frac{1}{2}\delta y}&=&\rho v\pm \frac{\delta y}{2}\frac{\partial\left(\rho v\right)}{\partial y}+O\left(\delta y^2\right)\\
-    \left(\rho\right)_{t\pm \frac{1}{2}\delta t}&=&\rho \pm \frac{\delta t}{2}\frac{\partial \rho}{\partial t}+O\left(\delta t^2\right)
-\end{eqnarray*}
-したがって、上式を代入すると、
-\begin{eqnarray*}
-    \dfrac{\partial p}{\partial t}\delta x \delta y \delta t&=&-\left(\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}\right)\delta x \delta y \delta t\\
-\end{eqnarray*}
-これを変形して、
-\begin{eqnarray*}
-    \dfrac{\partial p}{\partial t}+\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}&=&0
-\end{eqnarray*}
-以上より、2次元空間における連続の式を導くことができた。
 \subsection{流体のエネルギー保存則}
 \begin{itembox}[l]{ベルヌーイの定理}
     \begin{center}
@@ -819,21 +793,100 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 \subsection{流体の運動量の法則}
 \begin{itembox}[l]{運動量保存則}
     \begin{eqnarray*}
-        \displaystyle \Sigma mv=Ft
+        \displaystyle\sum mv=Ft
     \end{eqnarray*}
     両辺を時間$t$で微分すると、
     \begin{eqnarray*}
-        \displaystyle \Sigma \dot{m}v=F
+        \displaystyle\sum \dot{m}v=F
     \end{eqnarray*}
 \end{itembox}
 \subsection{流体の運動方程式}
+\subsubsection{流体の運動を表す2つの運動方程式}
+\begin{itembox}[l]{オイラーの運動方程式(2次元)}
+    \begin{eqnarray*}
+        \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+f_x\quad(x方向)\\
+        \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+f_y\quad(y方向)
+    \end{eqnarray*}
+\end{itembox}
 \begin{itembox}[l]{ナビエ・ストークス方程式(2次元)}
+    ※ 非圧縮性流体
     \begin{eqnarray*}
         \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+\nu\left(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}\right)+f_x\quad(x方向)\\
         \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial y}+\nu\left(\dfrac{\partial^2 v}{\partial x^2}+\dfrac{\partial^2 v}{\partial y^2}\right)+f_y\quad(y方向)
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{2次元のナビエ・ストークス方程式の導出}
+\subsubsection{オイラーの運動方程式とナビエ・ストークス方程式の違い}
+2つの方程式を見比べてみると、オイラーの運動方程式はナビエ・ストークス方程式から\textgt{粘性項}を除いたものとなっている。
+したがって、オイラーの運動方程式では、流体の粘性について考慮されていないことになる。\\
+オイラーの運動方程式に従った簡単な例を挙げると、自動車の走行中に流体から力(空気抵抗)を受けないことになる。(実際は抵抗を受ける)\\
+また、このパラドクスのことを\textgt{ダランベールの背理}という。そこで、このパラドクスを解くために考え出されたのが、\textgt{ナビエ・ストークス方程式}である。\\
+※ オイラーの運動方程式に支配される流体を\textgt{完全流体}という。\\
+※ ナビエ・ストークス方程式に支配される流体を\textgt{ニュートン流体}という。(粘性によるせん断応力と速度勾配が比例関係になるような流体)
+\subsection{2次元の連続の式・オイラーの運動方程式の導出}
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=120mm]{images/continuity_equation.jpg}
+        \caption{R3 試験問題[7]}
+    \end{center}
+\end{figure}
+\subsubsection{2次元の連続の式の導出}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        時刻$t-\delta t/2\leq t \leq t+\delta t/2$の微小時間$\delta t$間の流れについて\textgt{空間}・\textgt{時間}の観点から保存則を立てる!!
+    \end{center}
+\end{itembox}
+図1において、連続の式を導出する。
+\noindent$\delta t$間に流入する流体の質量を$M_{in}$、$\delta t$間に流出する流体の質量を$M_{out}$、$\delta t$間の質量増加量を$\Delta M$とすると、\\
+・\textgt{流入・流出量(空間的観点)}
+\begin{eqnarray*}
+    M_{in}&=&\left(\rho u\right)_{x-\frac{1}{2}\delta x}\delta y \delta t+\left(\rho v\right)_{y-\frac{1}{2}\delta y}\delta x \delta t\\
+    M_{out}&=&\left(\rho u\right)_{x+\frac{1}{2}\delta x}\delta y \delta t+\left(\rho v\right)_{y+\frac{1}{2}\delta y}\delta x \delta t\\
+\end{eqnarray*}
+\noindent
+・\textgt{質量増加量(時間的観点)}
+\begin{eqnarray*}
+    \Delta M=\left(\rho\right)_{t+\frac{1}{2}\delta t}\delta x \delta y-\left(\rho\right)_{t-\frac{1}{2}\delta t}\delta x \delta y
+\end{eqnarray*}
+質量保存則より、
+\begin{eqnarray*}
+    (質量増加量)&=&(流入量)-(流出量)\\
+    \Delta M&=&\quad M_{in}\quad -\quad M_{out}\\
+\end{eqnarray*}
+※ 「増加量」は「流入量」$\geq$「流出量」のときに増加する\\
+\\
+ここで、$\delta x, \delta y, \delta t$のオーダまでTaylor級数展開すると\\
+\\
+※ ここでは、点$(x,y)$周りの$\left(x,y\right)=\left(x\pm \frac{\delta x}{2},y\pm \frac{\delta y}{2}\right)$のときについて考えている。
+\begin{eqnarray*}
+    \left(\rho u\right)_{x\pm \frac{1}{2}\delta x}&=&\rho u\pm \frac{\delta x}{2}\frac{\partial\left(\rho u\right)}{\partial x}+O\left(\delta x^2\right)\\
+    \left(\rho v\right)_{y\pm \frac{1}{2}\delta y}&=&\rho v\pm \frac{\delta y}{2}\frac{\partial\left(\rho v\right)}{\partial y}+O\left(\delta y^2\right)\\
+    \left(\rho\right)_{t\pm \frac{1}{2}\delta t}&=&\rho \pm \frac{\delta t}{2}\frac{\partial \rho}{\partial t}+O\left(\delta t^2\right)
+\end{eqnarray*}
+したがって、上式を代入すると、
+\begin{eqnarray*}
+    \dfrac{\partial \rho}{\partial t}\delta x \delta y \delta t&=&-\left(\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}\right)\delta x \delta y \delta t\\
+\end{eqnarray*}
+これを変形して、
+\begin{eqnarray*}
+    \dfrac{\partial p}{\partial t}+\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}&=&0
+\end{eqnarray*}
+以上より、2次元空間における連続の式を導くことができた。
+\subsubsection{2次元のオイラーの運動方程式の導出}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{ニュートンの第二法則}\quad$F=ma$を流体について立てる!!
+    \end{center}
+\end{itembox}
+\textgt{($x$方向)}\\
+・\textgt{流体の質量:$m$}\\
+\begin{eqnarray*}
+    m=\rho \delta x \delta y
+\end{eqnarray*}
+・\textgt{加速度:$a$}\\
+$x$方向の速度$u$の全微分$du$は、
+\begin{eqnarray*}
+    du=\dfrac{\partial u}{\partial x}dx+\dfrac{\partial u}{\partial y}dy+\dfrac{\partial u}{\partial t}dt
+\end{eqnarray*}
 \subsection{流体のせん断応力}
 流体の流れに平行な軸を$x$軸、垂直な軸を$y$とすると,せん断応力$\tau\left(y\right)$は以下のように表せる。
 \begin{itembox}[l]{せん断応力(2次元)}
