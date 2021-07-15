@@ -414,6 +414,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \item 変数変換\\
           (重積分1)→\textgt{変数の変更}→(重積分2)→\textgt{計算用の式変換}→(累次積分)→\textgt{計算の実行}→(値)
 \end{enumerate}
+\subsubsection{累次積分}
 \subsubsection{具体的な手順}
 \begin{enumerate}[(1)]
     \item 積分領域(範囲)を求める
@@ -777,7 +778,10 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
         $\varepsilon=\alpha\Delta T$
     \end{center}
 \end{itembox}
-\subsection{材料の破断説}
+\subsection{BMDとSFD}
+\subsubsection{曲げ応力線図(BMD)}
+\subsubsection{せん断力線図(SFD)}
+\subsection{材料の破断}
 \subsubsection{最大主応力説}
 \subsubsection{最大せん断応力説}
 \subsubsection{せん断ひずみエネルギー説}
@@ -798,6 +802,76 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 外力がゼロのとき、自由振動という。また、
 \newpage
 \section{熱力学}
+\subsection{熱力学第一法則}
+\begin{center}
+    \textgt{熱}と\textgt{仕事}は本質的に同種のエネルギーであり、それらは互いに\textgt{変換可能}である
+\end{center}
+\subsubsection{閉じた系}
+物質の出入りのない系のことを\textgt{閉じた系}という。\quad 例) ピストン-シリンダ系
+\begin{itembox}[l]{閉じた系の熱力学第一法則}
+    \begin{eqnarray*}
+        Q&=&\Delta U+W\\
+        Q&:&受熱量\\
+        \Delta U&:&内部エネルギの変化量\\
+        W&:&絶対仕事\\
+    \end{eqnarray*}
+\end{itembox}
+また、内部エネルギの変化量$\Delta U$および、絶対仕事$W$は以下のように表される。
+\begin{eqnarray*}
+    \Delta U&=&mC_v\Delta T\\
+    W&=&\displaystyle \int PdV
+\end{eqnarray*}
+\subsubsection{開いた系}
+物質の出入りがある系のことを\textgt{開いた系}という。\quad 例) タービン\\
+また、このとき取り出される仕事を\textgt{工業仕事}という。
+\begin{itembox}[l]{開いた系の熱力学第一法則}
+    \begin{eqnarray*}
+        Q&=&\Delta H+W_t\\
+        Q&:&受熱量\\
+        \Delta H&:&エンタルピーの変化量\\
+        W_t&:&工業仕事\\
+    \end{eqnarray*}
+\end{itembox}
+また、エンタルピの変化量$\Delta H$および、工業仕事$W_t$は以下のように表される。
+\begin{eqnarray*}
+    \Delta H&=&mC_p\Delta T\\
+    W_t&=&\displaystyle \int VdP
+\end{eqnarray*}
+\subsection{理想気体}
+\begin{itembox}[l]{状態方程式}
+    \begin{eqnarray*}
+        PV&=&mRT\\
+        Pv&=&RT\quad (単位質量基準の場合)\\
+        ※v&:&比容積\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{マイヤーの法則}
+    \begin{eqnarray*}
+        C_p&=&C_v+R\\
+        C_p&:&定圧比熱\\
+        C_v&:&定容比熱\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{熱力学第二法則}
+\begin{center}
+    熱は高いほうから低いほうへと移動するという\textgt{不可逆現象}のことを指す。
+\end{center}
+\subsubsection{熱効率}
+\begin{itembox}[l]{熱効率}
+    \begin{eqnarray*}
+        \eta_{th}=\dfrac{W}{Q_H}=1-\dfrac{Q_L}{Q_H}
+    \end{eqnarray*}
+\end{itembox}
+\subsection{エントロピー}
+2つの状態間を\textgt{不可逆的に変化}させたとき、
+その変化の経路に無関係に$\displaystyle\int \frac{dQ}{T}=const$となる値(\textgt{状態量})のこと。\\
+また、その変化の不可逆性の大きさを示す。可逆断熱過程では、エントロピーの変化は\textgt{ゼロ}になる。
+\subsection{サイクル}
+\begin{itembox}[l]{カルノーサイクル}
+    \begin{center}
+        \textgt{断熱圧縮}\quad → \quad \textgt{等温膨張} \quad → \quad \textgt{断熱膨張} \quad → \quad \textgt{等温収縮}
+    \end{center}
+\end{itembox}
 \newpage
 \section{流体力学}
 \subsection{粘性流体の力学}
@@ -944,4 +1018,6 @@ $x$方向の速度$u$の全微分$du$は、
         \nu &:& 動粘性係数
     \end{eqnarray*}
 \end{itembox}
+\subsection{流れ関数}
+\subsection{速度ポテンシャル}
 \end{document}
