@@ -744,6 +744,25 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
         三角形\quad&&\dfrac{bh^3}{36}\quad(高さ:h,幅:b)\\
     \end{eqnarray*}
 \end{itembox}
+\subsubsection{断面二次モーメントの求め方}
+\begin{itembox}[l]{断面二次モーメントを求める具体的なステップ}
+    \begin{enumerate}[(1)]
+        \item 計算の基準になる$z$軸を決定する
+        \item 微小面積$dA$を求める
+        \item 基準の$z$軸に関して$I_z=\int_Az^2dA$を求める
+        \item 平行軸の定理を用いて解を求める
+    \end{enumerate}
+\end{itembox}
+\subsubsection{平行軸の定理}
+図心基準の断面二次モーメントから任意の軸基準の断面二次モーメントを求めるときに利用することができる。
+\begin{itembox}[l]{平行軸の定理}
+    調べる断面形状(断面積:$A$)の中立軸を$z$軸、それに平行に$z$だけ離れた位置の軸を$z'$軸とする。\\
+    中立軸に対する断面二次モーメントを$I_z$、$z$だけ離れた位置の断面二次モーメントを$I_{z'}$とすると、
+    以下のように表すことができる。
+    \begin{eqnarray*}
+        I_{z'}=I_z+Az^2
+    \end{eqnarray*}
+\end{itembox}
 \subsection{たわみの微分方程式}
 \begin{itembox}[l]{たわみの微分方程式}
     \begin{eqnarray*}
@@ -764,6 +783,19 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 \subsubsection{せん断ひずみエネルギー説}
 \newpage
 \section{機械力学}
+\subsection{運動方程式}
+\begin{itembox}[l]{1自由度並進振動系}
+    \begin{eqnarray*}
+        m\ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=f\left(t\right)
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{剛体円盤のねじり振動系}
+    \begin{eqnarray*}
+        I\ddot{\theta}\left(t\right)+c_\theta\dot{\theta}\left(t\right)+k_\theta\theta\left(t\right)=M\left(t\right)
+    \end{eqnarray*}
+\end{itembox}
+\subsection{自由振動}
+外力がゼロのとき、自由振動という。また、
 \newpage
 \section{熱力学}
 \newpage
@@ -813,6 +845,14 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
     \begin{eqnarray*}
         \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+\nu\left(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}\right)+f_x\quad(x方向)\\
         \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial y}+\nu\left(\dfrac{\partial^2 v}{\partial x^2}+\dfrac{\partial^2 v}{\partial y^2}\right)+f_y\quad(y方向)
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{極座標系の支配方程式}
+    ※ 非圧縮性流体
+    \begin{eqnarray*}
+        \dfrac{1}{r}\dfrac{\partial \left(rv_r\right)}{\partial r}+\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial \theta}=0\quad(連続の式)\\
+        \dfrac{\partial v_r}{\partial t}+v_r\dfrac{\partial v_r}{\partial r}+\dfrac{v_\theta}{r}\dfrac{\partial v_r}{\partial \theta}-\dfrac{{v_\theta}^2}{r}=\quad(r方向)\\
+        \quad(\theta 方向)
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{オイラーの運動方程式とナビエ・ストークス方程式の違い}
