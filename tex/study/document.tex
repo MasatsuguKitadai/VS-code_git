@@ -173,6 +173,18 @@ $AX=E$\quad を満たす、$x$を求めれば、それが$A^{-1}$になる。
     X=\left(x_1,x_2,\cdots,x_n\right)=\left(C_1,C_2,\cdots,C_n\right)
 \end{eqnarray*}
 が求める$A^{-1}$となる。
+\subsection{基底}
+$W$を部分空間とするとき、$W$内のベクトルの系$\left(v_1,v_2,\cdots,v_n\right)$に対して、
+以下の2つの条件が成立するとき$\left(v_1,v_2,\cdots,v_n\right)$を$W$の\textgt{基底}であるという。
+\begin{enumerate}[(1)]
+    \item $W$の任意のベクトルが,$\left(v_1,v_2,\cdots,v_n\right)$の一次結合で表される
+    \item $\left(v_1,v_2,\cdots,v_n\right)$は一次独立である
+\end{enumerate}
+条件より、$W$の任意のベクトル$\vec{v}$は
+\begin{eqnarray*}
+    \vec{v}=x_1v_1+x_2v_2+\cdots+x_nv_n
+\end{eqnarray*}
+とただ一通りに表すことができる。
 \subsection{行列式}
 \subsubsection{行列式の性質}
 ※ 同じ行(列)を含む行列式の値$0$になる。(行列式の交代性より)
@@ -213,16 +225,18 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \subsubsection{固有値と固有ベクトル固有値・固有ベクトルの物理的な意味}
 あるベクトル$X$があるとき,それにある行列$A$をかけると,
 そのベクトル$X$の\textgt{方向}は変わらず\textgt{倍率}のみ変化する.\\
-そのベクトルを\textgt{固有ベクトル},倍率を\textgt{固有値}という.\\
+そのベクトルを\textgt{固有ベクトル},倍率を\textgt{固有値}という.
 \subsubsection{固有値と固有ベクトルの定義}
 \begin{itembox}[l]{定義}
     $n$次正方行列$A$とスカラー$\lambda$に対し,
     \begin{center}
         $Ax=\lambda x$
     \end{center}
-    となる\textgt{零ベクトル$o$ではないベクトル$x$}が存在するとき,$\lambda$を$A$の\textgt{固有値}といい,\\
+    となる\textgt{零ベクトル$o$ではないベクトル$x$}が存在するとき,$\lambda$を$A$の\textgt{固有値}といい,
     $\lambda$に対し上の条件を満たす$o$ではないベクトル$x$を$A$の\textgt{固有ベクトル}という.\\
-    また,固有値を求める際には,$|\lambda E-A|=0$を解けば良い.
+    また、$\lambda$に対する固有ベクトル全体と零ベクトルを合わせてできた部分空間(実際に固有値を代入して整理した行列)を
+    $\lambda$に対する$A$の\textgt{固有空間}という。
+    ※ 固有値を求める際には,$|\lambda E-A|=0$を解けば良い.
 \end{itembox}
 \subsubsection{行列の対角化}
 正方行列$A$が与えられたとき,$B=P^{-1}AP$が対角行列になるような正則行列$P$と対角行列$B$を求めることを
@@ -790,16 +804,91 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 \subsection{運動方程式}
 \begin{itembox}[l]{1自由度並進振動系}
     \begin{eqnarray*}
-        m\ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=f\left(t\right)
+        m\ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=f\left(t\right)\\
     \end{eqnarray*}
 \end{itembox}
 \begin{itembox}[l]{剛体円盤のねじり振動系}
     \begin{eqnarray*}
-        I\ddot{\theta}\left(t\right)+c_\theta\dot{\theta}\left(t\right)+k_\theta\theta\left(t\right)=M\left(t\right)
+        I\ddot{\theta}\left(t\right)+c_\theta\dot{\theta}\left(t\right)+k_\theta\theta\left(t\right)=M\left(t\right)\\
     \end{eqnarray*}
 \end{itembox}
+\subsection{固有振動数と減衰比}
+\begin{itembox}[l]{固有振動数}
+    \begin{eqnarray*}
+        \omega_n = \sqrt{\dfrac{k}{m}}\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{center}
+    (\textgt{固有振動数})\quad=\quad(\textgt{減衰のない系の自由振動の振動数})
+\end{center}
+\begin{itembox}[l]{減衰比}
+    \begin{eqnarray*}
+        \zeta = \dfrac{c}{2\sqrt{mk}}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{過減衰}
+$\zeta>1$のとき、特性根は
+\begin{eqnarray*}
+    s_1,s_2=\left(-\zeta \pm \sqrt{\zeta^2-1}\right)\omega_n
+\end{eqnarray*}
+の相異なる負の実数となる。
+したがって、応答$x\left(t\right)$は以下のようになる。
+\begin{itembox}[l]{過減衰の応答}
+    \begin{eqnarray*}
+        x\left(t\right)=a_1\exp{\left(s_1t\right)}+a_2\exp{\left(s_2t\right)}\\
+    \end{eqnarray*}
+\end{itembox}
+ここで、$t\rightarrow\infty$で$0$に漸近する。
+そのため、振動は繰り返しを伴わない。($\neq$振動)\\
+このとき、これを\textgt{過減衰}という。
+\subsubsection{臨界減衰}
+$\zeta = 0$のとき、特性根は
+\begin{eqnarray*}
+    s_1=s_2=-\omega_n
+\end{eqnarray*}
+したがって、応答$x\left(t\right)$は以下のようになる。
+\begin{itembox}[l]{臨界減衰の応答}
+    \begin{eqnarray*}
+        x\left(t\right)=a_1\exp{\left(-\omega_nt\right)}+a_2t\exp{\left(-\omega_nt\right)}\\
+    \end{eqnarray*}
+\end{itembox}
+このときの応答を\textgt{臨界減衰}といい、応答の収束が最も速くなる。
+\subsubsection{不足減衰}
+$0<\zeta<1$のとき、特性根は
+\begin{eqnarray*}
+    s_1,s_2=\left(-\zeta \pm i\sqrt{\zeta^2-1}\right)\omega_n\\
+\end{eqnarray*}
+の共役な複素数となる。
+したがって、応答$x\left(t\right)$は以下のようになる。(導出省略)
+\begin{itembox}[l]{不足減衰の応答}
+    \begin{eqnarray*}
+        x\left(t\right)&=&A\exp{\left(-\zeta \omega_nt\right)}\cos{\left(\sqrt{1-\zeta^2}\omega_nt\right)}+B\exp{\left(-\zeta \omega_nt\right)}\sin{\left(\sqrt{1-\zeta^2}\omega_nt\right)}\\
+        \omega_d&=&\sqrt{1-\zeta^2}\omega_n\;:\;減衰固有振動数\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{単振動}
+$\zeta = 0$のとき、特性根は
+\begin{eqnarray*}
+    s_1,s_2=i\omega_n\\
+\end{eqnarray*}
+の共役な純虚数となる。
+したがって、応答$x\left(t\right)$は以下のようになる。(導出省略)
+\begin{itembox}[l]{単振動の応答}
+    \begin{eqnarray*}
+        x\left(t\right)&=&A\exp{\left(-\zeta \omega_nt\right)}\cos{\omega_nt}+B\exp{\left(-\zeta \omega_nt\right)}\sin{\omega_nt}\\
+    \end{eqnarray*}
+\end{itembox}
+このとき、減衰係数$\zeta=0$より、いつまでも減衰しない\textgt{単振動}となる。
 \subsection{自由振動}
-外力がゼロのとき、自由振動という。また、
+外力がゼロのとき、自由振動という。
+\subsection{}
+\subsection{その他}
+\begin{itembox}[l]{合成ばね定数を求める\dots}
+    \begin{center}
+        (\textgt{質点に加わる力})\quad=\quad(\textgt{合成ばね定数})\quad×\quad(\textgt{変位の合計})
+    \end{center}
+\end{itembox}
+※ 質点に加わる力は、「$f$」等で適当におくと良い。(後々消える)
 \newpage
 \section{熱力学}
 \subsection{熱力学第一法則}
@@ -816,11 +905,11 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
         W&:&絶対仕事\\
     \end{eqnarray*}
 \end{itembox}
-また、内部エネルギの変化量$\Delta U$および、絶対仕事$W$は以下のように表される。
-\begin{eqnarray*}
-    \Delta U&=&mC_v\Delta T\\
-    W&=&\displaystyle \int PdV
-\end{eqnarray*}
+\begin{itembox}[l]{内部エネルギの変化量}
+    \begin{eqnarray*}
+        \Delta U&=&mC_v\Delta T\\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{開いた系}
 物質の出入りがある系のことを\textgt{開いた系}という。\quad 例) タービン\\
 また、このとき取り出される仕事を\textgt{工業仕事}という。
@@ -828,15 +917,15 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
     \begin{eqnarray*}
         Q&=&\Delta H+W_t\\
         Q&:&受熱量\\
-        \Delta H&:&エンタルピーの変化量\\
+        \Delta H&:&エンタルピの変化量\\
         W_t&:&工業仕事\\
     \end{eqnarray*}
 \end{itembox}
-また、エンタルピの変化量$\Delta H$および、工業仕事$W_t$は以下のように表される。
-\begin{eqnarray*}
-    \Delta H&=&mC_p\Delta T\\
-    W_t&=&\displaystyle \int VdP
-\end{eqnarray*}
+\begin{itembox}[l]{エンタルピの変化量}
+    \begin{eqnarray*}
+        \Delta H&=&mC_p\Delta T\\
+    \end{eqnarray*}
+\end{itembox}
 \subsection{理想気体}
 \begin{itembox}[l]{状態方程式}
     \begin{eqnarray*}
@@ -856,10 +945,18 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 \begin{center}
     熱は高いほうから低いほうへと移動するという\textgt{不可逆現象}のことを指す。
 \end{center}
+\subsubsection{仕事}
+\begin{itembox}[l]{仕事}
+    \begin{eqnarray*}
+        W&=&Q_H-Q_L\\
+        W&=&\displaystyle \int PdV\quad(閉じた系の絶対仕事)\\
+        W_t&=&\displaystyle \int VdP\quad(開いた系の工業仕事) \\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{熱効率}
 \begin{itembox}[l]{熱効率}
     \begin{eqnarray*}
-        \eta_{th}=\dfrac{W}{Q_H}=1-\dfrac{Q_L}{Q_H}
+        \eta_{th}=\dfrac{W}{Q_H}=1-\dfrac{Q_L}{Q_H}\\
     \end{eqnarray*}
 \end{itembox}
 \subsection{エントロピー}
@@ -869,29 +966,30 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 \subsection{サイクル}
 \begin{itembox}[l]{カルノーサイクル}
     \begin{center}
-        \textgt{断熱圧縮}\quad → \quad \textgt{等温膨張} \quad → \quad \textgt{断熱膨張} \quad → \quad \textgt{等温収縮}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等温膨張} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等温収縮}
     \end{center}
-\end{itembox}]
+\end{itembox}
 \begin{itembox}[l]{オットーサイクル}
     \begin{center}
-        \textgt{断熱圧縮}\quad → \quad \textgt{等容加熱} \quad → \quad \textgt{断熱膨張} \quad → \quad \textgt{等容放熱}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{ディーゼルサイクル}
     \begin{center}
-        \textgt{断熱圧縮}\quad → \quad \textgt{等圧加熱} \quad → \quad \textgt{断熱膨張} \quad → \quad \textgt{等容放熱}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{サバテサイクル}
     \begin{center}
-        \textgt{断熱圧縮}\quad → \quad \textgt{等容加熱}\quad → \quad \textgt{等圧加熱} \quad → \quad \textgt{断熱膨張} \quad → \quad \textgt{等容放熱}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱}\quad → \quad \textgt{(3) 等圧加熱} \quad → \quad \textgt{($3'$) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{ブレイトンサイクル}
     \begin{center}
-        \textgt{断熱圧縮}\quad → \quad \textgt{等圧加熱} \quad → \quad \textgt{断熱膨張} \quad → \quad \textgt{等圧放熱}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等圧放熱}
     \end{center}
 \end{itembox}
+\subsection{乾き度}
 \newpage
 \section{流体力学}
 \subsection{粘性流体の力学}
@@ -956,6 +1054,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
 また、このパラドクスのことを\textgt{ダランベールの背理}という。そこで、このパラドクスを解くために考え出されたのが、\textgt{ナビエ・ストークス方程式}である。\\
 ※ オイラーの運動方程式に支配される流体を\textgt{完全流体}という。\\
 ※ ナビエ・ストークス方程式に支配される流体を\textgt{ニュートン流体}という。(粘性によるせん断応力と速度勾配が比例関係になるような流体)
+\subsubsection{運動量保存から圧力損失を導く}
 \subsection{2次元の連続の式・オイラーの運動方程式の導出}
 \begin{figure}[htbp]
     \begin{center}
@@ -1025,7 +1124,7 @@ $x$方向の速度$u$の全微分$du$は、
 流体の流れに平行な軸を$x$軸、垂直な軸を$y$とすると,せん断応力$\tau\left(y\right)$は以下のように表せる。
 \begin{itembox}[l]{せん断応力(2次元)}
     \begin{eqnarray*}
-        \tau\left(y\right)=\dfrac{du}{dy}
+        \tau\left(y\right)=\mu\dfrac{du}{dy}
     \end{eqnarray*}
 \end{itembox}
 \subsection{レイノルズ数}
@@ -1038,6 +1137,88 @@ $x$方向の速度$u$の全微分$du$は、
         \nu &:& 動粘性係数
     \end{eqnarray*}
 \end{itembox}
+\subsection{流れ場の幾何学的表現}
+流れ場を表現する手法として\textgt{流線}・\textgt{流跡線}・\textgt{流脈線}という概念がある。\\
+\subsubsection{流線}
+流線は、時間$t$をある時刻に固定し、その時刻における速度ベクトルが接線ベクトルとなる曲線のことである。\\
+つまり、$\vec{u}\parallel d\vec{x}$が成立する。
+\begin{itembox}[l]{流線}
+    \begin{eqnarray*}
+        \dfrac{dx}{u}&=&\dfrac{dy}{v}=\dfrac{dz}{w}\\
+        vdx&-&udy=0\quad (2次元)\\
+    \end{eqnarray*}
+\end{itembox}
+流線が交差するとき、その交点では流体は速度ゼロもしくは無限大をとる。
+速度がゼロのとき、その交点を\textgt{よどみ点}といい、無限大のとき\textgt{特異点}という。
+また、この流線によって作られる曲面を\textgt{流管}という。
+\subsubsection{流跡線}
+流跡線は、流体粒子を時間とともにラグランジュ的に追跡したときに描かれる軌跡を示す概念であり、以下のように表される。
+\begin{itembox}[l]{流跡線}
+    \begin{eqnarray*}
+        d\vec{x}=\vec{u}dt\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{流脈}
+空間のある点を通過した流体のすべての粒子が任意の瞬間に存在する点を結んだ線のこと。\\
+例) たばこの煙をある瞬間に撮影したもの
+\subsection{渦度}
+流れ場の回転の程度を表す量を\textgt{渦度}という。
+$\vec{u}=\left(u,v\right)$のとき、以下のように表される。
+\begin{itembox}[l]{渦度}
+    \begin{eqnarray*}
+        \zeta = rot\;\vec{u}=\dfrac{\partial v}{\partial x}-\dfrac{\partial u}{\partial y}\\
+    \end{eqnarray*}
+\end{itembox}
+また、渦度$\zeta$は回転の角速度$\omega$の2倍に等しい。
+\begin{eqnarray*}
+    \omega = \dfrac{1}{2}\zeta
+\end{eqnarray*}
+ここで、$\zeta=0$のとき、回転のない運動(\textgt{渦なし流れ})となる。これを\textgt{ポテンシャル流}という。
 \subsection{流れ関数}
+以下の条件を満たす関数$\psi$を\textgt{流れ関数}という。
+\begin{itembox}[l]{流れ関数}
+    \begin{eqnarray*}
+        u=\dfrac{\partial \psi}{\partial y}\quad v=-\dfrac{\partial \psi}{\partial x}\\
+    \end{eqnarray*}
+\end{itembox}
+$\psi =const$のとき、全微分をとると\\
+\begin{eqnarray*}
+    d\psi = \dfrac{\partial \psi}{\partial x}dx+\dfrac{\partial \psi}{\partial y}dy=0\\
+\end{eqnarray*}
+これは、流線の定義と同じになっていることがわかる。すなわち、$\psi = const$は流線を表す。\\
+※ 流線と関係が深い → 流れの方向ベクトルを表すことができる。
 \subsection{速度ポテンシャル}
+以下の条件を満たす関数$\phi$を\textgt{速度ポテンシャル}という。
+また、このとき流れは\textgt{渦なし流れ}である必要がある。
+\begin{itembox}[l]{速度ポテンシャル}
+    \begin{eqnarray*}
+        u=\dfrac{\partial \phi}{\partial x}\quad v=\dfrac{\partial \phi}{\partial y}\\
+    \end{eqnarray*}
+\end{itembox}
+速度ポテンシャル$\phi = const$の曲線を\textgt{等ポテンシャル線}と呼ぶ。\\
+※ 渦度$\zeta$と関係が深い → 流れに渦(回転運動)がない状態のことを表すことができる
+\subsection{コーシー・リーマンの関係式}
+\textgt{定常かつ渦なし流れ}のとき、以下の関係(\textgt{コーシー・リーマンの関係式})が成立する。
+\begin{itembox}[l]{コーシー・リーマンの関係式}
+    \begin{eqnarray*}
+        u&=&\dfrac{\partial \phi}{\partial x}=\dfrac{\partial \psi}{\partial y}\\
+        v&=&\dfrac{\partial \phi}{\partial y}=-\dfrac{\partial \psi}{\partial x}\\
+    \end{eqnarray*}
+\end{itembox}
+これは、$\phi$と$\psi$の直交性を示す。
+すなわち、流線($\psi=zconst$)と等ポテンシャル線($\phi=const$)は直交する。
+\subsubsection{直交性の証明}
+コーシー・リーマンの関係式が成立するとき、
+$\psi=const\quad \phi=const$の法線ベクトルはそれぞれ、
+\begin{eqnarray*}
+    grad \psi&=&\left(\dfrac{\partial \psi}{\partial x}, \dfrac{\partial \psi}{\partial y}\right)\\
+    grad \phi&=&\left(\dfrac{\partial \phi}{\partial x}, \dfrac{\partial \phi}{\partial y}\right)
+\end{eqnarray*}
+これらの内積を計算すると、
+\begin{eqnarray*}
+    grad\psi \cdot grad\phi &=& \dfrac{\partial \psi}{\partial x}\dfrac{\partial \phi}{\partial x} +\dfrac{\partial \psi}{\partial y}\dfrac{\partial \phi}{\partial y}\\
+    &=&\dfrac{\partial \phi}{\partial x}\left(-\dfrac{\partial \phi}{\partial y}\right)+\dfrac{\partial \phi}{\partial y}\dfrac{\partial \phi}{\partial x}\\
+    &=&0
+\end{eqnarray*}
+したがって、2つの法線ベクトルは直行しているといえる。よって、流れ関数$\psi$と速度ポテンシャル$\phi$の直交性は示された。
 \end{document}
