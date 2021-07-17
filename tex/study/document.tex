@@ -21,6 +21,7 @@
 \usepackage{ascmac}
 \usepackage{enumerate}
 \usepackage{tabularx}
+\usepackage{cancel}
 
 \renewcommand{\figurename}{fig.}
 \renewcommand{\tablename}{table }
@@ -429,10 +430,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
           (重積分1)→\textgt{変数の変更}→(重積分2)→\textgt{計算用の式変換}→(累次積分)→\textgt{計算の実行}→(値)
 \end{enumerate}
 \subsubsection{累次積分}
-\subsubsection{具体的な手順}
-\begin{enumerate}[(1)]
-    \item 積分領域(範囲)を求める
-\end{enumerate}
+
 \subsubsection{積分区間の変換}
 積分区分を変換する際は,固定されていない変数を固定して区間を考える.\\
 ※ 区間に$x$が含まれる場合は,「$x$を固定した」ということ → 変数を変換する場合は,「$y$を固定」して考える
@@ -452,7 +450,8 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     $st$平面の有界な領域$E$で定義された$C^1$級関数$x=\varphi\left(s,t\right)$,$y=\psi\left(s,t\right)$に対して\\
     (1) $E$の各点でJacobi行列
     \begin{center}
-        $J=\dfrac{\partial\left(x,y\right)}{\partial\left(s,t\right)}=\begin{bmatrix}
+        $J=\dfrac{\partial\left(x,y\right)}{\partial\left(s,t\right)}=
+            \begin{bmatrix}
                 x_s & x_t \\
                 y_s & y_t \\
             \end{bmatrix}
@@ -566,7 +565,7 @@ $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を
 $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)$
 を\textgt{$n$階微分方程式}という.\\
 また,$Q\left(x\right)=0$のとき\textgt{同次方程式(斉次方程式)},$Q\left(x\right)\neq0$のとき\textgt{非同次方程式(非斉次方程式)}という.
-\subsubsection{1階線形微分方程式}
+\subsection{1階線形微分方程式}
 \begin{eqnarray*}
     y'+p\left(x\right)y=q\left(x\right)
 \end{eqnarray*}
@@ -579,10 +578,10 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
         \item $Y=y-\alpha$とおくと、$Y'+p\left(x\right)Y=0$の同次方程式に変形できる
         \item 変数分離形として一般解を求め、$Y=y-\alpha$を代入して変数をもとに戻す
     \end{enumerate}
+    \begin{center}
+        \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
+    \end{center}
 \end{itembox}
-\begin{center}
-    \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
-\end{center}
 \begin{itembox}[l]{解法(ii) 定数変化法}
     考え方 : 特殊解は一般解に似てるかも\dots
     \begin{enumerate}[(1)]
@@ -614,7 +613,7 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
         \item 定数変化法と同じ一般解が得られる
     \end{enumerate}
 \end{itembox}
-\subsubsection{ベルヌーイの微分方程式}
+\subsection{ベルヌーイの微分方程式}
 \begin{eqnarray*}
     y'+p\left(x\right)y=q\left(x\right)y^{\alpha}\quad\left(\alpha\neq 0,1\right)
 \end{eqnarray*}
@@ -675,6 +674,254 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より、
         \item $J$の項のうち$y$のみを含む項を$I$に加えたものを$F\left(x,y\right)$とする(この逆も可能)
         \item $F\left(x,y\right)=C$が一般解となる
     \end{enumerate}
+\end{itembox}
+\subsection{クレローの微分方程式}
+\begin{eqnarray*}
+    y=xy'+f\left(y'\right)
+\end{eqnarray*}
+の形の微分方程式を\textgt{クレローの微分方程式}という。\\
+※ 非正規形のなかでもうまく解くことができるパターン
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item$y'=p$とおく\quad$y=xp+f\left(p\right)$
+        \item 両辺を$x$で微分する\quad$y'=p+xp'+f'\left(p\right)p'$
+        \item 整理すると\quad$\left(x+f'\left(p\right)\right)p'=0$
+        \item したがって、解は$\;p'=0\;$または$\; x+f'\left(p\right)=0$を満たす
+        \item 方程式を解く
+              \begin{enumerate}[(i)]
+                  \item $p'=0$のとき\\
+                        $p=C$を代入すると,
+                        \begin{eqnarray*}
+                            y=Cx+f\left(c\right)\;(一般解)
+                        \end{eqnarray*}
+                  \item $x+f\left(p'\right)=0$のとき
+                        \begin{eqnarray*}
+                            y&=&xp+f\left(p\right)\; (もとの微分方程式)\\
+                            x&+&f'\left(p\right)=0\; (条件式)
+                        \end{eqnarray*}
+                        これを解くと、
+                        \begin{eqnarray*}
+                            \left(x,y\right)=\left(-f'\left(p\right),-pf'\left(p\right)+f\left(p\right)\right)
+                        \end{eqnarray*}
+                        この解を\textgt{特異解}という。(この場合は、$p$を用いた\textgt{パラメータ表示}と考える!!)\\
+                        ※ \textgt{特異解}$\cdots$ 一般解の任意定数にどのような値を代入しても得られない解のこと。\\
+                        \quad(任意定数が出てこない!!)
+              \end{enumerate}
+    \end{enumerate}
+\end{itembox}
+\subsection{二階線形同次微分方程式}
+\begin{eqnarray*}
+    y''+p\left(x\right)y'+q\left(x\right)y=0
+\end{eqnarray*}
+の形の微分方程式を\textgt{二階線形同次微分方程式}という。
+\begin{itembox}[l]{重ね合わせの原理}
+    \begin{center}
+        $y_1,y_2$が(※)の解ならば$\; y=C_1y_1+C_2y_2\;$(\textgt{線形結合})も(※)の解である。
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{定理}
+    (※)の2つの解$\;y_1,y_2\;$(\textgt{基本解})が\textgt{一次独立}であるとき、
+    \begin{eqnarray*}
+        y=C_1y_1+C_2y_2
+    \end{eqnarray*}
+    が(※)の\textgt{一般解}となる。(なお、特異解は持たない)\\
+    ゴールは、一次独立な解を二つ見つけて足し合わせる!!こと。
+\end{itembox}
+\subsubsection{二階同次定係数微分方程式}
+\begin{eqnarray*}
+    y''+ay'+by=0
+\end{eqnarray*}
+の形の二階線形微分方程式を\textgt{同次定数係数微分方程式}という。
+\begin{itembox}[l]{解法}
+    考え方 : 解の候補として,$\;0y=e^{\lambda x}\;$を代入する
+    \begin{enumerate}[(1)]
+        \item $y=e^{\lambda x}$を代入する\quad$\lambda^2 e^{\lambda x}+a\lambda e^{\lambda x}+b e^{\lambda x}=0$
+        \item 整理して\textgt{特性方程式}をつくる\quad$\lambda^2+a\lambda+b=0$
+        \item 特性方程式を解く
+              \begin{enumerate}[(i)]
+                  \item 相異なる2つの実数解$\lambda_1,\lambda_2$
+                        \begin{eqnarray*}
+                            e^{\lambda_1x}\quad e^{\lambda_2x}\quad &&(基本解)\\
+                            y=C_1 e^{\lambda_1x}+C_2e^{\lambda_1x}\quad &&(一般解)
+                        \end{eqnarray*}
+                  \item 重解 $\lambda_1\left(=-\dfrac{a}{2}\right)$\\
+                        $y=C_1\left(x\right) e^{\lambda_1x}$を代入して整理する。 (定数変化法)\\
+                        $C_1\left(x\right)\left(y''_1+ay'_1+by_1\right)+C_1'\left(x\right)\left(2y'_1+ay'_1\right)+C''_1\left(x\right)y_1=0$\\
+                        これより、$C''_1\left(x\right)=0$となればよく,$C_1\left(x\right)=x$はこれを満たす。\\
+                        以上より、
+                        \begin{eqnarray*}
+                            e^{\lambda_1x}\quad xe^{\lambda_2x}\quad &&(基本解)\\
+                            y=C_1 e^{\lambda_1x}+C_2xe^{\lambda_1x}\quad &&(一般解)
+                        \end{eqnarray*}
+                  \item 2つの共役複素数解 $\lambda_1,\lambda_2\;\left(\lambda_1=\alpha +i\beta,\;\lambda_2=\alpha-i\beta\right)$\\
+                        → 複素数の解(複素関数)2つから、一次独立な実数の解(関数)2つを見つけられれば解がわかる!!\\
+                        → オイラーの公式で複素関数を三角関関数に書き換えられる!!\\
+                        \begin{eqnarray*}
+                            Z_1&=&e^{\left(\alpha+i\beta\right)x}=e^{\alpha x}e^{i\beta x}=e^{\alpha x}\left(\cos\beta x+i\sin\beta x\right)\\
+                            Z_2&=&e^{\left(\alpha-i\beta\right)x}=e^{\alpha x}e^{-i\beta x}=e^{\alpha x}\left(\cos\beta x-i\sin\beta x\right)
+                        \end{eqnarray*}
+                        重ね合わせの原理より、
+                        \begin{eqnarray*}
+                            \dfrac{1}{2}\left(Z_1+Z_2\right)=e^{\alpha x}\cos\beta x\\
+                            \dfrac{1}{2i}\left(Z_1-Z_2\right)=e^{\alpha x}\sin\beta x
+                        \end{eqnarray*}
+                        以上の式も解であり、一次独立になっているので、
+                        \begin{eqnarray*}
+                            e^{\alpha x}\cos\beta x\quad e^{\alpha x}\sin\beta x\quad &&(基本解)\\
+                            y=C_1 e^{\alpha x}\cos\beta x+C_2e^{\alpha x}\sin\beta x\quad &&(一般解)
+                        \end{eqnarray*}
+              \end{enumerate}
+    \end{enumerate}
+\end{itembox}
+\subsection{二階線形非同次微分方程式}
+\begin{eqnarray*}
+    y''+p\left(x\right)y'+q\left(x\right)y=f\left(x\right)
+\end{eqnarray*}
+の形の微分方程式を\textgt{二階線形同次微分方程式}という。
+\begin{itembox}[l]{特殊解 $\alpha\left(x\right)$がわかっている場合}
+    \begin{eqnarray*}
+        y=C_1Y_1&+&C_2Y_2+\alpha\\
+        Y_1,Y_2\;&:&\;基本解
+    \end{eqnarray*}
+    \begin{center}
+        \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
+    \end{center}
+\end{itembox}
+特殊解を予想して求めても良い!!
+\begin{itembox}[l]{特殊解の予想例}
+    \begin{enumerate}[(1)]
+        \item $f\left(x\right)=ke^{\alpha x}$\\
+              特性方程式の解$\lambda$が
+              \begin{enumerate}[(i)]
+                  \item $\lambda \neq \alpha$\quad のとき\quad$Ae^{\alpha x}$
+                  \item $\lambda = \alpha$\quad のとき\quad$Axe^{\alpha x}\;\;$\quad(1重解)
+                  \item $\lambda = \alpha$\quad のとき\quad$Ax^2e^{\alpha x}$\quad(2重解)
+              \end{enumerate}
+        \item $f\left(x\right)=k\cos\beta x\;$または$\;k\sin\beta x$\\
+              特性方程式の解$\lambda$が
+              \begin{enumerate}[(i)]
+                  \item $\lambda \neq i\beta$\quad のとき\quad$A\cos\beta x+B\sin\beta x$
+                  \item $\lambda = i\beta$\quad のとき\quad$x\left(A\cos\beta x+B\sin\beta x\right)$
+              \end{enumerate}
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{解法 定数変化法}
+    \begin{enumerate}[(1)]
+        \item 同次方程式を解く\quad $y=C_1y_1+C_2y_2$\quad($y_1,y_2$ : 基本解)
+        \item $C_1,C_2$を$C_1\left(x\right),C_2\left(x\right)$にし、\textgt{ある条件を課して}非同次微分方程式に代入する\\
+              (条件)\quad$y=C_1\left(x\right)y_1+C_2\left(x\right)y_2$の形で、かつ$C'_1\left(x\right)y_1+C'_2\left(x\right)y_2=0$を満たすようなもので、\\
+              \qquad\qquad 非同次微分方程式の解になる$C_1\left(x\right),C_2\left(x\right)$を探す!!\\
+              ここで、$y$を二回微分すると
+              \begin{eqnarray*}
+                  y'&=&\cancel{C'_1\left(x\right)y_1}+C_1\left(x\right)y'_1+\cancel{C'_2\left(x\right)y_2}+C_2\left(x\right)y'_2\\
+                  y''&=&C'_1\left(x\right)y'_1+C_1\left(x\right)y''_1+C'_2\left(x\right)y'_2+C_2\left(x\right)y''_2
+              \end{eqnarray*}
+              であるので,これをもとの微分方程式に代入すると、
+              \begin{eqnarray*}
+                  y''+ay'+by&=&C'_1\left(x\right)y'_1+C_1\left(x\right)y''_1+C'_2\left(x\right)y'_2+C_2\left(x\right)y''_2\\
+                  &+&a\left(C_1\left(x\right)y'_1+C_2\left(x\right)y'_2\right)\\
+                  &+&b\left(C_1\left(x\right)y_1+C_2\left(x\right)y_2\right)\\
+                  &=&C_1\left(x\right)\left(\cancel{y''_1+ay'_1+by_1}\right)+C_2\left(x\right)\left(\cancel{y''_2+ay'_2+by_2}\right)+C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2\\
+                  &=&C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2
+              \end{eqnarray*}
+              したがって、
+              \begin{eqnarray*}
+                  C'_1\left(x\right)y_1+C'_2\left(x\right)y_2&=&0\\
+                  C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2&=&f\left(x\right)
+              \end{eqnarray*}
+              を満たす$C_1\left(x\right),C_2\left(x\right)$を考えれば良い。
+        \item 方程式を解く\\
+              特殊解は
+              \begin{eqnarray*}
+                  \alpha\left(x\right)=-y_1\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx+y_2\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
+              \end{eqnarray*}
+        \item 一般解を求める\\
+              以上の特殊解より、一般解は
+              \begin{eqnarray*}
+                  y=\left(C_1-\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx\right)y_1+\left(C_2+\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx\right)y_2
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{特殊解を導く}
+    \begin{eqnarray*}
+        C'_1\left(x\right)y_1+C'_2\left(x\right)y_2&=&0\\
+        C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2&=&f\left(x\right)
+    \end{eqnarray*}
+    より、拡大係数行列にすると、
+    \begin{eqnarray*}
+        \begin{bmatrix}
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            C'_1\left(x\right) \\
+            C'_2\left(x\right) \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\
+            f\left(x\right)
+        \end{bmatrix}
+    \end{eqnarray*}
+    ここで、
+    \begin{eqnarray*}
+        A=
+        \begin{bmatrix}
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
+        \end{bmatrix}
+    \end{eqnarray*}
+    として、
+    \begin{eqnarray*}
+        W\left(y_1,y_2\right)
+        =\det A
+        =\det
+        \begin{bmatrix}
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
+        \end{bmatrix}
+        \quad (ロンスキー行列)
+    \end{eqnarray*}
+    とおくと、$x$の値によらず$W\left(y_1,y_2\right)\neq 0$(証明略)であり、$A$は逆行列を持つ。\\
+    \begin{eqnarray*}
+        A^{-1}&=&
+        \begin{bmatrix}
+            y_2'  & -y_2 \\
+            -y'_1 & y_1  \\
+        \end{bmatrix}\\
+    \end{eqnarray*}
+    であるので、
+    \begin{eqnarray*}
+        \begin{bmatrix}
+            C'_1\left(x\right) \\
+            C'_2\left(x\right) \\
+        \end{bmatrix}
+        &=&
+        \dfrac{1}{W\left(y_1,y_2\right)}
+        \begin{bmatrix}
+            y_2'  & -y_2 \\
+            -y'_1 & y_1  \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            0               \\
+            f\left(x\right) \\
+        \end{bmatrix}\\
+    \end{eqnarray*}
+    したがって、
+    \begin{eqnarray*}
+        C'_1\left(x\right)&=&-\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}\\
+        C'_2\left(x\right)&=&\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}
+    \end{eqnarray*}
+    これを両辺積分すると、
+    \begin{eqnarray*}
+        \displaystyle
+        C_1\left(x\right)&=&-\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx\\
+        C_2\left(x\right)&=&\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
+    \end{eqnarray*}
+    であるので、特殊解は
+    \begin{eqnarray*}
+        \alpha\left(x\right)=-y_1\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx+y_2\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
+    \end{eqnarray*}
 \end{itembox}
 \newpage
 \section{材料力学}
@@ -881,7 +1128,7 @@ $\zeta = 0$のとき、特性根は
 このとき、減衰係数$\zeta=0$より、いつまでも減衰しない\textgt{単振動}となる。
 \subsection{自由振動}
 外力がゼロのとき、自由振動という。
-\subsection{}
+\subsection{強制振動}
 \subsection{その他}
 \begin{itembox}[l]{合成ばね定数を求める\dots}
     \begin{center}
