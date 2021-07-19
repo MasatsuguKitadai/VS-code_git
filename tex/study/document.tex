@@ -310,10 +310,19 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \subsection{基本的な微分}
 \begin{itembox}[l]{基本的な関数の導関数}
     \begin{eqnarray*}
-        \dfrac{dy}{dx}a^x&=&\left(\log a\right)a^x\\
-        \dfrac{dy}{dx}\mathrm{Sin}^{-1}\left(x\right)&=&\dfrac{1}{\sqrt{1-x^2}}\\
-        \dfrac{dy}{dx}\mathrm{Cos}^{-1}\left(x\right)&=&-\dfrac{1}{\sqrt{1-x^2}}\\
-        \dfrac{dy}{dx}\mathrm{Tan}^{-1}\left(x\right)&=&\dfrac{1}{1+x^2}
+        \dfrac{d}{dx}\log |x|&=&\dfrac{1}{x}\\
+        \dfrac{d}{dx}a^x&=&\left(\log a\right)a^x\\
+        \dfrac{d}{dx}\mathrm{Sin}^{-1}\left(x\right)&=&\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{d}{dx}\mathrm{Cos}^{-1}\left(x\right)&=&-\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{d}{dx}\mathrm{Tan}^{-1}\left(x\right)&=&\dfrac{1}{1+x^2}\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{基本的な積分}
+    \begin{eqnarray*}
+        \displaystyle
+        \int \log x\; dx&=&x\log x-x\\
+        \int \dfrac{dx}{\sqrt{a^2-x^2}}&=&\mathrm{Sin}^{-1}\dfrac{x}{|a|}\\
+        \int \dfrac{dx}{a^2+x^2}&=&\dfrac{1}{a}\mathrm{Tan}^{-1}\dfrac{x}{a}\\
     \end{eqnarray*}
 \end{itembox}
 \subsection{関数のべき級数展開}
@@ -350,6 +359,35 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{eqnarray*}
 \end{itembox}
 \subsection{1変数の積分}
+\subsubsection{積分を解くにあたって}
+\begin{itembox}[l]{point}
+    \begin{center}
+        積分ができる形(\textgt{基本形の和の形})に式を整える!!\\
+    \end{center}
+    \begin{eqnarray*}
+        (基本形)\quad x^\alpha\!(\alpha:-1以外の実数),\; \dfrac{1}{x},\; e^x,\; \log x,\; \sin x,\; \cos x,\; \tan x\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{三角関数の積分}
+\begin{itembox}[l]{代表的な置換方法(1)}
+    \begin{center}
+        $f\left(\sin x\right)\cos x$の形に式を変換し,$\; \sin x= t$とおく。
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{代表的な置換積分(2)}
+    \begin{center}
+        $f\left(\tan x\right)\cdot \dfrac{1}{\cos^2 x}$の形に式を変換し,$\; \cos x= t$とおく。
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{代表的な置換方法(3)}
+    \begin{center}
+        $f\left(\sin x,\cos x\right)\;$の形に式を変形し,$\; \tan\dfrac{x}{2}=t$とおいて,
+    \end{center}
+    \begin{eqnarray*}
+        \sin x&=&\dfrac{1-t^2}{1+t^2}\\
+        \cos x&=&\dfrac{2t}{1+t^2}\\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{広義積分}
 何らかの定積分の積分区間を動かし,極限をとったものを\textgt{広義積分}という.\\
 考え方 : めんどくさい処理(極限をとる)を後回しにする
@@ -373,6 +411,29 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     &=&2\sqrt{1}+2\sqrt{1}\\
     &=&4
 \end{eqnarray*}
+\begin{itembox}[l]{point}
+    \begin{center}
+        深く考えすぎず、積分の上限値、下限値を代入して\textgt{有限な確定値}が計算できればそれで良い!!\\
+        ただし、不連続な場合や絶対値をとっている場合等の\textgt{積分範囲の設定}には注意が必要.
+    \end{center}
+\end{itembox}
+\subsubsection{極限}
+\begin{itembox}[l]{point}
+    \begin{center}
+        極限の問題を解く際の式の変形方法は\textgt{4種類のみ!!}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{式の変形方法}
+    \begin{enumerate}[(1)]
+        \item 因数分解
+        \item 最高次数で割る\\
+              → 分子・分母の次数が\textgt{同じ}で、$\dfrac{\infty}{\infty}$の不定形のときに使う!!
+        \item 最も大きな数で割る\\
+
+        \item 分子の有理化\\
+              → ルートが極限をとる変数を含むときに使う!!
+    \end{enumerate}
+\end{itembox}
 \subsubsection{偶関数と奇関数}
 
 \subsection{多変数関数}
@@ -476,23 +537,41 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{center}
     ヤコビヤンは\textgt{絶対値}をかける!!
 \end{itembox}
-【代表的なヤコビ行列】\\
-・デカルト座標から極座標への変換\\
-$x=r\cos\theta,y=r\sin\theta$すると,\\
-\begin{center}
-    $|J|=\dfrac{\partial\left(x,y\right)}{\partial\left(r,\theta\right)}=
-        \begin{bmatrix}
-            x_r & x_\theta \\
-            y_r & y_\theta \\
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            \sin\theta & r\cos\theta  \\
-            \cos\theta & -r\sin\theta \\
-        \end{bmatrix}
-        =r
-    $
-\end{center}
+\begin{itembox}[l]{代表的な座標変換}
+    \begin{enumerate}[(1)]
+        \item デカルト座標系から極座標系への変換\\
+              $x=r\cos\theta,\; y=r\sin\theta\;\left(0\leq r\leq \infty\right)\;\left(0\leq \theta \leq 2\pi\right)$として,
+              \begin{eqnarray*}
+                  |J|=
+                  \det\left(\dfrac{\partial\left(x,y\right)}{\partial\left(r,\theta\right)}\right)
+                  =
+                  \begin{bmatrix}
+                      x_r & x_\theta \\
+                      y_r & y_\theta \\
+                  \end{bmatrix}
+                  =
+                  \begin{bmatrix}
+                      \sin\theta & r\cos\theta  \\
+                      \cos\theta & -r\sin\theta \\
+                  \end{bmatrix}
+                  =r\\
+              \end{eqnarray*}
+        \item デカルト座標系から球面座標系への変換\\
+              $x=r\sin\theta\cos\varphi,\; y=r\sin\theta\sin\varphi,\; z=r\cos\theta\;\left(0\leq r\leq\infty\right)\left(0\leq\theta\leq\pi\right)\left(0\leq\varphi\leq 2\pi\right)$として,
+              \begin{eqnarray*}
+                  |J|
+                  =
+                  \det\left(\dfrac{\partial \left(x,y,z\right)}{\partial \left(r,\theta,\varphi\right)}\right)
+                  =
+                  \begin{bmatrix}
+                      \sin\theta\cos\theta  & r\cos\theta\cos\varphi & -r\sin\theta\sin\varphi \\
+                      \sin\theta\sin\varphi & r\cos\theta\sin\varphi & r\sin\theta\cos\varphi  \\
+                      \cos\theta            & -r\sin\theta           & 0                       \\
+                  \end{bmatrix}
+                  =r^2\sin\theta
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
 \newpage
 \section{微分方程式}
 \subsection{微分方程式とは}
@@ -1311,12 +1390,23 @@ $1\mathrm{kg}$の湿り蒸気が$x\mathrm{kg}$の蒸気と$\left(1-x\right)\math
 $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
 \newpage
 \section{流体力学}
+\subsection{静止流体の力学}
+\subsubsection{表面張力}
+液体の分子間には引張合う力がはたらいており、気体やほかの液体と接している面には縮もうとする力が作用する。
+これを\textgt{表面張力}といい、単位は$\left[\mathrm{\frac{N}{m}}\right]$である。
+\begin{itembox}[l]{point}
+    \begin{center}
+        上下方向の力のつり合いを考える\\
+        表面張力は,\textgt{境界面の接線方向}にはたらく\\
+        ( \textgt{液体の重量$\left[\mathrm{N}\right]$} ) = ( \textgt{表面張力の垂直方向成分$\left[\mathrm{\frac{N}{m}}\right]$}) $\times$ ( \textgt{境界面の周の長さ}$\;\left[\mathrm{m}\right]$ )
+    \end{center}
+\end{itembox}
 \subsection{粘性流体の力学}
 流体の運動における未知量は,\textgt{速度,圧力,密度,温度}である.\\
 また,\textgt{時間$\left(t\right)$,空間$\left(x,y,z\right)$}の関数である.\\
 \begin{eqnarray*}
     (圧縮性流体)&&\quad 未知量は4つ\quad 速度\left(u,v,w\right),圧力\left(p\right)\\
-    (非圧縮性流体)&&\quad 未知量は6つ\quad 速度\left(u,v,w\right),圧力\left(p\right),密度\left(\rho\right),温度\left(T\right)
+    (非圧縮性流体)&&\quad 未知量は6つ\quad 速度\left(u,v,w\right),圧力\left(p\right),密度\left(\rho\right),温度\left(T\right)\\
 \end{eqnarray*}
 \subsection{流体の質量保存則}
 \begin{itembox}[l]{連続の式}
@@ -1327,9 +1417,9 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
 \end{itembox}
 \subsection{流体のエネルギー保存則}
 \begin{itembox}[l]{ベルヌーイの定理}
-    \begin{center}
-        $\dfrac{1}{2}\dot{m}v^2+\dot{m}\dfrac{p}{\rho}+\dot{m}gz=const$
-    \end{center}
+    \begin{eqnarray*}
+        \dfrac{1}{2}\dot{m}v^2+\dot{m}\dfrac{p}{\rho}+\dot{m}gz=const\\
+    \end{eqnarray*}
 \end{itembox}
 ※ ベルヌーイの定理は,\textgt{エネルギー保存則}であるのでエネルギーの損失 (圧力損失 等) がある場合は適用できない!!\\
 → 運動量保存則が適用される

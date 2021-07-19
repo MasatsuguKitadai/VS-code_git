@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  18 JUL 2021 19:39
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  19 JUL 2021 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,24 +484,24 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 70.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 70.
- [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
 File: images/continuity_equation.jpg Graphic file (type bmp)
 <images/continuity_equation.jpg>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 1379.
+(Font)              scaled to size 8.64899pt on input line 1469.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 1379.
- [31] [32] [33] [34] [35] [36] (./document.aux)
+(Font)              scaled to size 8.64899pt on input line 1469.
+ [32] [33] [34] [35] [36] [37] (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 166CA26EA5FA456B081480A9564C7196;4288.
+(rerunfilecheck)             Checksum: 4C5C86D1D08D4ED0DCC4A0F24DFFFF83;4365.
  ) 
 Here is how much of TeX's memory you used:
  11135 strings out of 478987
  160032 string characters out of 5865292
- 520175 words of memory out of 5000000
+ 519245 words of memory out of 5000000
  29149 multiletter control sequences out of 15000+600000
  418361 words of font info for 98 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  60i,19n,66p,571b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.dvi (36 pages, 150848 bytes).
+Output written on document.dvi (37 pages, 159020 bytes).
