@@ -152,8 +152,79 @@ main {
 }
 
 .main_box {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
+
+.chapter {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chaptername {
+    width: 250px;
+    height: 100%;
+    margin: auto;
+    margin-left: 15px;
+}
+
+.chaptername h4 {
+    height: 100%;
+    font-size: 30px;
+    color: black;
+}
+
+.text {
+    display: flex;
+    justify-content: flex-start;
+    height: 200px;
+    margin-left: 15px;
+}
+
+.navibox {
+    display: flex;
+    justify-content: space-around;
+}
+
+.naviname {
+    width: 28%;
+    line-height: 60px;
+    font-size: 24px;
+	background: #404040;
+	display: flex;
+	overflow: hidden;
+	position: relative;
+    text-align: center;
+	text-decoration: none;
+}
+
+.naviname:before {
+	background : #0ae;
+	content:"";
+	display: block;
+	height: 100%;
+    width: 100%;
+	left: -96%;
+	opacity: 1;
+	position: absolute;
+	transition: .5s;
+}
+
+.naviname:hover:before { 
+    left:0; 
+}
+
+.naviname a{
+    margin: auto;
+    color: #fff;
+}
+
+.space {
+    width: 100%;
+    height: 30px;
+}
+
 
 /********************************/
 

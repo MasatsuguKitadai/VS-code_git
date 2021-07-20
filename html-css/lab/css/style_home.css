@@ -7,8 +7,7 @@ html {
 }
 
 body{
-    font-family: "Yu Gothic Medium", "遊ゴシック Medium", "遊ゴシック体",
-    "ヒラギノ角ゴ Pro w3", sans-serif;
+    font-family: "Yu Gothic Medium", "遊ゴシック Medium", "遊ゴシック体","ヒラギノ角ゴ Pro w3", sans-serif;
     color: black;
     margin: 0%;
     display: flex;
@@ -85,6 +84,7 @@ nav ul li{
 
 nav ul li a{
     color: #fff;
+    display: inline-block;
     transition: all .3s ease 0s;
     text-decoration: none;
 }
