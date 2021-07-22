@@ -26,6 +26,7 @@
 
 \renewcommand{\figurename}{fig.}
 \renewcommand{\tablename}{table }
+\newcommand{\redunderline}[1]{\textcolor{BrickRed}{\underline{\textcolor{black}{#1}}}} 
 
 \hypersetup{
 	colorlinks=false, % リンクに色をつけない設定
@@ -66,6 +67,18 @@ lineskip=-0.5ex
 \subsection{平方根}
 $\sqrt{a^2}=|a|$
 \subsection{重心}
+\subsection{動滑車}
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=50mm]{images/kiriki_image1.jpg}
+        \caption{H20 試験問題 [3]}
+    \end{center}
+\end{figure}
+\begin{itembox}[l]{動滑車}
+    \begin{center}
+        持ち上げるのに必要な力は$1/2$倍、その移動距離は$2$倍
+    \end{center}
+\end{itembox}
 \newpage
 \section{線形代数}
 \subsection{行列}
@@ -329,9 +342,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \begin{eqnarray*}
         \dfrac{d}{dx}\log |x|&=&\dfrac{1}{x}\\
         \dfrac{d}{dx}a^x&=&\left(\log a\right)a^x\\
-        \dfrac{d}{dx}\mathrm{Sin}^{-1}\left(x\right)&=&\dfrac{1}{\sqrt{1-x^2}}\\
-        \dfrac{d}{dx}\mathrm{Cos}^{-1}\left(x\right)&=&-\dfrac{1}{\sqrt{1-x^2}}\\
-        \dfrac{d}{dx}\mathrm{Tan}^{-1}\left(x\right)&=&\dfrac{1}{1+x^2}\\
+        \dfrac{d}{dx}\mathrm{Sin}^{-1}x&=&\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{d}{dx}\mathrm{Cos}^{-1}x&=&-\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{d}{dx}\mathrm{Tan}^{-1}x&=&\dfrac{1}{1+x^2}\\
     \end{eqnarray*}
 \end{itembox}
 \begin{itembox}[l]{基本的な積分}
@@ -1095,7 +1108,6 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \newpage
 \section{材料力学}
 \subsection{引張・圧縮}
-\subsubsection{重要公式}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -1107,8 +1119,27 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \end{eqnarray*}
     \end{center}
 \end{itembox}
+\subsubsection{ポアソン比}
+例えば丸棒を引張ると引張方向に\textgt{縦ひずみ}が発生し、同時に径が小さくなる\textgt{横ひずみ}が発生する。\\
+このときの縦ひずみと横ひずみの比を\textgt{ポアソン比}という。
+\begin{itembox}[l]{ポアソン比}
+    \begin{center}
+        $x$軸方向に材料に力を加えるとき
+    \end{center}
+    \begin{eqnarray*}
+        \nu=-\dfrac{\left(横ひずみ\right)}{\left(縦ひずみ\right)}=-\dfrac{\varepsilon_y}{\varepsilon_x}\\
+    \end{eqnarray*}
+    \begin{center}
+        ※ 「$-$」は、ポアソン比の値を正にするため
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ポアソン比と応力・ひずみの関係式}
+    \begin{eqnarray*}
+        \varepsilon_x&=&\dfrac{\sigma_x}{E}\\
+        \varepsilon_y&=&-\nu\dfrac{\sigma_x}{E}\\
+    \end{eqnarray*}
+\end{itembox}
 \subsection{ねじり・せん断応力}
-\subsubsection{重要公式}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -1123,7 +1154,6 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
     \end{center}
 \end{itembox}
 \subsection{曲げ}
-\subsubsection{重要公式}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -1307,17 +1337,58 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
 以上の円筒に生じる応力に,荷重$Q$による垂直応力とトルク$T$によるせん断応力を加えれば良い.
 \newpage
 \section{機械力学}
-\subsection{運動方程式}
-\begin{itembox}[l]{1自由度並進振動系}
+\subsection{一自由度並進運動}
+\begin{itembox}[l]{運動方程式}
     \begin{eqnarray*}
-        m\ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=f\left(t\right)\\
+        m\ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=F\left(t\right)\\
     \end{eqnarray*}
 \end{itembox}
-\begin{itembox}[l]{剛体円盤のねじり振動系}
+\subsection{剛体円盤のねじり振動系}
+\begin{itembox}[l]{運動方程式}
     \begin{eqnarray*}
-        I\ddot{\theta}\left(t\right)+c_\theta\dot{\theta}\left(t\right)+k_\theta\theta\left(t\right)=M\left(t\right)\\
+        I\ddot{\theta}\left(t\right)+c_\theta\dot{\theta}\left(t\right)+k_\theta\theta\left(t\right)&=&M\left(t\right)\\
     \end{eqnarray*}
 \end{itembox}
+\subsection{例題 回転に関する運動方程式を求める}
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=100mm]{images/kiriki_image2.jpg}
+        \caption{H18 試験問題 [3]}
+    \end{center}
+\end{figure}
+\begin{itembox}[l]{point}
+    \begin{center}
+        \textgt{(モーメント) = (発生する力) $\times$ (腕の長さ)}\\
+        運動方程式に\textgt{腕の長さの二乗}が項に出てくる!!
+    \end{center}
+\end{itembox}
+\begin{enumerate}[(1)]
+    \item 質点について\\
+          \begin{eqnarray*}
+              (質点にはたらくモーメント)&=& [質点にはたらく力] \times (腕の長さ)\\
+              &=& [(質量) \times (腕の長さ) \times (角加速度)] \times (腕の長さ)\\
+              &=& m \times a \times \ddot{\theta}\left(t\right) \times a\\
+              &=&ma^2\ddot{\theta}\left(t\right)
+          \end{eqnarray*}
+    \item ダッシュポットについて
+          \begin{eqnarray*}
+              (ダッシュポットにはたらくモーメント)&=& [ダッシュポットにはたらく力] \times (腕の長さ)\\
+              &=& [(減衰係数) \times (腕の長さ) \times (角速度)] \times (腕の長さ)\\
+              &=& m \times a \times \dot{\theta}\left(t\right) \times a\\
+              &=&ca^2\dot{\theta}\left(t\right)
+          \end{eqnarray*}
+    \item ばねについて
+          \begin{eqnarray*}
+              (ばねにはたらくモーメント)&=& [ばねにはたらく力] \times (腕の長さ)\\
+              &=& [(ばね定数)) \times (腕の長さ) \times (回転角)] \times (腕の長さ)\\
+              &=& m \times b \times \theta\left(t\right) \times b\\
+              &=&kb^2\dot{\theta}\left(t\right)
+          \end{eqnarray*}
+\end{enumerate}
+以上の(1),(2),(3)より、回転に関する運動方程式は
+\begin{eqnarray*}
+    ma^2\ddot{\theta}\left(t\right)+ca^2\dot{\theta}\left(t\right)+kb^2\dot{\theta}\left(t\right)=0\\
+\end{eqnarray*}
 \subsection{自由振動}
 外力がゼロのとき,自由振動という.\\
 このとき,運動方程式の右辺はゼロとなり,そのときの応答は2階の同次微分方程式を解くことで求めることができる.
@@ -1542,6 +1613,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
 \end{itembox}
 \subsection{その他}
 \subsubsection{合成ばね定数を求める}
+系の平衡状態から、力を加えたと仮定して力のつり合いを考えることで合成ばね定数を求めることができる。
 \begin{itembox}[l]{point}
     \begin{center}
         (\textgt{質点に加わる力})\quad=\quad(\textgt{合成ばね定数})\quad×\quad(\textgt{変位の合計})
@@ -1755,6 +1827,17 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
 \end{itembox}
 ※ ベルヌーイの定理は,\textgt{エネルギー保存則}であるのでエネルギーの損失 (圧力損失 等) がある場合は適用できない!!\\
 → 運動量保存則が適用される
+\subsubsection{トリチェリの定理}
+容器に液体を入れ、容器に対して十分に小さい穴をあける。
+このとき、流れが定常であるとすると、流れ出す液体の速度$v$は以下のように表される。
+\begin{itembox}[l]{トリチェリの定理}
+    \begin{eqnarray*}
+        v&=&\sqrt{2gh}\\
+        g&:&重力加速度\\
+        h&:&水面から穴までの高さ\\
+    \end{eqnarray*}
+\end{itembox}
+これは、ベルヌーイの定理を用いることで証明できる。
 \subsection{流体の運動量の法則}
 \begin{itembox}[l]{運動量保存則}
     \begin{eqnarray*}
@@ -1963,12 +2046,33 @@ $\psi=const\quad \phi=const$の法線ベクトルはそれぞれ,
 \newpage
 \section{計算ミス対策}
 \begin{center}
-    \begin{tabular}{|c|p{50mm}|p{50mm}|}
+    \begin{tabular}{|p{60mm}|p{50mm}|p{50mm}|}
         \hline
-        \textgt{ミスパターン}                & \multicolumn{1}{|c|}{\textgt{原因}}                & \multicolumn{1}{|c|}{}                             \\ \hline
-        式を写し間違える                     & 書き写した後に確認せず、そのまま計算を進めてしまう & 書き写した後、もう一度間違っていないか毎回確認する \\ \hline
-        式を移項するときに符号をつけ間違える &                                                    &                                                    \\ \hline
-        暗算のミス                           &                                                    &                                                    \\ \hline
+        \multicolumn{1}{|c|}{\textgt{ミスパターン}}      & \multicolumn{1}{|c|}{\textgt{原因}}  & \multicolumn{1}{|c|}{\textgt{対策}}          \\ \hline
+        式を写し間違える                                 & ・確認をしないで計算を進めてしまう   & ・書き写すごとに確認する                     \\ \hline
+        文字のつけ忘れ                                   & ・確認をしないで計算を進めてしまう   & ・書き写すごとに確認する                     \\ \hline
+        式を移項するときに符号をつけ間違える             & ・確認をしないで計算を進めてしまう   & ・書き写すごとに確認する                     \\ \hline
+        シンプルな暗算のミス                             & ・確認をしないで計算を進めてしまう   & ・一行計算を進めるごとに確認する             \\ \hline
+        題意に即していない記号を用いて解答を書いてしまう & ・問題文中の記号の指定を忘れてしまう & ・指定された(使って良い)記号を書き出しておく \\
+                                                         &                                      & ・問題文を見直す                             \\ \hline
     \end{tabular}
 \end{center}
+\subsection{実際のミス}
+\subsubsection{H20 数学 [1]}
+固有ベクトルを求める際に、固有空間の簡約化まではできていたが、$x_1,x_2,x_3$を含めた式を書き間違えた.\\
+\begin{eqnarray*}
+    \lambda=1\quad のとき\quad
+    \left(\lambda E - A\right)
+    &=&
+    \begin{bmatrix}
+        2  & 0 & 1 \\
+        -1 & 1 & 0 \\
+        0  & 0 & 0 \\
+    \end{bmatrix}
+    \quad より\quad
+    \begin{cases}
+        {2x_1+x_3=0}             \\
+        {\underline{-x_2+x_3=0}} \\
+    \end{cases}
+\end{eqnarray*}
 \end{document}
