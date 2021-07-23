@@ -70,7 +70,6 @@ void setup() {
 /***********************************************************/
 void loop() { 
 
-    i = i + 1;
     j = j + 1;
 
     // KP-AM2320
@@ -138,7 +137,7 @@ void loop() {
     oled.print(0, BYTE);
     #endif
     oled.println();
-    
+    /*
     // SDcard
     File datafile;
     datafile = SD.open(filename, FILE_WRITE); // 干渉箇所
@@ -148,12 +147,13 @@ void loop() {
     datafile.print(minute());
     datafile.print('\t');
     datafile.print(j);
-    datafile.print('\t')
+    datafile.print('\t');
     datafile.print(temperature);
     datafile.print('\t');
     datafile.print(humidity);
     datafile.println();
   
     datafile.close();
+    */
     }
 }
