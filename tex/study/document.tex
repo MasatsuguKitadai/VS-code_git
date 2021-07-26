@@ -65,8 +65,27 @@ lineskip=-0.5ex
 
 \section{基本知識}
 \subsection{平方根}
-$\sqrt{a^2}=|a|$
+\begin{itembox}[l]{point}
+    \begin{center}
+        平方根をはずすときは,\textgt{絶対値}がつく
+    \end{center}
+\end{itembox}
+\begin{eqnarray*}
+    \sqrt{a^2}=|a|
+\end{eqnarray*}
 \subsection{重心}
+\begin{itembox}[l]{重心}
+    \begin{eqnarray*}
+        x_G=\dfrac{\Sigma\; mx}{\Sigma\; m}=\dfrac{微小領域に作用するモーメントの総量}{総質量}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{慣性モーメント}
+\begin{itembox}[l]{慣性モーメント}
+    \begin{eqnarray*}
+        I = \displaystyle \int
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{平行軸の定理}
 \subsection{動滑車}
 \begin{figure}[htbp]
     \begin{center}
@@ -98,10 +117,27 @@ $\sqrt{a^2}=|a|$
     ※ 積の交換法則のみ成り立たない!!
 \end{itembox}
 \subsection{一次独立・一次従属}
+\begin{itembox}[l]{一次独立}
+    \begin{center}
+        $c_1a_1+c_2a_2+\cdots+c_ka_k=0$ を満たすのが $c_1=c_2=\cdots=c_k=0$の場合に限るとき,
+        \textgt{一次独立である}という.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{一次従属}
+    \begin{center}
+        $c_1a_1+c_2a_2+\cdots+c_ka_k=0$ を満たすのが $c_1=c_2=\cdots=c_k=0$の場合でないとき,
+        \textgt{一次従属である}という.
+    \end{center}
+\end{itembox}
 \begin{itembox}[l]{物理的な意味}
     ある2つのベクトル$a,b\left(a\neq 0,b\neq 0\right)$が存在し,
     それらが並行でない$\left(a\not\parallel b\right)$とき,\textgt{一次独立である}という.\\
     また,それらが,平行である$\left(a\parallel b\right)$とき,\textgt{一次従属である}という.
+\end{itembox}
+\begin{itembox}[l]{一次独立の判定}
+    ベクトルの線形独立・線形従属の判定は、$c_1a_1+c_2a_2+\cdots+c_ka_k=0$を満たす
+    $c_1,c_2,\cdots,c_k$の値を調べることで行われる。すなわち、 $c_1,c_2,\cdots,c_k$に対する
+    \textgt{連立一次方程式を解くこと}に帰着される
 \end{itembox}
 \subsection{連立一次方程式}
 \begin{itembox}[l]{行列の基本変形}
@@ -123,6 +159,14 @@ $\sqrt{a^2}=|a|$
     一般の連立1次方程式の場合,未知数,方程式の本数,任意定数の間には以下の関係が成り立つ.
     \begin{center}
         \textgt{(未知数の個数) = (有効な方程式の数) + (任意定数の数)}
+    \end{center}
+\end{itembox}
+\subsubsection{ランク (階数)}
+\begin{itembox}[l]{}
+    \begin{center}
+        ある行列$A$を簡約化したとき$0$でない成分が残る行の個数をその行列の\textgt{ランク(階数)}という。\\
+        また、行列$A$のランクが$r$のとき、以下のように書く。\\
+        $\mathrm{rank}A=r$\\
     \end{center}
 \end{itembox}
 \subsubsection{単位行列}
@@ -188,7 +232,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
     X=\left(x_1,x_2,\cdots,x_n\right)=\left(C_1,C_2,\cdots,C_n\right)
 \end{eqnarray*}
 が求める$A^{-1}$となる.
-\subsection{基底}
+\subsubsection{基底}
 \begin{itembox}[l]{定義}
     $W$を部分空間とするとき,$W$内のベクトルの系$\left(v_1,v_2,\cdots,v_n\right)$に対して,
     以下の2つの条件が成立するとき$\left(v_1,v_2,\cdots,v_n\right)$を$W$の\textgt{基底}であるという.
@@ -202,6 +246,25 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
     \vec{v}=x_1v_1+x_2v_2+\cdots+x_nv_n
 \end{eqnarray*}
 とただ一通りに表すことができる.
+\subsubsection{解空間の次元}
+\begin{itembox}[l]{解空間}
+    \begin{center}
+        以下のような右辺が$0$となるような連立方程式のカ階の集合が作る\textgt{部分ベクトル空間}のこと。
+    \end{center}
+    \begin{eqnarray*}
+        ax+by&=&0\\
+        cx+dy&=&0\\
+    \end{eqnarray*}
+    \begin{center}
+        解は\textgt{ベクトル}と捉えられ、解そうしの足し算やスカラー倍もまた解となる。
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解空間の次元}
+    \begin{center}
+        \textgt{(解の次元) = (変数の個数) - (ランク)}\\
+        ※ 解の次元は\textgt{解の自由度}を表している!!
+    \end{center}
+\end{itembox}
 \subsection{行列式}
 \subsubsection{行列式の性質}
 ※ 同じ行(列)を含む行列式の値$0$になる.(行列式の交代性より)
@@ -378,7 +441,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \end{itembox}
 \newpage
 \section{微積分}
-\subsection{基本的な微分}
+\subsection{基本的な微分と積分}
 \begin{itembox}[l]{基本的な関数の導関数}
     \begin{eqnarray*}
         \dfrac{d}{dx}\log |x|&=&\dfrac{1}{x}\\
@@ -439,6 +502,19 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         (基本形)\quad x^\alpha\!(\alpha:-1以外の実数),\; \dfrac{1}{x},\; e^x,\; \log x,\; \sin x,\; \cos x,\; \tan x\\
     \end{eqnarray*}
 \end{itembox}
+\subsubsection{部分積分}
+\begin{itembox}[l]{point}
+    \begin{center}
+        \textgt{積の微分公式}から導ける
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{積の微分公式}
+    \begin{eqnarray*}
+        F\left(x\right)G\left(x\right)&=&\displaystyle\int f\left(x\right)G\left(x\right)dx+\int F\left(x\right)g\left(x\right)dx\\
+        F\left(x\right)&:&f\left(x\right)の原始関数\\
+        G\left(x\right)&:&g\left(x\right)の原始関数\\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{三角関数の積分}
 \begin{itembox}[l]{代表的な置換方法(1)}
     \begin{center}
@@ -492,7 +568,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         ただし,不連続な場合や絶対値をとっている場合等の\textgt{積分範囲の設定}には注意が必要.
     \end{center}
 \end{itembox}
-\subsubsection{極限}
+\subsection{極限}
 \begin{itembox}[l]{point}
     \begin{center}
         極限の問題を解く際の式の変形方法は\textgt{4種類のみ!!}
@@ -503,14 +579,30 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \item 因数分解
         \item 最高次数で割る\\
               → 分子・分母の次数が\textgt{同じ}で,$\dfrac{\infty}{\infty}$の不定形のときに使う!!
-        \item 最も大きな数で割る\\
-
+        \item 最も大きな数で割る
         \item 分子の有理化\\
               → ルートが極限をとる変数を含むときに使う!!
     \end{enumerate}
 \end{itembox}
-\subsubsection{偶関数と奇関数}
+\subsubsection{ロピタルの定理}
+\begin{itembox}[l]{point}
+    \begin{center}
+        一見解けない極限の問題は、\textgt{無理やり$\dfrac{0}{0},\dfrac{\infty}{\infty}$の不定形}をつくってみる!!
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ロピタルの定理}
+    \begin{enumerate}[(1)]
+        \item $\displaystyle\lim_{x\rightarrow a}\dfrac{f\left(x\right)}{g\left(x\right)}$ が $\dfrac{0}{0}$ または $\dfrac{\infty}{\infty}$ の不定形\\
+        \item $\displaystyle\lim_{x\rightarrow a}\dfrac{f'\left(x\right)}{g'\left(x\right)}$ が存在すること
+        \item 極限の行先の十分近くで$g'\left(x\right)\neq 0$となる
+    \end{enumerate}
+    以上の条件を満たすとき、
+    \begin{eqnarray*}
+        \lim_{x\rightarrow a}\dfrac{f\left(x\right)}{g\left(x\right)}=\lim_{x\rightarrow a}\dfrac{f'\left(x\right)}{g'\left(x\right)}\\
+    \end{eqnarray*}
+\end{itembox}
 
+\subsubsection{偶関数と奇関数}
 \subsection{多変数関数}
 \subsubsection{偏微分}
 多変数関数の微分　→　偏微分
@@ -1160,6 +1252,12 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \end{eqnarray*}
     \end{center}
 \end{itembox}
+\subsubsection{微小区間のひずみ}
+\begin{itembox}[l]{微小区間のひずみ}
+    \begin{eqnarray*}
+        d\varepsilon=\dfrac{d\lambda}{dx}\\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{ポアソン比}
 例えば丸棒を引張ると引張方向に\textgt{縦ひずみ}が発生し、同時に径が小さくなる\textgt{横ひずみ}が発生する。\\
 このときの縦ひずみと横ひずみの比を\textgt{ポアソン比}という。
@@ -1195,6 +1293,12 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
             I_pG&:&ねじれ剛性\\
         \end{eqnarray*}
     \end{center}
+\end{itembox}
+\subsubsection{微小区間のねじれ角}
+\begin{itembox}[l]{微小区間のねじれ角}
+    \begin{eqnarray*}
+        d\gamma=\dfrac{rd\varphi}{dx}\\
+    \end{eqnarray*}
 \end{itembox}
 \subsection{曲げ}
 \begin{itembox}[l]{重要公式}
@@ -1287,7 +1391,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \item 剛体壁\\
               $x=0$のとき,\quad$\omega=0,\;\theta=0$
         \item 支点\\
-              $x=0$のとき,\quad$\omega=0$
+              $x=0$のとき,\quad$\omega=0$,力の加わっている個所で$\;\theta =0$
     \end{enumerate}
 \end{itembox}
 \subsection{線膨張係数と熱応力}
@@ -1305,6 +1409,19 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \subsection{BMDとSFD}
 \subsubsection{曲げ応力線図(BMD)}
 \subsubsection{せん断力線図(SFD)}
+\subsection{不静定問題}
+\begin{itembox}[l]{条件}
+    \begin{enumerate}[(1)]
+        \item 力・トルクのつり合い
+        \item 伸び・ねじれ角のつり合い
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{point}
+    \begin{center}
+        \textgt{力・トルク}のつり合いから\textgt{伸び・ねじれ角}を含む式に変換する!!
+    \end{center}
+\end{itembox}
+\subsubsection{例題}
 \subsection{モールの応力円}
 \subsection{材料の破断}
 塑性変形するときは金属材料が単軸応力状態で変形することはなく,2軸または3軸の応力を受けている.
@@ -1350,7 +1467,6 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
 \begin{eqnarray*}
     \sigma_r=0
 \end{eqnarray*}
-\newpage
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=100mm]{images/zairiki_image2.jpg}
@@ -1963,6 +2079,18 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         \dfrac{\partial v}{\partial t}+u\dfrac{\partial v}{\partial x}+v\dfrac{\partial v}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial y}+\nu\left(\dfrac{\partial^2 v}{\partial x^2}+\dfrac{\partial^2 v}{\partial y^2}\right)+f_y\quad(y方向)\\
     \end{eqnarray*}
 \end{itembox}
+\begin{itembox}[l]{ナビエ・ストークス方程式の境界条件}
+    \begin{enumerate}
+        \item 定常流れ
+              \begin{eqnarray*}
+                  \dfrac{\partial u}{\partial t}=0
+              \end{eqnarray*}
+        \item 完全に発達した流れ
+              \begin{eqnarray*}
+                  \dfrac{\partial u}{\partial t}=0
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
 \begin{itembox}[l]{極座標系の支配方程式\quad(非圧縮性流体)}
     \begin{eqnarray*}
         \dfrac{1}{r}\dfrac{\partial \left(rv_r\right)}{\partial r}+\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial \theta}=0\quad&&(連続の式)\\
@@ -2198,4 +2326,32 @@ $\psi=const\quad \phi=const$の法線ベクトルはそれぞれ,
         2^4&=&16\\
     \end{eqnarray*}
 \end{itembox}
+\subsubsection{H29 数学 [2]}
+$\log$の計算を間違えた。
+\begin{eqnarray*}
+    \log 1 = \underline{1}\\
+\end{eqnarray*}
+\begin{itembox}[l]{対策}
+    \begin{center}
+        中身が$e$の何乗かを意識して考える.
+    \end{center}
+    \begin{eqnarray*}
+        \log1&=&\log\left(e^0\right)=0\\
+        \log0&=&\log\left(e^{-\infty}\right)=-\infty\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{H29 数学 [3]}
+ヤコビヤンの関係性を間違えた。
+\begin{itembox}[l]{対策}
+    \begin{center}
+        ヤコビヤンの変数変換の関係性
+    \end{center}
+    \begin{eqnarray*}
+        J=\dfrac{\partial \left(x,y\right)}{\partial \left(s,t\right)}\; から\; dxdy=|J|dsdt\; の関係が成立する。
+    \end{eqnarray*}
+    \begin{center}
+        ヤコビ行列を計算する際の、偏微分する変数側にヤコビヤンをかける!!
+    \end{center}
+\end{itembox}
+
 \end{document}
