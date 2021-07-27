@@ -79,13 +79,6 @@ lineskip=-0.5ex
         x_G=\dfrac{\Sigma\; mx}{\Sigma\; m}=\dfrac{微小領域に作用するモーメントの総量}{総質量}\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{慣性モーメント}
-\begin{itembox}[l]{慣性モーメント}
-    \begin{eqnarray*}
-        I = \displaystyle \int
-    \end{eqnarray*}
-\end{itembox}
-\subsubsection{平行軸の定理}
 \subsection{動滑車}
 \begin{figure}[htbp]
     \begin{center}
@@ -100,6 +93,20 @@ lineskip=-0.5ex
 \end{itembox}
 \subsection{正規化}
 データを一定の規則に基づいて変形し、利用しやすくすること。
+\subsection{逆三角関数}
+\begin{itembox}[l]{$\mathrm{Tan}^{-1}$ (アークタンジェント)}
+    \begin{center}
+        $\tan$の逆関数のこと\\
+        範囲は$-\dfrac{\pi}{2}\leq x \leq\dfrac{\pi}{2}$!!
+    \end{center}
+\end{itembox}
+\subsection{単位ベクトル}
+\begin{itembox}[l]{単位ベクトル}
+    \begin{center}
+        長さ $1$ のベクトルのこと\\
+        固有ベクトルは
+    \end{center}
+\end{itembox}
 \newpage
 \section{線形代数}
 \subsection{行列}
@@ -693,7 +700,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \subsubsection{変数変換公式}
 \begin{itembox}[l]{point}
     \begin{center}
-        ヤコビヤンは\textgt{絶対値}をとる!!
+        変数変換の際はヤコビアンの\textgt{絶対値}をかける!!
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{ヤコビ行列}
@@ -740,6 +747,12 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
                   |J|
                   =
                   \det\left(\dfrac{\partial \left(x,y,z\right)}{\partial \left(r,\theta,\varphi\right)}\right)
+                  =
+                  \begin{bmatrix}
+                      x_r & x_\theta & x_\varphi \\
+                      y_r & y_\theta & y_\varphi \\
+                      z_r & z_\theta & z_\varphi \\
+                  \end{bmatrix}
                   =
                   \begin{bmatrix}
                       \sin\theta\cos\theta  & r\cos\theta\cos\varphi & -r\sin\theta\sin\varphi \\
@@ -1400,12 +1413,64 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \varepsilon=\alpha\Delta T\\
     \end{eqnarray*}
 \end{itembox}
-\begin{itembox}[l]{point}
+\subsection{(例題) 熱応力問題を解く}
+\begin{figure}[htbp]
     \begin{center}
-        材料が温度$\Delta T$だけ上昇すると,ひずみに$\alpha \Delta T$が追加される\\
-        (\textgt{実際のひずみ} $\varepsilon'$) = (\textgt{応力(外力)によるひずみ} $\varepsilon$ ) + (\textgt{温度上昇によるひずみ} $\alpha \Delta T$)
+        \includegraphics[width=120mm]{images/zairiki_image4.jpg}
+        \caption{H24 試験問題 [1]}
     \end{center}
-\end{itembox}
+\end{figure}
+\begin{enumerate}[(1)]
+    \item \textgt{丸棒1に生じるひずみ$\varepsilon_1$を求める}
+          \begin{itembox}[l]{point}
+              \begin{center}
+                  材料が温度$\Delta T$だけ上昇すると,ひずみに$\alpha \Delta T$が追加される\\
+                  (\textgt{合計のひずみ} $\varepsilon'$) = (\textgt{温度上昇によるひずみ} $\alpha \Delta T$) + (\textgt{応力(外力)によるひずみ} $\varepsilon$ )
+              \end{center}
+          \end{itembox}
+          ここで、熱ひずみ$\varepsilon_T$は温度$T$だけ上昇したとき、
+          \begin{eqnarray*}
+              \varepsilon_T=\alpha T
+          \end{eqnarray*}
+          また、応力によるひずみ$\varepsilon_\sigma$は
+          \begin{eqnarray*}
+              \varepsilon_\sigma=\frac{\sigma_1}{E_1}
+          \end{eqnarray*}
+          したがって、丸棒1のひずみ$\varepsilon_1$は
+          \begin{eqnarray*}
+              \varepsilon_1&=&\varepsilon_T+\varepsilon_\sigma\\
+              &=&\alpha T+\dfrac{\sigma_1}{E_1}
+          \end{eqnarray*}
+    \item \textgt{丸棒1に生じる応力$\sigma_1$を求める}\\
+          \begin{itembox}[l]{point}
+              \begin{center}
+                  $\sigma_2$を$\sigma_1$を用いた式で表す
+              \end{center}
+          \end{itembox}
+          力のつり合いより、
+          \begin{eqnarray*}
+              \sigma_1A_1+\sigma_2A_2=0
+          \end{eqnarray*}
+          また、伸びは合わせて丸棒1の熱膨張分であるので、
+          \begin{eqnarray*}
+              \lambda_1+\lambda_2&=&0\\
+              \lambda_1&=&-\lambda_2
+          \end{eqnarray*}
+          両辺を丸棒1,円管2の長さ$L$で割ると、ひずみのつり合いとなる。
+          \begin{eqnarray*}
+              \frac{\lambda_1}{L}&=&-\frac{\lambda_2}{L}\\
+              \varepsilon_1&=&-\varepsilon_2
+          \end{eqnarray*}
+          したがって、
+          \begin{eqnarray*}
+              \varepsilon_2&=&-\varepsilon_1=-\left(\alpha T+\dfrac{\sigma_1}{E_1}\right)\\
+              \sigma_2&=&E_2\varepsilon_2=-E_2\left(\alpha T+\dfrac{\sigma_1}{E_1}\right)
+          \end{eqnarray*}
+          これを、力のつり合いの式に代入して整理すると
+          \begin{eqnarray*}
+              \sigma_1=-\frac{E_1E_2A_2\alpha T}{E_1A_1+E_2A_2}
+          \end{eqnarray*}
+\end{enumerate}
 \subsection{BMDとSFD}
 \subsubsection{曲げ応力線図(BMD)}
 \subsubsection{せん断力線図(SFD)}
@@ -1421,7 +1486,67 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \textgt{力・トルク}のつり合いから\textgt{伸び・ねじれ角}を含む式に変換する!!
     \end{center}
 \end{itembox}
-\subsubsection{例題}
+\subsection{(例題) 不静定問題を解く}
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=120mm]{images/zairiki_image3.jpg}
+        \caption{H27 試験問題 [1]}
+    \end{center}
+\end{figure}
+\begin{enumerate}[(1)]
+    \item \textgt{$x=L$に荷重$P$が加わっているときの丸棒2の伸び$\lambda_2$を求める。}\\
+          \\
+          力のつり合いより、
+          \begin{eqnarray*}
+              \sigma_1A_1+\sigma_2A_2=P
+          \end{eqnarray*}
+          伸びは合計でゼロになるので、
+          \begin{eqnarray*}
+              \lambda_1+\lambda_2&=&0\\
+              \lambda_1&=&-\lambda_2
+          \end{eqnarray*}
+          ここで、応力$\sigma_1,\sigma_2$は、伸び$\lambda_1,\lambda_2$を用いて
+          \begin{eqnarray*}
+              \sigma_1&=&E\frac{\lambda_1}{L}\\
+              \sigma_2&=&E\frac{\lambda_2}{L}
+          \end{eqnarray*}
+          と表せることから、力のつり合い式に代入すると、
+          \begin{eqnarray*}
+              E\frac{\lambda_2}{L}A_1+E\frac{\lambda_2}{L}A_2=P
+          \end{eqnarray*}
+          したがって、
+          \begin{eqnarray*}
+              \frac{E}{L}\left(\lambda_1A_1+\lambda_2A_2\right)&=&P\\
+              \frac{E}{L}\lambda_2\left(A_2-A_1\right)&=&P\\
+              \lambda_1&=&\frac{PL}{E\left(A_2-A_1\right)}
+          \end{eqnarray*}\\
+    \item \textgt{$x=L$にトルク$T$が加わっているときの丸棒2のねじれ角$\varphi_2$を求める。}\\
+          \\
+          トルクのつり合いより、
+          \begin{eqnarray*}
+              T_1+T_2=T
+          \end{eqnarray*}
+          ねじり角は合わせてゼロになるので、
+          \begin{eqnarray*}
+              \varphi_1+\varphi_2&=&0\\
+              \varphi_1&=&-\varphi_2
+          \end{eqnarray*}
+          ここで、トルク$T_1,T_2$はねじれ角$\varphi_1,\varphi_2$を用いて、
+          \begin{eqnarray*}
+              T_1&=&I_{P1}G\frac{\varphi_1}{L}\\
+              T_2&=&I_{P1}G\frac{\varphi_2}{L}\\
+          \end{eqnarray*}
+          と表せることから、トルクのつり合い式に代入すると、
+          \begin{eqnarray*}
+              I_{P1}G\frac{\varphi_1}{L}+I_{P2}G\frac{\varphi_2}{L}=T
+          \end{eqnarray*}
+          したがって、
+          \begin{eqnarray*}
+              \frac{G}{L}\left(I_{P1}\varphi_1+I_{P2}\varphi_2\right)&=&T\\
+              \frac{G}{L}\varphi_2\left(I_{P2}-I_{P1}\right)&=&T\\
+              \varphi_2&=&\frac{TL}{G\left(I_{P2}-I_{P1}\right)}
+          \end{eqnarray*}
+\end{enumerate}
 \subsection{モールの応力円}
 \subsection{材料の破断}
 塑性変形するときは金属材料が単軸応力状態で変形することはなく,2軸または3軸の応力を受けている.
@@ -1821,6 +1946,8 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         ※ 複素振幅の位相遅れと同じ!!
     \end{center}
 \end{itembox}
+\subsection{共振曲線}
+
 \subsection{その他}
 \subsubsection{合成ばね定数を求める}
 系の平衡状態から、力を加えたと仮定して力のつり合いを考えることで合成ばね定数を求めることができる。
@@ -1965,31 +2092,61 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
 その変化の経路に無関係に$\displaystyle\int \frac{dQ}{T}=const$となる値(\textgt{状態量})のこと.\\
 また,その変化の不可逆性の大きさを示す.可逆断熱過程では,エントロピーの変化は\textgt{ゼロ}になる.
 \subsection{サイクル}
-\begin{itembox}[l]{カルノーサイクル}
+\subsubsection{カルノーサイクル}
+\begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等温膨張} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等温収縮}
     \end{center}
 \end{itembox}
 受熱量をすべて仕事に変換できる等温変化を用いるため,サイクルの中で最も高い熱効率となる.
-\begin{itembox}[l]{オットーサイクル}
+\begin{itembox}[l]{熱効率}
+    \begin{eqnarray*}
+        \eta_{thc}=1-\frac{T_2}{T_1}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{オットーサイクル}
+\begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
     \end{center}
 \end{itembox}
+\begin{itembox}[l]{圧縮率}
+    \begin{eqnarray*}
+        \varepsilon=\frac{V_1}{V_2}=\frac{V_3}{V_4}> 1\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{熱効率}
+    \begin{eqnarray*}
+        \eta_{tho}=1-\frac{1}{\varepsilon^{\kappa-1}}\\
+    \end{eqnarray*}
+\end{itembox}
 ガソリンエンジンの基本サイクル.
-\begin{itembox}[l]{ディーゼルサイクル}
+\subsubsection{ディーゼルサイクル}
+\begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
     \end{center}
 \end{itembox}
+\begin{itembox}[l]{締切比 (等圧膨張比)}
+    \begin{eqnarray*}
+        \sigma=\frac{V_3}{V_2}>1\\
+    \end{eqnarray*}
+\end{itembox}
 ディーゼルエンジンのサイクル.
-\begin{itembox}[l]{サバテサイクル}
+\subsubsection{サバテサイクル}
+\begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱}\quad → \quad \textgt{(3) 等圧加熱} \quad → \quad \textgt{($3'$) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
     \end{center}
 \end{itembox}
+\begin{itembox}[l]{圧力比}
+    \begin{eqnarray*}
+        \alpha=\frac{P_3}{P_2}>1\\
+    \end{eqnarray*}
+\end{itembox}
 高速ディーゼルサイクル.受熱過程が等容変化と等圧変化の組み合わせになっている.
-\begin{itembox}[l]{ブレイトンサイクル}
+\subsubsection{ブレイトンサイクル}
+\begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等圧放熱}
     \end{center}
@@ -2062,7 +2219,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     \end{eqnarray*}
     両辺を時間$t$で微分すると,
     \begin{eqnarray*}
-        \displaystyle\sum \dot{m}v=F
+        \displaystyle\sum \dot{m}v=F\\
     \end{eqnarray*}
 \end{itembox}
 \subsection{流体の運動方程式}
@@ -2087,7 +2244,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
               \end{eqnarray*}
         \item 完全に発達した流れ
               \begin{eqnarray*}
-                  \dfrac{\partial u}{\partial t}=0
+                  \dfrac{\partial u}{\partial x}=0
               \end{eqnarray*}
     \end{enumerate}
 \end{itembox}
@@ -2333,7 +2490,7 @@ $\log$の計算を間違えた。
 \end{eqnarray*}
 \begin{itembox}[l]{対策}
     \begin{center}
-        中身が$e$の何乗かを意識して考える.
+        中身が「$e$の何乗か」を意識して考える.
     \end{center}
     \begin{eqnarray*}
         \log1&=&\log\left(e^0\right)=0\\
@@ -2341,16 +2498,16 @@ $\log$の計算を間違えた。
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{H29 数学 [3]}
-ヤコビヤンの関係性を間違えた。
+ヤコビアンの関係性を間違えた。
 \begin{itembox}[l]{対策}
     \begin{center}
-        ヤコビヤンの変数変換の関係性
+        ヤコビアンの変数変換の関係性
     \end{center}
     \begin{eqnarray*}
         J=\dfrac{\partial \left(x,y\right)}{\partial \left(s,t\right)}\; から\; dxdy=|J|dsdt\; の関係が成立する。
     \end{eqnarray*}
     \begin{center}
-        ヤコビ行列を計算する際の、偏微分する変数側にヤコビヤンをかける!!
+        ヤコビ行列を計算する際の、偏微分する変数側にヤコビアンをかける!!
     \end{center}
 \end{itembox}
 

@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  26 JUL 2021 20:08
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  27 JUL 2021 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,52 +484,58 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 File: images/kiriki_image1.jpg Graphic file (type bmp)
 <images/kiriki_image1.jpg>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 93.
+(Font)              scaled to size 8.64899pt on input line 86.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 93.
+(Font)              scaled to size 8.64899pt on input line 86.
  [1
 
 ] [2] [3] [4] [5] [6] [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 404.
+(hyperref)                removing `math shift' on input line 411.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 404.
+(hyperref)                removing `math shift' on input line 411.
 
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
+File: images/zairiki_image4.jpg Graphic file (type bmp)
+<images/zairiki_image4.jpg>
+ [28] [29]
+File: images/zairiki_image3.jpg Graphic file (type bmp)
+<images/zairiki_image3.jpg>
+ [30] [31]
 File: images/zairiki_image1.jpg Graphic file (type bmp)
 <images/zairiki_image1.jpg>
 File: images/zairiki_image2.jpg Graphic file (type bmp)
 <images/zairiki_image2.jpg>
- [29] [30]
+ [32] [33]
 File: images/kiriki_image2.jpg Graphic file (type bmp)
 <images/kiriki_image2.jpg>
- [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
+ [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 1952.
+(Font)              scaled to size 6.72699pt on input line 2079.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 1952.
- [41] [42] [43] [44] [45]
+(Font)              scaled to size 4.805pt on input line 2079.
+ [44] [45] [46] [47] [48]
 File: images/ryuriki_image1.jpg Graphic file (type bmp)
 <images/ryuriki_image1.jpg>
- [46] [47] [48] [49] [50]
-Overfull \hbox (9.14719pt too wide) in paragraph at lines 2279--2290
+ [49] [50] [51] [52] [53]
+Overfull \hbox (9.14719pt too wide) in paragraph at lines 2436--2447
  [] 
  []
 
-[51] [52] (./document.aux)
+[54] [55] (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 1A911D4D11DF8AE19DB5FF7F01655C09;5514.
+(rerunfilecheck)             Checksum: 0B289685EB5335A094C196279346C118;5828.
  ) 
 Here is how much of TeX's memory you used:
- 11172 strings out of 478987
- 160943 string characters out of 5865292
- 524389 words of memory out of 5000000
- 29178 multiletter control sequences out of 15000+600000
+ 11182 strings out of 478987
+ 161229 string characters out of 5865292
+ 524675 words of memory out of 5000000
+ 29186 multiletter control sequences out of 15000+600000
  419301 words of font info for 104 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  60i,19n,66p,571b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.dvi (52 pages, 222512 bytes).
+Output written on document.dvi (55 pages, 233268 bytes).
