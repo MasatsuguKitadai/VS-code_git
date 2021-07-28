@@ -103,8 +103,7 @@ lineskip=-0.5ex
 \subsection{単位ベクトル}
 \begin{itembox}[l]{単位ベクトル}
     \begin{center}
-        長さ $1$ のベクトルのこと\\
-        固有ベクトルは
+        長さ $1$ のベクトルのこと
     \end{center}
 \end{itembox}
 \newpage
@@ -412,7 +411,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \subsubsection{対角行列の$n$乗}
 \begin{itembox}[l]{point}
     \begin{center}
-        対角成分をそれぞれ$m$乗するだけ!!
+        対角成分をそれぞれ$n$乗するだけ!!
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{対角行列の$n$乗}
@@ -442,7 +441,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
                   A^n
                   &=&\left(PDP^{-1}\right)^n\\
                   &=&PDP^{-1}\cdot PDP^{-1}\cdots PDP^{-1}\\
-                  &=&PD^nP^{-1}
+                  &=&PD^nP^{-1}\\
               \end{eqnarray*}
     \end{enumerate}
 \end{itembox}
@@ -611,8 +610,6 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 
 \subsubsection{偶関数と奇関数}
 \subsection{多変数関数}
-\subsubsection{偏微分}
-多変数関数の微分　→　偏微分
 \subsubsection{多変数関数の極値}
 \begin{itembox}[l]{極値を持つ必要条件}
     \begin{center}
@@ -672,20 +669,10 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{center}
 \end{itembox}
 \subsection{重積分}
-\subsubsection{主な解法スキーム}
-\begin{enumerate}[(1)]
-    \item 基本形\\
-          (重積分)→\textgt{計算用の式変換}→(累次積分)→\textgt{計算の実行}→(値)
-    \item 積分の順序変更\\
-          (重積分)→\textgt{計算用の式変換・問題の差し戻し}→(累次積分)→\textgt{計算の実行}→(値)
-    \item 変数変換\\
-          (重積分1)→\textgt{変数の変更}→(重積分2)→\textgt{計算用の式変換}→(累次積分)→\textgt{計算の実行}→(値)
-\end{enumerate}
 \subsubsection{累次積分}
-
 \subsubsection{積分区間の変換}
 積分区分を変換する際は,固定されていない変数を固定して区間を考える.\\
-※ 区間に$x$が含まれる場合は,「$x$を固定した」ということ → 変数を変換する場合は,「$y$を固定」して考える
+※ 区間に$x$が含まれる場合は,「$x$を固定」したということ → 変数を変換する場合は,「$y$を固定」して考える
 \begin{itembox}[l]{代表的な変数変換}
     \begin{enumerate}[(1)]
         \item 円\quad $\left(x^2+y^2=a^2\right)$\\
@@ -842,7 +829,9 @@ $u=\alpha x+\beta y+\gamma$とおくことで,変数分離形に帰着される.
 \end{itembox}
 \subsection{線形微分方程式}
 $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を$x$の関数とするとき\\
-$y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)$
+\begin{eqnarray*}
+    y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)\\
+\end{eqnarray*}
 を\textgt{$n$階微分方程式}という.\\
 また,$Q\left(x\right)=0$のとき\textgt{同次方程式(斉次方程式)},$Q\left(x\right)\neq0$のとき\textgt{非同次方程式(非斉次方程式)}という.
 \subsection{1階線形微分方程式}
@@ -850,7 +839,7 @@ $y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\r
     y'+p\left(x\right)y=q\left(x\right)
 \end{eqnarray*}
 の形の\textgt{非同次方程式}を解くことを考える.\\
-※ 同次方程式の場合は変数分離形で考えれば解ける!!\\
+※ 同次方程式の場合は変数分離形で考えれば解ける!!
 \subsubsection{特殊解$y=\alpha\left(x\right)$がわかっている場合}
 \begin{itembox}[l]{point}
     \begin{center}
@@ -1326,7 +1315,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \begin{itembox}[l]{point}
     \begin{center}
         断面二次極モーメントは直交座標系における\textgt{$x$軸,$y$軸の断面二次モーメントを足し合わせた値}になる.\\
-        すなわち,ねじりと曲げの重要公式に酷似しているものが多い!!
+        ねじりと曲げの重要公式に酷似しているものが多い!!
     \end{center}
 \end{itembox}
 \subsubsection{断面二次モーメント}
@@ -1372,7 +1361,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \end{itembox}
 ここで,$x=r\cos\theta,y=\sin\theta$とすると,$r^2=x^2+y^2$と表せるので,
 \begin{eqnarray*}
-    \displaystyle I_p=\int r^2dA=\int \left(x^2+y^2\right)dA=\int x^2dA+\int y^2dA
+    \displaystyle I_p=\int r^2dA=\int \left(x^2+y^2\right)dA=\int x^2dA+\int y^2dA\\
 \end{eqnarray*}
 ここで,ある図形に対して直交座標系を考え,$x$軸及び$y$軸における断面二次モーメントをそれぞれ$I_x,I_y$とすると,
 \begin{eqnarray*}
@@ -1413,6 +1402,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \varepsilon=\alpha\Delta T\\
     \end{eqnarray*}
 \end{itembox}
+\newpage
 \subsection{(例題) 熱応力問題を解く}
 \begin{figure}[htbp]
     \begin{center}
@@ -1825,13 +1815,13 @@ $\zeta = 0$のとき,特性根は
 したがって,振幅$x_0$は,
 \begin{itembox}[l]{振幅$x_0$}
     \begin{eqnarray*}
-        x_0=\sqrt{\left(x_0\cos\varphi\right)^2+\left(x_0\sin\varphi\right)^2}=\dfrac{1}{\sqrt{\left(-m\omega^2+k\right)^2+\left(c\omega\right)^2}}f
+        x_0=\sqrt{\left(x_0\cos\varphi\right)^2+\left(x_0\sin\varphi\right)^2}=\dfrac{1}{\sqrt{\left(-m\omega^2+k\right)^2+\left(c\omega\right)^2}}f\\
     \end{eqnarray*}
 \end{itembox}
 位相遅れ$\varphi$は,$x_0\cos\varphi,x_0\sin\varphi$の比をとったものであるので,
 \begin{itembox}[l]{位相遅れ$\varphi$}
     \begin{eqnarray*}
-        \varphi=\mathrm{Tan}^{-1}\left(\dfrac{x_0\sin\varphi}{x_0\cos\varphi}\right)=\mathrm{Tan}^{-1}\left(\dfrac{c\omega}{-m\omega^2+k}\right)
+        \varphi=\mathrm{Tan}^{-1}\left(\dfrac{x_0\sin\varphi}{x_0\cos\varphi}\right)=\mathrm{Tan}^{-1}\left(\dfrac{c\omega}{-m\omega^2+k}\right)\\
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{複素振幅表示による方法(1)}
