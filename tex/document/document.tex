@@ -2136,6 +2136,9 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         W&:&絶対仕事\\
     \end{eqnarray*}
 \end{itembox}
+\subsubsection{内部エネルギ}
+個々の分子は力学的エネルギ(位置エネルギ+運動エネルギ)を持っている。\\
+それを巨視的に見たときに分子の持つ\textgt{内部エネルギ}と呼ぶ。
 \begin{itembox}[l]{内部エネルギの変化量}
     \begin{eqnarray*}
         \Delta U&=&mC_v\Delta T\\
@@ -2143,57 +2146,6 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
 \end{itembox}
 初期状態を$\left(P,v,T\right)$とする.\\
 ※ $v$は比容積
-\begin{itembox}[l]{閉じた系における定容変化}
-    \begin{center}
-        $\dfrac{P}{T}=const,\; q=\delta u$が成立する
-    \end{center}
-    \begin{eqnarray*}
-        (体積)\quad v_v&=&v\\
-        (圧力)\quad P_v&=&\dfrac{T_v}{T}P\\
-        (温度)\quad T_v&=&\dfrac{P_v}{P}T\\
-        (仕事)\quad w_v&=&0\\
-        (受熱量)\quad q_v&=&C_vdT=C_v\left(T_v-T\right)\\
-        (内部エネルギー変化量)\quad \delta u&=&q_v=C_v\left(T_v-T\right)\\
-    \end{eqnarray*}
-\end{itembox}
-\begin{itembox}[l]{閉じた系における定圧変化}
-    \begin{center}
-        $\dfrac{V}{T}=const,\; q=\delta u+w$が成立する
-    \end{center}
-    \begin{eqnarray*}
-        (体積)\quad v_p&=&\dfrac{T_p}{T}v\\
-        (圧力)\quad P_p&=&P\\
-        (温度)\quad T_p&=&\dfrac{P_p}{P}T\\
-        (仕事)\quad w_p&=&Pdv=P\left(v_p-v\right)\\
-        (受熱量)\quad q_p&=&C_pdT=C_p\left(T_p-T\right)\\
-        (内部エネルギー変化量)\quad \delta u&=&q_p=C_p\left(T_p-T\right)\\
-    \end{eqnarray*}
-\end{itembox}
-\begin{itembox}[l]{閉じた系における等温変化}
-    \begin{center}
-        $Pv=const,\; q=w$が成立する
-    \end{center}
-    \begin{eqnarray*}
-        (体積)\quad v_t&=&\dfrac{P}{P_t}v\\
-        (圧力)\quad P_t&=&\dfrac{v}{v_t}P\\
-        (温度)\quad T_t&=&T\\
-        (仕事)\quad w_t&=&Pdv=\dfrac{RT}{v}dv=\ln{\dfrac{v_t}{v}}\\
-        (受熱量)\quad q_t&=&w_t=\ln{\dfrac{v_t}{v}}\\
-        (内部エネルギー変化量)\quad \delta u&=&0\\
-    \end{eqnarray*}
-\end{itembox}
-\begin{itembox}[l]{閉じた系における等エントロピー(断熱)変化}
-    \begin{center}
-        $Pv^\kappa=const\left(Tv^{\kappa -1}=const,\; P^{1-\kappa}T^\kappa=const\right),\; 0=\delta u+w$が成立する
-    \end{center}
-    \begin{eqnarray*}
-        (体積)\quad v_s&=&\left(\dfrac{P}{P_s}\right)^{\frac{1}{\kappa}}v\\
-        (圧力)\quad P_s&=&\left(\dfrac{v}{v_s}\right)^\kappa P\\
-        (温度)\quad T_s&=&\left(\dfrac{v}{v_s}\right)^{\kappa -1}T=\left(\dfrac{P}{P_s}\right)^{\frac{1-\kappa}{\kappa}}T\\
-        (仕事)\quad w_s&=&-\delta u=\\
-        (受熱量)\quad q_s&=&0\\
-    \end{eqnarray*}
-\end{itembox}
 \subsubsection{開いた系}
 物質の出入りがある系のことを\textgt{開いた系}という.\quad 例) タービン\\
 また,このとき取り出される仕事を\textgt{工業仕事}という.
@@ -2203,6 +2155,18 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         Q&:&受熱量\\
         \Delta H&:&エンタルピの変化量\\
         W_t&:&工業仕事\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{エンタルピ}
+内部エネルギーと流動エネルギを合わせたものをエンタルピと定義される。
+\begin{itembox}[l]{point}
+    \begin{center}
+        閉じた系における\textgt{等圧過程での受熱量(放熱量)}のこと!!
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{エンタルピ}
+    \begin{eqnarray*}
+        H=U+W\\
     \end{eqnarray*}
 \end{itembox}
 \begin{itembox}[l]{エンタルピの変化量}
@@ -2226,9 +2190,11 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \end{eqnarray*}
 \end{itembox}
 \subsection{熱力学第二法則}
-\begin{center}
-    熱は高いほうから低いほうへと移動するという\textgt{不可逆現象}のことを指す.
-\end{center}
+\begin{screen}
+    \begin{center}
+        熱は高いほうから低いほうへと移動するという\textgt{不可逆現象}のことを指す.
+    \end{center}
+\end{screen}
 \subsubsection{仕事}
 \begin{itembox}[l]{仕事}
     \begin{eqnarray*}
@@ -2250,11 +2216,62 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \eta_{th}=\dfrac{W}{Q_H}=1-\dfrac{Q_L}{Q_H}\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{エントロピー}
+\subsection{エントロピ}
 2つの状態間を\textgt{不可逆的に変化}させたとき,
-その変化の経路に無関係に$\displaystyle\int \frac{dQ}{T}=const$となる値(\textgt{状態量})のこと.\\
+その変化の経路に無関係に一定となる値(\textgt{状態量})のこと.\\
 また,その変化の不可逆性の大きさを示す.可逆断熱過程では,エントロピーの変化は\textgt{ゼロ}になる.
+\begin{itembox}[l]{エントロピ}
+    \begin{eqnarray*}
+        \displaystyle\int \frac{dQ}{T}=const\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{過程}
+\subsubsection{等温過程}
+\begin{itembox}[l]{point}
+    \begin{eqnarray*}
+        PV&=&const\\
+        Q&=&W\\
+        \Delta S
+        &=& \int \frac{dQ}{T}\\
+        &=& \frac{1}{T}\int Pdv\;(閉じた系)\\
+        &=& \frac{1}{T}\int Vdp\;(開いた系)\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{等容過程}
+\begin{itembox}[l]{point}
+    \begin{eqnarray*}
+        \frac{P}{T}&=&const\\
+        Q&=&\Delta U = mC_v\Delta T\\
+        \\
+        \Delta s&=&\int \frac{dQ}{T} = \int \frac{dU}{T} = C_v\int\frac{1}{T}dT\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{等圧過程}
+\begin{itembox}[l]{point}
+    \begin{eqnarray*}
+        \frac{V}{T}&=&const\\
+        Q&=&\Delta U + W = mC_p\Delta T \; \left(= \Delta H\right)\\
+        \\
+        \Delta s&=&\int \frac{dQ}{T} = \int \frac{dH}{T} = C_p\int\frac{1}{T}dT\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{断熱(等エントロピー)過程}
+\begin{itembox}[l]{point}
+    \begin{eqnarray*}
+        PV^\kappa&=&const\\
+        \Delta U&=&- W\\
+        \Delta s&=&0\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection*{$PV^\kappa=const$の導出}
+熱力学第一法則より、断熱過程では
+\begin{eqnarray*}
+    0&=&=du+Pdv\\
+    &=&C_vdT+PdV
+\end{eqnarray*}
+理想気体の式$Pv=RT$と比熱の関係式
 \subsection{サイクル}
+あくまで、理論上のサイクルでありすべて\textgt{閉じた系}と仮定している。
 \subsubsection{カルノーサイクル}
 \begin{itembox}[l]{過程}
     \begin{center}
@@ -2314,7 +2331,8 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等圧放熱}
     \end{center}
 \end{itembox}
-ガスタービンやジェットエンジンの基本サイクル.
+ガスタービンやジェットエンジンの基本サイクル.\\
+※ 閉じた系と仮定している
 \begin{itembox}[l]{断熱効率}
     \begin{eqnarray*}
         \eta &=& \dfrac{h_{2s}-h_1}{h_{2a}-h_1} <1 \quad (圧縮機)\\
@@ -2322,9 +2340,6 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \end{eqnarray*}
 \end{itembox}
 \subsection{再生ブレイトンサイクル}
-\begin{itembox}[l]{過程}
-
-\end{itembox}
 \subsection{乾き度}
 蒸気中の気相部分と液相部分の重量割合のことを\textgt{乾き度}という.\\
 $1\mathrm{kg}$の湿り蒸気が$x\mathrm{kg}$の蒸気と$\left(1-x\right)\mathrm{kg}$の液体から成るとき,
@@ -2497,6 +2512,15 @@ $x$方向の速度$u$の全微分$du$は,
 \begin{eqnarray*}
     du=\dfrac{\partial u}{\partial x}dx+\dfrac{\partial u}{\partial y}dy+\dfrac{\partial u}{\partial t}dt
 \end{eqnarray*}
+\subsubsection{ハーゲン・ポアズイユ流}
+断面積が一定の円管内をゆっくりと流れる流れのことを\textgt{ハーゲン・ポアズイユ流}という。\\
+ナビエ・ストークス方程式を解析的に解くことができる数少ない厳密解の1つ。
+\begin{itembox}[l]{ハーゲン・ポアズイユ流}
+    \begin{eqnarray*}
+        u\left(r\right)&=&-\frac{1}{4\mu}\left(\frac{dp}{dx}\right)\left(r_0^2-r^2\right)\\
+        r_0\; &:&\; 円管の半径\\
+    \end{eqnarray*}
+\end{itembox}
 \subsection{流体のせん断応力}
 流体の流れに平行な軸を$x$軸,垂直な軸を$y$とすると,せん断応力$\tau\left(y\right)$は以下のように表せる.
 \begin{itembox}[l]{せん断応力(2次元)}
@@ -2504,6 +2528,13 @@ $x$方向の速度$u$の全微分$du$は,
         \tau\left(y\right)=\mu\dfrac{du}{dy}\\
     \end{eqnarray*}
 \end{itembox}
+\subsubsection{(例題) 板が流体から受ける力}
+\begin{itembox}[l]{point}
+    \begin{center}
+        \textgt{下の物体}が、\textgt{上の物体}から受ける力
+    \end{center}
+\end{itembox}
+
 \subsection{レイノルズ数}
 \begin{itembox}[l]{レイノルズ数}
     \begin{eqnarray*}
@@ -2681,6 +2712,13 @@ $\log$の計算を間違えた.
         ヤコビ行列を計算する際の,偏微分する変数側にヤコビアンをかける
     \end{center}
 \end{itembox}
+\subsubsection{$f'\left(x\right)/f\left(x\right)$の積分}
+絶対値を忘れない!!
+\begin{itembox}[l]{対策}
+    \begin{eqnarray*}
+        \displaystyle\int\frac{f'\left(x\right)}{f\left(x\right)}=\log \left|f\left(x\right)\right|\\
+    \end{eqnarray*}
+\end{itembox}
 \subsection{研究室模試 (2021/7/28)}
 \subsubsection{点数}
 \begin{enumerate}[(1)]
@@ -2704,7 +2742,7 @@ $\log$の計算を間違えた.
 自分が計算が遅いと思う範囲では、もう一度その範囲を見直して計算が楽になる便利なテクニックがないか調べる。
 \subsubsection{模試での課題}
 \begin{enumerate}[(1)]
-    \item 計算が遅い
+    \item 計算が遅い(1問に時間をかけすぎる)
     \item 公式の間違い
     \item 公式を知らない
     \item 煩雑な計算中のミス
@@ -2716,7 +2754,7 @@ $\log$の計算を間違えた.
 \end{enumerate}
 \subsubsection{本番までの対策}
 \begin{enumerate}[(1)]
-    \item
+    \item 暗記量を増やす(覚えきれる範囲で)
     \item 公式を確実に覚えられる方法を考える
     \item 計算ミスをしないような式の書き方をする
     \item 計算ミスをする部分の効率的な計算方法を考える
