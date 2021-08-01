@@ -1,0 +1,216 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{cancel}
+\usepackage{scalefnt}
+
+\renewcommand{\figurename}{fig.}
+\renewcommand{\tablename}{table }
+\newcommand{\redunderline}[1]{\textcolor{BrickRed}{\underline{\textcolor{black}{#1}}}} 
+
+\hypersetup{
+	colorlinks=false, % リンクに色をつけない設定
+	bookmarks=true, % 以下ブックマークに関する設定
+	bookmarksnumbered=true,
+	pdfborder={0 0 0},
+	bookmarkstype=toc
+}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+
+
+\author{}
+\title{積分}
+\date{}
+
+\begin{document}
+\section{計算ミス対策}
+\subsection{パターンと原因}
+\begin{center}
+    \begin{tabular}{|p{60mm}|p{50mm}|p{50mm}|}
+        \hline
+        \multicolumn{1}{|c|}{\textgt{ミスパターン}}      & \multicolumn{1}{|c|}{\textgt{原因}}  & \multicolumn{1}{|c|}{\textgt{対策}}            \\ \hline
+        式を写し間違える                                 & ・確認をしないで計算を進めてしまう   & ・書き写すごとに確認する                       \\ \hline
+        文字のつけ忘れ                                   & ・確認をしないで計算を進めてしまう   & ・書き写すごとに確認する                       \\ \hline
+        式を移項するときに符号をつけ間違える             & ・確認をしないで計算を進めてしまう   & ・書き写すごとに確認する                       \\ \hline
+        シンプルな暗算のミス                             & ・確認をしないで計算を進めてしまう   & ・一行計算を進めるごとに確認する               \\ \hline
+        題意に即していない記号を用いて解答を書いてしまう & ・問題文中の記号の指定を忘れてしまう & ・指定された(使って良い)記号を書き出しておく   \\
+                                                         &                                      & ・問題文を見直す                               \\ \hline
+        条件を適用していない                             & ・思い込みで計算を進めてしまう       & ・問題を解く前に考慮すべき条件をすべて書き出す \\ \hline
+        公式の覚え間違い                                 & ・そもそも気づけない                 & ・毎日どこかで一回見返すタイミングを作る       \\ \hline
+        そもそも知らない知識がある                       & ・どうしようもない                   & ・範囲をもう一度見直す                         \\ \hline
+    \end{tabular}
+\end{center}
+\subsection{実際のミス}
+\subsubsection{H20 数学 [1]}
+固有ベクトルを求める際に,固有空間の簡約化まではできていたが,$x_1,x_2,x_3$を含めた式を書き間違えた.\\
+\begin{eqnarray*}
+    \lambda=1\quad のとき\quad
+    \left(\lambda E - A\right)
+    &=&
+    \begin{bmatrix}
+        2  & 0 & 1 \\
+        -1 & 1 & 0 \\
+        0  & 0 & 0 \\
+    \end{bmatrix}
+    \quad より\quad
+    \begin{cases}
+        {2x_1+x_3=0}             \\
+        {\underline{-x_2+x_3=0}} \\
+    \end{cases}
+\end{eqnarray*}
+\begin{itembox}[l]{対策}
+    \begin{center}
+        この計算のときは\textgt{必ず}見直す
+    \end{center}
+\end{itembox}
+\subsubsection{H28 材力 [2]}
+2の4乗の計算を間違えた.
+\begin{eqnarray*}
+    2^4=\underline{8}\\
+\end{eqnarray*}
+\begin{itembox}[l]{対策}
+    \begin{center}
+        計算結果を暗記しておく.
+    \end{center}
+    \begin{eqnarray*}
+        2^2&=&4\\
+        2^3&=&8\\
+        2^4&=&16\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{H29 数学 [2]}
+$\log$の計算を間違えた.
+\begin{eqnarray*}
+    \log 1 = \underline{1}\\
+\end{eqnarray*}
+\begin{itembox}[l]{対策}
+    \begin{center}
+        中身が「$e$の何乗か」を意識して考える.
+    \end{center}
+    \begin{eqnarray*}
+        \log1&=&\log\left(e^0\right)=0\\
+        \log0&=&\log\left(e^{-\infty}\right)=-\infty\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{H29 数学 [3]}
+ヤコビアンの関係性を間違えた.
+\begin{itembox}[l]{対策}
+    \begin{center}
+        ヤコビアンの変数変換の関係性
+    \end{center}
+    \begin{eqnarray*}
+        J=\dfrac{\partial \left(x,y\right)}{\partial \left(s,t\right)}\; から\; dxdy=|J|dsdt\; の関係が成立する.
+    \end{eqnarray*}
+    \begin{center}
+        ヤコビ行列を計算する際の,偏微分する変数側にヤコビアンをかける
+    \end{center}
+\end{itembox}
+\subsubsection{$f'\left(x\right)/f\left(x\right)$の積分}
+絶対値を忘れない!!
+\begin{itembox}[l]{対策}
+    \begin{eqnarray*}
+        \displaystyle\int\frac{f'\left(x\right)}{f\left(x\right)}=\log \left|f\left(x\right)\right|\\
+    \end{eqnarray*}
+\end{itembox}
+\newpage
+\subsection{研究室模試 (2021/7/28)}
+\subsubsection{点数}
+\begin{enumerate}[(1)]
+    \item 数学 \qquad \qquad $75/150$ ($100/150$)
+    \item 専門：材力[1] $100/100$
+    \item 専門：機力[1] $100/100$
+    \item 専門：機力[2] $75/100$
+    \item 専門：流体[1] $0/100$ ($60/100$)
+\end{enumerate}
+【合計】 $350/550 = 63.6 \%$ \quad ($435/550 = 79.0\%$)
+\subsubsection{感想}
+数学は自分では解けない問題に、時間をかけて必ず落としてはいけない問題の見直しをしなかった。
+専門科目は試験時間が長いので、3時間集中しきれなかった(一時間半で集中が切れた)。
+その後の見直しもままならず、時間を過ごしてしまった。\\
+結果、一応「8割をとる勉強をして、本番で6割をとる」目標は達成できたが、
+「見直しの配分ミス」・「公式の暗記間違い」をケアできればほぼ8割達成できていたので
+本番でミスしないような方法を考える必要がある。\\
+今後は「10割とる勉強をして、本番8割とる」が目標。\\
+数学については、見直しができないまま終わったが、きっちりその分点数を落とした。
+計算ミスが多いのは、式を煩雑なまま計算していることが原因でもあり、計算も遅くなる上に正確性もない。
+自分が計算が遅いと思う範囲では、もう一度その範囲を見直して計算が楽になる便利なテクニックがないか調べる。
+\subsubsection{模試での課題}
+\begin{enumerate}[(1)]
+    \item 計算が遅い(1問に時間をかけすぎる)
+    \item 公式の間違い
+    \item 公式を知らない
+    \item 煩雑な計算中のミス
+    \item 積分が解けない
+    \item 見直しの時間をとれてない(時間配分のミス)
+    \item 試験時間の3時間集中できない
+    \item 熱力に自信がない
+    \item 流力Iの範囲に自信がない
+\end{enumerate}
+\subsubsection{本番までの対策}
+\begin{enumerate}[(1)]
+    \item 暗記量を増やす(覚えきれる範囲で)
+    \item 公式を確実に覚えられる方法を考える
+    \item 計算ミスをしないような式の書き方をする
+    \item 計算ミスをする部分の効率的な計算方法を考える
+    \item 積分の問題を毎日一問解く
+    \item 見直しのルールを決める
+    \item 試験時間の3時間集中できる方法を考える(食べ物・生活習慣)
+    \item 常に計算ミスへの意識をする
+    \item 熱力強化期間
+    \item 流力I強化期間
+\end{enumerate}
+\subsubsection{実際のミス}
+\begin{itemize}
+    \item ナビエ・ストークス方程式の暗記ミス
+    \item 数学の見直しを怠ったため、計算ミスした
+    \item 問題の見落とし
+\end{itemize}
+\subsection{見直しのルール}
+\subsubsection{必ずやる必要があること}
+\begin{itemize}
+    \item 問題に対して適した解答になっているかの確認
+    \item 計算ミスの確認
+    \item 受験番号の書き忘れの確認
+    \item 使用して良い記号かどうかの確認
+    \item 問題数の確認
+    \item 解答が題意に即する符号かどうかの確認
+\end{itemize}
+\end{document}
