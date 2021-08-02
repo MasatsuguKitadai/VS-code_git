@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  1 AUG 2021 15:39
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  2 AUG 2021 13:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -482,17 +482,17 @@ Overfull \hbox (9.14719pt too wide) in paragraph at lines 67--80
 
 [1
 
-] [2] [3] [4] (./reflections.aux)
+] [2] [3] [4] [5] (./reflections.aux)
 Package rerunfilecheck Info: File `reflections.out' has not changed.
-(rerunfilecheck)             Checksum: 6067FFA580E8A1B4BE92F885FC7E145C;353.
+(rerunfilecheck)             Checksum: 751B5CCE0DCD7DC57DA00788B10F1C72;1085.
  ) 
 Here is how much of TeX's memory you used:
- 11105 strings out of 478987
- 159835 string characters out of 5865292
- 507598 words of memory out of 5000000
- 29127 multiletter control sequences out of 15000+600000
+ 11107 strings out of 478987
+ 159857 string characters out of 5865292
+ 508320 words of memory out of 5000000
+ 29129 multiletter control sequences out of 15000+600000
  413396 words of font info for 76 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,13n,66p,274b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,66p,274b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on reflections.dvi (4 pages, 16444 bytes).
+Output written on reflections.dvi (5 pages, 18868 bytes).
