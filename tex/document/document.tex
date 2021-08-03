@@ -1483,6 +1483,11 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \varepsilon_y&=&-\nu\dfrac{\sigma_x}{E}\\
     \end{eqnarray*}
 \end{itembox}
+\begin{itembox}[l]{ポアソン比と弾性係数の関係}
+    \begin{eqnarray*}
+        E=2G\left(1+\nu\right)\\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{平等強さ}
 どの断面でも\textgt{応力が一定}である状のことをいう.
 \subsection{ねじり・せん断応力}
@@ -2602,7 +2607,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     \begin{eqnarray*}
         \dfrac{1}{r}\dfrac{\partial \left(rv_r\right)}{\partial r}+\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial \theta}=0\quad&&(連続の式)\\
         \dfrac{\partial v_r}{\partial t}+v_r\dfrac{\partial v_r}{\partial r}+\dfrac{v_\theta}{r}\dfrac{\partial v_r}{\partial \theta}-\dfrac{{v_\theta}^2}{r}=-\dfrac{1}{\rho}\dfrac{\partial p}{\partial r}+\nu \left(\dfrac{\partial^2 v_r}{\partial r^2}+\dfrac{1}{r}\dfrac{\partial v_r}{\partial r}+\dfrac{1}{r^2}\dfrac{\partial^2 v_r}{\partial \theta^2}-\dfrac{v_r}{r^2}-\dfrac{2}{r^2}\dfrac{\partial v_\theta}{\partial \theta}\right)+f_r\quad&&(r方向)\\
-        \dfrac{\partial v_\theta}{\partial t}+v_r\dfrac{\partial v_\theta}{\partial r}+\dfrac{v_\theta}{r}\dfrac{\partial v_\theta}{\partial \theta}+\dfrac{v_rv_\theta}{r}=-\dfrac{1}{\rho}\dfrac{1}{r}\dfrac{\partial p}{\partial \theta}+\nu\left(\dfrac{\partial^2 v_r}{\partial \theta^2}+\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial r}+\dfrac{1}{r^2}\dfrac{\partial^2 v_\theta}{\partial \theta^2}-\dfrac{v_\theta}{r^2}+\dfrac{2}{r^2}\dfrac{\partial v_r}{\partial \theta}\right)+f_\theta\quad&&(\theta 方向)\\
+        \dfrac{\partial v_\theta}{\partial t}+v_r\dfrac{\partial v_\theta}{\partial r}+\dfrac{v_\theta}{r}\dfrac{\partial v_\theta}{\partial \theta}+\dfrac{v_rv_\theta}{r}=-\dfrac{1}{\rho}\dfrac{1}{r}\dfrac{\partial p}{\partial \theta}+\nu\left(\dfrac{\partial^2 v_\theta}{\partial \theta^2}+\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial r}+\dfrac{1}{r^2}\dfrac{\partial^2 v_\theta}{\partial \theta^2}-\dfrac{v_\theta}{r^2}+\dfrac{2}{r^2}\dfrac{\partial v_r}{\partial \theta}\right)+f_\theta\quad&&(\theta 方向)\\
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{オイラーの運動方程式とナビエ・ストークス方程式の違い}
@@ -2711,11 +2716,11 @@ $x$方向の速度$u$の全微分$du$は,
 A-B間の下側の板と上側の板が受ける力$F_1,F_2$を求める.\\
 ただし,奥行方向は単位長さとして,流速$u\left(y\right)$は以下のように定める.
 \begin{eqnarray*}
-    u\left(y\right)&=&\frac{1}{2\mu}\frac{dP}{dx}\left(h-y\right)y+\dfrac{V}{h}y\\
+    u\left(y\right)&=&-\frac{1}{2\mu}\frac{dP}{dx}\left(h-y\right)y+\dfrac{V}{h}y\\
 \end{eqnarray*}
 また,このときのせん断力$\tau \left(y\right)$は,以下のように求められる.
 \begin{eqnarray*}
-    \tau \left(y\right) = \mu \frac{du}{dy} = \frac{1}{2}\frac{dP}{dx}\left(h-2y\right)+\mu\frac{V}{h}\\
+    \tau \left(y\right) = \mu \frac{du}{dy} = -\frac{1}{2}\frac{dP}{dx}\left(h-2y\right)+\mu\frac{V}{h}\\
 \end{eqnarray*}
 A-B間の面積$S$は,以下のように求められる.
 \begin{eqnarray*}
@@ -2725,26 +2730,26 @@ A-B間の面積$S$は,以下のように求められる.
     \item A-B間の下側の板に加わる力を求める\\
           \begin{eqnarray*}
               F_1&=&\tau\left(0\right)\times S\\
-              &=&\frac{hL}{2}\frac{dP}{dx}+\mu\frac{VL}{h}\\
+              &=&-\frac{hL}{2}\frac{dP}{dx}+\mu\frac{VL}{h}\\
           \end{eqnarray*}
     \item A-B間の上側の板に加わる力を求める\\
           \begin{eqnarray*}
               F&=&\tau\left(h\right)\times S\\
-              &=&-\frac{hL}{2}\frac{dP}{dx}+\mu\frac{VL}{h}\\
+              &=&\frac{hL}{2}\frac{dP}{dx}+\mu\frac{VL}{h}\\
           \end{eqnarray*}
           このとき,上記の力$F$は\textgt{流体が上の板から受ける力}を表しているため,
           上の板が流体から受ける力$F_2$は,
           \begin{eqnarray*}
               F_2&=&-F\\
-              &=&\frac{hL}{2}\frac{dP}{dx}-\mu\frac{VL}{h}\\
+              &=&-\frac{hL}{2}\frac{dP}{dx}-\mu\frac{VL}{h}\\
           \end{eqnarray*}
 \end{enumerate}
 したがって,求める$F_1,F_2$は以下のようになる.
 \begin{eqnarray*}
     \begin{cases}
-        F_1=\dfrac{hL}{2}\dfrac{dP}{dx}+\mu\dfrac{VL}{h} \\
+        F_1=-\dfrac{hL}{2}\dfrac{dP}{dx}+\mu\dfrac{VL}{h} \\
         \\
-        F_2=\dfrac{hL}{2}\dfrac{dP}{dx}-\mu\dfrac{VL}{h} \\
+        F_2=-\dfrac{hL}{2}\dfrac{dP}{dx}-\mu\dfrac{VL}{h} \\
     \end{cases}
 \end{eqnarray*}
 \subsection{応力テンソル}

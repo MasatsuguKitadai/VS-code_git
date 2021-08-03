@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  2 AUG 2021 18:10
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  3 AUG 2021 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -515,9 +515,9 @@ File: images/kiriki_image2.jpg Graphic file (type bmp)
 <images/kiriki_image2.jpg>
  [36] [37] [38] [39] [40] [41] [42] [43] [44]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 2249.
+(Font)              scaled to size 6.72699pt on input line 2254.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 2249.
+(Font)              scaled to size 4.805pt on input line 2254.
  [45] [46] [47] [48] [49] [50]
 File: images/ryuriki_image4.jpg Graphic file (type bmp)
 <images/ryuriki_image4.jpg>
@@ -538,6 +538,6 @@ Here is how much of TeX's memory you used:
  29195 multiletter control sequences out of 15000+600000
  419636 words of font info for 105 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,19n,66p,574b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,19n,66p,579b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.dvi (61 pages, 255608 bytes).
+Output written on document.dvi (61 pages, 255936 bytes).
