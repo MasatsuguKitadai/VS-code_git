@@ -604,6 +604,19 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
               この$P$は正則行列であり,$P^{-1}AP$は\textgt{自動的}に対角行列となる.
     \end{enumerate}
 \end{itembox}
+\subsubsection{ジョルダン標準形}
+与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる。
+そのとき、対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる。
+その変形された行列の形を\textgt{ジョルダン標準形}という。
+\begin{itembox}[l]{$2\times 2$行列のジョルダン標準形}
+    \begin{eqnarray*}
+        \begin{bmatrix}
+            \lambda & 1       \\
+            0       & \lambda \\
+        \end{bmatrix}
+        \quad ※\; \lambda\; :\; 固有値(重解)\\
+    \end{eqnarray*}
+\end{itembox}
 \subsection{行列の$n$乗}
 \subsubsection{対角行列の$n$乗}
 \begin{itembox}[l]{Point}
@@ -1300,6 +1313,8 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \subsubsection{特殊解を予想する}
 \begin{itembox}[l]{特殊解の予想例}
     \begin{enumerate}[(1)]
+        \item $f\left(x\right)=ax+b$\\
+              $y=\alpha x + \beta$と予想する
         \item $f\left(x\right)=ke^{\alpha x}$\\
               特性方程式の解$\lambda$が
               \begin{enumerate}[(i)]
@@ -1442,6 +1457,47 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
     \begin{eqnarray*}
         \alpha\left(x\right)=-y_1\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx+y_2\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
     \end{eqnarray*}
+\end{itembox}
+\subsection{オイラーの微分方程式}
+\begin{eqnarray*}
+    x^2y''+axy'+by=f\left(x\right)
+\end{eqnarray*}
+の形の微分方程式を\textgt{オイラーの微分方程式}という。
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $x=e^t$とおく
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{eqnarray*}
+        x=e^t
+    \end{eqnarray*}
+    とすると、
+    \begin{eqnarray*}
+        t&=&\ln x\\
+        dt&=&\dfrac{1}{x}dx\\
+        \frac{dt}{dx}&=&\frac{1}{x}\\
+    \end{eqnarray*}
+    また、
+    \begin{eqnarray*}
+        \frac{dy}{dx}&=&\frac{dy}{dt}\frac{dt}{dx}\\
+        &=&\frac{1}{x}\frac{dy}{dt}\\
+        \\
+        \frac{d^2y}{dx^2}&=&\frac{d}{dx}\left(\frac{dy}{dt}\frac{dt}{dx}\right)\\
+        &=&\frac{d}{dx}\left(\frac{1}{x}\frac{dy}{dt}\right)\\
+        &=&-\frac{1}{x^2}\frac{dy}{dt}+\frac{1}{x}\frac{d^2y}{dt^2}\\
+    \end{eqnarray*}
+    より、これをもとの式に代入して、
+    \begin{eqnarray*}
+        x^2y''+axy'+by
+        &=&x^2\left(-\frac{1}{x^2}\frac{dy}{dt}+\frac{1}{x}\frac{d^2y}{dt^2}\right)+ax\left(\frac{1}{x}\frac{dy}{dt}\right)+by\\
+        &=&\frac{d^2y}{dt^2}+\left(a-1\right)\frac{dy}{dt}+by\\
+    \end{eqnarray*}
+    したがって、以下の式に帰着する。
+    \begin{eqnarray*}
+        \frac{d^2y}{dt^2}+\left(a-1\right)\frac{dy}{dt}+by=f\left(t\right)
+    \end{eqnarray*}
+    このとき、特殊解は、$t$の関数で求めてしまうと良い。
 \end{itembox}
 \newpage
 \section{材料力学}

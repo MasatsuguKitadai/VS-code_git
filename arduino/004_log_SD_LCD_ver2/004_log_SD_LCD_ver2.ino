@@ -197,7 +197,7 @@ void loop()
     // SDcard
     File datafile;
     
-    datafile = SD.open(filename, FILE_WRITE); // 干渉箇所
+    datafile = SD.open(filename, FILE_WRITE);
     datafile.print(k);
     datafile.print("\t");
     datafile.print(thermocouple.readCelsius());
