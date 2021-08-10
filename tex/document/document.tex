@@ -605,9 +605,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{enumerate}
 \end{itembox}
 \subsubsection{ジョルダン標準形}
-与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる。
-そのとき、対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる。
-その変形された行列の形を\textgt{ジョルダン標準形}という。
+与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる.
+そのとき、対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる.
+その変形された行列の形を\textgt{ジョルダン標準形}という.
 \begin{itembox}[l]{$2\times 2$行列のジョルダン標準形}
     \begin{eqnarray*}
         \begin{bmatrix}
@@ -1462,7 +1462,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \begin{eqnarray*}
     x^2y''+axy'+by=f\left(x\right)
 \end{eqnarray*}
-の形の微分方程式を\textgt{オイラーの微分方程式}という。
+の形の微分方程式を\textgt{オイラーの微分方程式}という.
 \begin{itembox}[l]{Point}
     \begin{center}
         $x=e^t$とおく
@@ -1493,11 +1493,11 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         &=&x^2\left(-\frac{1}{x^2}\frac{dy}{dt}+\frac{1}{x}\frac{d^2y}{dt^2}\right)+ax\left(\frac{1}{x}\frac{dy}{dt}\right)+by\\
         &=&\frac{d^2y}{dt^2}+\left(a-1\right)\frac{dy}{dt}+by\\
     \end{eqnarray*}
-    したがって、以下の式に帰着する。
+    したがって、以下の式に帰着する.
     \begin{eqnarray*}
         \frac{d^2y}{dt^2}+\left(a-1\right)\frac{dy}{dt}+by=f\left(t\right)
     \end{eqnarray*}
-    このとき、特殊解は、$t$の関数で求めてしまうと良い。
+    このとき、特殊解は、$t$の関数で求めてしまうと良い.
 \end{itembox}
 \newpage
 \section{材料力学}
@@ -2253,7 +2253,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         Q&=&\Delta U+W\\
         Q&:&受熱量\\
         \Delta U&:&内部エネルギの変化量\\
-        W&:&絶対仕事\\
+        W&:&絶対仕事 \; (気体のした仕事)\\
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{内部エネルギ}
@@ -2274,7 +2274,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         Q&=&\Delta H+W_t\\
         Q&:&受熱量\\
         \Delta H&:&エンタルピの変化量\\
-        W_t&:&工業仕事\\
+        W_t&:&工業仕事 \; (気体のした仕事)\\
     \end{eqnarray*}
 \end{itembox}
 \subsubsection{エンタルピ}
@@ -2350,7 +2350,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \begin{center}
         T-S線図をすぐにイメージできるかがカギ\\
         \textgt{右肩上がりの線}(比例)が描ける\\
-        エントロピの変化量が等しいとき,$C_p > C_v$ より,傾きは \textgt{定積変化 > 定容変化}\\
+        $C_p > C_v$ より,傾きは \textgt{定積変化 $>$ 定容変化}\\
     \end{center}
 \end{itembox}
 \begin{itembox}[l]{加熱・放熱}
@@ -2616,13 +2616,24 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     \end{eqnarray*}
 \end{itembox}
 \subsection{流体のエネルギー保存則}
+完全流体(非粘性・非圧縮性)の定常流れにおいて、任意の流れに沿って、
+圧力・運動エネルギ・ポテンシャルエネルギの総和が流線ごとに保存されることを示している以下の式を\textgt{ベルヌーイの定理}という.
 \begin{itembox}[l]{ベルヌーイの定理}
     \begin{eqnarray*}
-        \dfrac{1}{2}\dot{m}v^2+\dot{m}\dfrac{p}{\rho}+\dot{m}gz=const\\
+        \dfrac{1}{2}v^2+\dfrac{p}{\rho}+gz=const\\
     \end{eqnarray*}
 \end{itembox}
+※ ベルヌーイの定理では、単位質量流量あたりのエネルギーの総和を考える.\\
+また、水平な流れでは、ポテンシャルエネルギの項を省略して、
+\begin{itembox}[l]{水平な流れのベルヌーイの定理}
+    \begin{eqnarray*}
+        p+\frac{1}{2}\rho u^2 =p_0\\
+    \end{eqnarray*}
+\end{itembox}
+ここで、$p$を\textgt{静圧}、$\dfrac{1}{2}\rho u^2$を\textgt{動圧}、$p_0$を\textgt{総圧(全圧)}という.\\
+流れがせき止められ、流速がゼロになる点を\textgt{よどみ点}という。また、$p_0$はよどみ点圧力でもある。\\
 ※ ベルヌーイの定理は,\textgt{エネルギー保存則}であるのでエネルギーの損失 (圧力損失 等) がある場合は適用できない\\
-→ 運動量保存則が適用される
+→ 運動量保存則が適用される\\
 \subsubsection{トリチェリの定理}
 容器に液体を入れ,容器に対して十分に小さい穴をあける.
 このとき,流れが定常であるとすると,流れ出す液体の速度$v$は以下のように表される.
