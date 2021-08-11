@@ -191,31 +191,35 @@ main {
     width: 28%;
     line-height: 60px;
     font-size: 24px;
-	background: #303030;
-	display: flex;
-	overflow: hidden;
-	position: relative;
+    background: #000;
+    display: flex;
+    overflow: hidden;
+    position: relative;
     text-align: center;
-	text-decoration: none;
+    text-decoration: none;
+    border: 2px solid #000;
 }
 
 .naviname:before {
-	background : #0ae;
-	content:"";
-	display: block;
-	height: 100%;
+    background: #0ae;
+    content: "";
+    display: block;
+    height: 100%;
     width: 100%;
-	left: -96%;
-	opacity: 0.5;
-	position: absolute;
-	transition: .5s;
+    left: -96%;
+    opacity: 1;
+    position: absolute;
+    transition: 0.5s;
 }
 
-.naviname:hover:before { 
-    left:0; 
+.naviname:hover:before {
+    left: 0;
+    background-color: #0ae;
+    color: #000;
+    content: "SEE MORE";
 }
 
-.naviname a{
+.naviname a {
     margin: auto;
     color: #fff;
 }
@@ -224,7 +228,6 @@ main {
     width: 100%;
     height: 30px;
 }
-
 
 /********************************/
 
