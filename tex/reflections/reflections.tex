@@ -78,7 +78,7 @@ lineskip=-0.5ex
         そもそも知らない知識がある                       & ・どうしようもない                   & ・範囲をもう一度見直す                         \\ \hline
     \end{tabular}
 \end{center}
-\subsection{実際のミス}
+\subsection{実際の計算間違い}
 \subsubsection{H20 数学 [1]}
 固有ベクトルを求める際に,固有空間の簡約化まではできていたが,$x_1,x_2,x_3$を含めた式を書き間違えた.\\
 \begin{eqnarray*}
@@ -101,7 +101,7 @@ lineskip=-0.5ex
         この計算のときは\textgt{必ず}見直す
     \end{center}
 \end{itembox}
-\subsubsection{H28 材力 [2]}
+\subsubsection{H28 材料力学 [2]}
 2の4乗の計算を間違えた.
 \begin{eqnarray*}
     2^4=\underline{8}\\
@@ -209,24 +209,25 @@ $\log$の計算を間違えた.
         実際に代入して確かめる.
     \end{center}
 \end{itembox}
+\subsection{実際の間違い(専門科目)}
+\subsubsection{H22 熱力学 [6]}
+ブレイトンサイクルの正味の仕事を断熱過程のみで考えていた\\
+→ 等圧過程を含むサイクルの場合は、加熱・放熱の際に仕事が発生する\\
+\begin{itembox}[l]{対策}
+    \begin{center}
+        熱効率・正味の仕事を考える際は、基本的に受熱量・放熱量を用いて考える
+    \end{center}
+    \begin{eqnarray*}
+        \eta = 1 - \frac{Q_{out}}{Q_{in}} < 1\\
+        W_{net} = Q_{in} - Q_{out}\\
+    \end{eqnarray*}
+    \begin{center}
+        ※ 受熱量$Q_{in}$、放熱量$Q_{out}$は\textgt{絶対値}
+    \end{center}
+\end{itembox}
 \newpage
 \section{問題を解くときの注意}
-\subsection{材料力学}
-\subsubsection{苦手範囲}
-\subsection{機械力学}
-\subsubsection{注意点}
-\begin{enumerate}[(1)]
-    \item 重力の有無に注意する
-    \item 初期条件の設定に注意する
-\end{enumerate}
-\subsubsection{苦手範囲}
-\subsection{熱力学}
-\subsubsection{苦手範囲}
-\subsection{流体力学}
-\subsubsection{苦手範囲}
-\begin{enumerate}[(1)]
-    \item 運動量保存の法則
-\end{enumerate}
+
 \newpage
 \section{研究室模試 (2021/7/28)}
 \subsection{点数}
