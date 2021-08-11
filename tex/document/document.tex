@@ -711,6 +711,65 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         +\dfrac{f^{\left(n\right)}\left(0\right)}{n!}x^n+\cdots
     \end{eqnarray*}
 \end{itembox}
+\subsection{全微分と偏微分}
+\subsubsection{微分とは}
+\begin{center}
+    \textgt{微分}とは、ある関数の\textgt{微小区間に注目した傾き}を表している。\\
+    イメージ : 関数の傾きがほぼ直線に見えるまで拡大し、その傾きを調べている。\\
+    2変数以上の関数の微分を扱うのが\textgt{全微分・偏微分}。
+\end{center}
+\subsubsection{全微分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $dx,dy$だけ動いた(微小変化した)ときの$f\left(x,y\right)$の変化量
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{全微分}
+    \begin{eqnarray*}
+        df\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial x}dx+ \frac{\partial f\left(x,y\right)}{\partial y}dy\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{偏微分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        変数を一つに\textgt{固定}して、その傾きを求める\\
+        例) $y$を固定して、$x$方向の傾きを$y$の関数として求める
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{偏微分}
+    \begin{eqnarray*}
+        f_x\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial x}\\
+        f_y\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial y}\\
+    \end{eqnarray*}
+\end{itembox}
+\\
+※ 全微分と偏微分の違い\\
+全微分は「微小変化したときの\textgt{変化量}」を表し、偏微分は「微小変化したときの\textgt{傾き}」を示している.\\
+したがって、全微分には「変化量」を表すために$dx$がかけられていて、
+偏微分には「傾き」を表せば良いので$dx$はかけられていない。
+\\ \\
+※ $f\left(x,y\right)$の$x$に関する導関数$\dfrac{df\left(x,y\right)}{dx}$を求める.\\
+\begin{eqnarray*}
+    df\left(x,y\right)&=&\frac{\partial f\left(x,y\right)}{\partial x}dx+ \frac{\partial f\left(x,y\right)}{\partial y}dy\\
+    f\left(x,y\right)\; の全微分\; df \; の両辺を\; dx\; で割って,
+    \frac{d f\left(x,y\right)}{dx}&=&\frac{\partial f\left(x,y\right)}{\partial x}+ \frac{\partial f\left(x,y\right)}{\partial y}\frac{dy}{dx}\\
+\end{eqnarray*}
+\subsubsection{合成関数の偏微分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $f\left(x,y\right)$の$x,y$それぞれの$t$の微分を求め、それらを足し合わせる.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{連鎖律(Chain rule)}
+    \begin{center}
+        全微分が可能な2変数関数$f\left(x,y\right)$、
+        及び$x=p\left(t\right),y=q\left(t\right)$ がそれぞれ$t$の関数で微分可能であるとき、\\
+        合成関数$f\left(p\left(t\right),q\left(t\right)\right)$の$t$における偏微分は以下のように表される。
+    \end{center}
+    \begin{eqnarray*}
+        \frac{df}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}\\
+    \end{eqnarray*}
+\end{itembox}
 \subsection{1変数の積分}
 \subsubsection{積分を解くにあたって}
 \begin{itembox}[l]{Point}
@@ -2540,6 +2599,12 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
 \end{itembox}
 \subsection{再生ブレイトンサイクル}
 \subsection{乾き度}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        単位質量あたりに含まれている蒸気の質量 → \textgt{乾き度}
+    \end{center}
+\end{itembox}
+\\
 蒸気中の気相部分と液相部分の重量割合のことを\textgt{乾き度}という.\\
 $1\mathrm{kg}$の湿り蒸気が$x\mathrm{kg}$の蒸気と$\left(1-x\right)\mathrm{kg}$の液体から成るとき,
 $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
@@ -2768,9 +2833,17 @@ $x$方向の速度$u$の全微分$du$は,
 \begin{eqnarray*}
     du=\dfrac{\partial u}{\partial x}dx+\dfrac{\partial u}{\partial y}dy+\dfrac{\partial u}{\partial t}dt
 \end{eqnarray*}
+\subsubsection{クエット流}
+2枚の平行な板の間に流体を満たし、一方の板を平行に動かしたときに生じる流れのことを\textgt{クエット流}という.
+\begin{itembox}[l]{クエット流}
+    \begin{eqnarray*}
+        u\left(y\right)&=&\frac{U}{h}y\\
+        U \;&:&\; 板の動く速度\\
+        h \;&:&\; 板間の距離\\
+    \end{eqnarray*}
+\end{itembox}
 \subsubsection{ハーゲン・ポアズイユ流}
-断面積が一定の円管内をゆっくりと流れる流れのことを\textgt{ハーゲン・ポアズイユ流}という.\\
-ナビエ・ストークス方程式を解析的に解くことができる数少ない厳密解の1つ.
+断面積が一定の円管内をゆっくりと流れる流れのことを\textgt{ハーゲン・ポアズイユ流}という.
 \begin{itembox}[l]{ハーゲン・ポアズイユ流}
     \begin{eqnarray*}
         u\left(r\right)&=&-\frac{1}{4\mu}\left(\frac{dp}{dx}\right)\left(r_0^2-r^2\right)\\
