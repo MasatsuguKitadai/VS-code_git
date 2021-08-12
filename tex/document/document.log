@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  11 AUG 2021 19:02
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  12 AUG 2021 13:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -492,52 +492,52 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 ] [2] [3] [4] [5] [6] [7] [8] [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 620.
+(hyperref)                removing `math shift' on input line 641.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 620.
+(hyperref)                removing `math shift' on input line 641.
 
-[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
+[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
 File: images/zairiki_image4.jpg Graphic file (type bmp)
 <images/zairiki_image4.jpg>
- [34]
+ [35]
 File: images/zairiki_image3.jpg Graphic file (type bmp)
 <images/zairiki_image3.jpg>
- [35] [36]
+ [36] [37]
 File: images/zairiki_image1.jpg Graphic file (type bmp)
 <images/zairiki_image1.jpg>
- [37]
+ [38]
 File: images/zairiki_image2.jpg Graphic file (type bmp)
 <images/zairiki_image2.jpg>
- [38]
+ [39]
 File: images/kiriki_image2.jpg Graphic file (type bmp)
 <images/kiriki_image2.jpg>
- [39] [40] [41] [42] [43] [44] [45] [46] [47]
+ [40] [41] [42] [43] [44] [45] [46] [47] [48]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 2387.
+(Font)              scaled to size 6.72699pt on input line 2408.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 2387.
- [48] [49] [50] [51] [52] [53]
+(Font)              scaled to size 4.805pt on input line 2408.
+ [49] [50] [51] [52] [53] [54]
 File: images/ryuriki_image4.jpg Graphic file (type bmp)
 <images/ryuriki_image4.jpg>
- [54] [55] [56]
+ [55] [56] [57]
 File: images/ryuriki_image1.jpg Graphic file (type bmp)
 <images/ryuriki_image1.jpg>
- [57] [58] [59] [60]
+ [58] [59] [60] [61]
 File: images/ryuriki_image3.jpg Graphic file (type bmp)
 <images/ryuriki_image3.jpg>
- [61] [62] [63] [64] [65] (./document.aux)
+ [62] [63] [64] [65] [66] (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 4D6C193D09C34CBCBA47B6B630AB47B1;6117.
  ) 
 Here is how much of TeX's memory you used:
  11191 strings out of 478987
  161513 string characters out of 5865292
- 524940 words of memory out of 5000000
+ 525940 words of memory out of 5000000
  29193 multiletter control sequences out of 15000+600000
  419301 words of font info for 104 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  60i,19n,66p,579b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.dvi (65 pages, 271080 bytes).
+Output written on document.dvi (66 pages, 272872 bytes).

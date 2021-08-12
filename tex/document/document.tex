@@ -605,16 +605,37 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{enumerate}
 \end{itembox}
 \subsubsection{ジョルダン標準形}
-与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる.
-そのとき、対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる.
+与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる.\\
+そのとき、固有ベクトルと一次独立であるベクトルを見つけられれば、
+対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる.\\
 その変形された行列の形を\textgt{ジョルダン標準形}という.
-\begin{itembox}[l]{$2\times 2$行列のジョルダン標準形}
+\begin{itembox}[l]{ジョルダン細胞}
     \begin{eqnarray*}
         \begin{bmatrix}
-            \lambda & 1       \\
-            0       & \lambda \\
+            \lambda & 1       & \cdots & 0       \\
+                    & \lambda & \ddots & \vdots  \\
+            \vdots  &         & \ddots & 1       \\
+            0       & \cdots  &        & \lambda \\
         \end{bmatrix}
         \quad ※\; \lambda\; :\; 固有値(重解)\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{ジョルダン標準形}
+    \begin{eqnarray*}
+        P^{-1}AP
+        =
+        \begin{bmatrix}
+            J_n\left(\lambda_1\right) &                           & \cdots & 0                         \\
+                                      & J_n\left(\lambda_2\right) &        & \vdots                    \\
+            \vdots                    &                           & \ddots &                           \\
+            0                         & \cdots                    &        & J_n\left(\lambda_n\right) \\
+        \end{bmatrix}
+        \quad ※ J_n\left(\lambda\right)\; :\; 固有値 \lambda に対応するジョルダン細胞 \\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{Point}
+    \begin{eqnarray*}
+        \left(\lambda E - A\right) u=x を解くことで、一次独立なベクトルを見つけることができる\\
     \end{eqnarray*}
 \end{itembox}
 \subsection{行列の$n$乗}
