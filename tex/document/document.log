@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  12 AUG 2021 13:36
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  15 AUG 2021 19:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -521,23 +521,26 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
  [49] [50] [51] [52] [53] [54]
 File: images/ryuriki_image4.jpg Graphic file (type bmp)
 <images/ryuriki_image4.jpg>
- [55] [56] [57]
+ [55] [56]
+File: images/ryuriki_image5.jpg Graphic file (type bmp)
+<images/ryuriki_image5.jpg>
+ [57] [58]
 File: images/ryuriki_image1.jpg Graphic file (type bmp)
 <images/ryuriki_image1.jpg>
- [58] [59] [60] [61]
+ [59] [60] [61] [62]
 File: images/ryuriki_image3.jpg Graphic file (type bmp)
 <images/ryuriki_image3.jpg>
- [62] [63] [64] [65] [66] (./document.aux)
+ [63] [64] [65] [66] [67] (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 4D6C193D09C34CBCBA47B6B630AB47B1;6117.
+(rerunfilecheck)             Checksum: E06D35F5B9BF92690ECA17406A7E513A;6202.
  ) 
 Here is how much of TeX's memory you used:
- 11191 strings out of 478987
- 161513 string characters out of 5865292
- 525940 words of memory out of 5000000
- 29193 multiletter control sequences out of 15000+600000
+ 11196 strings out of 478987
+ 161656 string characters out of 5865292
+ 525016 words of memory out of 5000000
+ 29197 multiletter control sequences out of 15000+600000
  419301 words of font info for 104 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  60i,19n,66p,579b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.dvi (66 pages, 272872 bytes).
+Output written on document.dvi (67 pages, 275992 bytes).

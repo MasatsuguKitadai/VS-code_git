@@ -2711,6 +2711,11 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     \end{eqnarray*}
 \end{itembox}
 \subsection{流体のエネルギー保存則}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        流線を意識して、つり合いの式を立てる
+    \end{center}
+\end{itembox}
 完全流体(非粘性・非圧縮性)の定常流れにおいて、任意の流れに沿って、
 圧力・運動エネルギ・ポテンシャルエネルギの総和が流線ごとに保存されることを示している以下の式を\textgt{ベルヌーイの定理}という.
 \begin{itembox}[l]{ベルヌーイの定理}
@@ -2756,6 +2761,45 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         \displaystyle\sum \dot{m}v=F\\
     \end{eqnarray*}
 \end{itembox}
+\subsection{(例題) 運動量保存則}
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=80mm]{images/ryuriki_image5.jpg}
+        \caption{流体力学1 演習問題}
+    \end{center}
+\end{figure}
+・平板に加わる$x$方向の力を求める\\
+流体の流入速度は
+\begin{eqnarray*}
+    u'=u-U
+\end{eqnarray*}
+また、ベルヌーイの定理より、
+\begin{eqnarray*}
+    \frac{P_a}{\rho}+\frac{1}{2}{u'}^2+\frac{P_a}{\rho}+\frac{1}{2}{u'}_2^2+\frac{P_a}{\rho}+\frac{1}{2}{u'}_3^2
+\end{eqnarray*}
+したがって、
+\begin{eqnarray*}
+    u'={u'}_2={u'}_3
+\end{eqnarray*}
+また、連続の式より、
+\begin{eqnarray*}
+    \rho {u'} a= \rho {u'}_2 a_2 + \rho {u'}_3 a_3
+\end{eqnarray*}
+流れの対象性より、$a_2 = a_3$であるので、
+\begin{eqnarray*}
+    \frac{1}{2}\rho {u'} a = \rho {u'}_2 a_2 = \rho {u'}_3 a_3
+\end{eqnarray*}
+ここで、断面積2を通過する流体の$x$方向の運動量$\dot{p_2}$は
+\begin{eqnarray*}
+    \dot{p_2}&=&\rho {u'}_2 a_2 \times {u'}\cos\theta\\
+    &=&\frac{1}{2} \rho {u'}^2 a\cos\theta
+\end{eqnarray*}
+流体が物体に及ぼす$x$方向の力を$F_x$とすると、
+\begin{eqnarray*}
+    F_x&=&\rho {u'}^2 a - 2 \times \frac{1}{2} \rho {u'}^2 a\cos\theta\\
+    &=&\rho {u'}^2 a \left(1-\cos \theta\right)\\
+    &=&\rho \left(u-U\right)^2 a \left(1-\cos \theta\right)\\
+\end{eqnarray*}
 \subsection{流体の運動方程式}
 \subsubsection{流体の運動を表す2つの運動方程式}
 \begin{itembox}[l]{オイラーの運動方程式(2次元)}
