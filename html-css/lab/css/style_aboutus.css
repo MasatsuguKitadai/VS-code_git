@@ -110,6 +110,16 @@ main {
     margin-right: 15%;
 }
 
+@media screen and (max-width: 1000px) {
+    main {
+        flex: 1;
+        display: flex;
+        flex-flow: column;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
 .title {
     display: flex;
     flex-direction: column;
@@ -204,17 +214,20 @@ main {
     margin: auto;
     margin-left: 15px;
     margin-top: 10px;
+    padding: 3px 8px;
+    border-left: solid 8px #6495ed;;
 }
 
 .chaptername h4 {
     height: 100%;
-    font-size: 30px;
+    font-size: 40px;
     color: #6495ed;
 }
 
-.chaptername p {
-    height: 100%;
-    font-size: 22px;
+.chaptername h5 {
+    margin: auto;
+    margin-left: 0%;
+    font-size: 30px;
 }
 
 .chapter_contents {
@@ -233,12 +246,11 @@ main {
     margin-right: 5px;
 }
 
-.chapter_contents h5 {
+.chapter_contents h6 {
     margin: auto;
-    margin-left: 10px;
-    font-size: 20px;
-    padding: 0.25em 5px;
-    border-left: solid 5px #6495ed;
+    margin-left: 0%;
+    font-size: 25px;
+    background: linear-gradient(transparent 70%, #6495ed 70%) ;
 }
 
 .color_bar_2 {

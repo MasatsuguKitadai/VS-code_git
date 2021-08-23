@@ -100,6 +100,11 @@ nav ul li a:hover {
     background-color: #0ae;
 }
 
+.space {
+    width: 100%;
+    height: 25px;
+}
+
 /********************************/
 
 main {
@@ -108,6 +113,16 @@ main {
     flex-flow: column;
     margin-left: 15%;
     margin-right: 15%;
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        flex: 1;
+        display: flex;
+        flex-flow: column;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
 .title {
@@ -153,7 +168,12 @@ main {
 
 h4 {
     height: 100%;
-    font-size: 22px;
+    font-size: 25px;
+    color: black;
+    margin: auto;
+    margin-left: 18px;
+    padding: 3px 8px;
+    border-left: solid 8px #32cd32;
 }
 
 .contents_1 {
@@ -164,10 +184,19 @@ h4 {
 }
 
 .contents_1 h4 {
-    width: 25%;
-    margin-top: 43px;
+    width: 15%;
+    margin-top: 35px;
     margin-left: 15px;
 }
+
+@media screen and (max-width: 1300px) {
+    .contents_1 h4 {
+        width: 30%;
+        margin-top: 35px;
+        margin-left: 15px;
+    }
+}
+
 
 .contents_2 {
     margin: auto;
@@ -258,6 +287,7 @@ h4 {
 
 .boundaryline_2 {
     width: 100%;
+    margin-left: -15px;
     height: 2px;
     background-color: gray;
 }
