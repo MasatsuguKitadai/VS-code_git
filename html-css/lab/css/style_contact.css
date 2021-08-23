@@ -106,8 +106,8 @@ main {
     flex: 1;
     display: flex;
     flex-flow: column;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .title {
@@ -125,7 +125,7 @@ main {
 .color_bar {
     width: 15px;
     height: 100px;
-    background-color: #0ae;
+    background-color: #32cd32;
 }
 
 .box_1 {
@@ -151,31 +151,122 @@ main {
     background-color: black;
 }
 
-.main_box {
-    flex: 1;
-}
-
 h4 {
     height: 100%;
-    font-size: 30px;
+    font-size: 22px;
 }
 
-.map {
-    margin: auto;
-}
-
-.access_box {
+.contents_1 {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start;
 }
 
+.contents_1 h4 {
+    width: 25%;
+    margin-top: 43px;
+    margin-left: 15px;
+}
+
+.contents_2 {
+    margin: auto;
+    width: 75%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contents_2 p {
+    margin: auto;
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+.map {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid;
+    color: gray;
+}
+
+.contents_3 {
+    margin: auto;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contents_3 ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+}
+
+.contents_3 ul li {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.Q {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.Q h6 {
+    font-size: 22px;
+    color: darkblue;
+    width: 40px;
+    height: 35px;
+    text-align: center;
+}
+
+.Q p {
+    font-size: 18px;
+    height: 30px;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.A {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.A h6 {
+    font-size: 22px;
+    color: darkred;
+    width: 40px;
+    height: 35px;
+    text-align: center;
+}
+
+.A p {
+    font-size: 18px;
+    height: 30px;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.boundaryline {
+    width: 100%;
+    height: 3px;
+    background-color: gray;
+}
+
+.boundaryline_2 {
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+}
+
 /********************************/
 
 footer {
     background-color: black;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 footer p {

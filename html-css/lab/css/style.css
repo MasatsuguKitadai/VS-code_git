@@ -106,8 +106,8 @@ main {
     flex: 1;
     display: flex;
     flex-flow: column;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .title {

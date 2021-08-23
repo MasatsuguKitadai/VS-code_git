@@ -106,8 +106,8 @@ main {
     flex: 1;
     display: flex;
     flex-flow: column;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .title {
@@ -125,7 +125,7 @@ main {
 .color_bar {
     width: 15px;
     height: 100px;
-    background-color: #0ae;
+    background-color: #6495ed;
 }
 
 .box_1 {
@@ -167,7 +167,7 @@ main {
 }
 
 .row_2 ul li a:hover {
-    color: #0ae;
+    color: #6495ed;
 }
 
 .bar {
@@ -203,22 +203,51 @@ main {
     height: 100%;
     margin: auto;
     margin-left: 15px;
+    margin-top: 10px;
 }
 
 .chaptername h4 {
     height: 100%;
     font-size: 30px;
-    color: #0ae;
+    color: #6495ed;
 }
 
 .chaptername p {
     height: 100%;
+    font-size: 22px;
+}
+
+.chapter_contents {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.chapter_contents p {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    margin-right: 5px;
+}
+
+.chapter_contents_2 {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chapter_contents_2 h5 {
+    margin: auto;
+    margin-left: 10px;
     font-size: 20px;
 }
 
-.chapter p {
-    height: 100%;
-    flex: 1;
+.color_bar_2 {
+    height: 38px;
+    width: 5px;
+    background-color: #6495ed;
 }
 
 .space {
@@ -226,9 +255,14 @@ main {
     height: 30px;
 }
 
+.space_2 {
+    width: 100%;
+    height: 10px;
+}
+
 .boundaryline {
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: gray;
 }
 
