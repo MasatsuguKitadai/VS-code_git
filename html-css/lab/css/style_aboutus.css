@@ -233,15 +233,12 @@ main {
     margin-right: 5px;
 }
 
-.chapter_contents_2 {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.chapter_contents_2 h5 {
+.chapter_contents h5 {
     margin: auto;
     margin-left: 10px;
     font-size: 20px;
+    padding: 0.25em 5px;
+    border-left: solid 5px #6495ed;
 }
 
 .color_bar_2 {
