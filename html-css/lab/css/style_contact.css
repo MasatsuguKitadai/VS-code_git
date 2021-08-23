@@ -1,0 +1,184 @@
+@charset "UTF-8";
+html {
+    font-size: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+body {
+    font-family: "Yu Gothic Medium", "遊ゴシック Medium", "遊ゴシック体", "ヒラギノ角ゴ Pro w3", sans-serif;
+    color: black;
+    margin: 0%;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo_box {
+    width: 100px;
+    height: 100px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.top {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.top a {
+    color: black;
+    text-decoration: none;
+    margin: auto;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.top a h1 {
+    font-size: 24px;
+}
+
+.top a h2 {
+    font-size: 16px;
+}
+
+.box {
+    flex: 1;
+    height: 100%;
+}
+
+nav {
+    width: 800px;
+    background-color: black;
+}
+
+nav ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a {
+    color: #fff;
+    display: inline-block;
+    transition: all .3s ease 0s;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #0ae;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.nav_box {
+    width: 100px;
+    height: 100px;
+    background-color: #0ae;
+}
+
+/********************************/
+
+main {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.color_bar {
+    width: 15px;
+    height: 100px;
+    background-color: #0ae;
+}
+
+.box_1 {
+    width: 100%;
+    height: 20px;
+}
+
+.row h3 {
+    height: 100px;
+    font-size: 60px;
+    margin-left: 15px;
+}
+
+.bar {
+    width: 3px;
+    height: 100%;
+    background-color: black;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+}
+
+.main_box {
+    flex: 1;
+}
+
+h4 {
+    height: 100%;
+    font-size: 30px;
+}
+
+.map {
+    margin: auto;
+}
+
+.access_box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/********************************/
+
+footer {
+    background-color: black;
+    padding: 10px 0;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+}
