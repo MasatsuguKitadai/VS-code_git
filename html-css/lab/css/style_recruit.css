@@ -191,12 +191,11 @@ main {
 }
 
 .chapter_2 h5 {
-    background: linear-gradient(transparent 70%, #ffd700 70%);
     margin: auto;
     margin-left: 0%;
     margin-bottom: 10px;
     font-size: 25px;
-    height: 100%;
+    background: linear-gradient(transparent 70%, #ffd700 70%);
 }
 
 .chapter_2 h6 {
