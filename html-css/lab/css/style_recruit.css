@@ -124,16 +124,6 @@
     transition: 0.5s;
 }
 
-.space {
-    width: 100%;
-    height: 20px;
-}
-
-.space_2 {
-    width: 100%;
-    height: 10px;
-}
-
 .color_bar_2 {
     width: 10px;
     height: 45px;

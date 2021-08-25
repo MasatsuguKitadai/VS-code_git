@@ -72,72 +72,96 @@
     background-color: black;
 }
 
-.main_box {
+.mainbox {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.chapter {
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-    z-index: 3;
-}
-
-.chaptername {
-    width: 200px;
+.mainbox h4 {
     height: 100%;
+    font-size: 30px;
+    color: black;
     margin: auto;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 18px;
     padding: 3px 8px;
     border-left: solid 8px #1e90ff;
 }
 
-.chaptername h4 {
-    height: 100%;
-    font-size: 40px;
-    color: #1e90ff;
+.chapter {
+    display: flex;
+    justify-content: flex-start;
 }
 
-.chaptername h5 {
+.chapter_1 {
     margin: auto;
+    margin-top: 0%;
     margin-left: 0%;
-    font-size: 30px;
 }
 
-.chapter_contents {
-    flex: 1;
-    height: 100%;
+.chapter_1 ul {
+    list-style: square;
+    margin-top: 7px;
+}
+
+.chapter_1 ul li {
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.chapter_1 p {
+    margin-right: 10px;
+}
+
+.chapter_2 {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    height: 100%;
+    width: 30%;
+    margin-bottom: 20px;
+    margin-left: 35px;
+    position: relative;
+    z-index: 3;
 }
 
-.chapter_contents h6 {
+.chapter_2 h5 {
     margin: auto;
     margin-left: 0%;
     font-size: 25px;
-    background: linear-gradient(transparent 70%, #1e90ff 70%);
-    margin-left: 20px;
 }
 
-.chapter_contents p {
-    margin-top: 10px;
+.chapter_2 h6 {
+    margin: auto;
+    margin-left: 0%;
     margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-size: 22px;
+    background: linear-gradient(transparent 70%, #1e90ff 70%);
 }
 
-.color_bar_2 {
-    height: 38px;
-    width: 5px;
-    background-color: #1e90ff;
+.chapter_2 ul {
+    list-style: none;
+}
+
+.contents {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.photo {
+    padding: 20px;
 }
 
 .boundaryline {
     width: 100%;
     height: 2px;
     background-color: gray;
+}
+
+.boundaryline_2 {
+    height: 2px;
+    background-color: gray;
+    margin-left: 30px;
 }

@@ -23,7 +23,7 @@ header {
     justify-content: flex-end;
     position: fixed;
     z-index: 5;
-    background-image: linear-gradient( 135deg, #F0FF00  10%, #1e90ff 100%);
+    background-color: #f5f5f5;
 }
 
 .logo_box {
@@ -67,7 +67,7 @@ header {
 }
 
 nav {
-    width: 800px;
+    width: 900px;
     background-color: black;
 }
 
@@ -81,19 +81,20 @@ nav ul {
 
 nav ul li {
     font-size: 18px;
-    color: #fff;
+    color: #f5f5f5;
     text-decoration: none;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #f5f5f5;
     display: inline-block;
     transition: all .3s ease 0s;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #F0FF00;
+    color: #1e90ff;
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -186,6 +187,16 @@ em {
     background-color: #1e90ff;
 }
 
+.space {
+    width: 100%;
+    height: 20px;
+}
+
+.space_2 {
+    width: 100%;
+    height: 10px;
+}
+
 .jump {
     position: relative;
     width: 100%;
@@ -205,4 +216,53 @@ footer {
 footer p {
     color: #fff;
     text-align: center;
+}
+
+/**shortcut page_top*****************************/
+
+#page_top {
+    width: 90px;
+    height: 90px;
+    position: fixed;
+    right: 100px;
+    bottom: 35px;
+    opacity: 0.8;
+}
+
+#page_top a {
+    position: relative;
+    display: block;
+    width: 90px;
+    height: 90px;
+    text-decoration: none;
+}
+
+#page_top a::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f102';
+    font-size: 30px;
+    color: #000;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -40px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+#page_top a::after {
+    content: 'PAGE TOP';
+    font-size: 15px;
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    color: #000;
 }
