@@ -2,7 +2,7 @@
 .color_bar {
     width: 15px;
     height: 100px;
-    background-color: #32cd32;
+    background-color: #1e90ff;
 }
 
 h4 {
@@ -12,7 +12,7 @@ h4 {
     margin: auto;
     margin-left: 18px;
     padding: 3px 8px;
-    border-left: solid 8px #32cd32;
+    border-left: solid 8px #1e90ff;
 }
 
 .contents_1 {
@@ -53,7 +53,7 @@ h4 {
 .map {
     margin: auto;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     border: 2px solid;
     color: gray;
 }
@@ -128,16 +128,4 @@ h4 {
     margin-left: -15px;
     height: 2px;
     background-color: gray;
-}
-
-/********************************/
-
-footer {
-    background-color: black;
-    padding: 10px;
-}
-
-footer p {
-    color: #fff;
-    text-align: center;
 }

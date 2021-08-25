@@ -78,19 +78,19 @@ nav ul{
 
 nav ul li{
     font-size: 18px;
-    color: #fff;
+    color: #f5f5f5;
     text-decoration: none;
 }
 
 nav ul li a{
-    color: #fff;
+    color: #f5f5f5;
     display: inline-block;
     transition: all .3s ease 0s;
     text-decoration: none;
 }
 
 nav ul li a:hover{
-    color: #0ae;
+    color: #F0FF00;
     cursor: pointer;
 	transform: scale(1.2);
 }
@@ -98,14 +98,13 @@ nav ul li a:hover{
 .nav_box{
     width: 100px;
     height: 100px;
-    background-color: #0ae;
 }
 
 
 /********************************/
 
 body{
-    background-image: url(../images/home_3.png);
+    background-image: linear-gradient( 135deg, #F0FF00  10%, #1e90ff 100%);
     min-height: 100vh;
     background-size: cover;
     background-position: center top;
@@ -118,8 +117,8 @@ main{
     flex: 1;
     display: flex;
     align-items: center;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 h3 {
@@ -145,12 +144,12 @@ h4 {
 }
 
 .name{
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 80px;
 }
 
 .right_box {
-    width: 800px;
+    width: 700px;
     height: 680px;
     display: flex;
     flex-direction: column;
@@ -162,32 +161,34 @@ h4 {
 }
 
 .see_more {
-    height: 50px;
     display: flex;
-    justify-content: flex-end;
-    margin-left: 30%;
-    background-color: black;
+    justify-content: space-around;
+    line-height: 50px;
+    font-size: 24px;
+    margin-left: 20%;
+    background: #000;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #000;
 }
 
 .see_more p {
-    flex: 1;
-    font-size: 20px;
-    text-align: center;
-    color: #fff;
-    margin: auto;
+    width: 100%;
+    height: 100%;
 }
 
-.see_more p a{
-    color: #fff;
-    display: inline-block;
-	transition: all .3s ease 0s;
+.see_more a {
+    width: 100%;
+    color: #f5f5f5;
+    margin: auto;
     text-decoration: none;
 }
 
-.see_more p a:hover{
-    color: #0ae;
-    cursor: pointer;
-	transform: scale(1.2);
+.see_more :hover {
+    color: #000;
+    background-color: #f5f5f5;
+    transition: 0.5s;
 }
 
 footer {
@@ -196,6 +197,6 @@ footer {
 }
   
 footer p {
-    color: #fff;
+    color: #f5f5f5;
     text-align: center;
 }
