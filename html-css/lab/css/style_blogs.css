@@ -6,28 +6,46 @@
 }
 
 .main_box {
-    flex: 1;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.main_box h4 {
+    height: 100%;
+    font-size: 30px;
+    color: black;
+    margin: auto;
+    margin-left: 18px;
+    padding: 3px 8px;
+    border-left: solid 8px #1e90ff;
 }
 
 .blogs_box {
     height: 100%;
-    margin: 50px;
     text-decoration: none;
-    border: 2px solid gray;
+    background-color: #d3d3d3;
 }
 
-.news {
+.topics {
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.news tr td {
-    margin-bottom: 20px;
+.topics tr td {
+    padding: 10px;
 }
 
-.news tr td a {
+.topics tr td a {
     text-decoration: none;
     font-size: 20px;
+    font-weight: bold;
     color: #000;
+	text-decoration: none;
+}
+
+.topics tr td a:hover {
+    color: #1e90ff;
+    transition: 0.4s;
+    opacity: 0.9;
 }
