@@ -6,8 +6,7 @@ html {
 }
 
 body {
-  font-family: "Yu Gothic Medium", "遊ゴシック Medium", "遊ゴシック体",
-    "ヒラギノ角ゴ Pro w3", sans-serif;
+  font-family: "Yu Gothic Medium", "遊ゴシック Medium", "遊ゴシック体", "ヒラギノ角ゴ Pro w3", sans-serif;
   color: black;
   margin: 0%;
   display: flex;
@@ -166,7 +165,7 @@ em {
 .right_box h5 {
   margin-left: 28%;
   margin-top: 50px;
-  margin-bottom: -35px;
+  margin-bottom: -45px;
   font-size: 60px;
   z-index: 5;
   color: #454545;
