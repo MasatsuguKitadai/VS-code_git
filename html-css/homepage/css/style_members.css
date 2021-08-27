@@ -133,8 +133,7 @@
 .chapter_2 h6 {
     margin: auto;
     margin-left: 0%;
-    margin-bottom: 10px;
-    font-size: 22px;
+    font-size: 25px;
     background: linear-gradient(transparent 70%, #1e90ff 70%);
 }
 
@@ -152,7 +151,7 @@
 
 .photo {
     padding: 20px;
-    width: 180px;
+    width: 160px;
 }
 
 .boundaryline {

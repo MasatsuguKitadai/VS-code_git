@@ -164,7 +164,7 @@ em {
 }
 
 .right_box h5 {
-    margin-left: 25%;
+    margin-left: 28%;
     margin-top: 30px;
     font-size: 60px;
     z-index: 5;
@@ -180,12 +180,11 @@ em {
     margin-left: 20%;
     text-decoration: none;
     background-color: #d3d3d3;
+    overflow-y: scroll;
 }
 
 .topics {
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px;
 }
 
 .topics tr td {
@@ -233,7 +232,7 @@ em {
 
 .see_more :hover {
     color: #000;
-    background-color: #f5f5f5;
+    background-color: #d3d3d3;
     transition: 0.5s;
 }
 
