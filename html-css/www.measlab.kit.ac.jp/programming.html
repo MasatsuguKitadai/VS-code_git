@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-jp">
+<meta http-equiv="content-style-type" content="text/css">
+<link type="text/css" rel="stylesheet" href="default.css" media="screen,print" />
+<title>programming</title>
+</head>
+<Link rel="SHORTCUT ICON" href="favicon.ico">
+<body>
+<a id="pagetop" name="pagetop"></a>
+<br>
+<h1>プログラミング演習</h1>
+<h2>目 次</h2>
+<p>
+演習の課題は毎週出題されます．各演習は2週間で実施します．それぞれレポートは2週間後に提出です．つまり，毎週課題提出があります．その間に同じ研究室の上回生や同回生と相談してください．グラフなどの作図は<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html">gnuplot</a>で行います．
+</p>
+<ul>
+  <li><a href="#a00">準備</a></li>
+  <li><a href="#a01">センサ計測(1)</a></li>
+  <li><a href="#a02">PIV計測（1）</a></li>
+  <li><a href="#a03">PIV計測（2）</a></li>
+  <li><a href="#a04">PIV計測（3）</a></li>
+  <li><a href="#a05">センサ計測(2) </a></li>
+  <li><a href="#a06">センサ計測(3)とホログラフィ計測(1) </a></li>
+  <li><a href="#a07">ホログラフィ計測(2)</a></li>
+  <li><a href="#a08">ホログラフィ計測(3)</a></li>
+</ul>
+
+<h2 id="a01"><a href="#a00">準備</a></h2>
+ノートPCを持ってきたらwifi登録しましょう．<a href="http://www.measlab.kit.ac.jp/free-soft.html" target="_blank">ここ</a>にあるフリーソフトで，プログラミング演習に関係するモノをインストールしてください．レポートはTexで書いて下さい．フォーマットは<a href="http://www.measlab.kit.ac.jp/programming/report/report.tex" target="_blank">report.tex</a>にあります．
+
+<h2 id="a01"><a href="#a01">センサ計測(1)</a></h2>
+<h3>1週目：ファイルデータの入力と出力</h3>
+<p>
+入力データファイル（input.dat）をダウンロードして演習を実施して下さい．基本的な統計処理（平均，標準偏差，中央値）を身につけます．
+</p>
+<h4><a href="http://www.measlab.kit.ac.jp/programming/sensor_(1)/input.dat" target="_blank">input.dat</a></h4>
+<h3>2週目：マイクロフォンセンサーの電圧時系列データを音圧レベルに変換する</h3>
+<p>
+入力データファイル（files.zip）をダウンロードして演習を実施して下さい．<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a01">ここ</a>を参考にして，gnuplotでSPL分布を描画してください．
+</p>
+<h4><a href="http://www.measlab.kit.ac.jp/programming/sensor_(1)/files.zip" target="_blank">files.zip</a></h4>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a02"><a href="#a02">PIV計測（1）</a></h2>
+<h3>1週目：2次元Taylor-Green渦の数値生成</h3>
+<p>
+以下の参考文献から2次元場の定常解を導出して下さい．余裕のある人は，<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a02">ここ</a>を参考にして2次元ベクトル場と渦度場を重畳した図を描画してください．<br>
+Green, A. E., and G. I. Taylor. "Mechanism of the production of small eddies from larger ones." Proc. Royal Soc. A. Vol. 158. 1937.
+</p>
+
+<h3>2週目：中心差分を用いた渦度場の算出</h3>
+<p>
+図書館にある教科書（基礎計算力学 / 谷川義信）を参考にして，境界上（辺，角）の値も2次精度で計算して下さい．余裕のある人は，<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a02">ここ</a>を参考にして2次元ベクトル場と渦度場を重畳した図を描画してください．
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a03"><a href="#a03">PIV計測（2）</a></h2>
+<h3>1週目：画像の空間フィルタリング処理</h3>
+<p>
+まずはセルフポートレイトを撮影して，8ビットグレースケールで保存して下さい．640 pixel×480 pixel程度が結果は分かりやすいです．レポートではこの写真を二値化や尖鋭化して加工して下さい．実際の撮影は実験で身につけますが，これを機会にカメラを初めてもよいかもしれませんね．
+</p>
+
+<h3>2週目：Taylor-Green渦のPIV用粒子画像</h3>
+<p>
+以下の参考文献を参考にして粒径分布を持つ粒子画像を作成して下さい．<br>
+Box, George EP, and Mervin E. Muller. "A note on the generation of random normal deviates." The annals of mathematical statistics 29 (1958): 610-611.
+</p>
+<p>
+GNUPLOTをプログラムから呼び出してヒストグラムを描画する方法は，<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a03">ここ</a>に記載しました．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a04"><a href="#a04">PIV計測（3）</a></h2>
+<h3>1週目：2次元Taylor-Green渦のPIV計測</h3>
+<p>
+中盤の山場です．プログラムを書く前に，図などを書いて計算格子，参照窓，探査窓の位置関係，相関平面がどのように計算されるか理解して下さい．いきなり書くと迷子になります．
+</p>
+<h3>2週目：実験で得られた粒子画像のPIV計測</h3>
+<p>
+以下の参考文献を参考にして2次元PIVを作成して下さい．<br>
+Willert, Christian E., and Morteza Gharib. "Digital particle image velocimetry." Experiments in fluids 10.4 (1991): 181-193.
+</p>
+<p>
+GNUPLOTで2次元速度場ベクトルを描画する方法は，<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a04">ここ</a>に記載しました．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a05"><a href="#a05">センサ計測(2)</a></h2>
+<h3>1週目：マイクロフォン測定データのスペクトル計算</h3>
+</p>
+複素Fourier級数展開の記述でたいていのプログラミングの教科書で記載されています．まずは下記の教科書を読んで理解して下さい．処理するデータは，<a href="http://www.measlab.kit.ac.jp/programming/sensor_(2)/time-sin.dat">time-sin.dat</a>です．左の列から時間，電圧の並びです．
+</p>
+<h3>2週目： バンドパスフィルタ</h3>
+</p>
+バンドパスフィルタは，<a href="http://www.measlab.kit.ac.jp/programming/sensor_(2)/noise-signal.dat">noise-signal.dat</a>を処理してください．
+</p>
+<p>
+以下の参考文献を参考にしてFourier変換を理解して下さい．<br>
+竹内 淳, 高校数学でわかるフーリエ変換―フーリエ級数からラプラス変換まで (ブルーバックス), 講談社, 2009.<br>
+船越 満明, キーポイントフーリエ解析 (理工系数学のキーポイント (9)), 岩波書店, 1997.
+<p>
+GNUPLOTでスペクトルを描画する方法は，<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a05">ここ</a>に記載しました．プログラムから呼び出して出力してみてください．
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a06"><a href="#a06">センサ計測(3)とホログラフィ計測(1) </a></h2>
+<h3>1週目：1次元高速Fourier変換の実装</h3>
+<p>
+以下の参考文献を参考にしてFFTを実装して下さい．本当に計算時間がN^2がNlogNに低減されるのか，データ長を延ばしていきながら確認しましょう．<br>
+Cooley, James W., and John W. Tukey. "An algorithm for the machine calculation of complex Fourier series." Mathematics of computation 19.90 (1965): 297-301.
+</p>
+
+<h3>2週目：窓関数によるスペクトル信号の改善</h3>
+<p>
+以下の論文を参考に窓関数ごとの周波数分解能とダイナミックレンジのトレードオフについて理解します．<br>
+Harris, Fredric J. "On the use of windows for harmonic analysis with the discrete Fourier transform." Proceedings of the IEEE 66.1 (1978): 51-83.
+</p>
+<p>
+GNUPLOTでスペクトルを描画する方法は，<a href="http://www.measlab.kit.ac.jp/GNU_Plot.html#a05">ここ</a>に記載しました．
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a07"><a href="#a07">ホログラフィ計測(2) </a></h2>
+<h3>1週目：2次元高速Fourier変換による2次元スペクトル分布の作成</h3>
+<p>
+以下の参考文献を参考にして2DFFTを実装して下さい．スペクトル分布は基準化してlogスケール表記で表示してください．<br>
+Lim, Jae S. "Two-dimensional signal and image processing." Englewood Cliffs, NJ, Prentice Hall, (1990): 163-166.
+</p>
+
+<h3>2週目：顔画像の2次元フィルタリング処理</h3>
+<p>
+<a href="http://www.measlab.kit.ac.jp/programming.html#a03">PIV計測(2)</a>で作成したセルフポートレイトをゼロパディングで2の累乗になるようにしてください．あとはハイパス，ローパスフィルターを先週作成したプログラムのスペクトル分布に適用しましょう．フィルターがかかったスペクトル分布と逆変換で得られた画像をそれぞれで作成してください．
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+<h2 id="a08"><a href="#a08">ホログラフィ計測(3) </a></h2>
+
+<h3>1週目：ホログラフィックパターンの作成</h3>
+
+<h3>2週目：ホログラフィックパターンの再生</h3>
+Gabor先生の論文は教養として読んでおきましょう．Kreis先生の教科書は研究テーマがホログラフィになったときは購入しても良い本です．<br>
+Gabor, Dennis. "A new microscopic principle." Nature 161.4098 (1948): 777-778.<br>
+Kreis, Thomas. Handbook of holographic interferometry: optical and digital methods. John Wiley & Sons, 2006.
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<br><br>
+<div style="text-align: right;">
+<!-- -->
+</div>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>

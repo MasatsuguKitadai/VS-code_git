@@ -1,0 +1,290 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-jp">
+<meta http-equiv="content-style-type" content="text/css">
+<link type="text/css" rel="stylesheet" href="default.css" media="screen,print" />
+<title>CUDA nvccの使い方</title>
+</head>
+<Link rel="SHORTCUT ICON" href="favicon.ico">
+<body>
+<a id="pagetop" name="pagetop"></a>
+<br>
+<h1>CUDA nvccの使い方</h1>
+<h2>目 次</h2>
+<p>
+コマンドラインでCUDAをいじっていると、nvccのオプションを忘れてしまいがちです．忘備録として以下にまとめます．
+オプションの詳細は<a href="https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-command-options">NVCC Command Options</a>を参考にして下さい．
+<br>
+使用 Version 10.0<br>
+2019.05.09
+</p>
+<ul>
+  <li><a href="#a00">バージョンの確認</a></li>
+  <li><a href="#a01">コンパイルと実行</a></li>
+  <li><a href="#a02">最適化</a></li>
+  <li><a href="#a03">Cコンパイラの選択</a></li>
+  <li><a href="#a04">FFTライブラリの利用</a></li>
+  <li><a href="#a05">グラフィックスボードの指定</a></li>
+  <li><a href="#a06">実行時間の解析</a></li>
+  <li><a href="#a07">Windowsでコンパイル時に出る大量の warning C4819 を消す</a></li>
+</ul>
+
+<h2 id="a01"><a href="#a00">バージョンの確認</a></h2>
+<p>まずはコンパイラのバージョンを確認しましょう．</p>
+  <font face="monospace">
+  <b>実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+        nvcc -V<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<h2 id="a01"><a href="#a01">コンパイルと実行</a></h2>
+<p>
+コードのあるディレクトリに移動してください．LinuxならGUIで移動して，右クリックで端末を選ぶと早いです．例として，sample.cuという名前のコードをコンパイルします．
+Linuxならa.outというファイルが生成され，Windowsならa.exeが生成されます．Windowsでは大量の警告が出るので、非表示にする方法は<a href="http://www.measlab.kit.ac.jp/nvcc.html#a07">「Windowsでコンパイル時に出る大量の warning C4819 を消す」</a>を参照してください．
+</p>
+
+  <font face="monospace">
+  <b>コンパイル実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        nvcc  sample.cu<br>
+	Windows<br>
+        nvcc sample.cu
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+プログラムの実行は以下の通り入力してエンターキーを押します．
+</p>
+
+  <font face="monospace">
+  <b>プログラム実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        ./a.out<br>
+	Windows<br>
+        a.exe
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+生成されるa.outやa.exeでは，同一フォルダ内にある複数のプログラムをコンパイルすると上書きされてしまうので不便です．
+そこで，任意の名前の実行ファイルを作るには以下の方法です．今回は実行ファイル名をsampleとします．
+</p>
+
+  <font face="monospace">
+  <b>コンパイル実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+       nvcc sample.cu -o sample<br>
+	Windows<br>
+        nvcc sample.cu -o sample
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+sampleという実行ファイルが生成されたことを確認して，プログラムの実行は以下の通り入力してエンターキーを押します．
+</p>
+
+  <font face="monospace">
+  <b>プログラム実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        ./sample<br>
+	Windows<br>
+        sample.exe
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a02"><a href="#a02">最適化</a></h2>
+<p>
+詳細はNVIDIAの<a href="https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-command-options">NVCC Command Options</a>で調べて下さい．
+O3のOはアルファベット大文字です．O1やO2も状況に応じて使ってみましょう．
+</p>
+
+  <font face="monospace">
+  <b>最適化実施例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        nvcc -O3 sample.cu -o sample<br>
+	Windows<br>
+        nvcc -O3 sample.cu -o sample
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a03"><a href="#a03">Cコンパイラの選択</a></h2>
+
+<p>
+WindwosはVC++、Linuxではgccがデフォルト設定されます．もしIntel C++ Compiler(<a href="http://www.measlab.kit.ac.jp/intel_C_compiler.html">Intel C++ Compilerの使い方
+</a>)が入っていれば、下記のコマンドで設定可能です．WindowsはVC++で設定可能です．
+</p>
+
+  <font face="monospace">
+  <b>Cコンパイラの選択</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        nvcc -O3 sample.cu -o sample -ccbin icpc<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+<p>
+状況によりますが、O3を消してIntel選択だけのオプションが早いときもあります．いろいろ組み合わせを試してください．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+
+<h2 id="a04"><a href="#a04">FFTライブラリの利用</a></h2>
+<p>
+cuFFTというFFTライブラリ(<a href="https://docs.nvidia.com/cuda/cufft/index.html">cuFFT</a>)がNVIDIAから提供されています．自分で書くより餅は餅屋ですが，プログラムにcufft.hというヘッダーファイルだけでなく、コンパイル時にオプションでlcufftと入力しないと使えません．
+</p>
+
+  <font face="monospace">
+  <b>FFTライブラリの利用</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        nvcc -O3 sample.cu -o sample -ccbin icpc -lcufft<br>
+	Windows<br>
+        nvcc -O3 sample.cu -o sample -lcufft
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+ハードを作っているところが提供するライブラリなので素直に使いましょう．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a05"><a href="#a05">グラフィックスボードの指定</a></h2>
+<p>
+ハード指定で計算が早くなるかどうか良くわかりませんが、このオプションで実行できるグラフィックボードが指定できます．例えばGTX1050だと、Compute Capabilityを
+ここのサイト(<a href="https://developer.nvidia.com/cuda-gpus
+">CUDA GPUs</a>)から読み取ると、6.1と記載があります．以下のように -arch=sm_61を追記することで指定が可能です．
+</p>
+
+  <font face="monospace">
+  <b>グラフィックスボードの指定</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        nvcc -O3 sample.cu -o sample -ccbin icpc -lcufft -arch=sm_61<br>
+	Windows<br>
+        nvcc -O3 sample.cu -o sample -lcufft -arch=sm_61
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a06"><a href="#a06">実行時間の解析</a></h2>
+<p>
+nvprofという実行時間の解析(<a href="https://docs.nvidia.com/cuda/profiler-users-guide/index.html#nvprof-overview">nvprof</a>)がNVIDIAから提供されています．何もつけないと沢山の情報が表示されます．
+当然オプション（<a href="https://docs.nvidia.com/cuda/profiler-users-guide/index.html#nvprof-overview">nvprof</a>）の付加が可能です．
+Visual Profiler(<a href="https://docs.nvidia.com/cuda/profiler-users-guide/index.html#visual">Visual Profiler</a>)というGUIがありますが、コマンドラインで見たい場合に利用できます．
+</p>
+
+  <font face="monospace">
+  <b>実行時間の解析</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        nvprof ./sample<br>
+	Windows<br>
+        nvprof sample
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+GUIが重いというか、NVIDIA NsightのようなIDEが苦手なのでコマンドラインで見たい方はおすすめです．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a07"><a href="#a07">Windowsでコンパイル時に出る大量の warning C4819 を消す</a></h2>
+<p>
+Windowsでコンパイルするとwarning C4819が200個ほど出て、非常にデバックがやりずらいです．この警告を消すために、-Xcompiler "/wd 4819"を以下のように追記します．
+</p>
+
+  <font face="monospace">
+  <b>実行時間の解析</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Windows<br>
+        nvcc -O3 sample.cu -o sample -lcufft -arch=sm_61 -Xcompiler "/wd 4819"
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+調べるとだいぶ前からのエラーのようで、ぼちぼち解消してほしいところです．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<br><br>
+<div style="text-align: right;">
+<!-- -->
+</div>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>

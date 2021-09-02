@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-jp">
+<meta http-equiv="content-style-type" content="text/css">
+<link type="text/css" rel="stylesheet" href="default.css" media="screen,print" />
+<title>Intel C++ Compilerの使い方</title>
+</head>
+<Link rel="SHORTCUT ICON" href="favicon.ico">
+<body>
+<a id="pagetop" name="pagetop"></a>
+<br>
+<h1>Intel C++ Compilerの使い方</h1>
+<h2>目 次</h2>
+<p>
+Intel compiler C++の使い方で，オプションを忘れてしまいがちです．実験室は装置の都合上，Windows版ですので，余計混乱します（テプラで作ったメモを貼っていますが）．忘備録として，以下のバージョンをまとめます．オプションの詳細は<a href="https://software.intel.com/en-us/c-compilers/ipsxe-support/documentation">インテルのページ</a>を参考にして下さい．
+<br>
+使用 Version 17.0.2<br>
+2018.05.21
+</p>
+<ul>
+  <li><a href="#a00">バージョンの確認</a></li>
+  <li><a href="#a01">コンパイルと実行</a></li>
+  <li><a href="#a02">最適化</a></li>
+  <li><a href="#a03">自動並列化</a></li>
+  <li><a href="#a04">2GB以上の大きなメモリを確保</a></li>
+</ul>
+
+<h2 id="a01"><a href="#a00">バージョンの確認</a></h2>
+<p>まずはコンパイラのバージョンを確認しましょう．このまとめは，17.0.2向けです．</p>
+  <font face="monospace">
+  <b>実行例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc -v<br>
+	Windows<br>
+        icl -v
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<h2 id="a01"><a href="#a01">コンパイルと実行</a></h2>
+<p>
+コードのあるディレクトリに移動してください．LinuxならGUIで移動して，右クリックで端末を選ぶと早いです．例として，sample.cppという名前のコードをコンパイルします．Linuxならa.outというファイルが生成され，Windowsならsample.exeが生成されます．
+</p>
+
+  <font face="monospace">
+  <b>コンパイル実行例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc  sample.cpp<br>
+	Windows<br>
+        icl sample.cpp
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+プログラムの実行は以下の通りです
+</p>
+
+  <font face="monospace">
+  <b>プログラム実行例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        ./a.out<br>
+	Windows<br>
+        sample.exe
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+Linuxで生成されるa.outでは，同一フォルダ内にある複数のプログラムをコンパイルすると上書きされてしまうので不便です．
+そこで，任意の名前の実行ファイルを作るには以下の方法です．今回は実行ファイル名をsampleとします．
+</p>
+
+  <font face="monospace">
+  <b>コンパイル実行例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc sample.cpp -o sample
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+sampleという実行ファイルが生成されたことを確認して，プログラムの実行は以下の通りです．
+</p>
+
+  <font face="monospace">
+  <b>プログラム実行例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        ./sample
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a02"><a href="#a02">最適化</a></h2>
+<p>
+詳細はインテルのページで調べて下さい．O3のOはアルファベット大文字です．とにかく付けておけば良いと思います．O3はハイレベルな最適化を
+するとのこと．xhostは最適なベクトル化オプションを自動的に選択するそうです．
+</p>
+
+  <font face="monospace">
+  <b>最適化実施例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc -O3 -xhost sample.cpp -o sample<br>
+	Windows<br>
+        icl /3 /QxHOST sample.cpp
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+長くて覚えられないし，打つのが面倒な場合は以下のオプションで最適化できます．fastは-O3 -ipo -no-prec-div -static -xHostと同じ意味です．
+CPUによってはコンパイルエラーが出たときは，オプションを減らしながらコンパイルしましょう．ipoは複数のコードの場合なので，コードが1つなら
+いらないし，コンパイルに時間がかかったりします．
+</p>
+
+  <font face="monospace">
+  <b>最適化実施例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc -fast sample.cpp -o sample<br>
+	Windows<br>
+        icl /fast sample.cpp
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a03"><a href="#a03">自動並列化</a></h2>
+
+<p>
+parallelは安全に並列化できるループに対して自動並列化するオプションです．自分でループをチューニングする知識がなければ，
+このオプションで充分と思います．少しでも早くしたい場合はOpenMPを書きましょう．書いたコードは，コンパイルオプションでopenmpが利用出来ます．
+詳細は調べて下さい．また，コードによっては並列化するより上記の最適化が早い場合もあるので，比較してからコンパイルしましょう．
+</p>
+
+  <font face="monospace">
+  <b>自動並列化実施例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc -O3 -xhost -parallel sample.cpp -o sample<br>
+	Windows<br>
+        icl /O3 /QxHOST /parallel sample.cpp
+      </td>
+    </tr>
+  </table>
+  </font>
+<p>
+CPUコア全てが100%近くで実行されるので，他の作業が出来なくなります．帰宅，週末，出張，長期休暇時に実行するのが良いと思います．
+あとは，充分な電源と冷却があるPCで実行しましょう．場合によってWindowsは強制アップデートがあるので，LANケーブルを抜いておくと良いです．Linuxでも数ヶ月計算するなら抜いている方が安全です．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+
+<h2 id="a04"><a href="#a04">2GB以上の大きなメモリを確保</a></h2>
+<p>
+ものすごい大きな配列をいくつか作った際に，メモリーが足らないというコンパイルエラーが出たときは，mcmodel=mediumを使いましょう．
+mediumがあるということは，smallやlargeがあります．small（コードとデータを2GB以下に制限）は指定しなくてもデフォルトなので，エラーが出たらmedium（コードを2GB以下に制限）かlarge（制限無し）を使いましょう．
+</p>
+
+  <font face="monospace">
+  <b>2GB以上の大きなメモリ確保実施例</b>
+  <table style="width: 400px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	Linux<br>
+        icpc -O3 -xhost -parallel -mcmodel=medium sample.cpp -o sample<br>
+	Windows<br>
+        icl /O3 /QxHOST /parallel /mcmodel=medium sample.cpp
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+largeでもメモリ不足エラーが出る場合は，メモリ追加の手配を教員に依頼するか，コード内の大きな配列を動的配列（new, delete）で書き直すかしましょう．
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<br><br>
+<div style="text-align: right;">
+<!-- -->
+</div>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>

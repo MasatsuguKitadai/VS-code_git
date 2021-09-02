@@ -1,0 +1,410 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-jp">
+<meta http-equiv="content-style-type" content="text/css">
+<link type="text/css" rel="stylesheet" href="default.css" media="screen,print" />
+<title>R言語を用いた音声処理</title>
+</head>
+<Link rel="SHORTCUT ICON" href="favicon.ico">
+<body>
+<a id="pagetop" name="pagetop"></a>
+<br>
+<h1>R言語を用いたWavファイルの周波数解析</h1>
+<h2>目 次</h2>
+<p>
+録音したWavファイルを<a href="https://www.r-project.org">R言語</a>で周波数解析をおこないます。ここでキャンパスで録音した10秒程度の虫の鳴き声（<a href="http://www.measlab.kit.ac.jp/wav/bugs.wav">bugs.wav</a>）を例にして解析を行います。
+<br><br>
+使用 R version 4.0.2 (2020-06-22) <br>
+2020.08.18
+</p>
+<ul>
+  <li><a href="#a06">Sonic Visualiserによる音源の抽出</a></li>
+  <li><a href="#a00">作業ディレクトリの変更</a></li>
+  <li><a href="#a01">Wavファイルの読み込み</a></li>
+  <li><a href="#a02">高速フーリエ変換（FFT）</a></li>
+  <li><a href="#a03">スペクトログラム</a></li>
+  <li><a href="#a04">バンドパスフィルタの設計と適用</a></li>
+  <li><a href="#a05">バンドパスフィルタをかけた音源の出力</a></li>
+</ul>
+
+<h2 id="a06"><a href="#a06">Sonic Visualiserによる音源の抽出</a></h2>
+<p>まずは<a href="https://www.sonicvisualiser.org">Sonic Visualiser</a>をインストールしてから立ち上げてください。撮影した動画や音源をドラッグアンドドロップでファイルを読み込みます。次にのメニューから下記を実行してR言語で処理する音源をディレクトリに保存してください。</p>
+  <font face="monospace">
+  <b>実行</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+        file>export audio file...<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<h2 id="a01"><a href="#a00">作業ディレクトリの変更</a></h2>
+<p>まずは保存したWavファイルがあるディレクトリを作業ディレクトリに変更しましょう。Rのメニューから下記を実行して保存ディレクトリを変更してください。</p>
+  <font face="monospace">
+  <b>実行</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+        ファイル＞ディレクトリの変更<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<h2 id="a01"><a href="#a01">Wavファイルの読み込み</a></h2>
+<p>
+インストールしたライブラリを使い読み込みます。今回はtuneRをインストールしてください。ライブラリは「ファイル＞CRANミラーサイトの設定」でJapan(Tokyo)を選んでから、「ファイル＞パッケージのインストール」でtuneRを
+選んでインストールできます。インストール後、下記のコマンドでtuneRを登録して、audio（任意です）にwavファイルを入れます。それぞれ文末で実行するためにエンターキーを押してください。
+</p>
+
+  <font face="monospace">
+  <b>コンパイル実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	library(tuneR)<br>
+	audio=readWave("bugs.wav")
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+Wavファイルの内容確認は以下の通りstr(audio)と入力して実行します。
+</p>
+
+  <font face="monospace">
+  <b>プログラム実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	str(audio)<br><br>
+Formal class 'Wave' [package "tuneR"] with 6 slots<br>
+  ..@ left     : num [1:481280] 0 0 0 0 0 0 0 0 0 0 ...<br>
+  ..@ right    : num(0) <br>
+  ..@ stereo   : logi FALSE<br>
+  ..@ samp.rate: int 44100<br>
+  ..@ bit      : int 32<br>
+  ..@ pcm      : logi FALSE<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+Wavファイルの情報が続けて表示されます。ここではleftに音源が入っており、rightに入っていないのでモノラル音源だと分かります。また、samp.rateからサンプリング周波数が44100 Hzです。
+次に以下のコマンドを実行して10秒の音源から4秒から6秒の波形をグラフで表示します。
+</p>
+
+  <font face="monospace">
+  <b>4秒から6秒の波形をグラフで表示</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	f_s <-audio@samp.rate<br>
+	audioL=audio@left<br>
+	s=f_s*4<br>
+	t=f_s*6<br>
+	plot((s:t)/f_s,audioL[s:t],type="l",xlab="time [s]",ylab="Signal [V]")<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+図1にグラフが表示されます。背景音もありはっきりした特徴はわかりにくい波形です。
+</p>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="80%">
+<tr>
+<td colspan=3  align=center valign=top>
+<img height=400 src="http://www.measlab.kit.ac.jp/wav/plot_signal.png">
+<BR><Font Size="-3"></FONT>
+図1：4秒から6秒までの波形
+</td>
+</tr>
+</table>
+
+<p>
+上記のグラフ出力はplotのコマンド前後に下記のようにコマンドを追加することで可能です。
+</p>
+
+  <font face="monospace">
+  <b>プログラム実行例</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	png("plot.png",width=500,height=500,pointsize =18)<br>
+	plot((s:t)/f_s,audioL[s:t],type="l",xlab="time [s]",ylab="Signal [V]")<br>
+	dev.off()<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a02"><a href="#a02">高速フーリエ変換（FFT）</a></h2>
+<p>
+図1でみた時系列データを高速フーリエ変換により特徴的な周波数を調べます。下記のコマンドを実行していきます。
+</p>
+
+  <font face="monospace">
+  <b>時系列データの高速フーリエ変換（FFT）</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+amp.AudioL <- fft(audioL)<br>
+amp.AudioL.cmp <-Mod(amp.AudioL)<br>
+plot(amp.AudioL.cmp,type="l")<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+上からコマンドを見ていくと、audioLをFFT関数で結果をamp.AudioLに入力します。Mod関数で複素振幅から振幅の大きさを計算します。まずはplotで図を表示します。縦横の軸は特に指定していませんが、横軸の真ん中で左右対称になっていることがわかります。
+</p>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="80%">
+<tr>
+<td colspan=3  align=center valign=top>
+<img height=400 src="http://www.measlab.kit.ac.jp/wav/plot_spectrum.png">
+<BR><Font Size="-3"></FONT>
+図2：bugs.wavのFFT結果
+</td>
+</tr>
+</table>
+
+<p>
+ナイキスト周波数で折り返した左半分のグラフを画像で出力します。
+</p>
+
+  <font face="monospace">
+  <b>ナイキスト周波数で折り返した左半分のグラフ</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+f <- seq(from=0, to=f_s/2, length=length(audioL)/2+1)<br>
+AudioL.ampspec <- amp.AudioL.cmp[1:(length(audioL)/2+1)]<br>
+png("plot.png",width=500,height=500,pointsize =18)<br>
+plot(f, AudioL.ampspec, type="l", xlab="Frequency (Hz)", ylab="Amplitude Spectrum")<br>
+dev.off()<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="80%">
+<tr>
+<td colspan=3  align=center valign=top>
+<img height=400 src="http://www.measlab.kit.ac.jp/wav/plot_Ny_spectrum.png">
+<BR><Font Size="-3"></FONT>
+図3：bugs.wavのスペクトル分布
+</td>
+</tr>
+</table>
+
+<p>
+今回は横軸に周波数を表示しています。スペクトルをみると、0 Hzの低周波領域に強い背景音の成分と3000 Hzから6000 Hzの間に特徴的な2つのピークがあります。
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a03"><a href="#a03">スペクトログラム</a></h2>
+
+<p>
+フーリエ変換をすると残念ながら時間の情報がなくなります。そこで短い時間領域をフーリエ変換して、大まかな時間毎に周波数変化をみていきます。この操作は短時間フーリエ変換と言い、得られるグラフはスペクトログラムと呼ばれます。
+ドラマや映画の科学捜査の一場面で写る声紋分析などにつかわれます。時間領域を窓サイズと呼び、またオーバーラップさせながら描画します。サイズやオーバーラップは波形に合わせて調整します。
+ここから、スペクトログラムを使うのでsignalとカラー画像で出力するためにoceの2つのライブラリを使うのでtuneRと同様に下記コマンドを実行する前にインストールしてください。
+</p>
+
+  <font face="monospace">
+  <b>スペクトログラムの実行</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	library(signal, warn.conflicts = F, quietly = T)<br>
+	spec=specgram(x=audioL,n=1024,Fs=f_s, window=256, overlap=128)<br>
+	P = abs(spec$S)<br>
+	P = P/max(P)<br>
+	P = 10*log10(P)<br>
+	t = spec$t<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+specgramの中で窓サイズとオーバーラップを指定しています。その他の詳細については<a href="https://www.rdocumentation.org/packages/signal/versions/0.7-6/topics/specgram">ここ</a>を一読ください。
+以下は画像でスペクトログラムを画像出力します。使われるPCの性能に依りますが少し時間が必要です。
+</p>
+
+  <font face="monospace">
+  <b>スペクトログラムの出力</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	library(oce)<br>
+	png("plot_specgram.png",width=500,height=500,pointsize =18)<br>
+	imagep(x = t,y = spec$f,z = t(P),col = oce.colorsViridis,ylab = 'Frequency [Hz]',xlab = 'Time [s]',drawPalette = T,decimate = F)<br>
+	dev.off()<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="80%">
+<tr>
+<td colspan=3  align=center valign=top>
+<img height=400 src="http://www.measlab.kit.ac.jp/wav/plot_specgram.png">
+<BR><Font Size="-3"></FONT>
+図4：bugs.wavのスペクトログラム
+</td>
+</tr>
+</table>
+
+<p>
+図3と同様に4000 Hzと5000 Hz付近で特徴的なピークがあることがわかります。しかし得られたスペクトログラムでみると、5000 Hz付近で間欠的に4000 Hz付近で連続的に2匹の虫が鳴いているようです。もう一度<a href="http://www.measlab.kit.ac.jp/wav/bugs.wav">音源</a>を聴いてみてもやはり背景音が大きいためよく分かりません。
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+
+<h2 id="a04"><a href="#a04">バンドパスフィルタの設計と適用</a></h2>
+<p>
+そこで、3000 Hzから6000 Hzの間の成分だけを取り出すバンドパスフィルタの設計と適用をおこないます。フィルタはfir1関数を用いていて、詳細は<a href="https://www.rdocumentation.org/packages/signal/versions/0.7-6/topics/fir1">ここ</a>を参考にしてください。
+</p>
+
+  <font face="monospace">
+  <b>バンドパスフィルタの設計</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	fil_N <- 512<br>
+	fn <- f_s/2<br>
+	fc <- c(3000,6000)<br>
+	fc_norm <- fc/fn<br>
+	fir_filter <- fir1(fil_N, fc_norm, type="pass")<br>
+	freqz(fir_filter, Fs=f_s)<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<p>
+最後のコマンドfreqzで設計したフィルタを表示しています。fil_Nとfcをいじるとフィルタの特性が変わります。以下にフィルタを音源に適用して画像を出力します。
+</p>
+
+  <font face="monospace">
+  <b>バンドパスフィルタの適用</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	audio_bpfil <- filtfilt(fir_filter, audioL)<br>
+	png("plot_b_signal.png",width=500,height=500,pointsize =18)<br>
+	plot((s:t)/f_s,audio_bpfil[s:t],type="l",xlab="time [s]",ylab="Signal [V]")<br>
+	dev.off()<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="80%">
+<tr>
+<td colspan=3  align=center valign=top>
+<img height=400 src="http://www.measlab.kit.ac.jp/wav/plot_b_signal.png">
+<BR><Font Size="-3"></FONT>
+図5：3000 Hzから6000 Hzの間の成分だけを取り出したbugs.wavの信号
+</td>
+</tr>
+</table>
+
+<p>
+図1とくらべると埋もれていた波形がみえてきました。スペクトログラムでも下記のコマンドを実行することでバンドパスフィルタの適用を確認できます。
+</p>
+
+  <font face="monospace">
+  <b>バンドパスフィルタの適用</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	spec=specgram(x=audio_bpfil,n=1024,Fs=f_s, window=256, overlap=128)<br>
+	P = abs(spec$S)<br>
+	P = P/max(P)<br>
+	P = 10*log10(P)<br>
+	t = spec$t<br>
+	#output graph in png file<br>
+	png("plot_b_specgram.png",width=500,height=500,pointsize =18)<br>
+	imagep(x = t,y = spec$f,z = t(P),col = oce.colorsViridis,ylab = 'Frequency [Hz]',xlab = 'Time [s]',drawPalette = T,decimate = F)<br>
+	dev.off()<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="80%">
+<tr>
+<td colspan=3  align=center valign=top>
+<img height=400 src="http://www.measlab.kit.ac.jp/wav/plot_b_specgram.png">
+<BR><Font Size="-3"></FONT>
+図6：3000 Hzから6000 Hzの間の成分だけを取り出したbugs.wavのスペクトログラム
+</td>
+</tr>
+</table>
+
+<p>
+すこしバンドパスフィルタの周波数領域外にも成分が見えますが、対数表示を用いているので小さい値も強調されています。
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a05"><a href="#a05">バンドパスフィルタをかけた音源の出力</a></h2>
+<p>
+図5や図6でバンドパスフィルタの設計と適用が上手くいっていることがわかります。ただ、やはり聴いて効果を確認したいところです。そこで、下記のようにseewaveというライブラリを使ってWavファイル出力をします。
+同様にseewaveはインストールしてください。
+</p>
+
+  <font face="monospace">
+  <b>バンドパスフィルタをかけた音源の出力</b>
+  <table style="width: 600px; border:1px solid; padding-left:30px;">
+    <tr>
+      <td>
+	library(seewave, warn.conflicts = F, quietly = T)<br>
+	savewav(audio_bpfil, f=44100, file="band_bugs.wav")<br>
+      </td>
+    </tr>
+  </table>
+  </font>
+<p>
+出力されたファイル（<a href="http://www.measlab.kit.ac.jp/wav/bugs.wav">band_bugs.wav</a>）を聴いて効果の確認をしてみてください。背景音を排除できたおかげで、虫の鳴き声だけが抽出できました。ここから先は、どんな種類の虫なのか？どちらが雄か雌か？などなど考えが巡ります。
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<br><br>
+<div style="text-align: right;">
+<!-- -->
+</div>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>

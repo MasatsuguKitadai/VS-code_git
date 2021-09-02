@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" charset="utf-8">
+<meta http-equiv="content-style-type" content="text/css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+"HTML-CSS": {
+  availableFonts: [],
+  preferredFont: null,
+  mtextFontInherit: "false"
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+</head>
+<body>
+<title>ホログラフィによる微粒子計測</title>
+<meta name="keywords" content="ホログラフィ　微粒子計測" />
+<TABLE align=center cellspacing="0" cellPadding=0 width="90%">
+<td colspan=3 height=10><Font size="+2" color="#545454"><B>ホログラフィによる微粒子計測
+ </B></FONT></Td>
+<tr><td colspan=3 height=10>
+<p>
+田中洋介<br>
+<a href="https://www.jstage.jst.go.jp/browse/jjsem/-char/ja">実験力学</a><br>
+<a href="https://www.jstage.jst.go.jp/article/jjsem/20/2/20_95/_article/-char/ja">実験力学　(2020) 20 巻 2 号 p. 95-100; doi:https://doi.org/10.11395/jjsem.20.95</a>
+</p>
+</td></tr>
+</table><br><br>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="90%">
+<strong>研究成果</strong><br>
+<p>
+この解説論文では、ホログラフィーを用いた粒子計測を初心者向けに解説している。特に、2台の高速度カメラを用いた位相回復ホログラフィーについて、
+従来のガボールホログラフィーと比較しながら解説する。また、ホログラムを再構成するためのGPU(Graphic Processing Unit)高速化も紹介する。
+従来のホログラフィーでは、双像問題と再生粒子伸び問題の2つの問題がある。前者の問題は、位相情報が不足しているために粒子がぼやけてしまい、
+コントラストが低くなる。位相回復検索ホログラフィーは、異なる位置に記録された複数のホログラムを用いてこの問題を解決することができる。
+粒子伸びは、ホログラム再生において再生像が光軸方向に伸長することである。この伸びは、粒子径と記録ホログラムの波長との関係に比例する。
+この関係を利用することで、記録面内で測定された値以上に微粒子径を精密に測定することができる。本解説論文では位相回復ホログラフィーを用いて、
+微小液滴の3次元軌道の観察と伸びを用いた液滴径測定を紹介する。
+</p>
+</table>
+
+<strong>関連業績</strong><br>
+<ol>
+  <li><a href="https://www.jstage.jst.go.jp/article/jjmf/33/1/33_2019.004/_article/-char/ja/">位相回復ホログラフィにおける再生液滴像伸びに基づく噴霧液滴径分布の推定</a><br>
+    中谷康寛, 田中洋介, 村田滋<br>
+    混相流 33.1 (2019): 63-70.</li>
+<br>
+  <li><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11051/110510D/Visualization-of-spray-droplets-using-phase-retrieval-holography/10.1117/12.2524601.short?SSO=1">Visualization of spray droplets using phase retrieval holography</a><br>
+    Yohsuke Tanaka, Yasuhiro Nakatani, Shigeru Murata<br>
+    32nd International Congress on High-Speed Imaging and Photonics. Vol. 11051. International Society for Optics and Photonics, 2019.</li>
+<br>
+  <li><a href="http://www.dl.begellhouse.com/journals/52b74bd3689ab10b,78e97bb92f0c59d2,609cc0134bb5adfd.html">Observing bubbles using Phase-retrieval holography</a><br>
+    Kubonishi Atsuo, Yohsuke Tanaka, Shigeru Murata<br>
+    Journal of Flow Visualization and Image Processing 25.1 (2018): 25-32.</li>
+<br>
+  <li><a href="https://www.osapublishing.org/oe/abstract.cfm?uri=oe-24-22-25233">Phase retrieval method for digital holography with two cameras in particle measurement</a><br>
+    Yohsuke Tanaka, Shunsuke Tani, and Shigeru Murata<br>
+    Optics express 24.22 (2016): 25233-25241.[<a href="http://www.measlab.kit.ac.jp/phase_retrieval_method_two_cams.html">解説</a>]</li>
+<br>
+  <li>Camera layout for phase retrieval method with two cameras in digital holography<br>
+    Yohsuke TANAKA, Shunsuke TANI and Shigeru MURATA<br>
+    ICHSIP 31, Paper Number:1B-P08, Suita, Osaka, Japan, November 7-10, 2016.</li>
+<br>
+  <li>Phase Distribution Measurement of Transparent Film Using Digital Holography with Phase Retrieval Method<br>
+    Hirotaka YAMAOKA, Yohsuke TANAKA, Shunsuke TANI and Shigeru MURATA<br>
+     ICHSIP 31, Paper Number:1B-P07, Suita, Osaka, Japan, November 7-10, 2016.</li>
+<br>
+  <li>Phase retrieval method for holographic particle measurement with two cameras<br>
+    Yohsuke Tanaka, Shigeru Murata, Shunsuke Tani<br>
+    9th International Conference on Multiphase Flow, Paper Number:327, Firenze, Italy, May 22-27, 2016.</li>
+<br>
+  <li>Positional adjustment of a phase retrieval holographic method for particle measurement with two cameras <br>
+    Yohsuke Tanaka, Tasuku Nakajima, Shigeru Murata<br>
+    The 9th International Symposium on Measurement Techniques for Multiphase Flows, Paper Number:B221, Sapporo, Hokkaido, Japan, July 23-25, 2015.</li>
+<br>
+</ol>
+
+<br>
+<Td>
+<A href="index.html"><Font Size="-3">BACK</FONT></A>
+</Td>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>

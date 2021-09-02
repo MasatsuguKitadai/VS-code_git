@@ -1,0 +1,897 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-jp">
+<meta http-equiv="content-style-type" content="text/css">
+<link type="text/css" rel="stylesheet" href="default.css" media="screen,print" />
+<title>gnuplot_memo</title>
+</head>
+<Link rel="SHORTCUT ICON" href="favicon.ico">
+<body>
+<a id="pagetop" name="pagetop"></a>
+<br>
+<h1>gnuplot描画作例</h1>
+<h2>目 次</h2>
+<p>
+<a href="http://www.measlab.kit.ac.jp/programming.html">プログラミング演習</a>の結果の描画をgnuplotで行います．場合によりますが，プログラムの計算途中で結果確認したい場合や，ちょっとした傾向を知りたいとき，100枚以上同じフォーマットのグラフが必要なときには，プログラムからgnuplotを呼び出してグラフを作成することで対応出来ます．ここでは演習の結果を使った具体的なプログラム作例を説明いたします．<br>
+使用 gnuplot:Version 5.0<br>
+2015.12.25
+</p>
+<ul>
+  <li><a href="#a00">準備</a></li>
+  <li><a href="#a01">センサ計測(1) SPL分布（レーダーチャート）</a></li>
+  <li><a href="#a02">PIV計測（1）2次元速度ベクトル場と渦度場</a></li>
+  <li><a href="#a03">PIV計測（2）粒径分布（ヒストグラム）</a></li>
+  <li><a href="#a04">PIV計測（3）埋め込みマップと2次元速度ベクトル場</a></li>
+  <li><a href="#a041">PIV計測（3）埋め込み画像と2次元速度ベクトル場</a></li>
+  <li><a href="#a05">センサ計測(2) </a></li>
+  <li><a href="#a06">センサ計測(3)とホログラフィ計測(1) </a></li>
+  <li><a href="#a07">ホログラフィ計測(2)</a></li>
+  <li><a href="#a08">ホログラフィ計測(3)</a></li>
+</ul>
+<img src="http://www.measlab.kit.ac.jp/programming/convergent.gif" width="300" alt="convergence">
+<img src="http://www.measlab.kit.ac.jp/programming/step_3dvec.gif" width="350" alt="3d_vector"><br><br>
+<h2 id="a01"><a href="#a00">準備</a></h2>
+<a href="http://www.gnuplot.info" target="_blank">gnuplot homepage</a>にある最新版をインストールして，User Manual (PDF)もダウンロードしてください．
+<h2 id="a01"><a href="#a01">センサ計測(1) SPL分布（レーダーチャート）</a></h2>
+<h3>2週目：マイクロフォンセンサーの電圧時系列データを音圧レベルに変換する</h3>
+<p>
+<b>SPL分布の作成</b><br>
+左が下記プログラムで作成するSPL分布です．右側は理論で得られる音圧の時間変化です．上下の振動が特徴的です．gnuplotに慣れるためにも，図にキャプション追加，他のフォントやサイズなど，自分なりに変更を加えて下さい．<br><br>
+<img src="http://www.measlab.kit.ac.jp/programming/sensor_(1)/plot240.png" width="300" alt="SPL">
+<img src="http://www.measlab.kit.ac.jp/programming/sensor_(1)/f_p.gif" width="350" alt="Pressure">
+<br><br>
+<b>プログラム（Radar_chart.cpp）の概要</b><br>
+#define GNUPLOT_PATHでPCにあるgnuplotをプログラムから動かせるようにパスを通します．自分のPC環境に合わせて下さい．<br><br>
+入力データ形式はサンプルデータ（<a href="http://www.measlab.kit.ac.jp/programming/sensor_(1)/f_SPL_8ch.dat">f_SPL_8ch.dat</a>：課題の実験データと異なります．）のように一番左が測定周波数，それぞれのチャンネルの音圧レベルです．動的配列（new, delete）で，任意長さの周波数データに対応しています．使えるとプログラムの汎用性が高まります．ただし，メモリリークには注意が必要です．<br><br>
+direct.hをつかって2種類の画像（PNGとEPS）を保存するフォルダを作成します．PNGはフォルダのサムネイルが更新されるので，すぐ結果を見たいときに重宝します．set terminal pngcairoとset terminal postscript epsあたりが違うだけです．epsはenhancedを付けた方が良いかもしれません．<br><br>
+<xmp>
+/*************************************************
+PROGRAM NAME:Radar_chart.cpp
+AUTHER: Yohsuke Tanaka
+DATE: 2015.12.27
+**************************************************/
+
+#include <stdio.h>;
+#include <stdlib.h>;
+#include <direct.h>;
+
+const char* input_file_SPL = "f_SPL_8ch.dat"; //ファイル名　入力データ形式 f ch1 ch2 ch3 ch4 ch5 ch6 ch7 ch8
+const char* fileout = "normal"; //ファイル名　入力データ形式 f ch1 ch2 ch3 ch4 ch5 ch6 ch7 ch8
+const int min_SPL = 45; //SPLのレンジ最小値 [dB]
+const int max_SPL = 75; //SPLのレンジ最大値 [dB]
+
+/*変数の定義*/
+char read_file[100];               /*連番ファイルの文字配列*/
+
+#define GNUPLOT_PATH "C:/PROGRA~2/gnuplot/bin/gnuplot.exe" // gnuplot.exeのある場所
+
+/*gnuplot、入力ファイルへのポインタ*/
+FILE *infile1;//入力ファイル
+FILE *gp;	//gnuplot
+
+int main()
+{
+	_mkdir("png");//png画像保存フォルダ作成
+	_mkdir("eps");//eps画像保存フォルダ作成
+
+	int i;
+	double f_Hz,ch1,ch2,ch3,ch4,ch5,ch6,ch7,ch8;
+	
+	double deg[9]; 
+	for (i = 0; i < 9; ++i) {deg[i] = 45*i;}
+ 	
+	sprintf(read_file,input_file_SPL);//入力データ
+	infile1=fopen(read_file,"rb");
+		if(infile1==NULL)
+	{
+	printf("I can't open input file!!\n");
+	exit(0);	
+	}
+	
+ 	int file_length=0;
+	while(fscanf(infile1,"%lf %lf %lf %lf %lf %lf %lf %lf %lf",&f_Hz,&ch1,&ch2,&ch3,&ch4,&ch5,&ch6,&ch7,&ch8)!= EOF){
+		file_length++;
+	}
+	fclose(infile1);
+
+	double *ff_Hz,*cch1,*cch2,*cch3,*cch4,*cch5,*cch6,*cch7,*cch8;
+	cch1= new double [file_length];	cch2= new double [file_length];
+	cch3= new double [file_length];	cch4= new double [file_length];
+	cch5= new double [file_length];	cch6= new double [file_length];
+	cch7= new double [file_length];	cch8= new double [file_length];
+	ff_Hz= new double [file_length];
+	
+	/*出力連番ファイルの作成*/
+
+	sprintf(read_file,input_file_SPL);
+	infile1=fopen(read_file,"rb");
+		if(infile1==NULL)
+	{
+	printf("I can't open input file!\n");
+	exit(0);	
+	}
+	
+	for(i=0;i<file_length;i++){
+		fscanf(infile1,"%lf %lf %lf %lf %lf %lf %lf %lf %lf",&f_Hz,&ch1,&ch2,&ch3,&ch4,&ch5,&ch6,&ch7,&ch8);
+		ff_Hz[i]=f_Hz;cch1[i]=ch1;cch2[i]=ch2;cch3[i]=ch3;cch4[i]=ch4;cch5[i]=ch5;cch6[i]=ch6;cch7[i]=ch7;cch8[i]=ch8;
+	}
+	fclose(infile1);
+	
+	//png画像出力
+	for (i = 0; i < file_length; i++) {  
+		if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+			printf("gnuplot is not here!\n");
+			exit(0);	// gnuplotが無い場合、異常ある場合は終了
+		}
+	
+		int fff_Hz=ff_Hz[i];printf("Saving SPL at f=%d [Hz] as png image\n",fff_Hz);
+		fprintf(gp, "set size square\n"); // 縦横を同じ比率の正方形
+		fprintf(gp, "set polar\n"); // 極座標
+		fprintf(gp, "set rrange [%d:%d]\n",min_SPL,max_SPL); // 範囲の指定
+		fprintf(gp, "unset key\n");//キャプションを非表示
+		fprintf(gp, "unset border\n");//キャプションを非表示
+		fprintf(gp, "unset xtics\n");//外枠x軸目盛り見出しを非表示にする
+		fprintf(gp, "unset ytics\n");//外枠y軸目盛り見出しを非表示にする
+
+		fprintf(gp, "set label 1 '[dB]' at graph 1.01,0.45\n");//単位
+		fprintf(gp, "set label 2 '90^o' at graph 1.01,0.5 left\n");//接地面を0度として
+		fprintf(gp, "set label 3 '135^o' at graph 0.8,0.85\n");//反時計回りに
+		fprintf(gp, "set label 4 '180^o' at graph 0.5,1.0 center\n");//45度づつ
+		fprintf(gp, "set label 5 '225^o' at graph 0.1,0.85\n");//角度のキャプションを
+		fprintf(gp, "set label 6 '270^o' at graph -0.01,0.5\n");//入れてます
+		fprintf(gp, "set label 7 '315^o' at graph 0.1,0.15\n");//いちいち
+		fprintf(gp, "set label 8 '0^o' at graph 0.5,0.0 center\n");//設定が
+		fprintf(gp, "set label 9 '45^o' at graph 0.8,0.15\n");//面倒です
+		//fprintf(gp, "set label 10 'f=%03d Hz' at graph 0.9,0.08 font 'Arial,15'\n",fff_Hz);//周波数の値です
+	
+		fprintf(gp, "set angles degrees\n"); 	//角度指定
+		fprintf(gp, "set grid polar 45\n"); 	//角度指定
+ 
+		fprintf(gp,"set terminal pngcairo \n");
+		fprintf(gp,"set output 'png\\plot%03d.png'\n",fff_Hz);
+		fprintf(gp, "plot '-'  with linespoints pointtype 7 linewidth 3 lt rgb 'black'\n"); 
+		fprintf(gp, "%f\t%f\n", deg[0], cch3[i]); 
+		fprintf(gp, "%f\t%f\n", deg[1], cch2[i]); 
+		fprintf(gp, "%f\t%f\n", deg[2], cch1[i]); 
+		fprintf(gp, "%f\t%f\n", deg[3], cch8[i]); 
+		fprintf(gp, "%f\t%f\n", deg[4], cch7[i]); 
+		fprintf(gp, "%f\t%f\n", deg[5], cch6[i]); 
+		fprintf(gp, "%f\t%f\n", deg[6], cch5[i]); 
+		fprintf(gp, "%f\t%f\n", deg[7], cch4[i]); 
+		fprintf(gp, "%f\t%f\n", deg[8], cch3[i]); 
+		
+		fflush(gp); // バッファに格納されているデータを吐き出す（必須）
+		fprintf(gp, "exit\n"); // gnuplotの終了
+		_pclose(gp);
+	 }
+
+	printf("\n");
+	
+	for (i = 0; i < file_length; i++) {  
+		if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+			printf("gnuplot is not here!\n");
+			exit(0);	// gnuplotが無い場合、異常ある場合は終了
+		}
+	
+		int fff_Hz=ff_Hz[i];printf("Saving SPL at f=%d [Hz] as eps image\n",fff_Hz);
+		fprintf(gp, "set size square\n"); // 縦横を同じ比率の正方形
+		fprintf(gp, "set polar\n"); // 極座標
+		fprintf(gp, "set rrange [%d:%d]\n",min_SPL,max_SPL); // 範囲の指定
+		fprintf(gp, "unset key\n");//キャプションを非表示
+		fprintf(gp, "unset border\n");//キャプションを非表示
+		fprintf(gp, "unset xtics\n");//外枠x軸目盛り見出しを非表示にする
+		fprintf(gp, "unset ytics\n");//外枠y軸目盛り見出しを非表示にする
+
+		fprintf(gp, "set label 1 '[dB]' at graph 1.01,0.45\n");//単位
+		fprintf(gp, "set label 2 '90^o' at graph 1.01,0.5 left\n");//接地面を0度として
+		fprintf(gp, "set label 3 '135^o' at graph 0.8,0.85\n");//反時計回りに
+		fprintf(gp, "set label 4 '180^o' at graph 0.5,1.0 center\n");//45度づつ
+		fprintf(gp, "set label 5 '225^o' at graph 0.1,0.85\n");//角度のキャプションを
+		fprintf(gp, "set label 6 '270^o' at graph -0.01,0.5\n");//入れてます
+		fprintf(gp, "set label 7 '315^o' at graph 0.1,0.15\n");//いちいち
+		fprintf(gp, "set label 8 '0^o' at graph 0.5,0.0 center\n");//設定が
+		fprintf(gp, "set label 9 '45^o' at graph 0.8,0.15\n");//面倒です
+		//fprintf(gp, "set label 10 'f=%03d Hz' at graph 0.9,0.08 font 'Arial,15'\n",fff_Hz);//周波数の値です
+	
+		fprintf(gp, "set angles degrees\n"); 	//角度指定
+		fprintf(gp, "set grid polar 45\n"); 	//角度指定
+ 
+		fprintf(gp,"set terminal postscript eps \n");
+		fprintf(gp,"set output 'eps\\%splot%03d.eps'\n",fileout,fff_Hz);
+		fprintf(gp, "plot '-'  with linespoints pointtype 7 linewidth 3 lt rgb 'black'\n"); 
+		fprintf(gp, "%f\t%f\n", deg[0], cch3[i]); 
+		fprintf(gp, "%f\t%f\n", deg[1], cch2[i]); 
+		fprintf(gp, "%f\t%f\n", deg[2], cch1[i]); 
+		fprintf(gp, "%f\t%f\n", deg[3], cch8[i]); 
+		fprintf(gp, "%f\t%f\n", deg[4], cch7[i]); 
+		fprintf(gp, "%f\t%f\n", deg[5], cch6[i]); 
+		fprintf(gp, "%f\t%f\n", deg[6], cch5[i]); 
+		fprintf(gp, "%f\t%f\n", deg[7], cch4[i]); 
+		fprintf(gp, "%f\t%f\n", deg[8], cch3[i]); 
+		
+		fflush(gp); // バッファに格納されているデータを吐き出す
+		fprintf(gp, "exit\n"); // gnuplotの終了
+		_pclose(gp);
+	 }
+
+	delete [] ff_Hz,cch1,cch2,cch3,cch4,cch5,cch6,cch7,cch8;// 動的配列のメモリは必ず開放しておく
+
+}
+</xmp>
+</p>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a02"><a href="#a02">PIV計測（1）2次元速度ベクトル場と渦度場</a></h2>
+<h3>1週目：2次元Taylor-Green渦の数値生成</h3>
+
+<h3>2週目：中心差分を用いた渦度場の算出</h3>
+<p>
+1週目と2週目で，渦度場とベクトル場を重畳した図を描画してください．右の動画のように減衰項を付けると時間発展の場も描画可能です．Gnuplotはカウントアップ描画が簡単なので良いです．
+<br>
+<img src="http://www.measlab.kit.ac.jp/programming/piv_(1)/2dvec_vortex_map000001.png" height="250" alt="3d_contour">
+<iframe height="250" src="https://www.youtube.com/embed/w538kFhral8?rel=0&amp;autoplay=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<br>
+</p>
+<p>
+読み込みデータ（xy格子座標（x, y），渦度(ωz)，速度（u, v）：<a href="http://www.measlab.kit.ac.jp/programming/piv_(1)/2dvec_vortex000001.dat">2dvec_vortex000001.dat</a><br>
+下のデータのように1軸方向の区切り（作例の場合なら，一番ひだりのx軸が増えるごと，31×31のデータなので31行目を1塊とします．）で空白行が必要なるので注意して下さい．
+
+<xmp>
+0 0 -2.000000 0.000000 -0.000000
+0 1 -1.956295 0.207912 -0.000000
+0 2 -1.827091 0.406737 -0.000000
+0 3 -1.618034 0.587785 -0.000000
+0 4 -1.338261 0.743145 -0.000000
+0 5 -1.000000 0.866025 -0.000000
+0 6 -0.618034 0.951057 -0.000000
+0 7 -0.209057 0.994522 -0.000000
+0 8 0.209057 0.994522 0.000000
+0 9 0.618034 0.951057 0.000000
+0 10 1.000000 0.866025 0.000000
+0 11 1.338261 0.743145 0.000000
+0 12 1.618034 0.587785 0.000000
+0 13 1.827091 0.406737 0.000000
+0 14 1.956295 0.207912 0.000000
+0 15 2.000000 0.000000 0.000000
+0 16 1.956295 -0.207912 0.000000
+0 17 1.827091 -0.406737 0.000000
+0 18 1.618034 -0.587785 0.000000
+0 19 1.338261 -0.743145 0.000000
+0 20 1.000000 -0.866025 0.000000
+0 21 0.618034 -0.951057 0.000000
+0 22 0.209057 -0.994522 0.000000
+0 23 -0.209057 -0.994522 -0.000000
+0 24 -0.618034 -0.951057 -0.000000
+0 25 -1.000000 -0.866025 -0.000000
+0 26 -1.338261 -0.743145 -0.000000
+0 27 -1.618034 -0.587785 -0.000000
+0 28 -1.827091 -0.406737 -0.000000
+0 29 -1.956295 -0.207912 -0.000000
+0 30 -2.000000 -0.000000 -0.000000
+
+1 0 -1.956295 0.000000 -0.207912
+1 1 -1.913545 0.203368 -0.203368
+1 2 -1.787165 0.397848 -0.189937
+............
+</xmp>
+<b>プログラム（2d_vector_with_contour.cpp）の概要</b><br>
+プログラムと同じディレクトリに01_plot_vec_vorexという名前のフォルダを作成して，2dvec_vortex000001.datを保存します．<br><br>
+#define GNUPLOT_PATHでPCにあるgnuplotをプログラムから動かせるようにパスを通します．<br><br>
+direct.hをつかって保存するフォルダ(02_splot_2dvec_vortex_map)を作成します．<br><br>
+splotは本来xyz成分必要なので，($1*0.0)を使ってz成分を空読みしています．<br><br>
+<xmp>
+/******************************************************************************
+AUTHER: Yohsuke Tanaka
+DATE: 2018.08.01
+******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#ifdef __linux
+#include <sys/stat.h>
+#endif
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
+const char* xxlabel = "{/Times-New-Roman:Italic=20 x} [pixel]";
+const char* yylabel = "{/Times-New-Roman:Italic=20 y} [pixel]";
+const char* cb_label = "{/Symbol:Italic=20 w}_{/Times-New-Roman:Italic=20 z} [sec]";///color bar range min
+
+const double v_r = 1.0;///magnified ratio for vector length
+
+const int x_min = 0;///x range min
+const int x_max = 30;///x range max
+const int y_min = 0;///y range min
+const int y_max = 30;///y range max
+const int cb_min = -2;///color bar range min
+const int cb_max = 2;///color bar range max
+
+const char* read_file_dir = "01_plot_vec_vorex";
+const char* read_file_header = "2dvec_vortex";
+const char* write_file_dir = "02_splot_2dvec_vortex_map";
+const char* write_file_header = "2dvec_vortex_map";
+
+//Graph parameters for GNU
+#ifdef _WIN32
+#define GNUPLOT_PATH "C:/PROGRA~2/gnuplot/bin/gnuplot.exe" // gnuplot.exe in your PC
+#endif
+char read_file[100];              
+void graph_GNU();//png & eps
+FILE *gp;	//gnuplot
+FILE *infile;
+/*********************************   MAIN   *********************************/
+main(){
+#ifdef __linux
+mode_t mode= S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+mkdir(write_file_dir,mode);
+#endif
+#ifdef _WIN32
+	_mkdir(write_file_dir);//png directry
+#endif
+int i =0; int UP =0;
+while(UP==0){
+i++;
+	sprintf(read_file,"%s//%s%06d.dat",read_file_dir,read_file_header,i);
+	printf("%s//%s%06d.dat\n",read_file_dir,read_file_header,i);
+	infile=fopen(read_file,"rb");
+	fclose(infile);
+	if(infile==NULL)
+	{
+	printf("break!");
+	break;
+	}
+#ifdef __linux
+	if ((gp = popen("gnuplot", "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+#ifdef _WIN32
+	if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+
+	//PNG image
+	fprintf(gp,"set terminal pngcairo enhanced font 'Times New Roman,15' \n");
+	fprintf(gp,"set output '%s//%s%06d.png'\n",write_file_dir,write_file_header,i);
+	fprintf(gp,"set multiplot\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"unset key\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set size ratio -1\n");// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"set lmargin screen 0.15\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set rmargin screen 0.85\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set tmargin screen 0.85\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set bmargin screen 0.15\n");// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"set xrange [%d:%d]\n",x_min,x_max);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set xlabel '%s'offset 0.0,0.5\n",xxlabel);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set yrange [%d:%d]\n",y_min,y_max);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set ylabel '%s'offset 0.5,0.0\n",yylabel);// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"set cblabel '%s'offset 0.0,0.0\n",cb_label);
+	fprintf(gp,"set cbrange['%d':'%d']\n",cb_min,cb_max);
+	fprintf(gp,"set colorbox vertical user origin 0.8, 0.2 size 0.025,0.6\n");
+	fprintf(gp,"set palette rgbformulae 22,13,-31\n");
+
+	fprintf(gp,"set pm3d map\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"splot '%s//%s%06d.dat'  using 2:1:3 with pm3d, '%s//%s%06d.dat' using 2:1:($1*0.0):(%lf*$5):(%lf*$4):($1*0.0) with vectors head filled lt 2 lc 'black' \n",read_file_dir,read_file_header,i,read_file_dir,read_file_header,i,v_r,v_r);
+
+ 	fflush(gp); //Clean up Data
+
+	fprintf(gp, "exit\n"); // Quit gnuplot
+#ifdef __linux
+	pclose(gp);
+#endif
+#ifdef _WIN32
+	_pclose(gp);
+#endif
+
+}
+	return(0);
+}
+</xmp>
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a03"><a href="#a03">PIV計測（2）粒径分布（ヒストグラム）</a></h2>
+<h3>1週目：画像の空間フィルタリング処理</h3>
+<p>
+
+</p>
+
+<h3>2週目：Taylor-Green渦のPIV用粒子画像</h3>
+<p>
+読み込みデータから下図のようなヒストグラムをPNG画像とEPS画像で作成します．縦軸や横軸などの詳細は省略しています．マニュアルなど参考にして描画してみて下さい．個人的には，混乱を避けるためにも凡例は枠線の外に出したいですね．忘れるので，縦軸・横軸の変数や変数名，単位が無いのは避けたいところ．やっぱり色合いで紫の線とかイヤです．白黒印刷ベースに考えて映えるようにしたいです．あと，白抜きより黒く塗りつぶしたい．字のフォントやサイズも変えたいですね．などなどいくらでもあります．このあたりの答えは無いので，自分の感性と他者の可読性のバランスをとって下さい．<br><br>
+読み込みデータ（<a href="http://www.measlab.kit.ac.jp/programming/piv_(2)/dp_distribution_histgram.dat" target="_blank">dp_distribution_histgram.dat</a>）<br>
+<img src="http://www.measlab.kit.ac.jp/programming/piv_(2)/histgram.png" width="300" alt="histgram"><br><br>
+<b>プログラム（dp_histgram.cpp）の概要</b><br>
+#define GNUPLOT_PATHでPCにあるgnuplotをプログラムから動かせるようにパスを通します．<br><br>
+適当な名前の関数graph_GNU()の中に，gnuplotのコンソールで打つ内容を記述しています．<br><br>
+direct.hをつかって2種類の画像を保存するフォルダを作成します．<br><br>
+<xmp>
+/******************************************************************************
+PROGRAM NAME:Histgram by GNU plot
+AUTHER: Yohsuke Tanaka
+DATE: 2018.01.09
+******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#ifdef __linux
+#include <sys/stat.h>
+#endif
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
+//out-input file name
+const char* write_file01 = "dp_distribution_histgram.dat"; //Input file
+const char* write_file_dir = "00_graph"; //Output file
+const char* output_graph = "histgram"; //Output file
+
+//Graph parameters for GNU
+#ifdef _WIN32
+#define GNUPLOT_PATH "C:/PROGRA~1/gnuplot/bin/gnuplot.exe" // gnuplot.exe in your
+//PROGRA~1 as Program Files, PROGRA~2 as Program Files(x86)
+#endif
+void graph_GNU();//histgram at png & eps
+FILE *gp;	//gnuplot
+
+/*********************************   MAIN   *********************************/
+main(){
+#ifdef __linux
+mode_t mode= S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+mkdir(write_file_dir,mode);
+#endif
+#ifdef _WIN32
+	_mkdir(write_file_dir);
+#endif
+
+	graph_GNU();
+
+	return(0);
+}
+void graph_GNU(){
+
+#ifdef __linux
+	if ((gp = popen("gnuplot", "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+#ifdef _WIN32
+	if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+
+	//PNG image
+	fprintf(gp,"set terminal pngcairo \n");
+	fprintf(gp,"set output '%s//%s.png'\n",write_file_dir,output_graph);
+
+
+	fprintf(gp,"plot '%s' using 1:2 with boxes\n",write_file01);
+ 	fflush(gp); //Clean up Data
+
+	fprintf(gp, "exit\n"); // Quit gnuplot
+#ifdef __linux
+	pclose(gp);
+#endif
+#ifdef _WIN32
+	_pclose(gp);
+#endif
+
+#ifdef __linux
+	if ((gp = popen("gnuplot", "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+#ifdef _WIN32
+	if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+
+	// EPS image
+	fprintf(gp,"set terminal postscript eps  'Arial' 25\n");
+	fprintf(gp,"set output '%s//%s.eps'\n",write_file_dir,output_graph);
+
+	fprintf(gp,"plot '%s' using 1:2 with boxes\n",write_file01);
+ 	fflush(gp); //Clean up Data
+
+	fprintf(gp, "exit\n"); // Quit gnuplot
+#ifdef __linux
+	pclose(gp);
+#endif
+#ifdef _WIN32
+	_pclose(gp);
+#endif
+
+}
+
+</xmp>
+</p>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a04"><a href="#a04">PIV計測（3）埋め込みマップと2次元速度ベクトル場</a></h2>
+<h3>1週目：2次元Taylor-Green渦のPIV計測</h3>
+<h3>2週目：実験で得られた粒子画像のPIV計測</h3>
+演習のデータに合わせて下図のように表示してみてください．レポートに貼付する図の瞬時場と月末報告会に向けて動画も作って下さい．<br>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vUYpwNss1zQ?rel=0&amp;autoplay=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br>
+
+<b>プログラム（2d_vector_vortex_cylinder.cpp）の概要</b><br>
+プログラムと同じディレクトリに02_vecというフォルダを作成して，読み込みデータ（<a href="http://www.measlab.kit.ac.jp/programming/piv_(3)/av-vec_v0001.dat" target="_blank">av-vec_v0001.dat</a>）を保存．<br><br>
+03_splot_vec_contour_mapに図が出力されます．入力データが連番だと，ここに対応する図が連番で出力されます．<br><br>
+円柱マップ（<a href="http://www.measlab.kit.ac.jp/programming/piv_(3)/cylinder.dat" target="_blank">cylinder.dat</a>）もプログラムと同じディレクトリに置いて下さい．<br><br>
+1つめのsplotで渦度とベクトルを描画した図の上に円柱のマップを重ねて描画しています．2つめのsplotで背景は描画せずに円柱のみを描画することで下にある渦度とベクトルが見えます．($3 == 0 ? NaN : $3)のところで，$3が円柱と背景の値です．0が背景で1が円柱にしています．0でなければ表示しない(NaN)という設定になります．本来はグラフのデータ欠損表現で使います．
+円柱は実験画像から二値化などして作成して下さい．時間ごとに変動する物体も応用が可能です．回転する円柱なら，円のフチ辺りに小さい白抜き円があるとわかりやすいです．<br><br>
+
+<xmp>
+/******************************************************************************
+AUTHER: Yohsuke Tanaka
+DATE: 2018.07.27
+******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#ifdef __linux
+#include <sys/stat.h>
+#endif
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
+const char* xxlabel = "x [pixel]";///color bar range min
+const char* yylabel = "y [pixel]";///color bar range min
+
+const int x_min = 0;///color bar range min
+const int x_max = 1280;///color bar range min
+const int y_min = 0;///color bar range min
+const int y_max = 1024;///color bar range min
+
+const double v_r = 6.0;///magnified ratio for vector length
+
+const char* cb_label = "|U| [pixel]";///color bar range min
+const int cb_min = 0;///color bar range min
+const int cb_max = 8;///color bar range min
+
+const char* read_file_object = "cylinder.dat";
+const char* read_file_dir = "02_vec";
+const char* read_file_header = "av-vec_v";
+const char* write_file_dir = "03_splot_vec_contour_map";
+const char* write_file_header = "splot_vec_contour_map";
+
+//Graph parameters for GNU
+#ifdef _WIN32
+#define GNUPLOT_PATH "C:/PROGRA~2/gnuplot/bin/gnuplot.exe" // gnuplot.exe in your PC
+#endif
+char read_file[100];             
+void graph_GNU();//png & eps
+FILE *gp;	//gnuplot
+FILE *infile;
+/*********************************   MAIN   *********************************/
+main(){
+#ifdef __linux
+mode_t mode= S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+mkdir(write_file_dir,mode);
+#endif
+#ifdef _WIN32
+	_mkdir(write_file_dir);//png directry
+#endif
+int i =0; int UP =0;
+while(UP==0){
+i++;
+	sprintf(read_file,"%s//%s%04d.dat",read_file_dir,read_file_header,i);
+	printf("%s//%s%04d.dat\n",read_file_dir,read_file_header,i);
+	infile=fopen(read_file,"rb");
+	fclose(infile);
+	if(infile==NULL)
+	{
+	printf("break!");
+	break;
+	}
+#ifdef __linux
+	if ((gp = popen("gnuplot", "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+#ifdef _WIN32
+	if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+
+	//PNG image
+	fprintf(gp,"set terminal pngcairo enhanced\n");
+	fprintf(gp,"set output '%s//%s%04d.png'\n",write_file_dir,write_file_header,i);
+	fprintf(gp,"set multiplot\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"unset key\n");// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"set lmargin screen 0.15\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set rmargin screen 0.85\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set tmargin screen 0.85\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set bmargin screen 0.15\n");// <steps in scan>,<steps between scans>
+
+
+	fprintf(gp,"set xrange [%d:%d]\n",x_min,x_max);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set xlabel '%s'offset 0.0,0.5\n",xxlabel);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set yrange [%d:%d]\n",y_min,y_max);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set ylabel '%s'offset 1.0,0.0\n",yylabel);// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"set cblabel '%s'offset 0.0,0.0\n",cb_label);
+	fprintf(gp,"set cbrange['%d':'%d']\n",cb_min,cb_max);
+	fprintf(gp,"set colorbox vertical user origin 0.895, 0.2 size 0.025,0.6\n");
+	fprintf(gp,"set palette rgbformulae 22,13,-31\n");
+
+	fprintf(gp,"set pm3d map\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"splot '%s//%s%04d.dat'  using 2:1:3 with pm3d, '%s//%s%04d.dat' using 2:1:($1*0.0):(%lf*$5):(%lf*$4)::($1*0.0) with vectors head filled lt 2 lc 'black' \n",read_file_dir,read_file_header,i,read_file_dir,read_file_header,i,v_r,v_r);
+
+	fprintf(gp,"set palette rgbformulae  0,0,0\n");
+    fprintf(gp,"unset colorbox\n");
+    fprintf(gp,"unset border\n");
+	fprintf(gp,"splot '%s'  using 2:1:($3 == 0 ? NaN : $3) with pm3d\n",read_file_object);
+
+
+	fprintf(gp,"unset multiplot\n");// <steps in scan>,<steps between scans>
+
+ 	fflush(gp); //Clean up Data
+
+	fprintf(gp, "exit\n"); // Quit gnuplot
+#ifdef __linux
+	pclose(gp);
+#endif
+#ifdef _WIN32
+	_pclose(gp);
+#endif
+
+}
+	return(0);
+}
+
+</xmp>
+<h2 id="a041"><a href="#a041">PIV計測（3）埋め込み画像と2次元速度ベクトル場</a></h2>
+<br>下図の作例は，PIV計測で得られたアクリル模型の家の周囲と内部のベクトル場を模型の絵に重ねて表示しています．ベクトル場だけでは分かりませんでしたが，重ねることで，思った以上に屋根の前縁で剥離している様子や，模型の1F入口から流入した流れが，2F右上のスリットから流出する様子を容易に絵と対応することで理解出来ます．データはオープンキャンパスの<a href="http://www.measlab.kit.ac.jp/open-campus2013.html">デモ</a>で撮影しました．このときの描画はC＋＋の自作ソフトでした．ベクトル作図の際に，Bresenhamのアルゴリズムは勉強になりましたが，ベクトル（線の長さ，頭，長さetc）から作り込むので面倒です．gnuplotを呼び出した方が簡単です．<br><br>
+読み込みデータ（<a href="http://www.measlab.kit.ac.jp/programming/piv_(3)/vec0001.dat" target="_blank">av-vec0001.dat</a>）<br>
+<img src="http://www.measlab.kit.ac.jp/programming/piv_(3)/2d_flow.gif" height="250" alt="vector">
+<img src="http://www.measlab.kit.ac.jp/programming/piv_(3)/lowest-intensity.png" height="250" alt="house"><br>
+<img src="http://www.measlab.kit.ac.jp/programming/piv_(3)/2d_flow_with_backimg.gif" height="250" alt="vector & house">
+<iframe height="250"src="https://www.youtube.com/embed/sJStukdR-P4?rel=0&amp;autoplay=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<br><br>
+
+<b>プログラム（2d_vector_back_image.cpp）の概要</b><br>
+プログラムと同じディレクトリに02_vecというフォルダを作成して，av-vec0001.datを保存．<br><br>
+03_plot_vecに図が出力されます．入力データが連番だと，ここに対応する図が出力されます．<br><br>
+背景のpng画像(lowest-intensity.png)もプログラムと同じディレクトリに置いて下さい．<br><br>
+<s>plot '%s' binary filetype=auto with rgbimage,'%s' with vector linecolor rgbcolor 'white'はmultiplotを使ってもかけます．ベクトルの大きさに合わせて色を付けたいのですが，スケールが上手く合わなかったり，グラデーションが出なかったりです．上手くいったら教えてください．（2015.12.28）</s>下記のプログラムで可能です(2018.08.02)．<br><br>
+<xmp>
+/******************************************************************************
+AUTHER: Yohsuke Tanaka
+DATE: 2018.08.02
+******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#ifdef __linux
+#include <sys/stat.h>
+#endif
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
+const char* xxlabel = "x [pixel]";///color bar range min
+const char* yylabel = "y [pixel]";///color bar range min
+
+const int x_min = 0;///color bar range min
+const int x_max = 1280;///color bar range min
+const int y_min = 0;///color bar range min
+const int y_max = 1024;///color bar range min
+
+const double v_r = 5.0;///magnified ratio for vector length
+
+const char* cb_label = "|U| [pixel/step]";///color bar range min
+const int cb_min = 0;///color bar range min
+const int cb_max = 15;///color bar range min
+
+const char* read_file_dir = "02_vec";
+const char* read_file_header = "av-vec";
+const char* write_file_dir = "03_plot_vec";
+const char* write_file_header = "plot";
+const char* read_back_img = "lowest-intensity.png";
+
+//Graph parameters for GNU
+#ifdef _WIN32
+#define GNUPLOT_PATH "C:/PROGRA~2/gnuplot/bin/gnuplot.exe" // gnuplot.exe in your PC
+#endif
+char read_file[100];           
+void graph_GNU();//png & eps
+FILE *gp;	//gnuplot
+FILE *infile;
+/*********************************   MAIN   *********************************/
+main(){
+#ifdef __linux
+mode_t mode= S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
+mkdir(write_file_dir,mode);
+#endif
+#ifdef _WIN32
+	_mkdir(write_file_dir);//png directry
+#endif
+int i =0; int UP =0;
+while(UP==0){
+i++;
+	sprintf(read_file,"%s//%s%04d.dat",read_file_dir,read_file_header,i);
+	printf("%s//%s%04d.dat\n",read_file_dir,read_file_header,i);
+	infile=fopen(read_file,"rb");
+	fclose(infile);
+	if(infile==NULL)
+	{
+	printf("break!");
+	break;
+	}
+#ifdef __linux
+	if ((gp = popen("gnuplot", "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+#ifdef _WIN32
+	if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) {
+	printf("gnuplot is not here!\n");
+	exit(0);
+	}
+#endif
+
+	//PNG image
+	fprintf(gp,"set terminal pngcairo enhanced\n");
+	fprintf(gp,"set output '%s//%s%04d.png'\n",write_file_dir,write_file_header,i);
+	fprintf(gp,"set multiplot\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"unset key\n");// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"set lmargin screen 0.125\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set rmargin screen 0.875\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set tmargin screen 0.875\n");// <steps in scan>,<steps between scans>
+	fprintf(gp,"set bmargin screen 0.125\n");// <steps in scan>,<steps between scans>
+
+
+	fprintf(gp,"set xrange [%d:%d]\n",x_min,x_max);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set xlabel '%s'offset 0.0,0.5\n",xxlabel);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set yrange [%d:%d]\n",y_min,y_max);// <steps in scan>,<steps between scans>
+	fprintf(gp,"set ylabel '%s'offset 2.0,0.0\n",yylabel);// <steps in scan>,<steps between scans>
+
+	fprintf(gp,"plot '%s' binary filetype=png with rgbimage \n",read_back_img);
+
+	fprintf(gp,"set cblabel '%s'offset 0.0,0.0\n",cb_label);
+	fprintf(gp,"set cbrange['%d':'%d']\n",cb_min,cb_max);
+	fprintf(gp,"set colorbox vertical user origin 0.895, 0.2 size 0.025,0.6\n");
+	fprintf(gp,"set palette rgbformulae 22,13,-31\n");
+
+	fprintf(gp,"plot '%s//%s%04d.dat'  u 2:1:(%lf*$5):(%lf*$4):(sqrt($4*$4+$5*$5)) with vectors head filled lt 2 lc palette \n",read_file_dir,read_file_header,i,v_r,v_r);
+
+	fprintf(gp,"unset multiplot\n");// <steps in scan>,<steps between scans>
+
+ 	fflush(gp); //Clean up Data
+
+	fprintf(gp, "exit\n"); // Quit gnuplot
+#ifdef __linux
+	pclose(gp);
+#endif
+#ifdef _WIN32
+	_pclose(gp);
+#endif
+
+}
+	return(0);
+}
+</xmp>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a05"><a href="#a05">センサ計測(2)</a></h2>
+<h3>1週目：マイクロフォン測定データのスペクトル計算</h3>
+<h3>2週目： バンドパスフィルタ</h3>
+<p>
+今回の離散Fourier変換は計測研での全ての研究テーマで必須になるので必ず使いこなしてください．<b>流体計測</b>では円柱後方の速度ベクトル変動から渦の放出周波数を求めますし，<b>光計測</b>では2次元Fourier変換がないとホログラフィックパターンの記録・再生が出来ません．また<b>音響計測</b>ではどの周波数の音が大きいか小さいかを今回のようにパワースペクトルで確認します．
+<br><br>
+<img src="http://www.measlab.kit.ac.jp/programming/sensor_(2)/spectrum.png" width="300" alt="spectrum"><br>
+読み込みデータ（<a href="http://www.measlab.kit.ac.jp/programming/sensor_(2)/spectrum.dat" target="_blank">spectrum.dat</a>）<br>
+<b>プログラム（power_spectrum.cpp）の概要</b><br>
+課題のプログラムではdatファイル読み込みではなく，配列から直接プロットするよう変更願います．<br>
+X軸，Y軸の範囲も自動で決めると簡単です．<br>
+</p>
+<xmp>
+/******************************************************************************
+PROGRAM NAME:power_spectrum.cpp
+AUTHER: Yohsuke Tanaka
+DATE: 2016.1.17
+******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <direct.h>
+
+const char* read_spectrum_data = "spectrum.dat"; //Intput file
+const char* write_spectrum_data = "png\\spectrum.png"; //Output file
+
+const int x_max =50;
+const int x_min =0;
+const int y_max =3;
+const int y_min =0;
+
+//Graph parameters for GNU
+#define GNUPLOT_PATH "C:/PROGRA~2/gnuplot/bin/gnuplot.exe" // gnuplot.exe in your PC
+FILE *gp;	//gnuplot
+/*********************************   MAIN   *********************************/
+main(){
+	_mkdir("png");//png directry
+
+	if ((gp = _popen(GNUPLOT_PATH, "w")) == NULL) 
+	{printf("gnuplot is not detected!\n");exit(0);}
+	fprintf(gp,"set terminal pngcairo enhanced \n");
+	fprintf(gp,"set output '%s'\n",write_spectrum_data);
+	fprintf(gp, "unset key\n");
+	fprintf(gp, "set xlabel 'f [Hz]'\n");
+	fprintf(gp, "set ylabel 'I^2 [V^2]'\n");
+	fprintf(gp, "set xrange [%d:%d]\n",x_min,x_max);
+	fprintf(gp, "set yrange [%d:%d]\n",y_min,y_max);
+	fprintf(gp, "plot  '%s' with lines lc -1 lw 2\n",read_spectrum_data);
+	fflush(gp); //Clean up Data
+	fprintf(gp, "exit\n"); // Quit gnuplot
+	_pclose(gp);
+
+	return(0);
+}
+</xmp>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a06"><a href="#a06">センサ計測(3)とホログラフィ計測(1) </a></h2>
+<h3>1週目：1次元高速Fourier変換の実装</h3>
+<h3>2週目：窓関数によるスペクトル信号の改善</h3>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a07"><a href="#a07">ホログラフィ計測(2) </a></h2>
+<h3>1週目：2次元高速Fourier変換による2次元スペクトル分布の作成</h3>
+<p>
+
+</p>
+
+<h3>2週目：顔画像の2次元フィルタリング処理</h3>
+
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<h2 id="a08"><a href="#a08">ホログラフィ計測(3) </a></h2>
+<h3>1週目：ホログラフィックパターンの作成</h3>
+<p>
+
+</p>
+
+<h3>2週目：ホログラフィックパターンの再生</h3>
+<div class="up"><a href="#pagetop">ページの先頭へ</a></div>
+
+<br><br>
+<div style="text-align: right;">
+<!-- -->
+</div>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-jp">
+<meta http-equiv="content-style-type" content="text/css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+"HTML-CSS": {
+  availableFonts: [],
+  preferredFont: null,
+  mtextFontInherit: "false"
+  },
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+</head>
+<body>
+<title>Calibration along the depth direction in tomographic digital holography</title>
+<meta name="keywords" content="Calibration along the depth direction in tomographic digital holography" />
+<TABLE align=center cellspacing="0" cellPadding=0 width="90%">
+<td colspan=3 height=10><Font size="+2" color="#545454"><B>Calibration along the depth direction in tomographic digital holography
+ </B></FONT></Td>
+<tr><td colspan=3 height=10>
+<p>
+Shunsuke TANI, Yohsuke TANAKA and Shigeru MURATA<br>
+<a href="http://proceedings.spiedigitallibrary.org/volume.aspx?conferenceid=3882&volumeid=18182">Proc. SPIE 10328</a><br>
+<a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=2606295">Selected Papers from the 31st International Congress on High-Speed Imaging and Photonics, 103280J (February 20, 2017); doi:10.1117/12.2268705</a>
+</p>
+</td></tr>
+</table><br><br>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="90%">
+<strong>Research results</strong><br>
+<p>
+This paper proposed the detection method for the depth position of a dot to calibrate along the depth direction of two cameras, which is performed with obtaining the reconstruction distances to match the reconstructed volumes at each camera. We determined the reconstruction distance of each camera by using the dot-array plate and the proposed detection method of a dot. The reconstruction distance is calculated as the position that the variance of the real and the imaginary part of dots becomes a minimum value. We investigate the effect of dot spacing in the dot-array plate by comparing the error between the calculated distance and the true distance in numerical simulation. In addition, the effect of this method is also experimentally confirmed.
+</p>
+</table>
+
+<TABLE align=center cellspacing="0" cellPadding=0 width="90%">
+<strong>Variance of complex amplitude</strong><br>
+<p> 
+Complex amplitude in the $z$ direction is expressed as Eq.(7).
+\begin{equation}
+  U_z(x,y)= 1 - \Biggl( \mathcal{F}^{-1}\Bigl\{ T(u,v)\exp\biggl[ -\mathrm{j}\frac{\lambda(z-z_0)}{4\pi}(u^2+v^2) \biggr]\Bigr\}+\mathcal{F}^{-1}\Bigl\{ T(u,v)\exp\biggl[ -\mathrm{j}\frac{\lambda(z+z_0)}{4\pi}(u^2+v^2) \biggr]\Bigr\} \Biggr)   \tag{7}
+\end{equation}
+We calculate the variance by following equation:
+ \begin{equation}
+  \sigma^2(z)= \sigma^2\biggl(\mathrm{Re}(U_z(x,y))\biggr)+\sigma^2\biggl(\mathrm{Im}(U_z(x,y))\biggr).   \tag{9}
+\end{equation}
+The distribution of the Eq. (9) along the depth direction about the dot can be seen the minimum value occurs at focused position clearly than that of light intensity. Then, we consider the calibration method in tomographic digital holography by using this detection method. 
+</p>
+</table>
+<!--
+<TABLE CELLPADDING="10" width="100%">
+<TR>
+
+<TD width=40%>
+<div align="center">
+<div class="imagebox">
+   <p class="image"><img height=232  src="research/tire/theory_tire/tire_theory.png" alt="Tire model including circulating wave">
+</p>
+<p class="caption">Tire model including circulating wave</p>
+</div>
+</div>
+</TD>
+</TR>
+</TABLE>
+-->
+<strong>関連業績</strong><br>
+<ol>
+  <li> Reduction of Ghost Particles by Using Iterative Volumetric Filtering in Tomographic Digital Holography
+<br>
+   Shunsuke TANI, Yohsuke TANAKA and Shigeru MURATA<br>
+   <a href="https://www.jstage.jst.go.jp/article/aem/1/0/1_155/_article">Advanced Experimental Mechanics, Vol.1, 155-160, 2016</a>. [<a href="http://www.measlab.kit.ac.jp/tmo_holo_f_en.html">Explanation</a>]</li>
+<br>
+  <li> Calibration along the depth direction in tomographic digital holography
+<br>
+   Shunsuke TANI, Yohsuke TANAKA and Shigeru MURATA<br>
+   ICHSIP 31, Paper Number:1B-P06, Suita, Osaka, Japan, November 7-10, 2016.</li>
+<br>
+  <li> Reduction of Ghost Particles on Tomographic Digital Holography by Using Iterative Volumetric Filtering
+<br>
+   Shunsuke TANI, Yohsuke TANAKA and Shigeru MURATA
+   10th International Symposium on Advanced Science and Technology in Experimental Mechanics, Paper Number:58, Matsue, Shimane, Japan, November 1-4, 2015.</li>
+<br>
+  <li>Measurement of Three-dimensional Particle Distribution by Tomographic Digital Holography
+<br>
+   Shunsuke Tani, Yohsuke Tanaka and Shigeru Murata
+   ASME-JSME-KSME Joint Fluids Engineering Conference 2015, Seoul, Korea, July 26-31, 2015.</li>
+</ol>
+
+<br>
+<Td>
+<A href="index.html"><Font Size="-3">BACK</FONT></A>
+</Td>
+<hr>
+<div style="text-align: right;">
+&copy; Measurement System Laboratory, Kyoto Institute of Technology.<TD align="center"><IMG src="mark.jpg" width="44" height="25" border="0" align="middle"><BR>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4285962-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body> </html>
