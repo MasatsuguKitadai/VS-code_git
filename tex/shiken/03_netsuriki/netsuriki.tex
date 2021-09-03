@@ -54,7 +54,7 @@ numbersep=1zw,
 lineskip=-0.5ex
 }
 
-
+\setcounter{tocdepth}{3}
 
 \author{}
 \title{熱力学}
@@ -62,4 +62,333 @@ lineskip=-0.5ex
 
 \begin{document}
 \maketitle
+\tableofcontents
+\newpage
+
+\section{熱力学第一法則}
+\begin{screen}
+    \begin{center}
+        \textgt{熱}と\textgt{仕事}は本質的に同種のエネルギーであり,それらは互いに\textgt{変換可能}である
+    \end{center}
+\end{screen}
+\subsection{閉じた系}
+物質の出入りのない系のことを\textgt{閉じた系}という.\quad 例) ピストン-シリンダ系
+\begin{itembox}[l]{閉じた系の熱力学第一法則}
+    \begin{eqnarray*}
+        Q&=&\Delta U+W\\
+        Q&:&受熱量\\
+        \Delta U&:&内部エネルギの変化量\\
+        W&:&絶対仕事 \; (気体のした仕事)\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{内部エネルギ}
+個々の分子は力学的エネルギ(位置エネルギ+運動エネルギ)を持っている.\\
+それを巨視的に見たときに分子の持つ\textgt{内部エネルギ}と呼ぶ.
+\begin{itembox}[l]{内部エネルギの変化量}
+    \begin{eqnarray*}
+        \Delta U&=&mC_v\Delta T\\
+    \end{eqnarray*}
+\end{itembox}
+初期状態を$\left(P,v,T\right)$とする.\\
+※ $v$は比容積
+\subsection{開いた系}
+物質の出入りがある系のことを\textgt{開いた系}という.\quad 例) タービン\\
+また,このとき取り出される仕事を\textgt{工業仕事}という.
+\begin{itembox}[l]{開いた系の熱力学第一法則}
+    \begin{eqnarray*}
+        Q&=&\Delta H+W_t\\
+        Q&:&受熱量\\
+        \Delta H&:&エンタルピの変化量\\
+        W_t&:&工業仕事 \; (気体のした仕事)\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{エンタルピ}
+内部エネルギーと流動エネルギを合わせたものをエンタルピと定義される.
+\begin{itembox}[l]{Point}
+    \begin{center}
+        閉じた系における\textgt{等圧過程での受熱量(放熱量)}のこと!!
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{エンタルピ}
+    \begin{eqnarray*}
+        H=U+W\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{エンタルピの変化量}
+    \begin{eqnarray*}
+        \Delta H&=&mC_p\Delta T\\
+    \end{eqnarray*}
+\end{itembox}
+\section{理想気体}
+\begin{itembox}[l]{状態方程式}
+    \begin{eqnarray*}
+        PV&=&mRT\\
+        Pv&=&RT\quad (単位質量基準の場合)\\
+        ※v&:&比容積\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{マイヤーの法則}
+    \begin{eqnarray*}
+        C_p&=&C_v+R\\
+        C_p&:&定圧比熱\\
+        C_v&:&定容比熱\\
+    \end{eqnarray*}
+\end{itembox}
+\section{熱力学第二法則}
+\begin{screen}
+    \begin{center}
+        熱は高いほうから低いほうへと移動するという\textgt{不可逆現象}のことを指す.
+    \end{center}
+\end{screen}
+\subsection{仕事}
+\begin{itembox}[l]{仕事}
+    \begin{eqnarray*}
+        W&=&Q_H-Q_L\\
+        W&=&\displaystyle \int PdV\quad(閉じた系の絶対仕事)\\
+        W_t&=&\displaystyle \int VdP\quad(開いた系の工業仕事) \\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{正味の仕事}
+    \begin{eqnarray*}
+        W_{net} &=& (膨張過程で\;\textgt{した仕事}) - (圧縮過程で\;\textgt{された仕事})\\
+        &=& (膨張過程で\;\textgt{した仕事}) + (圧縮過程で\;\textgt{した仕事})\\
+        &=& (膨張過程で\;\textgt{された仕事}) + (圧縮過程で\;\textgt{された仕事})\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{熱効率}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        基本は,\textgt{受熱量$Q_{in}$}と\textgt{放熱量$O_{out}$}で考える\\
+        ※ 等圧変化を含むサイクルの場合、正味の仕事$W_{net}$は加熱過程にも含まれるため、計算が複雑になる
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{熱効率}
+    \begin{eqnarray*}
+        \eta_{th}=\dfrac{W_{net}}{Q_H}=1-\dfrac{Q_L}{Q_H}\\
+    \end{eqnarray*}
+\end{itembox}
+\section{エントロピ}
+2つの状態間を\textgt{不可逆的に変化}させたとき,
+その変化の経路に無関係に一定となる値(\textgt{状態量})のこと.\\
+また,その変化の不可逆性の大きさを示す.可逆断熱過程では,エントロピーの変化は\textgt{ゼロ}になる.
+\begin{itembox}[l]{エントロピ}
+    \begin{eqnarray*}
+        \displaystyle\int \frac{dQ}{T}=const\\
+    \end{eqnarray*}
+\end{itembox}
+\section{加熱・放熱}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        T-S線図をすぐにイメージできるかがカギ\\
+        \textgt{右肩上がりの線}(比例)が描ける\\
+        $C_p > C_v$ より,傾きは \textgt{定積変化 $>$ 定容変化}\\
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{加熱・放熱}
+    \begin{enumerate}[(1)]
+        \item 等容加熱
+              \begin{center}
+                  体積 → \textgt{一定} , 圧力 → \textgt{増加} , 温度 → \textgt{増加} , エントロピ → \textgt{増加}
+              \end{center}
+        \item 等容放熱
+              \begin{center}
+                  体積 → \textgt{一定} , 圧力 → \textgt{減少} , 温度 → \textgt{減少} , エントロピ → \textgt{減少}
+              \end{center}
+        \item 等圧加熱
+              \begin{center}
+                  体積 → \textgt{増加} , 圧力 → \textgt{一定} , 温度 → \textgt{増加} , エントロピ → \textgt{増加}
+              \end{center}
+        \item 等圧放熱
+              \begin{center}
+                  体積 → \textgt{減少} , 圧力 → \textgt{一定} , 温度 → \textgt{減少} , エントロピ → \textgt{減少}\\
+              \end{center}
+    \end{enumerate}
+\end{itembox}
+\subsection{等容過程}
+\begin{itembox}[l]{Point}
+    \begin{eqnarray*}
+        \frac{P}{T}&=&const\\
+        Q&=&\Delta U = mC_v\Delta T\\
+        \\
+        \Delta s&=&\int \frac{dQ}{T} = \int \frac{dU}{T} = C_v\int\frac{1}{T}dT\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{等圧過程}
+\begin{itembox}[l]{Point}
+    \begin{eqnarray*}
+        \frac{V}{T}&=&const\\
+        Q&=&\Delta U + W = mC_p\Delta T \; \left(= \Delta H\right)\\
+        \\
+        \Delta s&=&\int \frac{dQ}{T} = \int \frac{dH}{T} = C_p\int\frac{1}{T}dT\\
+    \end{eqnarray*}
+\end{itembox}
+\section{膨張・圧縮}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        P-V線図をすぐにイメージできるかがカギ\\
+        \textgt{右肩下がりの線}(反比例)が描ける\\
+        体積の変化量が等しいとき,$C_p > C_v$ より,傾きは \textgt{断熱変化 $>$ 等温変化}\\
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{膨張・圧縮}
+    \begin{enumerate}[(1)]
+        \item 等温膨張
+              \begin{center}
+                  体積 → \textgt{増加} , 圧力 → \textgt{減少} , 温度 → \textgt{一定} , エントロピ → \textgt{増加}
+              \end{center}
+        \item 等温圧縮
+              \begin{center}
+                  体積 → \textgt{減少} , 圧力 → \textgt{増加} , 温度 → \textgt{一定} , エントロピ → \textgt{減少}
+              \end{center}
+        \item 断熱膨張
+              \begin{center}
+                  体積 → \textgt{増加} , 圧力 → \textgt{減少} , 温度 → \textgt{減少}  , エントロピ → \textgt{一定}
+              \end{center}
+        \item 断熱圧縮
+              \begin{center}
+                  体積 → \textgt{減少} , 圧力 → \textgt{増加} , 温度 → \textgt{増加}  , エントロピ → \textgt{一定}
+              \end{center}
+    \end{enumerate}
+\end{itembox}
+\subsection{等温過程}
+\begin{itembox}[l]{Point}
+    \begin{eqnarray*}
+        PV&=&const\\
+        Q&=&W\\
+        \Delta S
+        &=& \int \frac{dQ}{T}\\
+        &=& \frac{1}{T}\int Pdv\;(閉じた系)\\
+        &=& \frac{1}{T}\int Vdp\;(開いた系)\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{断熱(等エントロピー)過程}
+\begin{itembox}[l]{Point}
+    \begin{eqnarray*}
+        PV^\kappa&=&const\\
+        \Delta U&=&- W\\
+        \Delta s&=&0\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{ポアソンの式とその導出}
+\begin{itembox}[l]{ポアソンの式}
+    \begin{eqnarray*}
+        PV^\kappa=const\\
+    \end{eqnarray*}
+\end{itembox}
+熱力学第一法則より,断熱過程では
+\begin{eqnarray*}
+    0
+    &=&du+Pdv\\
+    &=&C_vdT+Pdv\\
+\end{eqnarray*}
+両辺に気体定数$R$をかけて,
+\begin{eqnarray*}
+    0=C_vRdT+RPdv
+\end{eqnarray*}
+理想気体の式$Pv=RT$と比熱の関係式,マイヤーの式$C_v+R=C_p$より
+\begin{eqnarray*}
+    0&=&C_vd\left(Pv\right)+\left(C_p-C_v\right)Pdv\\
+    &=&C_v\left(Pdv+vdP\right)+\left(C_p-C_v\right)Pdv\\
+    &=&C_vvdP+C_pPdv\\
+\end{eqnarray*}
+両辺を$C_vPv$で割って
+\begin{eqnarray*}
+    0=\frac{dP}{P}+\kappa\frac{du}{v}\\
+\end{eqnarray*}
+両辺を積分すると,
+\begin{eqnarray*}
+    const&=&\ln P+\kappa\ln v\\
+    &=&Pv^\kappa\\
+\end{eqnarray*}
+\section{サイクル}
+あくまで,理論上のサイクルでありすべて\textgt{閉じた系}と仮定している.
+\subsection{カルノーサイクル}
+\begin{itembox}[l]{過程}
+    \begin{center}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等温膨張} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等温圧縮}
+    \end{center}
+\end{itembox}
+受熱量をすべて仕事に変換できる等温変化を用いるため,サイクルの中で最も高い熱効率となる.
+\begin{itembox}[l]{熱効率}
+    \begin{eqnarray*}
+        \eta_{thc}=1-\frac{T_2}{T_1}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{オットーサイクル}
+\begin{itembox}[l]{過程}
+    \begin{center}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{圧縮率}
+    \begin{eqnarray*}
+        \varepsilon=\frac{V_1}{V_2}=\frac{V_3}{V_4}> 1\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{熱効率}
+    \begin{eqnarray*}
+        \eta_{tho}=1-\frac{1}{\varepsilon^{\kappa-1}}\\
+    \end{eqnarray*}
+\end{itembox}
+ガソリンエンジンの基本サイクル.
+\subsection{ディーゼルサイクル}
+\begin{itembox}[l]{過程}
+    \begin{center}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{締切比 (等圧膨張比)}
+    \begin{eqnarray*}
+        \sigma=\frac{V_3}{V_2}>1\\
+    \end{eqnarray*}
+\end{itembox}
+ディーゼルエンジンのサイクル.
+\subsection{サバテサイクル}
+\begin{itembox}[l]{過程}
+    \begin{center}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱}\quad → \quad \textgt{(3) 等圧加熱} \quad → \quad \textgt{($3'$) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{圧力比}
+    \begin{eqnarray*}
+        \alpha=\frac{P_3}{P_2}>1\\
+    \end{eqnarray*}
+\end{itembox}
+高速ディーゼルサイクル.受熱過程が等容変化と等圧変化の組み合わせになっている.
+\subsection{ブレイトンサイクル}
+\begin{itembox}[l]{過程}
+    \begin{center}
+        \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等圧放熱}
+    \end{center}
+\end{itembox}
+ガスタービンやジェットエンジンの基本サイクル.\\
+※ 閉じた系と仮定している
+\begin{itembox}[l]{断熱効率}
+    \begin{eqnarray*}
+        \eta &=& \dfrac{h_{2s}-h_1}{h_{2a}-h_1} <1 \quad (圧縮機)\\
+        \eta &=& \dfrac{h_3-h_{4a}}{h_3-h_{4s}} <1 \quad (タービン)\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{逆仕事比}
+    \begin{eqnarray*}
+        r_bw &=& \frac{w_c}{w_t}\\
+        w_c&:&圧縮機からされた仕事\\
+        w_t&:&タービンに下仕事\\
+    \end{eqnarray*}
+\end{itembox}
+\section{再生ブレイトンサイクル}
+\section{乾き度}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        単位質量あたりに含まれている蒸気の質量 → \textgt{乾き度}
+    \end{center}
+\end{itembox}
+\\
+蒸気中の気相部分と液相部分の重量割合のことを\textgt{乾き度}という.\\
+$1\mathrm{kg}$の湿り蒸気が$x\mathrm{kg}$の蒸気と$\left(1-x\right)\mathrm{kg}$の液体から成るとき,
+$x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
+
+\subsection{湿り蒸気}
+飽和蒸気と飽和水が共存している状態のこと.
+
 \end{document}

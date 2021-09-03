@@ -54,7 +54,7 @@ numbersep=1zw,
 lineskip=-0.5ex
 }
 
-
+\setcounter{tocdepth}{3}
 
 \author{}
 \title{大学院入試対策}
@@ -62,60 +62,12 @@ lineskip=-0.5ex
 
 \begin{document}
 \maketitle
-
-\section{基本知識}
-\subsection{平方根}
-\begin{itembox}[l]{Point}
-    \begin{center}
-        平方根をはずすときは,\textgt{絶対値}がつく
-    \end{center}
-\end{itembox}
-\begin{eqnarray*}
-    \sqrt{a^2}=|a|
-\end{eqnarray*}
-\subsection{対数の変換公式}
-\begin{itembox}[l]{変換公式}
-    \begin{eqnarray*}
-        \log_ab=\frac{\ln b}{\ln a}\\
-    \end{eqnarray*}
-\end{itembox}
-\subsection{重心}
-\begin{itembox}[l]{重心}
-    \begin{eqnarray*}
-        x_G=\dfrac{\Sigma\; mx}{\Sigma\; m}=\dfrac{微小領域に作用するモーメントの総量}{総質量}\\
-    \end{eqnarray*}
-\end{itembox}
-\subsection{動滑車}
-\begin{figure}[htbp]
-    \begin{center}
-        \includegraphics[width=50mm]{images/kiriki_image1.jpg}
-        \caption{H20 試験問題 [3]}
-    \end{center}
-\end{figure}
-\begin{itembox}[l]{動滑車}
-    \begin{center}
-        持ち上げるのに必要な力は$1/2$倍,その移動距離は$2$倍
-    \end{center}
-\end{itembox}
-\subsection{正規化}
-データを一定の規則に基づいて変形し,利用しやすくすること.
-\subsection{逆三角関数}
-\begin{itembox}[l]{$\mathrm{Tan}^{-1}$ (アークタンジェント)}
-    \begin{center}
-        $\tan$の逆関数のこと\\
-        範囲は$-\dfrac{\pi}{2}\leq x \leq\dfrac{\pi}{2}$
-    \end{center}
-\end{itembox}
-\subsection{単位ベクトル}
-\begin{itembox}[l]{単位ベクトル}
-    \begin{center}
-        長さ $1$ のベクトルのこと
-    \end{center}
-\end{itembox}
+\tableofcontents
 \newpage
-\section{線形代数}
-\subsection{行列}
-\subsubsection{行列演算の性質}
+
+\part{線形代数}
+\section{行列}
+\subsection{行列演算の性質}
 基本的には,普通の計算と同じ.
 ただし,\textgt{積}には注意が必要.
 \begin{itembox}[l]{行列演算特有の性質}
@@ -128,7 +80,7 @@ lineskip=-0.5ex
     ※ 積をとる順番に注意する\\
     ※ 積の交換法則のみ成り立たない
 \end{itembox}
-\subsection{一次独立・一次従属}
+\section{一次独立・一次従属}
 \begin{itembox}[l]{一次独立}
     \begin{center}
         $c_1a_1+c_2a_2+\cdots+c_ka_k=0$ を満たすのが $c_1=c_2=\cdots=c_k=0$の場合に限るとき,
@@ -151,7 +103,7 @@ lineskip=-0.5ex
     $c_1,c_2,\cdots,c_k$の値を調べることで行われる.すなわち, $c_1,c_2,\cdots,c_k$に対する
     \textgt{連立一次方程式を解くこと}に帰着される
 \end{itembox}
-\subsection{連立一次方程式}
+\section{連立一次方程式}
 \begin{itembox}[l]{行列の基本変形}
     \begin{enumerate}[(1)]
         \item 1つの行を何倍か($\neq0$倍)する
@@ -173,7 +125,7 @@ lineskip=-0.5ex
         \textgt{(未知数の個数) = (有効な方程式の数) + (任意定数の数)}
     \end{center}
 \end{itembox}
-\subsubsection{単位行列}
+\subsection{単位行列}
 \begin{itembox}[l]{定義}
     \begin{center}
         $E=
@@ -188,7 +140,7 @@ lineskip=-0.5ex
         \quad(対角成分は$1$,他は$0$)
     \end{center}
 \end{itembox}
-\subsubsection{逆行列}
+\subsection{逆行列}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{逆行列}とは\textgt{逆数の行列版}
@@ -224,7 +176,7 @@ lineskip=-0.5ex
     ※ $\tilde{A}$は余因子行列
 \end{itembox}
 \\
-\subsubsection{逆行列の掃出法}
+\subsection{逆行列の掃出法}
 $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
 \begin{eqnarray*}
     X&=&\left(x_1,x_2,\cdots,x_n\right)\\
@@ -249,7 +201,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
     X=\left(x_1,x_2,\cdots,x_n\right)=\left(C_1,C_2,\cdots,C_n\right)
 \end{eqnarray*}
 が求める$A^{-1}$となる.
-\subsubsection{基底}
+\subsection{基底}
 \begin{itembox}[l]{Point}
     \begin{center}
         あるベクトル空間内の任意の位置ベクトルを表すことのできる\textgt{一次独立}なベクトル.\\
@@ -269,7 +221,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
     \vec{v}=x_1v_1+x_2v_2+\cdots+x_nv_n
 \end{eqnarray*}
 とただ一通りに表すことができる.
-\subsubsection{ランク (階数)}
+\subsection{ランク (階数)}
 \begin{itembox}[l]{Point}
     \begin{center}
         ランクは「\textgt{解の拘束度}」を表している\\
@@ -283,7 +235,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
         $\mathrm{rank}A=r$\\
     \end{center}
 \end{itembox}
-\subsubsection{解空間の次元}
+\subsection{解空間の次元}
 \begin{itembox}[l]{Point}
     \begin{center}
         解の次元は「\textgt{解の自由度}」を表している\\
@@ -302,7 +254,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
         解は\textgt{ベクトル}と捉えられ,解そうしの足し算やスカラー倍もまた解となる.
     \end{center}
 \end{itembox}
-\subsubsection{基底・ランク・解空間の関係}
+\subsection{基底・ランク・解空間の関係}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{(基底の数) = (変数の個数) - (ランク) = (解の次元) }\\
@@ -315,7 +267,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
         \textgt{係数行列}(「=」の左側までの行列)と\textgt{拡大係数行列}(「=」 の右側も含めた行列)のランクが\textgt{一致する}
     \end{center}
 \end{itembox}
-\subsubsection{クラメールの公式}
+\subsection{クラメールの公式}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{クラメールの公式}は連立一次方程式における\textgt{解の公式}
@@ -339,7 +291,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
     \end{eqnarray*}
     なお,$\left[a_1\cdots b^i\cdots a_n\right]$は$A$の第$i$列を列ベクトル$b$で置き換えた行列である.
 \end{itembox}
-\subsubsection{(例題) クラメールの公式}
+\subsection{(例題) クラメールの公式}
 \begin{itembox}[l]{Point}
     \begin{center}
         行列式の一部を置き換えるだけ
@@ -384,8 +336,8 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
         \end{array} \right|
     }
 \end{eqnarray*}
-\subsection{行列式}
-\subsubsection{行列式の性質}
+\section{行列式}
+\subsection{行列式の性質}
 \begin{itembox}[l]{行列式の性質}
     \begin{enumerate}[(1)]
         \item 与えられた行列に対する行列式の値とその転置行列に対する行列式の値は等しい.
@@ -451,7 +403,7 @@ $AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
         \item 行列式の1つの列(もしくは行)にほかの列(もしくは行)の何倍かを加えても行列式の値は変わらない.
     \end{enumerate}
 \end{itembox}
-\subsubsection{余因子行列}
+\subsection{余因子行列}
 $n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる
 $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
 \begin{itembox}[l]{余因子行列}
@@ -483,13 +435,13 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         $A\tilde{A}=\tilde{A}A=dE\quad\left(d=\rm{det}\left(A\right)\right)$
     \end{center}
 \end{itembox}
-\subsection{固有値と固有ベクトルの計算}
+\section{固有値と固有ベクトルの計算}
 \begin{itembox}[l]{Point}
     \begin{center}
         固有値とは,行列の\textgt{比例定数}のこと
     \end{center}
 \end{itembox}
-\subsubsection{固有値と固有ベクトル}
+\subsection{固有値と固有ベクトル}
 \begin{itembox}[l]{物理的な意味}
     あるベクトル$X$があるとき,それにある行列$A$をかけると,
     そのベクトル$X$の\textgt{方向}は変わらず\textgt{倍率}のみ変化する.\\
@@ -514,7 +466,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         0&=&\left(\lambda E -A\right)x\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{固有ベクトルの正規化}
+\subsection{固有ベクトルの正規化}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{固有ベクトルの長さ}で全体を割る
@@ -538,7 +490,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \end{bmatrix}\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{固有ベクトルの直交性}
+\subsection{固有ベクトルの直交性}
 \begin{itembox}[l]{Point}
     \begin{center}
         正規行列の\textgt{異なる固有値に属する固有ベクトル}は\textgt{直交する}\\
@@ -546,7 +498,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{center}
 \end{itembox}
 
-\subsubsection{行列の対角化}
+\subsection{行列の対角化}
 正方行列$A$が与えられたとき,$B=P^{-1}AP$が対角行列になるような正則行列$P$と対角行列$B$を求めることを
 行列$A$の\textgt{対角化}という.\\
 特に$P,B$が実数(複素数)を成分とする行列でとれるとき,$A$は\textgt{実数体上(複素数体上)対角化}されるという.
@@ -583,7 +535,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     ※ $\lambda_n$は行列Aの固有値
     ※対角化行列は1つだけではない → 固有ベクトルを並べる順番によって変化する
 \end{itembox}
-\subsubsection{対角化可能性}
+\subsection{対角化可能性}
 正方行列$A$は常に対角化されるとは限らない.
 \begin{itembox}[l]{定理}
     $n$次正方行列$A$の異なる固有値$\lambda_1,\lambda_2,\cdots,\lambda_k$に対する固有ベクトル$x_1,x_2,\cdots,x_k$は\\
@@ -595,7 +547,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     ※ 重要なことは,\textgt{$n$本の一次独立な固有ベクトル}がとれるかどうか\\
     ※ 重解がある場合も,その数の固有ベクトルを得ることができる可能性がある
 \end{itembox}
-\subsubsection{対角化の手順}
+\subsection{対角化の手順}
 \begin{itembox}[l]{対角化の手順}
     \begin{enumerate}[(1)]
         \item 固有値の計算
@@ -604,7 +556,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
               この$P$は正則行列であり,$P^{-1}AP$は\textgt{自動的}に対角行列となる.
     \end{enumerate}
 \end{itembox}
-\subsubsection{ジョルダン標準形}
+\subsection{ジョルダン標準形}
 与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる.\\
 そのとき、固有ベクトルと一次独立であるベクトルを見つけられれば、
 対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる.\\
@@ -638,8 +590,8 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \left(\lambda E - A\right) u=x を解くことで、一次独立なベクトルを見つけることができる\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{行列の$n$乗}
-\subsubsection{対角行列の$n$乗}
+\section{行列の$n$乗}
+\subsection{対角行列の$n$乗}
 \begin{itembox}[l]{Point}
     \begin{center}
         対角成分をそれぞれ$n$乗するだけ
@@ -663,7 +615,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \end{bmatrix}\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{対角化可能な行列の$n$乗}
+\subsection{対角化可能な行列の$n$乗}
 \begin{itembox}[l]{具体的な手順}
     \begin{enumerate}
         \item 行列$A$を対角化する.　→　$D=P^{-1}AP$となる正則行列$P$,対角行列$D$を求める.
@@ -676,9 +628,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
               \end{eqnarray*}
     \end{enumerate}
 \end{itembox}
-\newpage
-\section{微積分}
-\subsection{基本的な微分と積分}
+
+\part{微積分}
+\section{基本的な微分と積分}
 \begin{itembox}[l]{基本的な関数の導関数}
     \begin{eqnarray*}
         \dfrac{d}{dx}\log |x|&=&\dfrac{1}{x}\\
@@ -699,12 +651,12 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \int \frac{1}{\sin^2 x}&=& -\frac{1}{\tan x}+C\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{関数のべき級数展開}
+\section{関数のべき級数展開}
 関数のべき級数展開とは,関数を多項式で近似していくことを指す.
 工学分野では,必要不可欠なツールであり,出題内容として(1) 関数を展開する問題
 (2) 近似・誤差の評価という2種類が主なものである.
 ※ 複雑な関数を\textgt{多項式}で表すことができる
-\subsubsection{Taylor展開}
+\subsection{Taylor展開}
 点$a$周りのTaylor展開は以下のように書き表せる.
 \begin{itembox}[l]{taylor展開}
     \begin{eqnarray*}
@@ -719,7 +671,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         +\dfrac{f^{\left(n\right)}\left(a\right)}{n!}\left(x-a\right)^n+\cdots\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{Maclaurin展開}
+\subsection{Maclaurin展開}
 特に,$a=0$(原点周り)におけるTaylor展開のことを\textgt{Maclaurin展開}という.
 \begin{itembox}[l]{Maclaurin展開}
     \begin{eqnarray*}
@@ -732,14 +684,14 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         +\dfrac{f^{\left(n\right)}\left(0\right)}{n!}x^n+\cdots
     \end{eqnarray*}
 \end{itembox}
-\subsection{全微分と偏微分}
-\subsubsection{微分とは}
+\section{全微分と偏微分}
+\subsection{微分とは}
 \begin{center}
     \textgt{微分}とは、ある関数の\textgt{微小区間に注目した傾き}を表している。\\
     イメージ : 関数の傾きがほぼ直線に見えるまで拡大し、その傾きを調べている。\\
     2変数以上の関数の微分を扱うのが\textgt{全微分・偏微分}。
 \end{center}
-\subsubsection{全微分}
+\subsection{全微分}
 \begin{itembox}[l]{Point}
     \begin{center}
         $dx,dy$だけ動いた(微小変化した)ときの$f\left(x,y\right)$の変化量
@@ -750,7 +702,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         df\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial x}dx+ \frac{\partial f\left(x,y\right)}{\partial y}dy\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{偏微分}
+\subsection{偏微分}
 \begin{itembox}[l]{Point}
     \begin{center}
         変数を一つに\textgt{固定}して、その傾きを求める\\
@@ -775,7 +727,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     f\left(x,y\right)\; の全微分\; df \; の両辺を\; dx\; で割って,
     \frac{d f\left(x,y\right)}{dx}&=&\frac{\partial f\left(x,y\right)}{\partial x}+ \frac{\partial f\left(x,y\right)}{\partial y}\frac{dy}{dx}\\
 \end{eqnarray*}
-\subsubsection{合成関数の偏微分}
+\subsection{合成関数の偏微分}
 \begin{itembox}[l]{Point}
     \begin{center}
         $f\left(x,y\right)$の$x,y$それぞれの$t$の微分を求め、それらを足し合わせる.
@@ -791,8 +743,8 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \frac{df}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{1変数の積分}
-\subsubsection{積分を解くにあたって}
+\section{1変数の積分}
+\subsection{積分を解くにあたって}
 \begin{itembox}[l]{Point}
     \begin{center}
         積分ができる形(\textgt{基本形の和の形})に式を整える\\
@@ -801,7 +753,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         (基本形)\quad x^\alpha\!(\alpha:-1以外の実数),\; \dfrac{1}{x},\; e^x,\; \log x,\; \sin x,\; \cos x,\; \tan x\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{部分積分}
+\subsection{部分積分}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{積の微分公式}から導ける
@@ -814,7 +766,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         G\left(x\right)&:&g\left(x\right)の原始関数\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{三角関数の積分}
+\subsection{三角関数の積分}
 \begin{itembox}[l]{代表的な置換方法(1)}
     \begin{center}
         $f\left(\sin x\right)\cos x$の形に式を変換し,$\; \sin x= t$とおく.
@@ -837,7 +789,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         $\tan\dfrac{x}{2}$から,$\sin x,\cos x$への変換は図を書いて考えると良い
     \end{center}
 \end{itembox}
-\subsubsection{広義積分}
+\subsection{広義積分}
 何らかの定積分の積分区間を動かし,極限をとったものを\textgt{広義積分}という.\\
 \begin{itembox}[l]{Point}
     \begin{center}
@@ -870,7 +822,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         ただし,不連続な場合や絶対値をとっている場合等の\textgt{積分範囲の設定}には注意が必要.
     \end{center}
 \end{itembox}
-\subsection{極限}
+\section{極限}
 \begin{itembox}[l]{Point}
     \begin{center}
         極限の問題を解く際の式の変形方法は\textgt{4種類のみ}
@@ -886,7 +838,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
               → ルートが極限をとる変数を含むときに使う
     \end{enumerate}
 \end{itembox}
-\subsubsection{ロピタルの定理}
+\subsection{ロピタルの定理}
 \begin{itembox}[l]{Point}
     \begin{center}
         一見解けない極限の問題は,\textgt{無理やり$\dfrac{0}{0},\dfrac{\infty}{\infty}$の不定形}をつくってみる
@@ -904,9 +856,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{eqnarray*}
 \end{itembox}
 
-\subsubsection{偶関数と奇関数}
-\subsection{多変数関数}
-\subsubsection{多変数関数の極値}
+\subsection{偶関数と奇関数}
+\section{多変数関数}
+\subsection{多変数関数の極値}
 \begin{itembox}[l]{極値を持つ必要条件}
     \begin{center}
         $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば,
@@ -924,7 +876,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \item $D<0$ならば,$f$は点$\left(a,b\right)$で極値をとらない.
     \end{enumerate}
 \end{itembox}
-\subsubsection{接平面の方程式・法線の方程式}
+\subsection{接平面の方程式・法線の方程式}
 \begin{itembox}[l]{Point}
     \begin{center}
         とりあえず暗記
@@ -954,7 +906,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         $\dfrac{x-a}{f_x\left(a,b\right)}=\dfrac{y-b}{f_y\left(a,b\right)}=\dfrac{z-f\left(a,b\right)}{-1}$
     \end{center}
 \end{itembox}
-\subsubsection{陰関数の定理}
+\subsection{陰関数の定理}
 \begin{itembox}[l]{陰関数の定理}
     $f\left(x,y\right)$が$C^1$級の関数で,$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば,\\
     $a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で,$\phi\left(a\right)=b$となるものが存在する.\\
@@ -964,9 +916,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \quad すなわち,\quad$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
     \end{center}
 \end{itembox}
-\subsection{重積分}
-\subsubsection{累次積分}
-\subsubsection{積分区間の変換}
+\section{重積分}
+\subsection{累次積分}
+\subsection{積分区間の変換}
 積分区分を変換する際は,固定されていない変数を固定して区間を考える.\\
 ※ 区間に$x$が含まれる場合は,「$x$を固定」したということ → 変数を変換する場合は,「$y$を固定」して考える
 \begin{itembox}[l]{代表的な変数変換}
@@ -980,7 +932,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
               範囲は原点を基準に考えること
     \end{enumerate}
 \end{itembox}
-\subsubsection{変数変換公式}
+\subsection{変数変換公式}
 \begin{itembox}[l]{Point}
     \begin{center}
         変数変換の際はヤコビアンの\textgt{絶対値}をかける
@@ -1046,9 +998,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
               \end{eqnarray*}
     \end{enumerate}
 \end{itembox}
-\newpage
-\section{微分方程式}
-\subsection{微分方程式とは}
+
+\part{微分方程式}
+\section{微分方程式とは}
 \begin{itembox}[l]{微分方程式の目的}
     \begin{center}
         普通の方程式は\dots\qquad\textgt{数}を探すことが目的\\
@@ -1066,9 +1018,9 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{center}
 \end{itembox}
 ※ 一般解の中に,任意定数が無限大の場合も含めて良い (慣習)
-\subsubsection{微分方程式の解の一意性}
-\subsection{1階常微分方程式}
-\subsubsection{直接微分形}
+\subsection{微分方程式の解の一意性}
+\section{1階常微分方程式}
+\subsection{直接微分形}
 \begin{center}
     $\dfrac{dy}{dx}=f\left(x\right)$
 \end{center}
@@ -1080,7 +1032,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \item 特殊解を求める際は,初期条件を代入して積分定数を求める
     \end{enumerate}
 \end{itembox}
-\subsubsection{変数分離形}
+\subsection{変数分離形}
 \begin{center}
     $g\left(y\right)\dfrac{dy}{dx}=f\left(x\right)$
 \end{center}
@@ -1093,7 +1045,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
         \item 特殊解を求める際は,初期条件を代入して積分定数を求める
     \end{enumerate}
 \end{itembox}
-\subsubsection{同次形}
+\subsection{同次形}
 \begin{center}
     $\dfrac{dy}{dx}=f\left(\dfrac{y}{x}\right)$
 \end{center}
@@ -1110,7 +1062,7 @@ $n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
     \end{enumerate}
     ※ 変数部分が$\dfrac{y}{x}$のみで表せる関数に変形する\\
 \end{itembox}
-\subsubsection{$y'=f\left(\alpha x+\beta y+\gamma\right)$の形}
+\subsection{$y'=f\left(\alpha x+\beta y+\gamma\right)$の形}
 $y'=f\left(\alpha x+\beta y+\gamma\right)$の$\alpha x+\beta y+\gamma$がひとかたまりになっている場合は,
 $u=\alpha x+\beta y+\gamma$とおくことで,変数分離形に帰着される.
 \begin{itembox}[l]{解法}
@@ -1123,20 +1075,20 @@ $u=\alpha x+\beta y+\gamma$とおくことで,変数分離形に帰着される.
         \item 特殊解を求める際は,初期条件を代入して積分定数を求める
     \end{enumerate}
 \end{itembox}
-\subsection{線形微分方程式}
+\section{線形微分方程式}
 $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を$x$の関数とするとき\\
 \begin{eqnarray*}
     y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)\\
 \end{eqnarray*}
 を\textgt{$n$階微分方程式}という.\\
 また,$Q\left(x\right)=0$のとき\textgt{同次方程式(斉次方程式)},$Q\left(x\right)\neq0$のとき\textgt{非同次方程式(非斉次方程式)}という.
-\subsection{1階線形微分方程式}
+\section{1階線形微分方程式}
 \begin{eqnarray*}
     y'+p\left(x\right)y=q\left(x\right)
 \end{eqnarray*}
 の形の\textgt{非同次方程式}を解くことを考える.\\
 ※ 同次方程式の場合は変数分離形で考えれば解ける
-\subsubsection{特殊解$y=\alpha\left(x\right)$がわかっている場合}
+\subsection{特殊解$y=\alpha\left(x\right)$がわかっている場合}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
@@ -1150,7 +1102,7 @@ $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を
         \item 変数分離形として一般解を求め,$Y=y-\alpha$を代入して変数をもとに戻す
     \end{enumerate}
 \end{itembox}
-\subsubsection{定数変化法}
+\subsection{定数変化法}
 \begin{itembox}[l]{Point}
     \begin{center}
         特殊解は一般解に似てるかもしれない\dots
@@ -1173,7 +1125,7 @@ $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を
     \end{enumerate}
 \end{itembox}
 ※ 特殊解は「$y=\cdots$」の形で出てくる ($C\left(x\right)$は\textgt{特殊解でない})\\
-\subsubsection{積分因子}
+\subsection{積分因子}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{何も考えずに}積分因子$\exp{\left(\int p\left(x\right)dx\right)}$をかけてみる
@@ -1192,7 +1144,7 @@ $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を
         \item 定数変化法と同じ一般解が得られる
     \end{enumerate}
 \end{itembox}
-\subsection{ベルヌーイの微分方程式}
+\section{ベルヌーイの微分方程式}
 \begin{eqnarray*}
     y'+p\left(x\right)y=q\left(x\right)y^{\alpha}\quad\left(\alpha\neq 0,1\right)
 \end{eqnarray*}
@@ -1214,7 +1166,7 @@ $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を
         \item 線形の微分方程式に帰着できる
     \end{enumerate}
 \end{itembox}
-\subsection{完全微分方程式}
+\section{完全微分方程式}
 \begin{center}
     $F_x\left(x,y\right)dx+F_y\left(x,y\right)dy=0$ (関数$F\left(x,y\right)$の全微分)
 \end{center}
@@ -1235,7 +1187,7 @@ $P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を
     \end{eqnarray*}
     が成り立つことである.
 \end{itembox}
-\subsubsection{具体的な$F\left(x,y\right)$の探し方}
+\subsection{具体的な$F\left(x,y\right)$の探し方}
 $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \begin{center}
     $F\left(x,y\right)=\displaystyle\int P\left(x,y\right)dx+G\left(y\right)$
@@ -1258,7 +1210,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \item $F\left(x,y\right)=C$が一般解となる
     \end{enumerate}
 \end{itembox}
-\subsection{クレローの微分方程式}
+\section{クレローの微分方程式}
 \begin{eqnarray*}
     y=xy'+f\left(y'\right)
 \end{eqnarray*}
@@ -1297,7 +1249,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
               \end{enumerate}
     \end{enumerate}
 \end{itembox}
-\subsection{二階線形同次微分方程式}
+\section{二階線形同次微分方程式}
 \begin{eqnarray*}
     y''+p\left(x\right)y'+q\left(x\right)y=0\quad -※
 \end{eqnarray*}
@@ -1315,7 +1267,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
     が(※)の\textgt{一般解}となる.(なお,特異解は持たない)\\
     ゴールは,一次独立な解を二つ見つけて足し合わせること.
 \end{itembox}
-\subsubsection{二階同次定係数微分方程式}
+\subsection{二階同次定係数微分方程式}
 \begin{eqnarray*}
     y''+ay'+by=0
 \end{eqnarray*}
@@ -1370,12 +1322,12 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         $e^{i\theta}=\cos\theta+i\sin\theta$
     \end{center}
 \end{itembox}
-\subsection{二階線形非同次微分方程式}
+\section{二階線形非同次微分方程式}
 \begin{eqnarray*}
     y''+p\left(x\right)y'+q\left(x\right)y=f\left(x\right)
 \end{eqnarray*}
 の形の微分方程式を\textgt{二階線形同次微分方程式}という.
-\subsubsection{特殊解 $\alpha\left(x\right)$がわかっている場合}
+\subsection{特殊解 $\alpha\left(x\right)$がわかっている場合}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
@@ -1390,7 +1342,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         Y_1,Y_2\;&:&\;基本解\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{特殊解を予想する}
+\subsection{特殊解を予想する}
 \begin{itembox}[l]{特殊解の予想例}
     \begin{enumerate}[(1)]
         \item $f\left(x\right)=ax+b$\\
@@ -1410,7 +1362,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
               \end{enumerate}
     \end{enumerate}
 \end{itembox}
-\subsubsection{定数変化法}
+\subsection{定数変化法}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{条件を課して}方程式に代入する
@@ -1538,7 +1490,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \alpha\left(x\right)=-y_1\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx+y_2\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
     \end{eqnarray*}
 \end{itembox}
-\subsection{オイラーの微分方程式}
+\section{オイラーの微分方程式}
 \begin{eqnarray*}
     x^2y''+axy'+by=f\left(x\right)
 \end{eqnarray*}
@@ -1579,9 +1531,9 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
     \end{eqnarray*}
     このとき、特殊解は、$t$の関数で求めてしまうと良い.
 \end{itembox}
-\newpage
-\section{材料力学}
-\subsection{引張・圧縮}
+
+\part{材料力学}
+\section{引張・圧縮}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -1593,13 +1545,13 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \end{eqnarray*}
     \end{center}
 \end{itembox}
-\subsubsection{微小区間のひずみ}
+\subsection{微小区間のひずみ}
 \begin{itembox}[l]{微小区間のひずみ}
     \begin{eqnarray*}
         d\varepsilon=\dfrac{d\lambda}{dx}\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{ポアソン比}
+\subsection{ポアソン比}
 例えば丸棒を引張ると引張方向に\textgt{縦ひずみ}が発生し,同時に径が小さくなる\textgt{横ひずみ}が発生する.\\
 このときの縦ひずみと横ひずみの比を\textgt{ポアソン比}という.
 \begin{itembox}[l]{ポアソン比}
@@ -1624,7 +1576,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         E=2G\left(1+\nu\right)\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{ねじり・せん断応力}
+\section{ねじり・せん断応力}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -1638,13 +1590,13 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \end{eqnarray*}
     \end{center}
 \end{itembox}
-\subsubsection{微小区間のねじれ角}
+\subsection{微小区間のねじれ角}
 \begin{itembox}[l]{微小区間のねじれ角}
     \begin{eqnarray*}
         d\gamma=\dfrac{rd\varphi}{dx}\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{曲げ}
+\section{曲げ}
 \begin{itembox}[l]{重要公式}
     \begin{center}
         \begin{eqnarray*}
@@ -1653,7 +1605,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \end{eqnarray*}
     \end{center}
 \end{itembox}
-\subsection{平等強さ}
+\section{平等強さ}
 どの断面でも\textgt{応力が一定}である状態のことをいう.\\
 \begin{enumerate}[(1)]
     \item 引張・圧縮\\
@@ -1661,14 +1613,14 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
     \item 曲げ\\
           どの断面でも\textgt{最大曲げ応力}が等しい
 \end{enumerate}
-\subsection{断面二次モーメントと断面二次極モーメント}
+\section{断面二次モーメントと断面二次極モーメント}
 \begin{itembox}[l]{Point}
     \begin{center}
         断面二次極モーメントは直交座標系における\textgt{$x$軸,$y$軸の断面二次モーメントを足し合わせた値}になる.\\
         ねじりと曲げの重要公式に酷似しているものが多い
     \end{center}
 \end{itembox}
-\subsubsection{断面二次モーメント}
+\subsection{断面二次モーメント}
 断面二次モーメントは,部材の断面形状の特性を表した値であり,
 その形状が曲げに対してどのくらい\textgt{硬い}のかを表す.
 \begin{itembox}[l]{断面二次モーメント}
@@ -1683,7 +1635,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         三角形\quad&&\dfrac{bh^3}{36}\quad(高さ:h,幅:b)\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{断面二次モーメントの求め方}
+\subsection{断面二次モーメントの求め方}
 \begin{itembox}[l]{断面二次モーメントを求める具体的なステップ}
     \begin{enumerate}[(1)]
         \item 計算の基準になる$z$軸を決定する
@@ -1692,7 +1644,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \item 平行軸の定理を用いて解を求める
     \end{enumerate}
 \end{itembox}
-\subsubsection{平行軸の定理}
+\subsection{平行軸の定理}
 図心基準の断面二次モーメントから任意の軸基準の断面二次モーメントを求めるときに利用することができる.
 \begin{itembox}[l]{平行軸の定理}
     調べる断面形状(断面積:$A$)の中立軸を$z$軸,それに平行に$z$だけ離れた位置の軸を$z'$軸とする.\\
@@ -1702,7 +1654,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         I_{z'}=I_z+Az^2\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{断面二次極モーメント}
+\subsection{断面二次極モーメント}
 半径$r$に関する(極座標に関する)断面二次モーメントのことを\textgt{断面二次極モーメント}という.
 \begin{itembox}[l]{断面二次極モーメント}
     \begin{eqnarray*}
@@ -1730,7 +1682,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         円筒\quad&&\dfrac{\pi}{32}\left(D_1^2-D_2^2\right)\quad(外径:D_1,内径:D_2))\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{たわみの微分方程式}
+\section{たわみの微分方程式}
 \begin{itembox}[l]{たわみの微分方程式}
     \begin{eqnarray*}
         \dfrac{d^2w}{dx^2}&=&-\dfrac{M}{EI}\\
@@ -1746,14 +1698,14 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
               $x=0$のとき,\quad$\omega=0$,力の加わっている個所で$\;\theta =0$
     \end{enumerate}
 \end{itembox}
-\subsection{線膨張係数と熱応力}
+\section{線膨張係数と熱応力}
 \begin{itembox}[l]{熱ひずみの公式}
     \begin{eqnarray*}
         \varepsilon=\alpha\Delta T\\
     \end{eqnarray*}
 \end{itembox}
-\newpage
-\subsubsection{(例題) 熱応力問題を解く}
+
+\subsection{(例題) 熱応力問題を解く}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=120mm]{images/zairiki_image4.jpg}
@@ -1811,8 +1763,8 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
               \sigma_1=-\frac{E_1E_2A_2\alpha T}{E_1A_1+E_2A_2}
           \end{eqnarray*}
 \end{enumerate}
-\subsection{SFDとBMD}
-\subsubsection{せん断力線図(SFD)}
+\section{SFDとBMD}
+\subsection{せん断力線図(SFD)}
 はりにはたらくせん断力を図で表したもの
 \begin{itembox}[l]{Point}
     \begin{center}
@@ -1822,7 +1774,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
 \begin{enumerate}[(1)]
     \item 自由端の
 \end{enumerate}
-\subsubsection{曲げ応力線図(BMD)}
+\subsection{曲げ応力線図(BMD)}
 はりにはたらく曲げモーメントを図で表したもの
 \begin{itembox}[l]{Point}
     \begin{center}
@@ -1833,9 +1785,9 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
     \item 自由端の曲げモーメントは\textgt{ゼロ}
     \item 曲げモーメントが最大となる断面を\textgt{危険断面}という
 \end{enumerate}
-\subsubsection{(例題) BMDとSFDを書く}
+\subsection{(例題) BMDとSFDを書く}
 
-\subsection{不静定問題}
+\section{不静定問題}
 \begin{itembox}[l]{条件}
     \begin{enumerate}[(1)]
         \item 力・トルクのつり合い
@@ -1847,7 +1799,7 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
         \textgt{力・トルク}のつり合いから\textgt{伸び・ねじれ角}を含む式に変換する
     \end{center}
 \end{itembox}
-\subsubsection{(例題) 不静定問題を解く}
+\subsection{(例題) 不静定問題を解く}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=120mm]{images/zairiki_image3.jpg}
@@ -1908,34 +1860,34 @@ $F_x\left(x,y\right)=P\left(x,y\right)$より,
               \varphi_2&=&\frac{TL}{G\left(I_{P2}-I_{P1}\right)}
           \end{eqnarray*}
 \end{enumerate}
-\subsection{モールの応力円}
-\subsection{材料の破断}
+\section{モールの応力円}
+\section{材料の破断}
 塑性変形するときは金属材料が単軸応力状態で変形することはなく,2軸または3軸の応力を受けている.
 このような組合せ応力のもとにおいて金属材料が弾性限度に達し,
 塑性変形を開始するときの条件を降伏条件という.\\
 $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下に示す.
-\subsubsection{最大主応力説}
+\subsection{最大主応力説}
 この破損則は脆性材料に一致することが多い.
 \begin{itembox}[l]{最大主応力説}
     \begin{eqnarray*}
         \sigma_1\geq\sigma_Y\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{最大せん断応力説}
+\subsection{最大せん断応力説}
 この破損則は,延性材料に一致することが多い.Trescaの説とも呼ばれる.
 \begin{itembox}[l]{最大せん断応力説}
     \begin{eqnarray*}
         \dfrac{\sigma_1-\sigma_3}{2}\geq\dfrac{\sigma_Y}{2}\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{せん断ひずみエネルギー説}
+\subsection{せん断ひずみエネルギー説}
 この破損則は,延性材料に一致することが多い.Von-Misesの説とも呼ばれる.
 \begin{itembox}[l]{せん断ひずみエネルギー説}
     \begin{eqnarray*}
         \dfrac{1}{2}\left[\left(\sigma_3-\sigma_1\right)^2+\left(\sigma_1-\sigma_2\right)^2+\left(\sigma_2-\sigma_3\right)^2\right]\geq\left(\sigma_Y\right)^2\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{薄肉円筒}
+\section{薄肉円筒}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=150mm]{images/zairiki_image1.jpg}
@@ -1948,7 +1900,7 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
     \item 半径方向応力$\sigma_r$は無視できる
     \item 周方向応力$\sigma_\theta$は板厚に沿って一様である
 \end{enumerate}
-\subsubsection{それぞれの応力を求める}
+\subsection{それぞれの応力を求める}
 周方向応力$\sigma_r$は近似が成立することから,
 \begin{eqnarray*}
     \sigma_r=0
@@ -1980,21 +1932,21 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
 \end{itembox}
 なお,外力として荷重$Q$とトルク$T$を受けている場合は,
 以上の円筒に生じる応力に,荷重$Q$による垂直応力とトルク$T$によるせん断応力を加えれば良い.
-\newpage
-\section{機械力学}
-\subsection{一自由度並進運動}
+
+\part{機械力学}
+\section{一自由度並進運動}
 \begin{itembox}[l]{運動方程式}
     \begin{eqnarray*}
         m\ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=F\left(t\right)\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{剛体円盤のねじり振動系}
+\section{剛体円盤のねじり振動系}
 \begin{itembox}[l]{運動方程式}
     \begin{eqnarray*}
         I\ddot{\theta}\left(t\right)+c_\theta\dot{\theta}\left(t\right)+k_\theta\theta\left(t\right)&=&M\left(t\right)\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{(例題) 回転に関する運動方程式を求める}
+\section{(例題) 回転に関する運動方程式を求める}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=100mm]{images/kiriki_image2.jpg}
@@ -2034,7 +1986,7 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
 \begin{eqnarray*}
     ma^2\ddot{\theta}\left(t\right)+ca^2\dot{\theta}\left(t\right)+kb^2\dot{\theta}\left(t\right)=0\\
 \end{eqnarray*}
-\subsection{自由振動}
+\section{自由振動}
 外力がゼロのとき,自由振動という.\\
 このとき,運動方程式の右辺はゼロとなり,そのときの応答は2階の同次微分方程式を解くことで求めることができる.
 \begin{itembox}[l]{Point}
@@ -2063,7 +2015,7 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
         \omega=\dfrac{2\pi}{T}\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{特性方程式}
+\section{特性方程式}
 運動方程式(自由振動)に$\; x\left(x\right)=e^{st}\;$を代入して整理すると,以下のような\textgt{特性方程式}を得ることができる.
 \begin{itembox}[l]{特性方程式}
     \begin{eqnarray*}
@@ -2071,7 +2023,7 @@ $\sigma_Y$を材料の降伏強度として代表的な降伏条件式を以下�
     \end{eqnarray*}
 \end{itembox}
 これを満たす$\; s_1,s_2\;$の組を\textgt{特性根}という.
-\subsubsection{過減衰}
+\subsection{過減衰}
 $\zeta>1$のとき,特性根は
 \begin{eqnarray*}
     s_1,s_2=\left(-\zeta \pm \sqrt{\zeta^2-1}\right)\omega_n
@@ -2086,7 +2038,7 @@ $\zeta>1$のとき,特性根は
 ここで,$t\rightarrow\infty$で$0$に漸近する.
 そのため,振動は繰り返しを伴わない.($\neq$振動)\\
 このとき,これを\textgt{過減衰}という.
-\subsubsection{臨界減衰}
+\subsection{臨界減衰}
 $\zeta = 0$のとき,特性根は
 \begin{eqnarray*}
     s_1=s_2=-\omega_n
@@ -2098,7 +2050,7 @@ $\zeta = 0$のとき,特性根は
     \end{eqnarray*}
 \end{itembox}
 このときの応答を\textgt{臨界減衰}といい,応答の収束が最も速くなる.
-\subsubsection{不足減衰}
+\subsection{不足減衰}
 $0<\zeta<1$のとき,特性根は
 \begin{eqnarray*}
     s_1,s_2=\left(-\zeta \pm i\sqrt{1-\zeta^2}\right)\omega_n\\
@@ -2135,7 +2087,7 @@ $0<\zeta<1$のとき,特性根は
         ※\quad\tan\alpha &=& -\dfrac{b}{a}
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{単振動}
+\subsection{単振動}
 $\zeta = 0$のとき,特性根は
 \begin{eqnarray*}
     s_1,s_2=i\omega_n\\
@@ -2150,12 +2102,12 @@ $\zeta = 0$のとき,特性根は
 このとき,減衰係数$\zeta=0$より,いつまでも減衰しない\textgt{単振動}となる.\\
 \\
 ここで,極の実部(負になる)は\textgt{自由振動の減衰の速さ}を表し,極の虚部は\textgt{自由振動の振動数}を表している.
-\subsection{強制振動}
+\section{強制振動}
 \textgt{強制振動}とは,外力が存在する振動である.\\
 このとき,運動方程式の右辺に外力$f\left(t\right)$の項を持ち,その応答は
 重ね合わせの原理から右辺がゼロの自由振動における2階の同次微分方程式の一般解に,
 特殊解を足し合わせることで求めることができる.\\
-\subsection{調和外力に対する定常応答}
+\section{調和外力に対する定常応答}
 \begin{itembox}[l]{調和外力}
     \begin{center}
         周期性を持つ外力のことを\textgt{調和外力}という.$\sin$波や$\cos$波に相当する.
@@ -2168,7 +2120,7 @@ $\zeta = 0$のとき,特性根は
         外力は無限の過去に始まり,未来永劫続いている
     \end{center}
 \end{itembox}
-\subsubsection{三角関数による方法}
+\subsection{三角関数による方法}
 定常応答を求めるには,
 \begin{eqnarray*}
     m \ddot{x}\left(t\right)+c\dot{x}\left(t\right)+kx\left(t\right)=f\cos\omega t
@@ -2195,7 +2147,7 @@ $\zeta = 0$のとき,特性根は
         \varphi=\mathrm{Tan}^{-1}\left(\dfrac{x_0\sin\varphi}{x_0\cos\varphi}\right)=\mathrm{Tan}^{-1}\left(\dfrac{c\omega}{-m\omega^2+k}\right)\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{複素振幅表示による方法(1)}
+\subsection{複素振幅表示による方法(1)}
 \begin{itembox}[l]{Point}
     \begin{eqnarray*}
         f\left(t\right)
@@ -2247,7 +2199,7 @@ $-\angle X$は\textgt{位相遅れ}$\varphi$を表す.\\
     x\left(t\right)&=&x_0\cos\left(\omega t-\varphi\right)\\
 \end{eqnarray*}
 に上記の値を代入したものになる.\\
-\subsubsection{複素振幅表示による方法(2)}
+\subsection{複素振幅表示による方法(2)}
 つぎに,固有振動数$\omega_n$,減衰比$\zeta$を用いて考える.\\
 このとき,運動方程式は以下のように書き換えることができる.
 \begin{eqnarray*}
@@ -2285,7 +2237,7 @@ $-\angle X$は\textgt{位相遅れ}$\varphi$を表す.\\
 \end{eqnarray*}
 に上記の値を代入したものになる.\\
 ※ 調和振動が $\sin$ の項を持つ場合は,$\cos$から$\sin$に変えれば良い.
-\subsubsection{周波数応答関数$G_f$}
+\subsection{周波数応答関数$G_f$}
 $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,偏角に負号をつけたものは外力に対する応答の位相遅れを表す.
 ここで,$G_f=X/F$とおくと,$G_f$は$\omega$の関数になり,これを\textgt{周波数応答関数}という.
 \begin{itembox}[l]{周波数応答関数}
@@ -2307,10 +2259,10 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         ※ 複素振幅の位相遅れと同じ
     \end{center}
 \end{itembox}
-\subsection{共振曲線}
+\section{共振曲線}
 
-\subsection{その他}
-\subsubsection{合成ばね定数を求める}
+\section{その他}
+\subsection{合成ばね定数を求める}
 系の平衡状態から,力を加えたと仮定して力のつり合いを考えることで合成ばね定数を求めることができる.
 \begin{itembox}[l]{Point}
     \begin{center}
@@ -2318,15 +2270,15 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \end{center}
 \end{itembox}
 ※ 質点に加わる力は,「$f$」等で適当におくと良い.(後々消える)
-\newpage
-\section{熱力学}
-\subsection{熱力学第一法則}
+
+\part{熱力学}
+\section{熱力学第一法則}
 \begin{screen}
     \begin{center}
         \textgt{熱}と\textgt{仕事}は本質的に同種のエネルギーであり,それらは互いに\textgt{変換可能}である
     \end{center}
 \end{screen}
-\subsubsection{閉じた系}
+\subsection{閉じた系}
 物質の出入りのない系のことを\textgt{閉じた系}という.\quad 例) ピストン-シリンダ系
 \begin{itembox}[l]{閉じた系の熱力学第一法則}
     \begin{eqnarray*}
@@ -2336,7 +2288,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         W&:&絶対仕事 \; (気体のした仕事)\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{内部エネルギ}
+\subsection{内部エネルギ}
 個々の分子は力学的エネルギ(位置エネルギ+運動エネルギ)を持っている.\\
 それを巨視的に見たときに分子の持つ\textgt{内部エネルギ}と呼ぶ.
 \begin{itembox}[l]{内部エネルギの変化量}
@@ -2346,7 +2298,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
 \end{itembox}
 初期状態を$\left(P,v,T\right)$とする.\\
 ※ $v$は比容積
-\subsubsection{開いた系}
+\subsection{開いた系}
 物質の出入りがある系のことを\textgt{開いた系}という.\quad 例) タービン\\
 また,このとき取り出される仕事を\textgt{工業仕事}という.
 \begin{itembox}[l]{開いた系の熱力学第一法則}
@@ -2357,7 +2309,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         W_t&:&工業仕事 \; (気体のした仕事)\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{エンタルピ}
+\subsection{エンタルピ}
 内部エネルギーと流動エネルギを合わせたものをエンタルピと定義される.
 \begin{itembox}[l]{Point}
     \begin{center}
@@ -2374,7 +2326,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \Delta H&=&mC_p\Delta T\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{理想気体}
+\section{理想気体}
 \begin{itembox}[l]{状態方程式}
     \begin{eqnarray*}
         PV&=&mRT\\
@@ -2389,13 +2341,13 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         C_v&:&定容比熱\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{熱力学第二法則}
+\section{熱力学第二法則}
 \begin{screen}
     \begin{center}
         熱は高いほうから低いほうへと移動するという\textgt{不可逆現象}のことを指す.
     \end{center}
 \end{screen}
-\subsubsection{仕事}
+\subsection{仕事}
 \begin{itembox}[l]{仕事}
     \begin{eqnarray*}
         W&=&Q_H-Q_L\\
@@ -2410,7 +2362,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         &=& (膨張過程で\;\textgt{された仕事}) + (圧縮過程で\;\textgt{された仕事})\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{熱効率}
+\subsection{熱効率}
 \begin{itembox}[l]{Point}
     \begin{center}
         基本は,\textgt{受熱量$Q_{in}$}と\textgt{放熱量$O_{out}$}で考える\\
@@ -2422,7 +2374,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \eta_{th}=\dfrac{W_{net}}{Q_H}=1-\dfrac{Q_L}{Q_H}\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{エントロピ}
+\section{エントロピ}
 2つの状態間を\textgt{不可逆的に変化}させたとき,
 その変化の経路に無関係に一定となる値(\textgt{状態量})のこと.\\
 また,その変化の不可逆性の大きさを示す.可逆断熱過程では,エントロピーの変化は\textgt{ゼロ}になる.
@@ -2431,7 +2383,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \displaystyle\int \frac{dQ}{T}=const\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{加熱・放熱}
+\section{加熱・放熱}
 \begin{itembox}[l]{Point}
     \begin{center}
         T-S線図をすぐにイメージできるかがカギ\\
@@ -2459,7 +2411,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
               \end{center}
     \end{enumerate}
 \end{itembox}
-\subsubsection{等容過程}
+\subsection{等容過程}
 \begin{itembox}[l]{Point}
     \begin{eqnarray*}
         \frac{P}{T}&=&const\\
@@ -2468,7 +2420,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \Delta s&=&\int \frac{dQ}{T} = \int \frac{dU}{T} = C_v\int\frac{1}{T}dT\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{等圧過程}
+\subsection{等圧過程}
 \begin{itembox}[l]{Point}
     \begin{eqnarray*}
         \frac{V}{T}&=&const\\
@@ -2477,7 +2429,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \Delta s&=&\int \frac{dQ}{T} = \int \frac{dH}{T} = C_p\int\frac{1}{T}dT\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{膨張・圧縮}
+\section{膨張・圧縮}
 \begin{itembox}[l]{Point}
     \begin{center}
         P-V線図をすぐにイメージできるかがカギ\\
@@ -2505,7 +2457,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
               \end{center}
     \end{enumerate}
 \end{itembox}
-\subsubsection{等温過程}
+\subsection{等温過程}
 \begin{itembox}[l]{Point}
     \begin{eqnarray*}
         PV&=&const\\
@@ -2516,7 +2468,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         &=& \frac{1}{T}\int Vdp\;(開いた系)\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{断熱(等エントロピー)過程}
+\subsection{断熱(等エントロピー)過程}
 \begin{itembox}[l]{Point}
     \begin{eqnarray*}
         PV^\kappa&=&const\\
@@ -2524,7 +2476,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \Delta s&=&0\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{ポアソンの式とその導出}
+\subsection{ポアソンの式とその導出}
 \begin{itembox}[l]{ポアソンの式}
     \begin{eqnarray*}
         PV^\kappa=const\\
@@ -2555,9 +2507,9 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     const&=&\ln P+\kappa\ln v\\
     &=&Pv^\kappa\\
 \end{eqnarray*}
-\subsection{サイクル}
+\section{サイクル}
 あくまで,理論上のサイクルでありすべて\textgt{閉じた系}と仮定している.
-\subsubsection{カルノーサイクル}
+\subsection{カルノーサイクル}
 \begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等温膨張} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等温圧縮}
@@ -2569,7 +2521,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         \eta_{thc}=1-\frac{T_2}{T_1}\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{オットーサイクル}
+\subsection{オットーサイクル}
 \begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
@@ -2586,7 +2538,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \end{eqnarray*}
 \end{itembox}
 ガソリンエンジンの基本サイクル.
-\subsubsection{ディーゼルサイクル}
+\subsection{ディーゼルサイクル}
 \begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
@@ -2598,7 +2550,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \end{eqnarray*}
 \end{itembox}
 ディーゼルエンジンのサイクル.
-\subsubsection{サバテサイクル}
+\subsection{サバテサイクル}
 \begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等容加熱}\quad → \quad \textgt{(3) 等圧加熱} \quad → \quad \textgt{($3'$) 断熱膨張} \quad → \quad \textgt{(4) 等容放熱}
@@ -2610,7 +2562,7 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
     \end{eqnarray*}
 \end{itembox}
 高速ディーゼルサイクル.受熱過程が等容変化と等圧変化の組み合わせになっている.
-\subsubsection{ブレイトンサイクル}
+\subsection{ブレイトンサイクル}
 \begin{itembox}[l]{過程}
     \begin{center}
         \textgt{(1) 断熱圧縮}\quad → \quad \textgt{(2) 等圧加熱} \quad → \quad \textgt{(3) 断熱膨張} \quad → \quad \textgt{(4) 等圧放熱}
@@ -2631,8 +2583,8 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
         w_t&:&タービンに下仕事\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{再生ブレイトンサイクル}
-\subsection{乾き度}
+\section{再生ブレイトンサイクル}
+\section{乾き度}
 \begin{itembox}[l]{Point}
     \begin{center}
         単位質量あたりに含まれている蒸気の質量 → \textgt{乾き度}
@@ -2643,15 +2595,15 @@ $X/F$の絶対値は外力の振幅に対する応答の\textgt{振幅比}を,�
 $1\mathrm{kg}$の湿り蒸気が$x\mathrm{kg}$の蒸気と$\left(1-x\right)\mathrm{kg}$の液体から成るとき,
 $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
 
-\subsubsection{湿り蒸気}
+\subsection{湿り蒸気}
 飽和蒸気と飽和水が共存している状態のこと.
-\newpage
-\section{流体力学}
-\subsection{静止流体の力学}
-\subsubsection{静水圧}
+
+\part{流体力学}
+\section{静止流体の力学}
+\subsection{静水圧}
 静止している液体の任意の点にはたらく圧力のことを\textgt{静水圧}(水圧)という.
 流体内の任意の1点における圧力は，\textgt{すべての方向に対して等しい}.
-\subsubsection{(例題) 流入出口が受ける圧力}
+\subsection{(例題) 流入出口が受ける圧力}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=120mm]{images/ryuriki_image4.jpg}
@@ -2687,7 +2639,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         F_2= \dfrac{1}{2}\rho g h_2^2 \\
     \end{cases}
 \end{eqnarray*}
-\subsubsection{表面張力}
+\subsection{表面張力}
 液体の分子間には引張合う力がはたらいており,気体やほかの液体と接している面には縮もうとする力が作用する.
 これを\textgt{表面張力}といい,単位は$\left[\mathrm{N/m}\right]$である.
 \begin{itembox}[l]{Point}
@@ -2701,7 +2653,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         ( \textgt{液体の重量$\left[\mathrm{N}\right]$} ) = ( \textgt{表面張力の垂直方向成分$\left[\mathrm{N/m}\right]$}) $\times$ ( \textgt{境界面の周の長さ}$\;\left[\mathrm{m}\right]$ )
     \end{center}
 \end{itembox}
-\subsection{粘性流体の力学}
+\section{粘性流体の力学}
 流体の運動における未知量は,\textgt{速度,圧力,密度,温度}である.\\
 また,\textgt{時間$\left(t\right)$,空間$\left(x,y,z\right)$}の関数である.\\
 \begin{itembox}[l]{Point}
@@ -2710,14 +2662,14 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         (非圧縮性流体)&&\quad 未知量は6つ\quad 速度\left(u,v,w\right),圧力\left(p\right),密度\left(\rho\right),温度\left(T\right)\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{流体の質量保存則}
+\section{流体の質量保存則}
 \begin{itembox}[l]{連続の式}
     \begin{eqnarray*}
         \dfrac{\partial\rho}{\partial t}+\dfrac{\partial \left(\rho u\right)}{\partial x}+\dfrac{\partial \left(\rho v\right)}{\partial y}+\dfrac{\partial \left(\rho w\right)}{\partial z}&=&0\quad(3次元)\\
         \dfrac{\partial\rho}{\partial t}+\dfrac{\partial \left(\rho u\right)}{\partial x}+\dfrac{\partial \left(\rho v\right)}{\partial y}&=&0\quad(2次元)\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{流体のエネルギー保存則}
+\section{流体のエネルギー保存則}
 \begin{itembox}[l]{Point}
     \begin{center}
         流線を意識して、つり合いの式を立てる
@@ -2741,7 +2693,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
 流れがせき止められ、流速がゼロになる点を\textgt{よどみ点}という。また、$p_0$はよどみ点圧力でもある。\\
 ※ ベルヌーイの定理は,\textgt{エネルギー保存則}であるのでエネルギーの損失 (圧力損失 等) がある場合は適用できない\\
 → 運動量保存則が適用される\\
-\subsubsection{トリチェリの定理}
+\subsection{トリチェリの定理}
 容器に液体を入れ,容器に対して十分に小さい穴をあける.
 このとき,流れが定常であるとすると,流れ出す液体の速度$v$は以下のように表される.
 \begin{itembox}[l]{トリチェリの定理}
@@ -2752,7 +2704,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     \end{eqnarray*}
 \end{itembox}
 これは,ベルヌーイの定理を用いることで証明できる.
-\subsection{流体の運動量保存の法則}
+\section{流体の運動量保存の法則}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{検査領域}に対する方向に正負をを定める\\
@@ -2768,7 +2720,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         \displaystyle\sum \dot{m}v=F\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{(例題) 運動量保存則}
+\section{(例題) 運動量保存則}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=80mm]{images/ryuriki_image5.jpg}
@@ -2807,8 +2759,8 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     &=&\rho {u'}^2 a \left(1-\cos \theta\right)\\
     &=&\rho \left(u-U\right)^2 a \left(1-\cos \theta\right)\\
 \end{eqnarray*}
-\subsection{流体の運動方程式}
-\subsubsection{流体の運動を表す2つの運動方程式}
+\section{流体の運動方程式}
+\subsection{流体の運動を表す2つの運動方程式}
 \begin{itembox}[l]{オイラーの運動方程式(2次元)}
     \begin{eqnarray*}
         \dfrac{\partial u}{\partial t}+u\dfrac{\partial u}{\partial x}+v\dfrac{\partial u}{\partial y}&=&-\dfrac{1}{\rho}\dfrac{\partial p}{\partial x}+f_x\quad(x方向)\\
@@ -2841,22 +2793,22 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
         \dfrac{\partial v_\theta}{\partial t}+v_r\dfrac{\partial v_\theta}{\partial r}+\dfrac{v_\theta}{r}\dfrac{\partial v_\theta}{\partial \theta}+\dfrac{v_rv_\theta}{r}=-\dfrac{1}{\rho}\dfrac{1}{r}\dfrac{\partial p}{\partial \theta}+\nu\left(\dfrac{\partial^2 v_\theta}{\partial \theta^2}+\dfrac{1}{r}\dfrac{\partial v_\theta}{\partial r}+\dfrac{1}{r^2}\dfrac{\partial^2 v_\theta}{\partial \theta^2}-\dfrac{v_\theta}{r^2}+\dfrac{2}{r^2}\dfrac{\partial v_r}{\partial \theta}\right)+f_\theta\quad&&(\theta 方向)\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{オイラーの運動方程式とナビエ・ストークス方程式の違い}
+\subsection{オイラーの運動方程式とナビエ・ストークス方程式の違い}
 2つの方程式を見比べてみると,オイラーの運動方程式はナビエ・ストークス方程式から\textgt{粘性項}を除いたものとなっている.
 したがって,オイラーの運動方程式では,流体の粘性について考慮されていないことになる.\\
 オイラーの運動方程式に従った簡単な例を挙げると,自動車の走行中に流体から力(空気抵抗)を受けないことになる.(実際は抵抗を受ける)\\
 また,このパラドクスのことを\textgt{ダランベールの背理}という.そこで,このパラドクスを解くために考え出されたのが,\textgt{ナビエ・ストークス方程式}である.\\
 ※ オイラーの運動方程式に支配される流体を\textgt{完全流体}という.\\
 ※ ナビエ・ストークス方程式に支配される流体を\textgt{ニュートン流体}という.(粘性によるせん断応力と速度勾配が比例関係になるような流体)
-\subsubsection{運動量保存から圧力損失を導く}
-\subsection{2次元の連続の式・オイラーの運動方程式の導出}
+\subsection{運動量保存から圧力損失を導く}
+\section{2次元の連続の式・オイラーの運動方程式の導出}
 \begin{figure}[htbp]
     \begin{center}
         \includegraphics[width=120mm]{images/ryuriki_image1.jpg}
         \caption{R3 試験問題[7]}
     \end{center}
 \end{figure}
-\subsubsection{2次元の連続の式の導出}
+\subsection{2次元の連続の式の導出}
 \begin{itembox}[l]{Point}
     \begin{center}
         時刻$t-\delta t/2\leq t \leq t+\delta t/2$の微小時間$\delta t$間の流れについて\textgt{空間}・\textgt{時間}の観点から保存則を立てる
@@ -2898,7 +2850,7 @@ $x$を\textgt{乾き度},$\left(1-x\right)$を\textgt{湿り度}という.
     \dfrac{\partial p}{\partial t}+\frac{\partial\left(\rho u\right)}{\partial x}+\frac{\partial\left(\rho v\right)}{\partial y}&=&0
 \end{eqnarray*}
 以上より,2次元空間における連続の式を導くことができた.
-\subsubsection{2次元のオイラーの運動方程式の導出}
+\subsection{2次元のオイラーの運動方程式の導出}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{ニュートンの第二法則}\quad$F=ma$を流体について立てる
@@ -2914,7 +2866,7 @@ $x$方向の速度$u$の全微分$du$は,
 \begin{eqnarray*}
     du=\dfrac{\partial u}{\partial x}dx+\dfrac{\partial u}{\partial y}dy+\dfrac{\partial u}{\partial t}dt
 \end{eqnarray*}
-\subsubsection{クエット流}
+\subsection{クエット流}
 2枚の平行な板の間に流体を満たし、一方の板を平行に動かしたときに生じる流れのことを\textgt{クエット流}という.
 \begin{itembox}[l]{クエット流}
     \begin{eqnarray*}
@@ -2923,7 +2875,7 @@ $x$方向の速度$u$の全微分$du$は,
         h \;&:&\; 板間の距離\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{ハーゲン・ポアズイユ流}
+\subsection{ハーゲン・ポアズイユ流}
 断面積が一定の円管内をゆっくりと流れる流れのことを\textgt{ハーゲン・ポアズイユ流}という.
 \begin{itembox}[l]{ハーゲン・ポアズイユ流}
     \begin{eqnarray*}
@@ -2931,15 +2883,15 @@ $x$方向の速度$u$の全微分$du$は,
         r_0\; &:&\; 円管の半径\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{流体のせん断応力}
+\section{流体のせん断応力}
 流体の流れに平行な軸を$x$軸,垂直な軸を$y$とすると,せん断応力$\tau\left(y\right)$は以下のように表せる.
 \begin{itembox}[l]{せん断応力(2次元)}
     \begin{eqnarray*}
         \tau\left(y\right)=\mu\dfrac{du}{dy}\\
     \end{eqnarray*}
 \end{itembox}
-\newpage
-\subsubsection{(例題) 板が流体から受ける力}
+
+\subsection{(例題) 板が流体から受ける力}
 \begin{itembox}[l]{Point}
     \begin{center}
         \textgt{下の物体}が,\textgt{上の物体}から受ける力
@@ -2991,7 +2943,7 @@ A-B間の面積$S$は,以下のように求められる.
         F_2=-\dfrac{hL}{2}\dfrac{dP}{dx}-\mu\dfrac{VL}{h} \\
     \end{cases}
 \end{eqnarray*}
-\subsection{応力テンソル}
+\section{応力テンソル}
 \begin{itembox}[l]{二次元非圧縮流体における応力テンソル}
     \begin{eqnarray*}
         \sigma_{ij}=-\delta_{ij}P+\mu\left(\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}\right)\\
@@ -3005,7 +2957,7 @@ A-B間の面積$S$は,以下のように求められる.
         \sigma_{yx} &=& \mu\left(\frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\right)\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{レイノルズ数}
+\section{レイノルズ数}
 \textgt{慣性力}と\textgt{粘性力}の比をとった無次元数のことを\textgt{レイノルズ数}という.\\
 分母が粘性力,分子が慣性力を表しており,粘性力が支配的な流れは\textgt{層流},慣性力が支配的となる流れは\textgt{乱流}となる.\\
 \begin{itembox}[l]{レイノルズ数}
@@ -3017,7 +2969,7 @@ A-B間の面積$S$は,以下のように求められる.
         \nu &:& 動粘性係数\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{境界層}
+\section{境界層}
 \begin{itembox}[l]{境界層}
     \begin{center}
         粘性の影響を無視できない領域のことを\textgt{境界層}という.\\
@@ -3035,9 +2987,9 @@ A-B間の面積$S$は,以下のように求められる.
         \left(\frac{\partial u}{\partial y}\right)_{y\neq 0}=0\\
     \end{eqnarray*}
 \end{itembox}
-\subsection{流れ場の幾何学的表現}
+\section{流れ場の幾何学的表現}
 流れ場を表現する手法として\textgt{流線}・\textgt{流跡線}・\textgt{流脈線}という概念がある.\\
-\subsubsection{流線}
+\subsection{流線}
 流線は,時間$t$をある時刻に固定し,その時刻における速度ベクトルが接線ベクトルとなる曲線のことである.\\
 つまり,$\vec{u}\parallel d\vec{x}$が成立する.
 \begin{itembox}[l]{流線}
@@ -3049,17 +3001,17 @@ A-B間の面積$S$は,以下のように求められる.
 流線が交差するとき,その交点では流体は速度ゼロもしくは無限大をとる.
 速度がゼロのとき,その交点を\textgt{よどみ点}といい,無限大のとき\textgt{特異点}という.
 また,この流線によって作られる曲面を\textgt{流管}という.
-\subsubsection{流跡線}
+\subsection{流跡線}
 流跡線は,流体粒子を時間とともにラグランジュ的に追跡したときに描かれる軌跡を示す概念であり,以下のように表される.
 \begin{itembox}[l]{流跡線}
     \begin{eqnarray*}
         d\vec{x}=\vec{u}dt\\
     \end{eqnarray*}
 \end{itembox}
-\subsubsection{流脈}
+\subsection{流脈}
 空間のある点を通過した流体のすべての粒子が任意の瞬間に存在する点を結んだ線のこと.\\
 例) たばこの煙をある瞬間に撮影したもの
-\subsection{渦度}
+\section{渦度}
 流れ場の回転の程度を表す量を\textgt{渦度}という.
 $\vec{u}=\left(u,v\right)$のとき,以下のように表される.
 \begin{itembox}[l]{渦度}
@@ -3072,7 +3024,7 @@ $\vec{u}=\left(u,v\right)$のとき,以下のように表される.
     \omega = \dfrac{1}{2}\zeta\\
 \end{eqnarray*}
 ここで,$\zeta=0$のとき,回転のない運動(\textgt{渦なし流れ})となる.これを\textgt{ポテンシャル流}という.
-\subsection{流れ関数}
+\section{流れ関数}
 以下の条件を満たす関数$\psi$を\textgt{流れ関数}という.
 \begin{itembox}[l]{流れ関数}
     \begin{eqnarray*}
@@ -3085,7 +3037,7 @@ $\psi =const$のとき,全微分をとると\\
 \end{eqnarray*}
 これは,流線の定義と同じになっていることがわかる.すなわち,$\psi = const$は流線を表す.\\
 ※ 流線と関係が深い → 流れの方向ベクトルを表すことができる.
-\subsection{速度ポテンシャル}
+\section{速度ポテンシャル}
 以下の条件を満たす関数$\phi$を\textgt{速度ポテンシャル}という.
 また,このとき流れは\textgt{渦なし流れ}である必要がある.
 \begin{itembox}[l]{速度ポテンシャル}
@@ -3095,7 +3047,7 @@ $\psi =const$のとき,全微分をとると\\
 \end{itembox}
 速度ポテンシャル$\phi = const$の曲線を\textgt{等ポテンシャル線}と呼ぶ.\\
 ※ 渦度$\zeta$と関係が深い → 流れに渦(回転運動)がない状態のことを表すことができる
-\subsection{コーシー・リーマンの関係式}
+\section{コーシー・リーマンの関係式}
 \textgt{定常かつ渦なし流れ}のとき,以下の関係(\textgt{コーシー・リーマンの関係式})が成立する.
 \begin{itembox}[l]{コーシー・リーマンの関係式}
     \begin{eqnarray*}
@@ -3105,7 +3057,7 @@ $\psi =const$のとき,全微分をとると\\
 \end{itembox}
 これは,$\phi$と$\psi$の直交性を示す.
 すなわち,流線($\psi=zconst$)と等ポテンシャル線($\phi=const$)は直交する.
-\subsubsection{直交性の証明}
+\subsection{直交性の証明}
 コーシー・リーマンの関係式が成立するとき,
 $\psi=const\quad \phi=const$の法線ベクトルはそれぞれ,
 \begin{eqnarray*}

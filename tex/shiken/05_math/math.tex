@@ -54,7 +54,7 @@ numbersep=1zw,
 lineskip=-0.5ex
 }
 
-
+\setcounter{tocdepth}{3}
 
 \author{}
 \title{数学}
@@ -62,4 +62,1472 @@ lineskip=-0.5ex
 
 \begin{document}
 \maketitle
+\tableofcontents
+\newpage
+
+\section{線形代数}
+\subsection{行列}
+\subsubsection{行列演算の性質}
+基本的には,普通の計算と同じ.
+ただし,\textgt{積}には注意が必要.
+\begin{itembox}[l]{行列演算特有の性質}
+    \begin{eqnarray*}
+        \left(AB\right)C&=&A\left(BC\right)\\
+        A\left(B+C\right)&=&AB+AC\\
+        \left(A+B\right)&=&AC+BC\\
+        AB&\neq& BA
+    \end{eqnarray*}
+    ※ 積をとる順番に注意する\\
+    ※ 積の交換法則のみ成り立たない
+\end{itembox}
+\subsection{一次独立・一次従属}
+\begin{itembox}[l]{一次独立}
+    \begin{center}
+        $c_1a_1+c_2a_2+\cdots+c_ka_k=0$ を満たすのが $c_1=c_2=\cdots=c_k=0$の場合に限るとき,
+        \textgt{一次独立である}という.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{一次従属}
+    \begin{center}
+        $c_1a_1+c_2a_2+\cdots+c_ka_k=0$ を満たすのが $c_1=c_2=\cdots=c_k=0$の場合でないとき,
+        \textgt{一次従属である}という.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{物理的な意味}
+    ある2つのベクトル$a,b\left(a\neq 0,b\neq 0\right)$が存在し,
+    それらが並行でない$\left(a\not\parallel b\right)$とき,\textgt{一次独立である}という.\\
+    また,それらが,平行である$\left(a\parallel b\right)$とき,\textgt{一次従属である}という.
+\end{itembox}
+\begin{itembox}[l]{一次独立の判定}
+    ベクトルの線形独立・線形従属の判定は,$c_1a_1+c_2a_2+\cdots+c_ka_k=0$を満たす
+    $c_1,c_2,\cdots,c_k$の値を調べることで行われる.すなわち, $c_1,c_2,\cdots,c_k$に対する
+    \textgt{連立一次方程式を解くこと}に帰着される
+\end{itembox}
+\subsection{連立一次方程式}
+\begin{itembox}[l]{行列の基本変形}
+    \begin{enumerate}[(1)]
+        \item 1つの行を何倍か($\neq0$倍)する
+        \item 2つの行を入れ替える
+        \item 1つの行にほかの行の何倍かを加える
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{消去法による解法}
+    \begin{enumerate}[(1)]
+        \item 連立一次方程式より拡大係数行列を抽出（行列のデータ化）
+        \item 抽出した拡大係数行列を簡約化する（未知数の整理）
+        \item 簡約化の結果を連立一次方程式に還元し解を作成する
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{解が不定の場合}
+    「1式に1未知数」という形は,一般には成り立たない.そこで,「1式に1未知数」に近い形に整理したものが\textgt{階段行列(=簡約行列)}である.
+    一般の連立1次方程式の場合,未知数,方程式の本数,任意定数の間には以下の関係が成り立つ.
+    \begin{center}
+        \textgt{(未知数の個数) = (有効な方程式の数) + (任意定数の数)}
+    \end{center}
+\end{itembox}
+\subsubsection{単位行列}
+\begin{itembox}[l]{定義}
+    \begin{center}
+        $E=
+            \begin{bmatrix}
+                1      & 0      & \cdots & 0      \\
+                0      & 1      & \cdots & 0      \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0      & 0      & \cdots & 1      \\
+            \end{bmatrix}
+            \quad AE=EA=A
+        $
+        \quad(対角成分は$1$,他は$0$)
+    \end{center}
+\end{itembox}
+\subsubsection{逆行列}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{逆行列}とは\textgt{逆数の行列版}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{定義}
+    $n$次正方行列$A$に対して,
+    \begin{eqnarray*}
+        AX=XA=E
+    \end{eqnarray*}
+    となる正方行列$X$が存在するとき,$A$は\textgt{正則である}といい,$X$を$A$の\textgt{逆行列}であるという.\\
+    一般に「$X$」を「$A^{-1}$」という記号で表す.\\
+    ※「正則である」=「逆行列を持つ」という意味\\
+    ※ 逆行列を持たない行列を\textgt{特異行列}という.
+\end{itembox}
+\begin{itembox}[l]{逆行列を持つ(正則である)条件}
+    \begin{enumerate}[(1)]
+        \item 行列式の値が\textgt{$0$でない}
+              \begin{eqnarray*}
+                  \left|A\right|\neq0
+              \end{eqnarray*}
+        \item 連立方程式の\textgt{解が一意に定まる} (解に任意定数を\textgt{含まない})
+              \begin{eqnarray*}
+                  \mathrm{rank}\left(A\right)=n\\
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{定理}
+    $n$次正方行列$A$が正則であるとき,その逆行列$A^{-1}$は,以下のように表せる.
+    \begin{eqnarray*}
+        A^{-1}=\dfrac{1}{|A|}\tilde{A}
+    \end{eqnarray*}
+    ※ $\tilde{A}$は余因子行列
+\end{itembox}
+\\
+\subsubsection{逆行列の掃出法}
+$AX=E$\quad を満たす,$x$を求めれば,それが$A^{-1}$になる.
+\begin{eqnarray*}
+    X&=&\left(x_1,x_2,\cdots,x_n\right)\\
+    E&=&\left(e_1,e_2,\cdots,e_n\right)
+\end{eqnarray*}
+※$x_i$ : $n$次元列ベクトル\quad $e_i$ : $n$次元単位ベクトル\\
+を用いて,
+\begin{eqnarray*}
+    A\left(x_1,x_2,\cdots,x_n\right)&=&\left(e_1,e_2,\cdots,e_n\right)\\
+    \left(Ax_1,Ax_2,\cdots,Ax_n\right)&=&\left(e_1,e_2,\cdots,e_n\right)
+\end{eqnarray*}
+すなわち,以下の式を解けばよい.
+\begin{eqnarray*}
+    Ax_i=e_i \left(i=1,2,\cdots,n\right)
+\end{eqnarray*}
+ここで,拡大係数行列を考える.
+\begin{eqnarray*}
+    \left(A|e_i\right) \rightarrow \left(E|C_i\right)
+\end{eqnarray*}
+上記のように掃出法から連立方程式を解くと,
+\begin{eqnarray*}
+    X=\left(x_1,x_2,\cdots,x_n\right)=\left(C_1,C_2,\cdots,C_n\right)
+\end{eqnarray*}
+が求める$A^{-1}$となる.
+\subsubsection{基底}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        あるベクトル空間内の任意の位置ベクトルを表すことのできる\textgt{一次独立}なベクトル.\\
+        イメージ : ベクトル空間内の任意のベクトルを表すための\textgt{座標軸}を定める
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{定義}
+    $W$を部分空間とするとき,$W$内のベクトルの系$\left(v_1,v_2,\cdots,v_n\right)$に対して,
+    以下の2つの条件が成立するとき$\left(v_1,v_2,\cdots,v_n\right)$を$W$の\textgt{基底}であるという.
+    \begin{enumerate}[(1)]
+        \item $W$の任意のベクトルが,$\left(v_1,v_2,\cdots,v_n\right)$の一次結合で表される
+        \item $\left(v_1,v_2,\cdots,v_n\right)$は一次独立である
+    \end{enumerate}
+\end{itembox}
+条件より,$W$の任意のベクトル$\vec{v}$は
+\begin{eqnarray*}
+    \vec{v}=x_1v_1+x_2v_2+\cdots+x_nv_n
+\end{eqnarray*}
+とただ一通りに表すことができる.
+\subsubsection{ランク (階数)}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        ランクは「\textgt{解の拘束度}」を表している\\
+        すなわち,\textgt{任意定数にならない変数}の個数と同じ
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ランク (階数)}
+    \begin{center}
+        ある行列$A$を簡約化したとき\textgt{$0$でない成分が残る行の個数}をその行列の\textgt{ランク(階数)}という.\\
+        また,行列$A$のランクが$r$のとき,以下のように書く.\\
+        $\mathrm{rank}A=r$\\
+    \end{center}
+\end{itembox}
+\subsubsection{解空間の次元}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        解の次元は「\textgt{解の自由度}」を表している\\
+        すなわち,\textgt{任意定数}の個数と同じ
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解空間}
+    \begin{center}
+        以下のような右辺が$0$となるような連立方程式のカ階の集合が作る\textgt{部分ベクトル空間}のこと.
+    \end{center}
+    \begin{eqnarray*}
+        ax+by&=&0\\
+        cx+dy&=&0\\
+    \end{eqnarray*}
+    \begin{center}
+        解は\textgt{ベクトル}と捉えられ,解そうしの足し算やスカラー倍もまた解となる.
+    \end{center}
+\end{itembox}
+\subsubsection{基底・ランク・解空間の関係}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{(基底の数) = (変数の個数) - (ランク) = (解の次元) }\\
+        ※ 与えられた行列が解を持つことが条件\\
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ランクと連立一次方程式}
+    \begin{center}
+        連立一次方程式が解を持つとき,\\
+        \textgt{係数行列}(「=」の左側までの行列)と\textgt{拡大係数行列}(「=」 の右側も含めた行列)のランクが\textgt{一致する}
+    \end{center}
+\end{itembox}
+\subsubsection{クラメールの公式}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{クラメールの公式}は連立一次方程式における\textgt{解の公式}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{クラメールの公式}
+    $A$が$n$次正則行列であるとき,連立1次方程式
+    \begin{eqnarray*}
+        Ax=b
+    \end{eqnarray*}
+    の解は次のように与えられる.
+    \begin{eqnarray*}
+        x=
+        \begin{bmatrix}
+            x_1    \\
+            \vdots \\
+            x_n    \\
+        \end{bmatrix}
+        , \quad
+        x_i=\dfrac{\det \left[a_1\cdots b^i\cdots a_n\right]}{\det \left(A\right)}
+    \end{eqnarray*}
+    なお,$\left[a_1\cdots b^i\cdots a_n\right]$は$A$の第$i$列を列ベクトル$b$で置き換えた行列である.
+\end{itembox}
+\subsubsection{(例題) クラメールの公式}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        行列式の一部を置き換えるだけ
+    \end{center}
+\end{itembox}
+次の連立一次方程式の解を求める.
+\begin{eqnarray*}
+    \begin{cases}
+        ax+by=p \\
+        cx+dy=q \\
+    \end{cases}
+\end{eqnarray*}
+ただし,$ab-bc\neq 0$ とする.\\
+\\
+クラメールの公式より,
+\begin{eqnarray*}
+    x
+    =\frac{
+        \left| \begin{array}{rr}
+            p & b \\
+            q & d \\
+        \end{array} \right|
+    }
+    {
+        \left| \begin{array}{rr}
+            a & b \\
+            c & d \\
+        \end{array} \right|
+    }
+    \quad ,\quad
+    y
+    =\frac{
+        \left| \begin{array}{rr}
+            a & p \\
+            c & q \\
+        \end{array} \right|
+    }
+    {
+        \left| \begin{array}{rr}
+            a & b \\
+            c & d \\
+        \end{array} \right|
+    }
+\end{eqnarray*}
+\subsection{行列式}
+\subsubsection{行列式の性質}
+\begin{itembox}[l]{行列式の性質}
+    \begin{enumerate}[(1)]
+        \item 与えられた行列に対する行列式の値とその転置行列に対する行列式の値は等しい.
+              \begin{eqnarray*}
+                  \left| \begin{array}{rr}
+                      a & b \\
+                      c & d \\
+                  \end{array} \right|
+                  =
+                  \left| \begin{array}{rr}
+                      a & c \\
+                      b & d \\
+                  \end{array} \right|
+              \end{eqnarray*}
+        \item 2つの列(もしくは行)を入れ替えると行列式の値は$-1$倍される.
+              \begin{eqnarray*}
+                  \left| \begin{array}{rr}
+                      a & b \\
+                      c & d \\
+                  \end{array} \right|
+                  =(-1)
+                  \left| \begin{array}{rr}
+                      c & d \\
+                      a & b \\
+                  \end{array} \right|
+                  =(-1)
+                  \left| \begin{array}{rr}
+                      b & a \\
+                      d & c \\
+                  \end{array} \right|
+              \end{eqnarray*}
+        \item 同じ行(列)を含む行列式の値$0$になる.
+              \begin{eqnarray*}
+                  \left| \begin{array}{rr}
+                      a & b \\
+                      a & b \\
+                  \end{array} \right|
+                  =
+                  \left| \begin{array}{rr}
+                      a & a \\
+                      c & c \\
+                  \end{array} \right|
+                  =0
+              \end{eqnarray*}
+        \item 行列式のある列(もしくは行)を$k$倍すると,行列式の値は$k$倍になる.
+              \begin{eqnarray*}
+                  \left| \begin{array}{rr}
+                      ka & b \\
+                      kc & d \\
+                  \end{array} \right|
+                  =
+                  \left| \begin{array}{rr}
+                      ka & kb \\
+                      c  & d  \\
+                  \end{array} \right|
+                  =
+                  k
+                  \left| \begin{array}{rr}
+                      a & b \\
+                      c & d \\
+                  \end{array} \right|
+              \end{eqnarray*}
+        \item 行列式の1つの列(もしくは行)にほかの列(もしくは行)の何倍かを加えても行列式の値は変わらない.
+    \end{enumerate}
+\end{itembox}
+\subsubsection{余因子行列}
+$n$次正方行列$A=\left[a_{ij}\right]$の第$i$行と第$j$列を取り除いて得られる
+$n-1$次正方行列\textgt{(小行列)}を$A_{ij}$とする.
+\begin{itembox}[l]{余因子行列}
+    $n$次正方行列$\left[a_{ij}\right]$に対し,以下の式から得られる値$\tilde{a}_{ij}$を
+    \textgt{余因子}という.\\
+    ※ 自分自身は掛け算しない
+    \begin{center}
+        $\tilde{a}_{ij}=\left(-1\right)^{i+j}\left|A_{ij}\right|$
+    \end{center}
+    さらに,以下のように余因子をおいた行列$\tilde{A}$を,$A$の\textgt{余因子行列}という.(転置があることに注意)
+    \begin{center}
+        $\tilde{A}=\left[\tilde{a}_{ij}\right]^t$
+    \end{center}
+    ※ 「転置をとる」とは,「添え字の順番が逆になる」ということ
+\end{itembox}
+\begin{itembox}[l]{余因子展開}
+    \begin{enumerate}[(1)]
+        \item 第$i$行に関する余因子展開\\
+              $\left|A\right|=(-1)^{i+1}a_{i1}\left|A_{i1}\right|+(-1)^{i+2}a_{i2}\left|A_{i2}\right|+ \dots +(-1)^{i+n}a_{in}\left|A_{in}\right|
+                  =a_{i1}\tilde{a}_{i1}+a_{i2}\tilde{a}_{i2}+\cdots +a_{in}\tilde{a}_{in}$
+        \item 第$j$列に関する余因子展開\\
+              $\left|A\right|=(-1)^{1+j}a_{1j}\left|A_{1j}\right|+(-1)^{2+j}a_{2j}\left|A_{2j}\right|+ \dots +(-1)^{n+j}a_{nj}\left|A_{nj}\right|
+                  =a_{1j}\tilde{a}_{1j}+a_{2j}\tilde{a}_{2j}+\cdots +a_{nj}\tilde{a}_{nj}$
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{定理}
+    正方行列$A$の余因子行列を$\tilde{A}$とすると,以下の関係が成立する.
+    \begin{center}
+        $A\tilde{A}=\tilde{A}A=dE\quad\left(d=\rm{det}\left(A\right)\right)$
+    \end{center}
+\end{itembox}
+\subsection{固有値と固有ベクトルの計算}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        固有値とは,行列の\textgt{比例定数}のこと
+    \end{center}
+\end{itembox}
+\subsubsection{固有値と固有ベクトル}
+\begin{itembox}[l]{物理的な意味}
+    あるベクトル$X$があるとき,それにある行列$A$をかけると,
+    そのベクトル$X$の\textgt{方向}は変わらず\textgt{倍率}のみ変化する.\\
+    そのベクトルを\textgt{固有ベクトル},倍率を\textgt{固有値}という.
+\end{itembox}
+\begin{itembox}[l]{定義}
+    $n$次正方行列$A$とスカラー$\lambda$に対し,
+    \begin{center}
+        $Ax=\lambda x$
+    \end{center}
+    となる\textgt{零ベクトル$o$ではないベクトル$x$}が存在するとき,$\lambda$を$A$の\textgt{固有値}といい,
+    $\lambda$に対し上の条件を満たす$o$ではないベクトル$x$を$A$の\textgt{固有ベクトル}という.\\
+    また,$\lambda$に対する固有ベクトル全体と零ベクトルを合わせてできた部分空間(実際に固有値を代入して整理した行列)を
+    $\lambda$に対する$A$の\textgt{固有空間}という.
+\end{itembox}
+※ 固有値を求める際には,$|\lambda E-A|=0$を解けば良い.\\
+※ 固有値は$0$になることもある\\
+\begin{itembox}[l]{よく使う条件}
+    \begin{eqnarray*}
+        Ax&=&\lambda x\\
+        0&=&\lambda x-Ax\\
+        0&=&\left(\lambda E -A\right)x\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{固有ベクトルの正規化}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{固有ベクトルの長さ}で全体を割る
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{正規化}
+    \begin{eqnarray*}
+        x=
+        \begin{bmatrix}
+            a \\
+            b \\
+            c \\
+        \end{bmatrix}
+        \quad を正規化すると,\quad
+        x=
+        \frac{1}{\sqrt{a^2+b^2+c^2}}
+        \begin{bmatrix}
+            a \\
+            b \\
+            c \\
+        \end{bmatrix}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{固有ベクトルの直交性}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        正規行列の\textgt{異なる固有値に属する固有ベクトル}は\textgt{直交する}\\
+        \textgt{(固有ベクトルの内積) = 0}
+    \end{center}
+\end{itembox}
+
+\subsubsection{行列の対角化}
+正方行列$A$が与えられたとき,$B=P^{-1}AP$が対角行列になるような正則行列$P$と対角行列$B$を求めることを
+行列$A$の\textgt{対角化}という.\\
+特に$P,B$が実数(複素数)を成分とする行列でとれるとき,$A$は\textgt{実数体上(複素数体上)対角化}されるという.
+\begin{itembox}[l]{定義}
+    $n$次正方行列に対し,適当な正則行列$P$が存在して,\\
+    \begin{center}
+        $P^{-1}AP=
+            \begin{bmatrix}
+                \lambda_1 &           & \cdots & 0         \\
+                          & \lambda_2 &        & \vdots    \\
+                \vdots    &           & \ddots &           \\
+                0         & \cdots    &        & \lambda_n \\
+            \end{bmatrix}
+        $
+    \end{center}
+    のような対角行列にできるとき,行列$A$は\textgt{対角化可能である}といい,
+    このときの行列$P$を\textgt{変換行列}という.\\
+    また,このときの対角成分は,\textgt{固有値}となる.
+\end{itembox}
+\begin{itembox}[l]{定理}
+    $n$次正方行列$A$の一次独立な固有ベクトルを$x_1,x_2,\cdots,x_n$とする.\\
+    それらを並べた行列$\left(x_1,x_2,\cdots,x_n\right)$を$P$とすると,
+    行列$A$は次のように対角化できる.
+    \begin{center}
+        $P^{-1}AP=
+            \begin{bmatrix}
+                \lambda_1 &           & \cdots & 0         \\
+                          & \lambda_2 &        & \vdots    \\
+                \vdots    &           & \ddots &           \\
+                0         & \cdots    &        & \lambda_n \\
+            \end{bmatrix}
+        $
+    \end{center}
+    ※ $\lambda_n$は行列Aの固有値
+    ※対角化行列は1つだけではない → 固有ベクトルを並べる順番によって変化する
+\end{itembox}
+\subsubsection{対角化可能性}
+正方行列$A$は常に対角化されるとは限らない.
+\begin{itembox}[l]{定理}
+    $n$次正方行列$A$の異なる固有値$\lambda_1,\lambda_2,\cdots,\lambda_k$に対する固有ベクトル$x_1,x_2,\cdots,x_k$は\\
+    \textgt{一次独立}である.$\left(1\leq k\leq n\right)$
+\end{itembox}
+\begin{itembox}[l]{対角化の条件}
+    $A$が$N$次の正方行列のとき,\textgt{$A$が対角化可能} とは
+    \textgt{$A$が$N$個の独立な固有ベクトルを持つこと}と同値である.\\
+    ※ 重要なことは,\textgt{$n$本の一次独立な固有ベクトル}がとれるかどうか\\
+    ※ 重解がある場合も,その数の固有ベクトルを得ることができる可能性がある
+\end{itembox}
+\subsubsection{対角化の手順}
+\begin{itembox}[l]{対角化の手順}
+    \begin{enumerate}[(1)]
+        \item 固有値の計算
+        \item 各固有値に対する固有ベクトルの計算
+        \item 上の手順で得られた（一次独立な）固有ベクトルの組を並べてできた行列を$P$としたとき,\\
+              この$P$は正則行列であり,$P^{-1}AP$は\textgt{自動的}に対角行列となる.
+    \end{enumerate}
+\end{itembox}
+\subsubsection{ジョルダン標準形}
+与えられた行列$A$の一次独立な固有ベクトルが行(列)数より少ない場合、対角化不可能となる.\\
+そのとき、固有ベクトルと一次独立であるベクトルを見つけられれば、
+対角行列とまではいかなくても\textgt{対角化行列に近い行列}にまで変形できる.\\
+その変形された行列の形を\textgt{ジョルダン標準形}という.
+\begin{itembox}[l]{ジョルダン細胞}
+    \begin{eqnarray*}
+        \begin{bmatrix}
+            \lambda & 1       & \cdots & 0       \\
+                    & \lambda & \ddots & \vdots  \\
+            \vdots  &         & \ddots & 1       \\
+            0       & \cdots  &        & \lambda \\
+        \end{bmatrix}
+        \quad ※\; \lambda\; :\; 固有値(重解)\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{ジョルダン標準形}
+    \begin{eqnarray*}
+        P^{-1}AP
+        =
+        \begin{bmatrix}
+            J_n\left(\lambda_1\right) &                           & \cdots & 0                         \\
+                                      & J_n\left(\lambda_2\right) &        & \vdots                    \\
+            \vdots                    &                           & \ddots &                           \\
+            0                         & \cdots                    &        & J_n\left(\lambda_n\right) \\
+        \end{bmatrix}
+        \quad ※ J_n\left(\lambda\right)\; :\; 固有値 \lambda に対応するジョルダン細胞 \\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{Point}
+    \begin{eqnarray*}
+        \left(\lambda E - A\right) u=x を解くことで、一次独立なベクトルを見つけることができる\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{行列の$n$乗}
+\subsubsection{対角行列の$n$乗}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        対角成分をそれぞれ$n$乗するだけ
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{対角行列の$n$乗}
+    \begin{eqnarray*}
+        A=
+        \begin{bmatrix}
+            \lambda_1 &           & \cdots & 0         \\
+                      & \lambda_2 &        & \vdots    \\
+            \vdots    &           & \ddots &           \\
+            0         & \cdots    &        & \lambda_k \\
+        \end{bmatrix}
+        のとき,\quad A^n=
+        \begin{bmatrix}
+            \lambda_1^n &             & \cdots & 0           \\
+                        & \lambda_2^n &        & \vdots      \\
+            \vdots      &             & \ddots &             \\
+            0           & \cdots      &        & \lambda_k^n \\
+        \end{bmatrix}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{対角化可能な行列の$n$乗}
+\begin{itembox}[l]{具体的な手順}
+    \begin{enumerate}
+        \item 行列$A$を対角化する.　→　$D=P^{-1}AP$となる正則行列$P$,対角行列$D$を求める.
+        \item $D^n$から$A^n$を計算する
+              \begin{eqnarray*}
+                  A^n
+                  &=&\left(PDP^{-1}\right)^n\\
+                  &=&PDP^{-1}\cdot PDP^{-1}\cdots PDP^{-1}\\
+                  &=&PD^nP^{-1}\\
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
+
+\section{微積分}
+\subsection{基本的な微分と積分}
+\begin{itembox}[l]{基本的な関数の導関数}
+    \begin{eqnarray*}
+        \dfrac{d}{dx}\log |x|&=&\dfrac{1}{x}\\
+        \dfrac{d}{dx}a^x&=&\left(\log a\right)a^x\\
+        \dfrac{d}{dx}\mathrm{Sin}^{-1}x&=&\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{d}{dx}\mathrm{Cos}^{-1}x&=&-\dfrac{1}{\sqrt{1-x^2}}\\
+        \dfrac{d}{dx}\mathrm{Tan}^{-1}x&=&\dfrac{1}{1+x^2}\\
+    \end{eqnarray*}
+\end{itembox}
+\begin{itembox}[l]{基本的な積分}
+    \begin{eqnarray*}
+        \displaystyle
+        \int \log x\; dx&=&x\log x-x +C\\
+        \int \dfrac{dx}{\sqrt{a^2-x^2}}&=&\mathrm{Sin}^{-1}\dfrac{x}{|a|} +C\\
+        \int \dfrac{dx}{a^2+x^2}&=&\dfrac{1}{a}\mathrm{Tan}^{-1}\dfrac{x}{a} +C\\
+        \int a^x&=&\frac{1}{\log a}a^x +C\\
+        \int \frac{1}{\cos ^2x}&=& \tan x+C\\
+        \int \frac{1}{\sin^2 x}&=& -\frac{1}{\tan x}+C\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{関数のべき級数展開}
+関数のべき級数展開とは,関数を多項式で近似していくことを指す.
+工学分野では,必要不可欠なツールであり,出題内容として(1) 関数を展開する問題
+(2) 近似・誤差の評価という2種類が主なものである.
+※ 複雑な関数を\textgt{多項式}で表すことができる
+\subsubsection{Taylor展開}
+点$a$周りのTaylor展開は以下のように書き表せる.
+\begin{itembox}[l]{taylor展開}
+    \begin{eqnarray*}
+        f\left(x\right)&=&
+        \displaystyle\sum_{n=a}^{\infty}{\dfrac{f^{\left(n\right)}\left(a\right)}{n!}}\left(x-a\right)^n\\
+        &=&
+        f\left(a\right)
+        +f^{\left(1\right)}\left(a\right)\left(x-a\right)
+        +\dfrac{f^{\left(2\right)}\left(a\right)}{2!}\left(x-a\right)^2
+        +\dfrac{f^{\left(3\right)}\left(a\right)}{3!}\left(x-a\right)^3
+        +\cdots
+        +\dfrac{f^{\left(n\right)}\left(a\right)}{n!}\left(x-a\right)^n+\cdots\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{Maclaurin展開}
+特に,$a=0$(原点周り)におけるTaylor展開のことを\textgt{Maclaurin展開}という.
+\begin{itembox}[l]{Maclaurin展開}
+    \begin{eqnarray*}
+        f\left(x\right)=
+        \displaystyle\sum_{n=0}^{\infty}{\dfrac{f^{\left(n\right)}\left(0\right)}{n!}}x^n=
+        f\left(0\right)+f^{\left(1\right)}\left(0\right)x
+        +\dfrac{f^{\left(2\right)}\left(0\right)}{2!}x^2
+        +\dfrac{f^{\left(3\right)}\left(0\right)}{3!}x^3
+        +\cdots
+        +\dfrac{f^{\left(n\right)}\left(0\right)}{n!}x^n+\cdots
+    \end{eqnarray*}
+\end{itembox}
+\subsection{全微分と偏微分}
+\subsubsection{微分とは}
+\begin{center}
+    \textgt{微分}とは、ある関数の\textgt{微小区間に注目した傾き}を表している。\\
+    イメージ : 関数の傾きがほぼ直線に見えるまで拡大し、その傾きを調べている。\\
+    2変数以上の関数の微分を扱うのが\textgt{全微分・偏微分}。
+\end{center}
+\subsubsection{全微分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $dx,dy$だけ動いた(微小変化した)ときの$f\left(x,y\right)$の変化量
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{全微分}
+    \begin{eqnarray*}
+        df\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial x}dx+ \frac{\partial f\left(x,y\right)}{\partial y}dy\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{偏微分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        変数を一つに\textgt{固定}して、その傾きを求める\\
+        例) $y$を固定して、$x$方向の傾きを$y$の関数として求める
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{偏微分}
+    \begin{eqnarray*}
+        f_x\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial x}\\
+        f_y\left(x,y\right)=\frac{\partial f\left(x,y\right)}{\partial y}\\
+    \end{eqnarray*}
+\end{itembox}
+\\
+※ 全微分と偏微分の違い\\
+全微分は「微小変化したときの\textgt{変化量}」を表し、偏微分は「微小変化したときの\textgt{傾き}」を示している.\\
+したがって、全微分には「変化量」を表すために$dx$がかけられていて、
+偏微分には「傾き」を表せば良いので$dx$はかけられていない。
+\\ \\
+※ $f\left(x,y\right)$の$x$に関する導関数$\dfrac{df\left(x,y\right)}{dx}$を求める.\\
+\begin{eqnarray*}
+    df\left(x,y\right)&=&\frac{\partial f\left(x,y\right)}{\partial x}dx+ \frac{\partial f\left(x,y\right)}{\partial y}dy\\
+    f\left(x,y\right)\; の全微分\; df \; の両辺を\; dx\; で割って,
+    \frac{d f\left(x,y\right)}{dx}&=&\frac{\partial f\left(x,y\right)}{\partial x}+ \frac{\partial f\left(x,y\right)}{\partial y}\frac{dy}{dx}\\
+\end{eqnarray*}
+\subsubsection{合成関数の偏微分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $f\left(x,y\right)$の$x,y$それぞれの$t$の微分を求め、それらを足し合わせる.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{連鎖律(Chain rule)}
+    \begin{center}
+        全微分が可能な2変数関数$f\left(x,y\right)$、
+        及び$x=p\left(t\right),y=q\left(t\right)$ がそれぞれ$t$の関数で微分可能であるとき、\\
+        合成関数$f\left(p\left(t\right),q\left(t\right)\right)$の$t$における偏微分は以下のように表される。
+    \end{center}
+    \begin{eqnarray*}
+        \frac{df}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}\\
+    \end{eqnarray*}
+\end{itembox}
+\subsection{1変数の積分}
+\subsubsection{積分を解くにあたって}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        積分ができる形(\textgt{基本形の和の形})に式を整える\\
+    \end{center}
+    \begin{eqnarray*}
+        (基本形)\quad x^\alpha\!(\alpha:-1以外の実数),\; \dfrac{1}{x},\; e^x,\; \log x,\; \sin x,\; \cos x,\; \tan x\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{部分積分}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{積の微分公式}から導ける
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{積の微分公式}
+    \begin{eqnarray*}
+        F\left(x\right)G\left(x\right)&=&\displaystyle\int f\left(x\right)G\left(x\right)dx+\int F\left(x\right)g\left(x\right)dx\\
+        F\left(x\right)&:&f\left(x\right)の原始関数\\
+        G\left(x\right)&:&g\left(x\right)の原始関数\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{三角関数の積分}
+\begin{itembox}[l]{代表的な置換方法(1)}
+    \begin{center}
+        $f\left(\sin x\right)\cos x$の形に式を変換し,$\; \sin x= t$とおく.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{代表的な置換積分(2)}
+    \begin{center}
+        $f\left(\tan x\right)\cdot \dfrac{1}{\cos^2 x}$の形に式を変換し,$\; \cos x= t$とおく.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{代表的な置換方法(3)}
+    \begin{center}
+        $f\left(\sin x,\cos x\right)\;$の形に式を変形し,$\; \tan\dfrac{x}{2}=t$とおいて,
+    \end{center}
+    \begin{eqnarray*}
+        \sin x&=&\dfrac{1-t^2}{1+t^2}\\
+        \cos x&=&\dfrac{2t}{1+t^2}\\
+    \end{eqnarray*}
+    \begin{center}
+        $\tan\dfrac{x}{2}$から,$\sin x,\cos x$への変換は図を書いて考えると良い
+    \end{center}
+\end{itembox}
+\subsubsection{広義積分}
+何らかの定積分の積分区間を動かし,極限をとったものを\textgt{広義積分}という.\\
+\begin{itembox}[l]{Point}
+    \begin{center}
+        めんどくさい処理(極限をとる作業)を後回しにする
+    \end{center}
+\end{itembox}
+\begin{center}
+    $\displaystyle\int ^1_{-1} \dfrac{1}{\sqrt{|x|}}dx$
+\end{center}
+を解くことを考える.
+はじめに,絶対値の区間について積分を分ける.
+\begin{eqnarray*}
+    \displaystyle\int ^1_{-1} \dfrac{1}{\sqrt{|x|}}dx=\int ^0_{-1} \dfrac{1}{\sqrt{-x}}+\int ^1_{0} \dfrac{1}{\sqrt{x}}dx
+\end{eqnarray*}
+このままだと,$0$で発散してしまう.\\
+ここで,$x=0$の\textgt{近傍$\left(-\varepsilon,\varepsilon'\right)$を除いた区間の積分}を求め,
+後に近傍の幅を狭めていき\textgt{近傍$\left(-\varepsilon,\varepsilon'\right)$を除いた区間の積分}を求める.
+\begin{eqnarray*}
+    \displaystyle
+    \int ^1_{-1} \dfrac{1}{\sqrt{|x|}}dx&=&\int ^0_{-1} \dfrac{1}{\sqrt{-x}}+\int ^1_{0} \dfrac{1}{\sqrt{x}}dx\\
+    &=&\lim_{\varepsilon\rightarrow 0}\int ^{-\varepsilon}_{-1} \dfrac{1}{\sqrt{-x}}+\lim_{\varepsilon'\rightarrow 0}\int ^1_{\varepsilon'} \dfrac{1}{\sqrt{x}}dx\\
+    &=&\lim_{\varepsilon\rightarrow 0}\left[-2\sqrt{-x}\right]^{-\varepsilon}_{-1}+\lim_{\varepsilon'\rightarrow0}\left[2\sqrt{x}\right]^{1}_{\varepsilon}\\
+    &=&\lim_{\varepsilon\rightarrow 0}\left(-2\sqrt{\varepsilon}+2\sqrt{1}\right)+\lim_{\varepsilon'\rightarrow0}\left(2\sqrt{1}-1\sqrt{\varepsilon'}\right)\\
+    &=&2\sqrt{1}+2\sqrt{1}\\
+    &=&4
+\end{eqnarray*}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        深く考えすぎず,積分の上限値,下限値を代入して\textgt{有限な確定値}が計算できればそれで良い\\
+        ただし,不連続な場合や絶対値をとっている場合等の\textgt{積分範囲の設定}には注意が必要.
+    \end{center}
+\end{itembox}
+\subsection{極限}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        極限の問題を解く際の式の変形方法は\textgt{4種類のみ}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{式の変形方法}
+    \begin{enumerate}[(1)]
+        \item 因数分解
+        \item 最高次数で割る\\
+              → 分子・分母の次数が\textgt{同じ}で,$\dfrac{\infty}{\infty}$の不定形のときに使う
+        \item 最も大きな数で割る
+        \item 分子の有理化\\
+              → ルートが極限をとる変数を含むときに使う
+    \end{enumerate}
+\end{itembox}
+\subsubsection{ロピタルの定理}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        一見解けない極限の問題は,\textgt{無理やり$\dfrac{0}{0},\dfrac{\infty}{\infty}$の不定形}をつくってみる
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ロピタルの定理}
+    \begin{enumerate}[(1)]
+        \item $\displaystyle\lim_{x\rightarrow a}\dfrac{f\left(x\right)}{g\left(x\right)}$ が $\dfrac{0}{0}$ または $\dfrac{\infty}{\infty}$ の不定形\\
+        \item $\displaystyle\lim_{x\rightarrow a}\dfrac{f'\left(x\right)}{g'\left(x\right)}$ が存在すること
+        \item 極限の行先の十分近くで$g'\left(x\right)\neq 0$となる
+    \end{enumerate}
+    以上の条件を満たすとき,
+    \begin{eqnarray*}
+        \lim_{x\rightarrow a}\dfrac{f\left(x\right)}{g\left(x\right)}=\lim_{x\rightarrow a}\dfrac{f'\left(x\right)}{g'\left(x\right)}\\
+    \end{eqnarray*}
+\end{itembox}
+
+\subsection{多変数関数}
+\subsubsection{多変数関数の極値}
+\begin{itembox}[l]{極値を持つ必要条件}
+    \begin{center}
+        $f\left(x,y\right)$ が $\left(a,b\right)$で極値をとるならば,
+        $f_x\left(a,b\right)=f_y\left(a,b\right)=0$ である.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{極値の判定}
+    $f\left(x,y\right)$は$C^2$の関数であり,点$\left(a,b\right)$において
+    $f_x\left(a,b\right)=f_y\left(a, b\right)=0$であるとする.\\
+    判別式を,$D=f_{xx}\left(a,b\right)f_{yy}\left(a,b\right)-{f_{xy}(a,b)}^2$と定義する.
+    \begin{enumerate}[(1)]
+        \item $D>0$とする.\\
+              $f_{xx}\left(a,b\right)>0$ならば,$f$は点$\left(a,b\right)$で極小値をとる.\\
+              $f_{xx}\left(a,b\right)<0$ならば,$f$は点$\left(a,b\right)$で極大値をとる.
+        \item $D<0$ならば,$f$は点$\left(a,b\right)$で極値をとらない.
+    \end{enumerate}
+\end{itembox}
+\subsubsection{接平面の方程式・法線の方程式}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        とりあえず暗記
+    \end{center}
+\end{itembox}
+関数のグラフ$z=f\left(x,y\right)$は空間内の局面を定める.この曲面上の$p(a,b,f\left(a,b\right))$における接平面の方程式は,
+以下のように求めることができる.
+\begin{itembox}[l]{接平面の方程式}
+    \begin{center}
+        $z-f\left(a,b\right)=f_x\left(a,b\right)\left(x-a\right)+f_y\left(a,b\right)\left(y-b\right)$
+    \end{center}
+\end{itembox}
+また,法線ベクトル,法線の方程式は,以下のように求めることができる.
+\begin{itembox}[l]{法線ベクトル}
+    \begin{center}
+        $ \vec{n}=
+            \begin{bmatrix}
+                f_x\left(a,b\right) \\
+                f_y\left(a,b\right) \\
+                -1                  \\
+            \end{bmatrix}
+        $
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{法線の方程式}
+    \begin{center}
+        $\dfrac{x-a}{f_x\left(a,b\right)}=\dfrac{y-b}{f_y\left(a,b\right)}=\dfrac{z-f\left(a,b\right)}{-1}$
+    \end{center}
+\end{itembox}
+\subsubsection{陰関数の定理}
+\begin{itembox}[l]{陰関数の定理}
+    $f\left(x,y\right)$が$C^1$級の関数で,$f_x\left(a,b\right)=0$, $f_y\left(a,b\right)\neq0$ならば,\\
+    $a$を含む開区間で定義された$f(x,y)=0$の陰関数$y=\phi\left(x\right)$で,$\phi\left(a\right)=b$となるものが存在する.\\
+    このとき,$y=\phi\left(x\right)$は微分可能で,次の式が成り立つ.
+    \begin{center}
+        $\phi'\left(x\right)=\dfrac{f_x\left(x,\phi\left(x\right)\right)}{f_y\left(x,\phi\left(x\right)\right)}$,
+        \quad すなわち,\quad$\dfrac{dy}{dx}=-\dfrac{f_x\left(x,y\right)}{f_y\left(x,y\right)}$
+    \end{center}
+\end{itembox}
+\subsection{重積分}
+\subsubsection{累次積分}
+\subsubsection{積分区間の変換}
+積分区分を変換する際は,固定されていない変数を固定して区間を考える.\\
+※ 区間に$x$が含まれる場合は,「$x$を固定」したということ → 変数を変換する場合は,「$y$を固定」して考える
+\begin{itembox}[l]{代表的な変数変換}
+    \begin{enumerate}[(1)]
+        \item 円\quad $\left(x^2+y^2=a^2\right)$\\
+              $x=r\cos\theta,\quad y=r\sin\theta$とおく
+        \item 楕円\quad $\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\right)$\\
+              $x=ar\cos\theta,\quad y=br\sin\theta$とおく
+        \item $x$軸方向に$b$だけ中心がズレた円\quad $\left(\left(x-b\right)^2+y^2=a^2\right)$\\
+              $x=r\cos\theta,\quad y=r\sin\theta$とおく\\
+              範囲は原点を基準に考えること
+    \end{enumerate}
+\end{itembox}
+\subsubsection{変数変換公式}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        変数変換の際はヤコビアンの\textgt{絶対値}をかける
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{ヤコビ行列}
+    $st$平面の有界な領域$E$で定義された$C^1$級関数$x=\varphi\left(s,t\right)$,$y=\psi\left(s,t\right)$に対して\\
+    (1) $E$の各点でJacobi行列
+    \begin{center}
+        $J=\dfrac{\partial\left(x,y\right)}{\partial\left(s,t\right)}=
+            \begin{bmatrix}
+                x_s & x_t \\
+                y_s & y_t \\
+            \end{bmatrix}
+        $
+    \end{center}
+    の行列式$J=x_sy_t-x_ty_s$は$0$ではない.\\\\
+    (2) 写像$F\left(s,t\right)=\left(\varphi\left(s,t\right),\psi\left(s,t\right)\right)$は
+    $E$から$E$の像$D=F\left(E\right)$への1対1の写像である
+    という上記の2つの条件が成立するとき,連続関数$s\left(x,y\right)$に対して以下の式が成立する.\\
+    \begin{center}
+        $\displaystyle\iint_Df\left(x,y\right)dxdy=\iint_Ef\left(\varphi\left(s,t\right),\psi\left(s,t\right)\right)|J|dsdt$
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{代表的な座標変換}
+    \begin{enumerate}[(1)]
+        \item デカルト座標系から極座標系への変換\\
+              $x=r\cos\theta,\; y=r\sin\theta\;\left(0\leq r\leq \infty\right)\;\left(0\leq \theta \leq 2\pi\right)$として,
+              \begin{eqnarray*}
+                  |J|=
+                  \det\left(\dfrac{\partial\left(x,y\right)}{\partial\left(r,\theta\right)}\right)
+                  =
+                  \begin{bmatrix}
+                      x_r & x_\theta \\
+                      y_r & y_\theta \\
+                  \end{bmatrix}
+                  =
+                  \begin{bmatrix}
+                      \sin\theta & r\cos\theta  \\
+                      \cos\theta & -r\sin\theta \\
+                  \end{bmatrix}
+                  =r\\
+              \end{eqnarray*}
+        \item デカルト座標系から球面座標系への変換\\
+              $x=r\sin\theta\cos\varphi,\; y=r\sin\theta\sin\varphi,\; z=r\cos\theta\;\left(0\leq r\leq\infty\right)\left(0\leq\theta\leq\pi\right)\left(0\leq\varphi\leq 2\pi\right)$として,
+              \begin{eqnarray*}
+                  |J|
+                  =
+                  \det\left(\dfrac{\partial \left(x,y,z\right)}{\partial \left(r,\theta,\varphi\right)}\right)
+                  =
+                  \begin{bmatrix}
+                      x_r & x_\theta & x_\varphi \\
+                      y_r & y_\theta & y_\varphi \\
+                      z_r & z_\theta & z_\varphi \\
+                  \end{bmatrix}
+                  =
+                  \begin{bmatrix}
+                      \sin\theta\cos\theta  & r\cos\theta\cos\varphi & -r\sin\theta\sin\varphi \\
+                      \sin\theta\sin\varphi & r\cos\theta\sin\varphi & r\sin\theta\cos\varphi  \\
+                      \cos\theta            & -r\sin\theta           & 0                       \\
+                  \end{bmatrix}
+                  =r^2\sin\theta
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
+
+\section{微分方程式}
+\subsection{微分方程式とは}
+\begin{itembox}[l]{微分方程式の目的}
+    \begin{center}
+        普通の方程式は\dots\qquad\textgt{数}を探すことが目的\\
+        微分方程式は\dots\qquad\textgt{関数}を探すことが目的
+    \end{center}
+\end{itembox}
+任意定数を含む解を\textgt{一般解}という.また一般解に対して,初期条件を与えて求まる解を\textgt{特殊解}という.
+\begin{itembox}[l]{例)\quad$y'=2x+3,y\left(0\right)=0$を解く}
+    \begin{center}
+        \textgt{一般解}(任意定数:$C$を含む関数)は,両辺を$x$で積分して\\
+        $y=x^2+3x+C$\\
+        初期条件$y\left(0\right)=0$を与えると,$C=0$が定まるので,
+        \textgt{特殊解}が以下のように求まる.\\
+        $y=x^2+3x$
+    \end{center}
+\end{itembox}
+※ 一般解の中に,任意定数が無限大の場合も含めて良い (慣習)
+\subsubsection{微分方程式の解の一意性}
+\subsection{1階常微分方程式}
+\subsubsection{直接微分形}
+\begin{center}
+    $\dfrac{dy}{dx}=f\left(x\right)$
+\end{center}
+の形を\textgt{直接微分形}という.
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 方程式を標準形に直す
+        \item 両辺を積分して一般解を求める
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsubsection{変数分離形}
+\begin{center}
+    $g\left(y\right)\dfrac{dy}{dx}=f\left(x\right)$
+\end{center}
+の形を\textgt{変数分離形}という.
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 方程式を標準形に直す
+        \item 両辺を$x$で積分する
+        \item 変形しきれいな形に直して一般解とする
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsubsection{同次形}
+\begin{center}
+    $\dfrac{dy}{dx}=f\left(\dfrac{y}{x}\right)$
+\end{center}
+の形の微分方程式を\textgt{同次形}という.
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 方程式を標準形に直す
+        \item $\dfrac{y}{x}=u$とおいて標準形に代入し,$u$と$x$の方程式に直す.\quad(変数分離形に帰着される)
+        \item 両辺を$x$で積分して関数$u$を求める
+        \item $u=\dfrac{y}{x}$をもとに戻し,一般解$y$を求める
+        \item $f\left(u\right)-u=0$をみたす$u=a$(定数)があるとき,これから得られる$y=ax$も解となる.\\
+              また,これが一般解に含まれるかどうか調べる.
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
+    \end{enumerate}
+    ※ 変数部分が$\dfrac{y}{x}$のみで表せる関数に変形する\\
+\end{itembox}
+\subsubsection{$y'=f\left(\alpha x+\beta y+\gamma\right)$の形}
+$y'=f\left(\alpha x+\beta y+\gamma\right)$の$\alpha x+\beta y+\gamma$がひとかたまりになっている場合は,
+$u=\alpha x+\beta y+\gamma$とおくことで,変数分離形に帰着される.
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item $u=\alpha x+\beta y+\gamma$とおいて,$x$で微分し$y'$を求める
+              \quad$u'=\alpha+\beta y'\leftrightarrow y'=\dfrac{u'-\alpha}{\beta}$
+        \item 元の方程式に代入して整理し,変数微分形の形にする
+        \item 変数分離形の一般解を求める
+        \item $u$を元の式に代入して一般解を求める
+        \item 特殊解を求める際は,初期条件を代入して積分定数を求める
+    \end{enumerate}
+\end{itembox}
+\subsection{線形微分方程式}
+$P_1\left(x\right),P_2\left(x\right),\dots,P_n\left(x\right),Q\left(x\right)$を$x$の関数とするとき\\
+\begin{eqnarray*}
+    y^{\left(n\right)}+P_1\left(x\right)y^{\left(n-1\right)}+\dots+P_{n-1}\left(x\right)y'+P_n\left(x\right)y=Q\left(x\right)\\
+\end{eqnarray*}
+を\textgt{$n$階微分方程式}という.\\
+また,$Q\left(x\right)=0$のとき\textgt{同次方程式(斉次方程式)},$Q\left(x\right)\neq0$のとき\textgt{非同次方程式(非斉次方程式)}という.
+\subsection{1階線形微分方程式}
+\begin{eqnarray*}
+    y'+p\left(x\right)y=q\left(x\right)
+\end{eqnarray*}
+の形の\textgt{非同次方程式}を解くことを考える.\\
+※ 同次方程式の場合は変数分離形で考えれば解ける
+\subsubsection{特殊解$y=\alpha\left(x\right)$がわかっている場合}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item $y'+p\left(x\right)y=q\left(x\right)$に,$\alpha\left(x\right)$を代入して
+              $\left(\alpha'+p\left(x\right)\alpha=q\left(x\right)\right)$もとの式から引く
+        \item $Y=y-\alpha$とおくと,$Y'+p\left(x\right)Y=0$の同次方程式に変形できる
+        \item 変数分離形として一般解を求め,$Y=y-\alpha$を代入して変数をもとに戻す
+    \end{enumerate}
+\end{itembox}
+\subsubsection{定数変化法}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        特殊解は一般解に似てるかもしれない\dots
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 同次方程式$y'+p\left(x\right)y=0$を解く
+        \item 定数$C$を関数$C\left(x\right)$に変化させ,非同次方程式に代入する\\
+              同次方程式の一般解 : $y=C\exp\left(-\int p\left(x\right)dx\right)$より,\\
+              $\left(C\left(x\right)\exp\left(-\int p\left(x\right)dx\right)\right)'+p\left(x\right)C\left(x\right)\exp\left(-\int p\left(x\right)dx\right)=q\left(x\right)$を得る
+        \item $\left(C\left(x\right)\exp\left(-\int p\left(x\right)dx\right)\right)'$を2つの関数の微分だと考え式を整理すると,\\
+              $C'\left(x\right)\exp\left(-\int p\left(x\right)dx\right)=q\left(x\right)$を得ることができる
+        \item 式を整理し両辺を$x$で積分すると,$C\left(x\right)=\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx$が求まる\\
+              ※ \textgt{特殊解が1つでも求まればいい}ので\textgt{積分定数はつけなくて良い}
+        \item $C\left(x\right)$をもとの式に戻すと,$y=\left[\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx\right]\exp\left(-\int p\left(x\right)dx\right)$
+              という特殊解が求まる
+        \item 同次解の一般解と特殊解の和をとると以下のように一般解を求めることができる\\
+              $y=\exp\left(-\int p\left(x\right)dx\right)\left[\int q\left(x\right)\exp\left(\int p\left(x\right)dx\right)dx+C\right]$
+    \end{enumerate}
+\end{itembox}
+※ 特殊解は「$y=\cdots$」の形で出てくる ($C\left(x\right)$は\textgt{特殊解でない})\\
+\subsubsection{積分因子}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{何も考えずに}積分因子$\exp{\left(\int p\left(x\right)dx\right)}$をかけてみる
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 両辺に$\exp{\left(\int p\left(x\right)dx\right)}$(\textgt{積分因子})をかけると(ここでは積分因子は必要ない)\\
+              $\exp{\left(\int p\left(x\right)dx\right)}y'+\exp{\left(\int p\left(x\right)dx\right)}p\left(x\right)y=\exp{\left(\int p\left(x\right)dx\right)}q\left(x\right)$\\
+              上式を変形すると,以下のように変形できる\\
+              $\left[\exp{\left(\int p\left(x\right)dx\right)}y\right]'=\exp{\left(\int p\left(x\right)dx\right)}q\left(x\right)$
+        \item 両辺を$x$で積分\\
+              $\exp{\left(\int p\left(x\right)dx\right)}y=\int q\left(x\right)\exp{\left(\int p\left(x\right)dx\right)}dx+C$\\
+              整理すると,\\
+              $y=\exp{\left(-\int p\left(x\right)dx\right)}\left[\int q\left(x\right)\exp{\left(\int p\left(x\right)dx\right)}dx+C\right]$
+        \item 定数変化法と同じ一般解が得られる
+    \end{enumerate}
+\end{itembox}
+\subsection{ベルヌーイの微分方程式}
+\begin{eqnarray*}
+    y'+p\left(x\right)y=q\left(x\right)y^{\alpha}\quad\left(\alpha\neq 0,1\right)
+\end{eqnarray*}
+\textgt{非線形微分方程式}とは,$y,y'$に対して一次ではないもののこと\\
+非線形微分方程式には,\textgt{一般的な解法はない}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $y^{\alpha}$がなければ,線形の微分方程式として考えることができる\dots
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item $y^{\alpha}\neq 0$のとき,両辺を$y^{\alpha}$で割る\\
+              $y^{-\alpha} y'+p\left(x\right)y^{1-\alpha}=q\left(x\right)$
+        \item $u=y^{1-\alpha}$とおく,このとき$u'=\left(1-\alpha\right)y^{-\alpha}y'$となるので,\\
+              $\dfrac{1}{1-\alpha}u'+p\left(x\right)u=q\left(x\right)$と変形できる
+        \item 両辺に$\left(1-\alpha\right)$をかけると\\
+              $u'+\left(1-\alpha\right)p\left(x\right)u=\left(1-\alpha\right)q\left(x\right)$
+        \item 線形の微分方程式に帰着できる
+    \end{enumerate}
+\end{itembox}
+\subsection{完全微分方程式}
+\begin{center}
+    $F_x\left(x,y\right)dx+F_y\left(x,y\right)dy=0$ (関数$F\left(x,y\right)$の全微分)
+\end{center}
+の形の微分方程式を\textgt{完全微分方程式}という.
+\begin{itembox}[l]{解法}
+    考え方 : $P\left(x,y\right)dx+Q\left(x,y\right)dy=0$の完全微分形であれば解ける\\
+    ※ 完全微分形 → $P\left(x\right)=F_x\left(x,y\right),Q\left(x,y\right)=F_y\left(x,y\right)$
+    \begin{enumerate}[(1)]
+        \item  $dF=F_x\left(x,y\right)dx+F_y\left(x,y\right)dy=0$より,一般解は$F\left(x,y\right)=C$
+    \end{enumerate}
+\end{itembox}
+その完全微分形になる$F\left(x,y\right)$が存在するかどうかをどう判定するのか??
+\begin{itembox}[l]{定理}
+    $P\left(x,y\right),Q\left(x,y\right)$がある領域内で$x,y$に関する偏導関数が連続であるとき,\\
+    $P\left(x,y\right)dx+Q\left(x,y\right)dy=0$の完全微分形である必要十分条件は,領域$D$内で
+    \begin{eqnarray*}
+        P_y\left(x,y\right)+Q_x\left(x,y\right)=0
+    \end{eqnarray*}
+    が成り立つことである.
+\end{itembox}
+\subsubsection{具体的な$F\left(x,y\right)$の探し方}
+$F_x\left(x,y\right)=P\left(x,y\right)$より,
+\begin{center}
+    $F\left(x,y\right)=\displaystyle\int P\left(x,y\right)dx+G\left(y\right)$
+\end{center}
+これを,$F_x\left(x,y\right)=Q\left(x,y\right)$に代入して
+\begin{center}
+    $\displaystyle\dfrac{dG\left(y\right)}{dy}=Q\left(x,y\right)-\dfrac{\partial}{\partial y}\int P\left(x,y\right)dx$
+\end{center}
+上式が$G\left(x\right)$が満たさなければならない条件である.ここで,$y$で両辺を積分すると,
+\begin{center}
+    $\displaystyle G\left(y\right)=\int \left[Q\left(x,y\right)-\dfrac{\partial}{\partial y}\int P\left(x,y\right)dx\right]$
+\end{center}
+※ 積分の中身は,\textgt{$x$を含まない式}になっている\\
+上式の形より,$Q\left(x\right)$のうち,$x$を含む項は$\dfrac{\partial}{\partial y}\int P\left(x,y\right)dx$から現れる項と相殺する.\\
+したがって,$G\left(y\right)=$「$\int Q\left(x,y\right)dy$のうち$y$のみを含む項」であるといえる.
+\begin{itembox}[l]{まとめ}
+    \begin{enumerate}[(1)]
+        \item $I=\int P\left(x,y\right)dx,J=\int Q\left(x,y\right)dy$とする(積分定数は不要)
+        \item $J$の項のうち$y$のみを含む項を$I$に加えたものを$F\left(x,y\right)$とする(この逆も可能)
+        \item $F\left(x,y\right)=C$が一般解となる
+    \end{enumerate}
+\end{itembox}
+\subsection{クレローの微分方程式}
+\begin{eqnarray*}
+    y=xy'+f\left(y'\right)
+\end{eqnarray*}
+の形の微分方程式を\textgt{クレローの微分方程式}という.\\
+\begin{itembox}[l]{Point}
+    \begin{center}
+        形を暗記して微分方程式を解かせてもらう\\
+        非正規形のなかでもうまく解くことができるパターン
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item$y'=p$とおく\quad$y=xp+f\left(p\right)$
+        \item 両辺を$x$で微分する\quad$y'=p+xp'+f'\left(p\right)p'$
+        \item 整理すると\quad$\left(x+f'\left(p\right)\right)p'=0$
+        \item したがって,解は$\;p'=0\;$または$\; x+f'\left(p\right)=0$を満たす
+        \item 方程式を解く
+              \begin{enumerate}[(i)]
+                  \item $p'=0$のとき\\
+                        $p=C$を代入すると,
+                        \begin{eqnarray*}
+                            y=Cx+f\left(c\right)\;(一般解)
+                        \end{eqnarray*}
+                  \item $x+f\left(p'\right)=0$のとき
+                        \begin{eqnarray*}
+                            y&=&xp+f\left(p\right)\; (もとの微分方程式)\\
+                            x&+&f'\left(p\right)=0\; (条件式)
+                        \end{eqnarray*}
+                        これを解くと,
+                        \begin{eqnarray*}
+                            \left(x,y\right)=\left(-f'\left(p\right),-pf'\left(p\right)+f\left(p\right)\right)
+                        \end{eqnarray*}
+                        この解を\textgt{特異解}という.(この場合は,$p$を用いた\textgt{パラメータ表示}と考える)\\
+                        ※ \textgt{特異解}$\cdots$ 一般解の任意定数にどのような値を代入しても得られない解のこと.\\
+                        \quad(任意定数が出てこない)
+              \end{enumerate}
+    \end{enumerate}
+\end{itembox}
+\subsection{二階線形同次微分方程式}
+\begin{eqnarray*}
+    y''+p\left(x\right)y'+q\left(x\right)y=0\quad -※
+\end{eqnarray*}
+の形の微分方程式を\textgt{二階線形同次微分方程式}という.
+\begin{itembox}[l]{重ね合わせの原理}
+    \begin{center}
+        $y_1,y_2$が(※)の解ならば$\; y=C_1y_1+C_2y_2\;$(\textgt{線形結合})も(※)の解である.
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{定理}
+    (※)の2つの解$\;y_1,y_2\;$(\textgt{基本解})が\textgt{一次独立}であるとき,
+    \begin{eqnarray*}
+        y=C_1y_1+C_2y_2
+    \end{eqnarray*}
+    が(※)の\textgt{一般解}となる.(なお,特異解は持たない)\\
+    ゴールは,一次独立な解を二つ見つけて足し合わせること.
+\end{itembox}
+\subsubsection{二階同次定係数微分方程式}
+\begin{eqnarray*}
+    y''+ay'+by=0
+\end{eqnarray*}
+の形の二階線形微分方程式を\textgt{同次定数係数微分方程式}という.
+\begin{itembox}[l]{Point}
+    \begin{center}
+        解の候補として,$\;0y=e^{\lambda x}\;$を代入してみる
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item $y=e^{\lambda x}$を代入する\quad$\lambda^2 e^{\lambda x}+a\lambda e^{\lambda x}+b e^{\lambda x}=0$
+        \item 整理して\textgt{特性方程式}をつくる\quad$\lambda^2+a\lambda+b=0$
+        \item 特性方程式を解く
+              \begin{enumerate}[(i)]
+                  \item 相異なる2つの実数解$\lambda_1,\lambda_2$
+                        \begin{eqnarray*}
+                            e^{\lambda_1x}\quad e^{\lambda_2x}\quad &&(基本解)\\
+                            y=C_1 e^{\lambda_1x}+C_2e^{\lambda_1x}\quad &&(一般解)
+                        \end{eqnarray*}
+                  \item 重解 $\lambda_1\left(=-\dfrac{a}{2}\right)$\\
+                        $y=C_1\left(x\right) e^{\lambda_1x}$を代入して整理する. (定数変化法)\\
+                        $C_1\left(x\right)\left(y''_1+ay'_1+by_1\right)+C_1'\left(x\right)\left(2y'_1+ay'_1\right)+C''_1\left(x\right)y_1=0$\\
+                        これより,$C''_1\left(x\right)=0$となればよく,$C_1\left(x\right)=x$はこれを満たす.\\
+                        以上より,
+                        \begin{eqnarray*}
+                            e^{\lambda_1x}\quad xe^{\lambda_2x}\quad &&(基本解)\\
+                            y=C_1 e^{\lambda_1x}+C_2xe^{\lambda_1x}\quad &&(一般解)
+                        \end{eqnarray*}
+                  \item 2つの共役複素数解 $\lambda_1,\lambda_2\;\left(\lambda_1=\alpha +i\beta,\;\lambda_2=\alpha-i\beta\right)$\\
+                        → 複素数の解(複素関数)2つから,一次独立な実数の解(関数)2つを見つけられれば解がわかる\\
+                        → オイラーの公式で複素関数を三角関関数に書き換えられる\\
+                        \begin{eqnarray*}
+                            Z_1&=&e^{\left(\alpha+i\beta\right)x}=e^{\alpha x}e^{i\beta x}=e^{\alpha x}\left(\cos\beta x+i\sin\beta x\right)\\
+                            Z_2&=&e^{\left(\alpha-i\beta\right)x}=e^{\alpha x}e^{-i\beta x}=e^{\alpha x}\left(\cos\beta x-i\sin\beta x\right)
+                        \end{eqnarray*}
+                        重ね合わせの原理より,
+                        \begin{eqnarray*}
+                            \dfrac{1}{2}\left(Z_1+Z_2\right)=e^{\alpha x}\cos\beta x\\
+                            \dfrac{1}{2i}\left(Z_1-Z_2\right)=e^{\alpha x}\sin\beta x
+                        \end{eqnarray*}
+                        以上の式も解であり,一次独立になっているので,
+                        \begin{eqnarray*}
+                            e^{\alpha x}\cos\beta x\quad e^{\alpha x}\sin\beta x\quad &&(基本解)\\
+                            y=C_1 e^{\alpha x}\cos\beta x+C_2e^{\alpha x}\sin\beta x\quad &&(一般解)
+                        \end{eqnarray*}
+              \end{enumerate}
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{オイラーの公式}
+    \begin{center}
+        $e^{i\theta}=\cos\theta+i\sin\theta$
+    \end{center}
+\end{itembox}
+\subsection{二階線形非同次微分方程式}
+\begin{eqnarray*}
+    y''+p\left(x\right)y'+q\left(x\right)y=f\left(x\right)
+\end{eqnarray*}
+の形の微分方程式を\textgt{二階線形同次微分方程式}という.
+\subsubsection{特殊解 $\alpha\left(x\right)$がわかっている場合}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{(非同次方程式の解) = (同次方程式の一般解) + (特殊解)}
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{center}
+        一般解に特殊解を足し合わせる
+    \end{center}
+    \begin{eqnarray*}
+        y=C_1Y_1&+&C_2Y_2+\alpha\\
+        Y_1,Y_2\;&:&\;基本解\\
+    \end{eqnarray*}
+\end{itembox}
+\subsubsection{特殊解を予想する}
+\begin{itembox}[l]{特殊解の予想例}
+    \begin{enumerate}[(1)]
+        \item $f\left(x\right)=ax+b$\\
+              $y=\alpha x + \beta$と予想する
+        \item $f\left(x\right)=ke^{\alpha x}$\\
+              特性方程式の解$\lambda$が
+              \begin{enumerate}[(i)]
+                  \item $\lambda \neq \alpha$\quad のとき\quad$Ae^{\alpha x}$
+                  \item $\lambda = \alpha$\quad のとき\quad$Axe^{\alpha x}\;\;$\quad(1重解)
+                  \item $\lambda = \alpha$\quad のとき\quad$Ax^2e^{\alpha x}$\quad(2重解)
+              \end{enumerate}
+        \item $f\left(x\right)=k\cos\beta x\;$または$\;k\sin\beta x$\\
+              特性方程式の解$\lambda$が
+              \begin{enumerate}[(i)]
+                  \item $\lambda \neq i\beta$\quad のとき\quad$A\cos\beta x+B\sin\beta x$
+                  \item $\lambda = i\beta$\quad のとき\quad$x\left(A\cos\beta x+B\sin\beta x\right)$
+              \end{enumerate}
+    \end{enumerate}
+\end{itembox}
+\subsubsection{定数変化法}
+\begin{itembox}[l]{Point}
+    \begin{center}
+        \textgt{条件を課して}方程式に代入する
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{条件}
+    \begin{center}
+        $y=C_1\left(x\right)y_1+C_2\left(x\right)y_2$の形で,かつ$C'_1\left(x\right)y_1+C'_2\left(x\right)y_2=0$を満たすようなもので,\\
+        非同次微分方程式の解になる$C_1\left(x\right),C_2\left(x\right)$を探す
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{enumerate}[(1)]
+        \item 同次方程式を解く\quad $y=C_1y_1+C_2y_2$\quad($y_1,y_2$ : 基本解)
+        \item $C_1,C_2$を$C_1\left(x\right),C_2\left(x\right)$にし,\textgt{上記の条件を課して}非同次微分方程式に代入する\\
+              ここで,$y$を二回微分すると
+              \begin{eqnarray*}
+                  y'&=&\cancel{C'_1\left(x\right)y_1}+C_1\left(x\right)y'_1+\cancel{C'_2\left(x\right)y_2}+C_2\left(x\right)y'_2\\
+                  y''&=&C'_1\left(x\right)y'_1+C_1\left(x\right)y''_1+C'_2\left(x\right)y'_2+C_2\left(x\right)y''_2
+              \end{eqnarray*}
+              であるので,これをもとの微分方程式に代入すると,
+              \begin{eqnarray*}
+                  y''+ay'+by&=&C'_1\left(x\right)y'_1+C_1\left(x\right)y''_1+C'_2\left(x\right)y'_2+C_2\left(x\right)y''_2\\
+                  &+&a\left(C_1\left(x\right)y'_1+C_2\left(x\right)y'_2\right)\\
+                  &+&b\left(C_1\left(x\right)y_1+C_2\left(x\right)y_2\right)\\
+                  &=&C_1\left(x\right)\left(\cancel{y''_1+ay'_1+by_1}\right)+C_2\left(x\right)\left(\cancel{y''_2+ay'_2+by_2}\right)+C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2\\
+                  &=&C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2
+              \end{eqnarray*}
+              したがって,
+              \begin{eqnarray*}
+                  C'_1\left(x\right)y_1+C'_2\left(x\right)y_2&=&0\\
+                  C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2&=&f\left(x\right)
+              \end{eqnarray*}
+              を満たす$C_1\left(x\right),C_2\left(x\right)$を考えれば良い.
+        \item 方程式を解く\\
+              特殊解は
+              \begin{eqnarray*}
+                  \alpha\left(x\right)=-y_1\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx+y_2\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
+              \end{eqnarray*}
+        \item 一般解を求める\\
+              以上の特殊解より,一般解は
+              \begin{eqnarray*}
+                  y=\left(C_1-\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx\right)y_1+\left(C_2+\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx\right)y_2
+              \end{eqnarray*}
+    \end{enumerate}
+\end{itembox}
+\begin{itembox}[l]{特殊解を導く}
+    \begin{eqnarray*}
+        C'_1\left(x\right)y_1+C'_2\left(x\right)y_2&=&0\\
+        C'_1\left(x\right)y'_1+C'_2\left(x\right)y'_2&=&f\left(x\right)
+    \end{eqnarray*}
+    より,拡大係数行列にすると,
+    \begin{eqnarray*}
+        \begin{bmatrix}
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            C'_1\left(x\right) \\
+            C'_2\left(x\right) \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\
+            f\left(x\right)
+        \end{bmatrix}
+    \end{eqnarray*}
+    ここで,
+    \begin{eqnarray*}
+        A=
+        \begin{bmatrix}
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
+        \end{bmatrix}
+    \end{eqnarray*}
+    として,
+    \begin{eqnarray*}
+        W\left(y_1,y_2\right)
+        =\det A
+        =\det
+        \begin{bmatrix}
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
+        \end{bmatrix}
+        \quad (ロンスキー行列)
+    \end{eqnarray*}
+    とおくと,$x$の値によらず$W\left(y_1,y_2\right)\neq 0$(証明略)であり,$A$は逆行列を持つ.\\
+    \begin{eqnarray*}
+        A^{-1}&=&
+        \begin{bmatrix}
+            y_2'  & -y_2 \\
+            -y'_1 & y_1  \\
+        \end{bmatrix}\\
+    \end{eqnarray*}
+    であるので,
+    \begin{eqnarray*}
+        \begin{bmatrix}
+            C'_1\left(x\right) \\
+            C'_2\left(x\right) \\
+        \end{bmatrix}
+        &=&
+        \dfrac{1}{W\left(y_1,y_2\right)}
+        \begin{bmatrix}
+            y_2'  & -y_2 \\
+            -y'_1 & y_1  \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            0               \\
+            f\left(x\right) \\
+        \end{bmatrix}\\
+    \end{eqnarray*}
+    したがって,
+    \begin{eqnarray*}
+        C'_1\left(x\right)&=&-\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}\\
+        C'_2\left(x\right)&=&\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}
+    \end{eqnarray*}
+    これを両辺積分すると,
+    \begin{eqnarray*}
+        \displaystyle
+        C_1\left(x\right)&=&-\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx\\
+        C_2\left(x\right)&=&\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
+    \end{eqnarray*}
+    であるので,特殊解は
+    \begin{eqnarray*}
+        \alpha\left(x\right)=-y_1\int\dfrac{y_2\;f\left(x\right)}{W\left(y_1,y_2\right)}dx+y_2\int\dfrac{y_1\;f\left(x\right)}{W\left(y_1,y_2\right)}dx
+    \end{eqnarray*}
+\end{itembox}
+\subsection{オイラーの微分方程式}
+\begin{eqnarray*}
+    x^2y''+axy'+by=f\left(x\right)
+\end{eqnarray*}
+の形の微分方程式を\textgt{オイラーの微分方程式}という.
+\begin{itembox}[l]{Point}
+    \begin{center}
+        $x=e^t$とおく
+    \end{center}
+\end{itembox}
+\begin{itembox}[l]{解法}
+    \begin{eqnarray*}
+        x=e^t
+    \end{eqnarray*}
+    とすると、
+    \begin{eqnarray*}
+        t&=&\ln x\\
+        dt&=&\dfrac{1}{x}dx\\
+        \frac{dt}{dx}&=&\frac{1}{x}\\
+    \end{eqnarray*}
+    また、
+    \begin{eqnarray*}
+        \frac{dy}{dx}&=&\frac{dy}{dt}\frac{dt}{dx}\\
+        &=&\frac{1}{x}\frac{dy}{dt}\\
+        \\
+        \frac{d^2y}{dx^2}&=&\frac{d}{dx}\left(\frac{dy}{dt}\frac{dt}{dx}\right)\\
+        &=&\frac{d}{dx}\left(\frac{1}{x}\frac{dy}{dt}\right)\\
+        &=&-\frac{1}{x^2}\frac{dy}{dt}+\frac{1}{x}\frac{d^2y}{dt^2}\\
+    \end{eqnarray*}
+    より、これをもとの式に代入して、
+    \begin{eqnarray*}
+        x^2y''+axy'+by
+        &=&x^2\left(-\frac{1}{x^2}\frac{dy}{dt}+\frac{1}{x}\frac{d^2y}{dt^2}\right)+ax\left(\frac{1}{x}\frac{dy}{dt}\right)+by\\
+        &=&\frac{d^2y}{dt^2}+\left(a-1\right)\frac{dy}{dt}+by\\
+    \end{eqnarray*}
+    したがって、以下の式に帰着する.
+    \begin{eqnarray*}
+        \frac{d^2y}{dt^2}+\left(a-1\right)\frac{dy}{dt}+by=f\left(t\right)
+    \end{eqnarray*}
+    このとき、特殊解は、$t$の関数で求めてしまうと良い.
+\end{itembox}
 \end{document}

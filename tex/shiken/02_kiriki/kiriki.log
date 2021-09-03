@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  3 SEP 2021 16:51
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  3 SEP 2021 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**c:/Users/Kitadai/git_windows/code/tex/documents/02_kiriki/kiriki
-(c:/Users/Kitadai/git_windows/code/tex/documents/02_kiriki/kiriki.tex
+**c:/Users/Kitadai/git_windows/code/tex/shiken/02_kiriki/kiriki
+(c:/Users/Kitadai/git_windows/code/tex/shiken/02_kiriki/kiriki.tex
 pLaTeX2e <2021-06-01>+1 (based on LaTeX2e <2021-06-01>)
 L3 programming layer <2021-06-01> (c:/texlive/2021/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/10/09 jsclasses (okumura, texjporg)
@@ -460,19 +460,66 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 65.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+ (./kiriki.toc
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 6.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 6.
+)
+\tf@toc=\write4
+\openout4 = `kiriki.toc'.
 
-] (./kiriki.aux)
+ [1
+
+]
+File: images/kiriki_image2.jpg Graphic file (type bmp)
+<images/kiriki_image2.jpg>
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 84.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 84.
+ [2] [3]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 157.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 157.
+ [4] [5] [6] [7]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 371.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 371.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 371.
+
+[8] [9] (./kiriki.aux)
 Package rerunfilecheck Info: File `kiriki.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: 45313A3438A075439AEEBBA0C7A111FD;1226.
  ) 
 Here is how much of TeX's memory you used:
- 11104 strings out of 478987
- 159760 string characters out of 5865292
- 483212 words of memory out of 5000000
- 29124 multiletter control sequences out of 15000+600000
- 413557 words of font info for 73 fonts, out of 8000000 for 9000
+ 11152 strings out of 478987
+ 160365 string characters out of 5865292
+ 511422 words of memory out of 5000000
+ 29158 multiletter control sequences out of 15000+600000
+ 418361 words of font info for 98 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,5n,66p,277b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,66p,274b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kiriki.dvi (1 page, 884 bytes).
+Output written on kiriki.dvi (9 pages, 40756 bytes).

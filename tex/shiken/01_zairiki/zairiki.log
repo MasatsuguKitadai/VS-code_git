@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  3 SEP 2021 16:50
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.6.8)  3 SEP 2021 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**c:/Users/Kitadai/git_windows/code/tex/documents/01_zairiki/zairiki
-(c:/Users/Kitadai/git_windows/code/tex/documents/01_zairiki/zairiki.tex
+**c:/Users/Kitadai/git_windows/code/tex/shiken/01_zairiki/zairiki
+(c:/Users/Kitadai/git_windows/code/tex/shiken/01_zairiki/zairiki.tex
 pLaTeX2e <2021-06-01>+1 (based on LaTeX2e <2021-06-01>)
 L3 programming layer <2021-06-01> (c:/texlive/2021/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/10/09 jsclasses (okumura, texjporg)
@@ -460,19 +460,61 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 65.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 65.
+ (./zairiki.toc
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 2.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 2.
+)
+\tf@toc=\write4
+\openout4 = `zairiki.toc'.
 
-] (./zairiki.aux)
+ [1
+
+]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 80.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 80.
+ [2] [3] [4] [5]
+File: images/zairiki_image4.jpg Graphic file (type bmp)
+<images/zairiki_image4.jpg>
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 244.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 244.
+ [6]
+File: images/zairiki_image3.jpg Graphic file (type bmp)
+<images/zairiki_image3.jpg>
+ [7] [8] [9]
+File: images/zairiki_image1.jpg Graphic file (type bmp)
+<images/zairiki_image1.jpg>
+File: images/zairiki_image2.jpg Graphic file (type bmp)
+<images/zairiki_image2.jpg>
+ [10] [11] (./zairiki.aux)
 Package rerunfilecheck Info: File `zairiki.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: E3560F9CBB4D398454BF06A1D908251B;2015.
  ) 
 Here is how much of TeX's memory you used:
- 11104 strings out of 478987
- 159780 string characters out of 5865292
- 483217 words of memory out of 5000000
- 29124 multiletter control sequences out of 15000+600000
- 413557 words of font info for 73 fonts, out of 8000000 for 9000
+ 11172 strings out of 478987
+ 160880 string characters out of 5865292
+ 508158 words of memory out of 5000000
+ 29175 multiletter control sequences out of 15000+600000
+ 418361 words of font info for 98 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,5n,66p,279b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,66p,276b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on zairiki.dvi (1 page, 884 bytes).
+Output written on zairiki.dvi (11 pages, 47420 bytes).
