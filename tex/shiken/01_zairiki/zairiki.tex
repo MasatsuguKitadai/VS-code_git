@@ -139,17 +139,17 @@ lineskip=-0.5ex
 \end{itembox}
 \section{平等強さ}
 どの断面でも\textgt{応力が一定}である状態のことをいう.\\
-\begin{enumerate}[(1)]
-    \item 引張・圧縮\\
-          どの断面でも垂直応力が等しい
-    \item 曲げ\\
-          どの断面でも\textgt{最大曲げ応力}が等しい
-\end{enumerate}
+\begin{itembox}[l]{平等強さ}
+    \begin{enumerate}[(1)]
+        \item 引張・圧縮 $\rightarrow$ どの断面でも\textgt{垂直応力}が等しい
+        \item 曲げ $\rightarrow$ どの断面でも\textgt{最大曲げ応力}が等しい
+    \end{enumerate}
+\end{itembox}
 \section{断面二次モーメントと断面二次極モーメント}
 \begin{itembox}[l]{Point}
     \begin{center}
         断面二次極モーメントは直交座標系における\textgt{$x$軸,$y$軸の断面二次モーメントを足し合わせた値}になる.\\
-        ねじりと曲げの重要公式に酷似しているものが多い
+        ねじりと曲げの重要公式に酷似しているものが多い.
     \end{center}
 \end{itembox}
 \subsection{断面二次モーメント}
@@ -211,7 +211,7 @@ lineskip=-0.5ex
 \begin{itembox}[l]{代表的な断面二次極モーメント}
     \begin{eqnarray*}
         円\qquad&&\dfrac{\pi D^4}{32}\quad(直径:D)\\
-        円筒\quad&&\dfrac{\pi}{32}\left(D_1^2-D_2^2\right)\quad(外径:D_1,内径:D_2))\\
+        円筒\quad&&\dfrac{\pi}{32}\left(D_1^2-D_2^2\right)\quad(外径:D_1,内径:D_2)\\
     \end{eqnarray*}
 \end{itembox}
 \section{たわみの微分方程式}
@@ -295,7 +295,7 @@ lineskip=-0.5ex
               \sigma_1=-\frac{E_1E_2A_2\alpha T}{E_1A_1+E_2A_2}
           \end{eqnarray*}
 \end{enumerate}
-\section{SFDとBMD}
+\section{SFDとBMD (未完成)}
 \subsection{せん断力線図(SFD)}
 はりにはたらくせん断力を図で表したもの
 \begin{itembox}[l]{Point}
@@ -303,9 +303,6 @@ lineskip=-0.5ex
         該当する範囲で、\textgt{力のつり合い式}を立てる
     \end{center}
 \end{itembox}
-\begin{enumerate}[(1)]
-    \item 自由端の
-\end{enumerate}
 \subsection{曲げ応力線図(BMD)}
 はりにはたらく曲げモーメントを図で表したもの
 \begin{itembox}[l]{Point}
@@ -392,7 +389,7 @@ lineskip=-0.5ex
               \varphi_2&=&\frac{TL}{G\left(I_{P2}-I_{P1}\right)}
           \end{eqnarray*}
 \end{enumerate}
-\section{モールの応力円}
+\section{モールの応力円 (未完成)}
 \section{材料の破断}
 塑性変形するときは金属材料が単軸応力状態で変形することはなく,2軸または3軸の応力を受けている.
 このような組合せ応力のもとにおいて金属材料が弾性限度に達し,

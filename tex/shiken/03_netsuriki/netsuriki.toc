@@ -21,6 +21,6 @@
 \contentsline {subsection}{\numberline {7.3}ディーゼルサイクル}{8}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}サバテサイクル}{8}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}ブレイトンサイクル}{8}{subsection.7.5}%
-\contentsline {section}{\numberline {8}再生ブレイトンサイクル}{9}{section.8}%
-\contentsline {section}{\numberline {9}乾き度}{9}{section.9}%
+\contentsline {section}{\numberline {8}再生ブレイトンサイクル (未完成)}{9}{section.8}%
+\contentsline {section}{\numberline {9}乾き度 (未完成)}{9}{section.9}%
 \contentsline {subsection}{\numberline {9.1}湿り蒸気}{9}{subsection.9.1}%

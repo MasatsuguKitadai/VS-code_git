@@ -34,11 +34,11 @@
 \contentsline {subsection}{\numberline {2.3}全微分と偏微分}{12}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}微分とは}{12}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}全微分}{12}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}偏微分}{13}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}偏微分}{12}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}合成関数の偏微分}{13}{subsubsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.4}1変数の積分}{13}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}積分を解くにあたって}{13}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}部分積分}{14}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2}部分積分}{13}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}三角関数の積分}{14}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}広義積分}{14}{subsubsection.2.4.4}%
 \contentsline {subsection}{\numberline {2.5}極限}{15}{subsection.2.5}%

@@ -13,6 +13,6 @@
 \contentsline {subsection}{\numberline {7.2}複素振幅表示による方法(1)}{7}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}複素振幅表示による方法(2)}{8}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}周波数応答関数$G_f$}{9}{subsection.7.4}%
-\contentsline {section}{\numberline {8}共振曲線}{9}{section.8}%
+\contentsline {section}{\numberline {8}共振曲線 (未完成)}{9}{section.8}%
 \contentsline {section}{\numberline {9}その他}{9}{section.9}%
 \contentsline {subsection}{\numberline {9.1}合成ばね定数を求める}{9}{subsection.9.1}%
