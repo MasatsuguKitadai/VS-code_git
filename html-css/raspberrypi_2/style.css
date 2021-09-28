@@ -88,6 +88,35 @@ span{
     justify-content: center;
 }
 
+.co2 {
+    color: #770000;
+}
+
+.graph_co2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: auto;
+	margin-left: auto;
+	width: 260px;
+	height: 260px;
+	font-size: 26px;
+	font-weight: 700;
+	background-image: radial-gradient(#f2f2f2 50%, transparent 31%), conic-gradient(#d5525f 0% 82%, #d9d9d9 82% 100%);
+	border-radius: 50%;
+    margin: 10px;
+    margin-right: 20px;
+}
+
+.graph_co2 h5 {
+    font-size: 38px;
+}
+
+.graph_co2 h6 {
+    font-size: 24px;
+    margin-top: 75px;
+}
+
 .temp {
     color: #004400;
 }
@@ -106,6 +135,7 @@ span{
 	border-radius: 50%;
     margin: 10px;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .humidity {
@@ -125,37 +155,7 @@ span{
 	background-image: radial-gradient(#f2f2f2 50%, transparent 31%), conic-gradient(#457FD3 0% 62%, #d9d9d9 62% 100%);
 	border-radius: 50%;
     margin: 10px;
-    margin-right: 20px;
     margin-left: 20px;
-}
-
-.co2 {
-    color: #770000;
-}
-
-.graph_co2 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: auto;
-	margin-left: auto;
-	width: 260px;
-	height: 260px;
-	font-size: 26px;
-	font-weight: 700;
-	background-image: radial-gradient(#f2f2f2 50%, transparent 31%), conic-gradient(#d5525f 0% 82%, #d9d9d9 82% 100%);
-	border-radius: 50%;
-    margin: 10px;
-    margin-left: 20px;
-}
-
-.graph_co2 h5 {
-    font-size: 38px;
-}
-
-.graph_co2 h6 {
-    font-size: 24px;
-    margin-top: 75px;
 }
 
 .bottom{
