@@ -9,7 +9,7 @@
 
 <body>
     <main>
-    <div class="left">
+    <div class="top">
         <div class="time">
             <div class="row1">
                 <h1 id="Clock"></h1>
@@ -20,25 +20,19 @@
             </div>
         </div>
         <div class="temp_box">
-            <h4>Temperature</h4>
-            <p id="temp">25</p>
+            <h4 class="temp">Temperature</h4>
+            <div class="graph_temp"><span><h5 class="temp">25</h5><h6 class="temp">℃</h6></span></div>
         </div>
-
-        <div class="graph">
-            
-            <div class="hum_box">
-                <h4>Humidity</h4>
-                <div class="graph_humidity"><span class="humidity_num">62%</span></div>
-            </div>
-
-            <div class="co2_box">
-                <h4>CO2</h4>
-                <div class="graph_co2"><span class="co2_num">50%</span></div>
-            </div>
-            
+        <div class="hum_box">
+            <h4 class="humidity">Humidity</h4>
+            <div class="graph_humidity"><span><h5 class="humidity">62</h5><h6 class="humidity">%</h6></span></div>
         </div>
-    </div>
-    <div class="right">
+        <div class="co2_box">
+            <h4 class="co2">CO2</h4>
+            <div class="graph_co2"><span><h5 class="co2">1200</h5><h6 class="co2">ppm</h6></span></div>
+        </div> 
+    </div>  
+    <div class="bottom">
     </div>
 
     <!-- java script -->
@@ -56,7 +50,7 @@
         var Hour_12 = Hour_24 % 12;
         var Min  = set2fig( nowTime.getMinutes() );
         // var Sec  = set2fig( nowTime.getSeconds() );
-        var clock = Hour_12 + " : " + Min;
+        var clock = Hour_12 + ":" + Min;
         document.getElementById("Clock").innerHTML = clock;
     }
 

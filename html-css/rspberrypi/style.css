@@ -10,15 +10,24 @@ main {
 }
 
 h1{
-    font-size: 80px;
+    margin-top: -20px;
+    font-size: 100px;
 }
 
 h2 {
+    margin-top: 40px;
+    margin-left: 20px;
     height: 50px;
-    font-size: 30px;
+    font-size: 40px;
 }
 
-h3{
+h3 {
+    margin-top: -5px;
+    height: 50px;
+    font-size: 40px;
+}
+
+h4{
     text-align: center;
     font-size: 30px;
 }
