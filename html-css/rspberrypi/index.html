@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ラズパイ CO2・温湿度計</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <main>
+    <div class="left">
+        <div class="time">
+            <div class="row1">
+                <h1 id="Clock"></h1>
+                <h2 id="Ampm"></h2>
+            </div>
+            <div class="row2">
+                <h2 id="Calendar"></h2>
+            </div>
+        </div>
+        <div class="temp_box">
+            <h3>Temperature</h3>
+            <p id="temp">25</p>
+        </div>
+
+        <div class="graph">
+            
+            <div class="hum_box">
+                <h3>Humidity</h3>
+                <div class="graph_humidity"><span class="humidity_num">62%</span></div>
+            </div>
+
+            <div class="co2_box">
+                <h3>CO2</h3>
+                <div class="graph_co2"><span class="co2_num">50%</span></div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="right">
+    </div>
+
+    <!-- java script -->
+    <script>
+    function set2fig(num) {
+        var ret;
+        if( num < 10 ) { ret = "0" + num; }
+        else { ret = num; }
+        return ret;
+    }
+
+    function Clock() {
+        var nowTime = new Date();
+        var Hour_24 = nowTime.getHours();
+        var Hour_12 = Hour_24 % 12;
+        var Min  = set2fig( nowTime.getMinutes() );
+        // var Sec  = set2fig( nowTime.getSeconds() );
+        var clock = Hour_12 + " : " + Min;
+        document.getElementById("Clock").innerHTML = clock;
+    }
+
+    function Ampm() {
+        var nowTime = new Date();
+        var hour = nowTime.getHours();
+        var hourStr = hour < 12 ? 'AM' : 'PM';
+        document.getElementById("Ampm").innerHTML = hourStr;
+    }
+
+    function Calendar() {
+        // index の作成
+        var index_month = ["January", "February", "March", "April", "May", "Jun", "July", "Augast", "September", "October", "November", "December"];
+        var index_week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        
+        var nowTime = new Date();
+        Month = index_month[nowTime.getMonth()];
+        var Day = nowTime.getDate();
+        Week = index_week[nowTime.getDay()];
+        
+        var calendar = Week + ",\t" + Month +"\t"+ Day;
+        document.getElementById("Calendar").innerHTML = calendar;
+    }
+
+    setInterval('Clock()',1000);
+    setInterval('Calendar()',1000);
+    setInterval('Ampm()',1000);
+
+    </script>
+    </main>
+    <footer>
+        <p>
+            <small>
+                &copy; Mesurement System Laboratory, Kyoto Institute of Technology.
+            </small>
+        </p>
+    </footer>
+</body>
+
+</html>

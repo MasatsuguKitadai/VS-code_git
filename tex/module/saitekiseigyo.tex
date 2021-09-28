@@ -1,0 +1,88 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{cancel}
+\usepackage{scalefnt}
+
+\renewcommand{\figurename}{fig.}
+\renewcommand{\tablename}{table }
+\newcommand{\redunderline}[1]{\textcolor{BrickRed}{\underline{\textcolor{black}{#1}}}} 
+
+\author{}
+\title{最適制御システム}
+\date{}
+
+\begin{document}
+\maketitle
+\section{第1講 (9/27) 最適制御理論の概要}
+\subsection{現代制御のアプローチ}
+\subsubsection{MIMOシステム}
+MIMOシステムとは、"Multi Input Multi output system(多入力多出力システム)"の略称である。
+例) 飛行機の自動操縦、ドローンの操縦
+対象に、単一の入力に対して単一の出力を得るシステムを SISOシステム "Single Input Multi Output system"という。
+例) 自動車のアクセル操作
+\begin{itembox}[l]{Point}
+    \begin{center}
+        入力の数と出力の数を考える
+    \end{center}
+\end{itembox}
+\subsubsection{対象物の状況を把握するためには…}
+基本的には、\textgt{直接測ることはできない}。
+\begin{itemize}
+    \item 直接測定することができない
+    \item コストがかかりすぎる
+    \item 目的の場所に取り付けられない
+\end{itemize}
+\subsection{Optimal Control (最適制御)}
+\begin{itembox}[l]{OpOptimal Control}
+    \begin{center}
+        Dynamical system\\
+        ↓\\
+        Observaion system\\
+        ↓\\
+        Obeserver (状態推定器)\\
+        【条件】 可観測性：制御に必要な条件は含まれているか\\
+        ↓\\
+        Controller (regulator)\\
+        【条件】可制御性：制御できる機能はあるか\\
+        ↓\\
+        (ループ)\\
+        \end{center}        
+\end{itembox}
+\begin{itembox}[l]{Cost Functional (コスト汎関数)}
+    \begin{eqnarray*}
+        J\left(u\right) &=& x^T\left(T\right) F x \left(T\right) \; \left(\mathrm{terminal\,Cost}\right)+ \int^T_{t_0} [x^T\left(t\right)Mx\left(t\right) \; \left(\mathrm{Error\,for\,the\,equilibrium\,states}\right)\\
+        &+& u ^T N u\left(t\right)] dt \; \left(\mathrm{Control\,energy}\right) \rightarrow_u \mathrm{min.}\\
+        ※&&\left\{u\left(t\right)|t_0 \geq t \geq T\right\}\\
+    \end{eqnarray*}
+\end{itembox}
+
+\subsection{Optimal Control Theory}
+\begin{enumerate}[(1)]
+    \item Dynamic Programing (1957)
+    \item Maximum principle (1958) $\rightarrow$ 少し広いがややこしい
+\end{enumerate}
+解き方は全く違うがたどり着く先は同じ!
+
+\subsection{Observability}
+\end{document}
