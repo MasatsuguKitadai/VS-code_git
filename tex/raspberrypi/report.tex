@@ -1,0 +1,116 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{cancel}
+\usepackage{scalefnt}
+
+\renewcommand{\figurename}{fig.}
+\renewcommand{\tablename}{table }
+\newcommand{\redunderline}[1]{\textcolor{BrickRed}{\underline{\textcolor{black}{#1}}}} 
+
+\author{}
+\title{CO2・温湿度計 企画書}
+\date{}
+
+\begin{document}
+\maketitle
+\section{コンセプト}
+コンテストに提出する二酸化炭素・温湿度計の製作にあたり、コンセプトを\textgt{「誰でも製作・利用ができる作品」}とした。\par
+現在のコロナ禍の影響により、自由に外出することが困難な状況となっている。
+その影響を特に大きく受けているのは、飲食店や商業施設であり、
+緊急事態宣言等の営業制限により、経営が困難となってお店を締めてしまう事例も少なくない。\par
+また、繰り返される新型コロナウイルス感染者数の変動をみても、再度緊急事態宣言等が発出される可能性は大きく、
+今後は、新型コロナウイルスと共生しながら生活していくことが不可欠であると考えられる。\par
+日本政府からのガイドラインを見ると…\\
+室内の温度・湿度とともにCO2濃度を誰もが視覚的に認識することができれば、施設を安心して営業・利用することができ、
+今後の生活の中で欠かせないものの1つとなることは間違いない。\par
+したがって、飲食店・商業施設で利用してもらえるような機能を持ち、誰でも安易に製作ができることを想定して、
+設計・製作・性能検証を行った。
+\section{機能}
+ここで、作品の機能について、飲食店・商業施設での利用を想定し、
+コンセプトから [1] 利用性：つかいやすさ、 [2] 製作性：つくりやすさ の２つの観点から決定した。
+\subsection{利用性：つかいやすさ}
+CO2濃度測定器は、Amazon等のネットショッピングサイトに多く出品されているが、商品レビューを見ると、センサの不具合に関した書き込みが散見された。
+その中には気体中のホルムアルデヒド濃度といった全く異なる気体を計測し、その値を表示している測定器も存在している。
+一般の人にはその違いを見分けることは難しく、購入・利用する際に懸念要素となる場合がある。\par
+また、正確に測定できる商品であった場合でも、表示画面が大きくないものが多く、施設の利用者が自由に確認できるとは考えがたい。\par
+したがって、想定される使用環境から、測定値の信頼性及び複数のユーザーが情報を確認できる視認性を機能として備えることを目標とした。
+\subsection{製作性：つくりやすさ}
+製作については、電子工作に詳しくない人でも製作・利用ができる必要があるため、
+小学生高学年～中学生が夏休みの自由研究等で製作できる難易度程度になるように可能な限り工程を簡易化することを目標とした。\par
+また、国内大手メーカーが販売しているセンサーは…と非常に高価である。
+先述したネットショッピングサイトには5000円前後で出品されている商品が多いが、性能は保証されていない。\par
+したがって、大手企業の製品及びネットショッピングサイトの相場価格より、目標価格を5000円～20000円程度と設定した。
+\section{製作に使用したもの}
+作品に使用した製品・材料、ソフトウェア、言語を以下に示す。
+\subsection{材料・製品}
+\begin{center}
+    \begin{tabular}{|p{70mm}|p{30mm}|}
+        \hline
+        \multicolumn{1}{|c|}{\textgt{材料・製品名}} & \multicolumn{1}{|c|}{\textgt{価格(税抜) [円]}} \\ \hline
+                                                    &                                                \\ \hline
+                                                    &                                                \\ \hline
+                                                    &                                                \\ \hline
+                                                    &                                                \\ \hline
+                                                    &                                                \\ \hline
+                                                    &                                                \\ \hline
+                                                    &                                                \\ \hline
+                                                    & 合計 円                                        \\ \hline
+    \end{tabular}
+\end{center}
+\subsection{ソフトウェア}
+\begin{center}
+    \begin{tabular}{|p{70mm}|p{30mm}|}
+        \hline
+        \multicolumn{1}{|c|}{\textgt{ソフトウェア名}} & \multicolumn{1}{|c|}{\textgt{用途}} \\ \hline
+        Raspbian                                      & OS                                  \\ \hline
+        Nginx                                         & Webサーバー                         \\ \hline
+    \end{tabular}
+\end{center}
+\subsection{言語}
+\begin{center}
+    \begin{tabular}{|p{70mm}|p{30mm}|}
+        \hline
+        \multicolumn{1}{|c|}{\textgt{言語名}} & \multicolumn{1}{|c|}{\textgt{種類}} \\ \hline
+        Python 3                              & プログラミング言語                  \\ \hline
+        HTML                                  & マークアップ言語                    \\ \hline
+        CSS                                   & マークアップ言語                    \\ \hline
+    \end{tabular}
+\end{center}
+\section{設計}
+先述の機能から、信頼性・視認性・製作難度・価格を両立する必要 があるが、
+\section{製作}
+\subsection{プログラム}
+\subsubsection{センサ値の記録}
+\subsubsection{時間平均値の計算}
+\subsubsection{グラフの作成}
+\subsubsection{HTML・CSSの作成}
+\subsection{センサ}
+\subsubsection{配線}
+\subsection{ケース}
+\subsubsection{3Dモデル}
+\subsubsection{プリント}
+\section{試用結果}
+\section{今後の展望}
+\section{参考資料}
+\end{document}
