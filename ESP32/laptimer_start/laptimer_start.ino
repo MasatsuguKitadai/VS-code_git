@@ -19,11 +19,11 @@ int milli_sec = 0;
 
 //LEDの設定
 #define LED_GREEN 12 // 送信確認
-#define LED_BLUE 14 // Wifi接続確認
+#define LED_BLUE 27 // Wifi接続確認
 
 //超音波距離センサの設定
-#define echoPin 16 // Echo Pin
-#define trigPin 17 // Trigger Pin
+#define echoPin 33 // Echo Pin
+#define trigPin 25 // Trigger Pin
  
 double Duration = 0; //受信した間隔
 double Distance = 0; //距離
@@ -34,11 +34,18 @@ digitalWrite(LED_BLUE, LOW);
 digitalWrite(LED_GREEN, LOW);
 
 
+int i = 0;
+
 //  wifiへの接続
   Serial.printf("Connecting to %s ", ssid);
   WiFi.begin(ssid, password);  //  Wi-Fi APに接続
     while (WiFi.status() != WL_CONNECTED) {  //  Wi-Fi AP接続待ち
         delay(100);
+        i = i + 1;
+        if(i > 50)
+        {
+          ESP.restart(); // 再起動
+        }
     }
 
   Serial.print("WiFi connected\r\nIP address: ");
@@ -47,6 +54,9 @@ digitalWrite(LED_GREEN, LOW);
   
 //  Ambient セットアップ
   ambient.begin(channelId, writeKey, &client); // チャネルIDとライトキーを指定してAmbientの初期化
+
+  ambient.set(1, "start_module begin");
+  ambient.send(); // データをAmbientに送信
 
 //  超音波センサのセットアップ
 pinMode( echoPin, INPUT );
@@ -74,7 +84,7 @@ void loop() {
     time_data = millis();
     milli_sec = time_data;
     
-    if (Distance < 20)
+    if (Distance < 300) // 反応距離の設定
     {
       Serial.print("[");
       Serial.print(milli_sec);
@@ -82,15 +92,15 @@ void loop() {
       Serial.println(Distance);
 //      LED(緑)の点灯
       digitalWrite(LED_GREEN, HIGH);
-      delay(200);
+      delay(10);
       digitalWrite(LED_GREEN, LOW);
 
 //      送信データの設定
-      ambient.set(1, milli_sec); // データ1にセット
+      ambient.set(2, milli_sec); // データ1にセット
       ambient.send(); // データをAmbientに送信
 
 //      停止時刻
-      delay(2800);
+      delay(1990);
     }
   }
   delay(10);//取得間隔1秒
