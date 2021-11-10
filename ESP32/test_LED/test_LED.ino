@@ -1,5 +1,5 @@
 #define LED_GREEN 12 // 送信確認
-#define LED_BLUE 14 // Wifi接続確認
+#define LED_BLUE 27 // Wifi接続確認
 
 void setup()
 {

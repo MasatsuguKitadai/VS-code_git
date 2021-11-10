@@ -6,12 +6,12 @@ Ambient ambient;
 //初期設定
 
 //デザリングの設定
-const char* ssid       = "start";
-const char* password   = "password";
+const char* ssid       = "Start";
+const char* password   = "Password";
 
 //Ambientの設定
-unsigned int channelId = 42802;
-const char* writeKey = "1f9d0e2d5891b768";
+unsigned int channelId = 43076;
+const char* writeKey = "402951c596dbf815";
 
 // millis の設定djsafal
 unsigned long time_data = 0;
@@ -55,7 +55,7 @@ int i = 0;
 //  Ambient セットアップ
   ambient.begin(channelId, writeKey, &client); // チャネルIDとライトキーを指定してAmbientの初期化
 
-  ambient.set(1, "start_module begin");
+  ambient.set(1, 1);
   ambient.send(); // データをAmbientに送信
 
 //  超音波センサのセットアップ
@@ -84,7 +84,7 @@ void loop() {
     time_data = millis();
     milli_sec = time_data;
     
-    if (Distance < 300) // 反応距離の設定
+    if (Distance < 200) // 反応距離の設定
     {
       Serial.print("[");
       Serial.print(milli_sec);
@@ -100,7 +100,7 @@ void loop() {
       ambient.send(); // データをAmbientに送信
 
 //      停止時刻
-      delay(1990);
+      delay(2990);
     }
   }
   delay(10);//取得間隔1秒
