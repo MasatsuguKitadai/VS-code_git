@@ -5,3 +5,9 @@
     background: url(../images/f1.jpg)
     center / cover;
 }
+
+.circuit {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}

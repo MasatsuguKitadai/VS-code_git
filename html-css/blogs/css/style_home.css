@@ -121,7 +121,7 @@ h3 {
 }
 
 .schedule tr {
-    font-size: 26px;
+    font-size: 30px;
 }
 
 .schedule tr th {
@@ -135,7 +135,7 @@ h3 {
 }
 
 .column_name th {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .detail {
@@ -149,20 +149,16 @@ h3 {
 .friday {
     background-color: #999;
     width: 240px;
-    font-size: 40px;
 }
 
 .saturday {
     background-color: #8EB8FF;
     width: 200px;
-    font-size: 40px;
-
 }
 
 .sunday {
     background-color: 	#FF9872;
     width: 200px;
-    font-size: 40px;
 }
 
 .calender {
