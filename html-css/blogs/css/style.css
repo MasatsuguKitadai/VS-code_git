@@ -23,6 +23,15 @@ header {
     bottom: 0%;
 }
 
+main {
+    margin-top: 420px;
+}
+
+.back_ground {
+    position: fixed;
+    top: 0px;
+}
+
 .navigator {
     width: 100%;
     display: flex;
@@ -86,12 +95,14 @@ main {
 
 h1 {
     margin-left: 60px;
+    margin-right: 60px;
     padding-left: 20px;
+    padding-bottom: 14px;
     height: 60px;
     color: #2d2d2d;
     font-size: 60px;
     font-weight: bold;
-    border-bottom: solid 14px #FF4500;
+    border-bottom: solid 10px #FF4500;
   }
 
 h2 {
@@ -157,4 +168,10 @@ h3 {
 .sunday {
     background-color: 	#FF9872;
     width: 200px;
+}
+
+.calender {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
 }
