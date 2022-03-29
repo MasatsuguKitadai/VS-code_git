@@ -10,124 +10,28 @@ body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
-    background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
-    /* background-color: red; */
+    background-color: #fff;
     margin: 0;
     }
 
 /********************* header *********************/
 
-header {
-    padding: 0 0 0 0;
-    display: flex;
-    justify-content: center;
-}
-
-/* タイトル */
-
-.box_title {
-    height: 150px;
+header{
     width: 100%;
-    margin: 0;
-    /* background-color: black; */
-    border-bottom: solid 20px #fff;
 }
 
-.str_title {
-    font-size: 80px;
-    color: #fff;
-    text-align: center;
-    margin: auto;
-    margin: 20px 0 0 0;
-}
-
-/********************* main *********************/
-
-.main {
-    margin: 0 10% 0 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ニュース */
-
-.box_news {
-    height: 700px;
-    margin: 10% 0 0 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.str_news {
-    margin: 0;
-    font-size: 60px;
-    position: absolute;
-    left: 10%;
-    top: -8%;
-    z-index: 10;
-}
-
-.content_news {
-    margin: 0 0 5% 0;
-    width: 90%;
-    height: 600px;
-    background-color: aliceblue;
-    border-radius: 50px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: 1;
-}
-
-/* トピック */
-
-.box_topic_1 {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.row_topic {
-    display: flex;
-    justify-content: center;
-}
-
-.box_topic_2 {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.str_topic {
-    /* width: 60%; */
-    margin: 0;
-    font-size: 40px;
-    color: #fff;
-    text-align: center;
-}
-
-.img_topic {
-    width: 70%;
-    margin: 0 0 5% 0;
-    /* border: solid 5px #fff; */
-    border-radius: 50px;
-}
-
-/********************* footer *********************/
-
-footer {
+.box_head {
     width: 100%;
     height: 150px;
-    color: #fff;
-    /* background-color: black; */
-    border-top: solid 20px #fff;
-    position: absolute;
-    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: solid 10px #222222;
+}
+
+.str_head {
+    font-size: 50px;
+    text-align: center;
+    color: #222222;
 }
