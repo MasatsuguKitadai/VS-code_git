@@ -1,4 +1,4 @@
-SD #include <Servo.h>
+#include <Servo.h>
  
 Servo myservo;
 int value = 0;
