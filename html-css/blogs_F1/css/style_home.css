@@ -537,15 +537,15 @@ main {
     text-align: left;
 }
 
-.img_team_flag {
-    width: 15%;
-    margin-bottom: 0.2em;
-}
+/* .img_team_flag {
+    width: 12%;
+    margin-bottom: 0.5em;
+} */
 
 .str_qualifying_result_driver_team {
     font-size: 2em;
     margin: 0 0 0.2em 0;
-    width: 45%;
+    width: 60%;
     text-align: left;
 }
 
