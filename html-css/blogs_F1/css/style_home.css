@@ -1,8 +1,9 @@
 @charset "UTF-8";
+
 html {
-  font-size: 100%;
-  max-width: 100%;
-  min-height: 100%;
+    font-size: 100%;
+    max-width: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -14,11 +15,11 @@ body {
     background-color: #D9E5FF;
     /* background-image:repeating-linear-gradient(-45deg,#fff, #fff 14px,transparent 0, transparent 21px); */
     margin: 0;
-    }
+}
 
 /********************* header *********************/
 
-header{
+header {
     width: 100%;
 }
 
@@ -42,39 +43,76 @@ header{
     width: 100%;
     height: 100px;
     background-color: #5D99FF;
-    box-shadow: 0px 10px 10px -5px #999999;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
 }
 
 /********************* main *********************/
 
 main {
-margin: 0 10% 0 10%;
+    margin: 0 6% 0 6%;
+    font-size: 16px;
 }
 
-/* トピック */
+/********************* トピック *********************/
+
 
 .box_topic {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    font-size: 16px;
 }
 
-.str_topic {
+/* .str_topic_en {
     width: 100%;
     height: 100%;
     font-size: 44px;
     color: #555555;
     text-align: center;
+} */
+
+.h2_topic {
+    margin-top: 3em;
+    height: 4em;
+    background: #EEEEEE;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 0;
+    border-radius: 0.2em;
+    border-left: solid 0.8em #5D99FF;
+    box-shadow: 0em 0.4em 0.4em -0.2em #999999;
 }
 
-/* スケジュール */
+.str_topic_jp {
+    width: 35%;
+    color: #555555;
+    font-size: 2em;
+    margin: 0;
+    text-align: left;
+}
+
+/* .str_topic_en {
+    width: 35%;
+    color: #555555;
+    font-size: 2em;
+    margin: 0;
+    text-align: left;
+} */
+
+.img_topic {
+    height: 2em;
+    margin: 0 0.5em 0 0.5em;
+}
+
+/********************* スケジュール *********************/
 
 .box_schedule {
-    width: 100%;
-    padding: 20px;
-    margin-top: 8%;
+    padding: 1em;
     background-color: #EEEEEE;
-    border-radius: 1em;
+    border-radius: 2em;
+    box-shadow: 0em 0.8em 0.8em -0.4em #999999;
 }
 
 .box_schedule_2 {
@@ -82,12 +120,13 @@ margin: 0 10% 0 10%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-size: 16px;
 }
 
 .str_gpname_en {
     margin: 0;
     width: 100%;
-    font-size: 40px;
+    font-size: 2.6em;
     color: #555555;
     text-align: center;
     vertical-align: bottom;
@@ -97,7 +136,7 @@ margin: 0 10% 0 10%;
 .str_gpname_jp {
     margin: 0;
     width: 100%;
-    font-size: 30px;
+    font-size: 1.8em;
     color: #555555;
     text-align: center;
 }
@@ -108,20 +147,425 @@ margin: 0 10% 0 10%;
 
 .img_flag {
     margin: 0;
-    height: 0.8em;
+    height: 1em;
 }
 
 .box_countdown {
     width: 100%;
-    height: 300px;
+    height: 100px;
     padding: 0.5em 0 0.5em 0;
-    font-size: 70px;
+    font-size: 4em;
     text-align: center;
     vertical-align: middle;
 }
 
+/********************* セッション *********************/
+
 .box_session {
     width: 100%;
-    height: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
+/* セッション名 */
+
+.box_session_name {
+    width: 30%;
+}
+
+.ul_session_name {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_name {
+    font-size: 2.2em;
+    text-align: center;
+}
+
+/* セッション日 */
+
+.box_session_day {
+    width: 25%;
+}
+
+.ul_session_day {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_day {
+    font-size: 2.2em;
+    text-align: left;
+}
+
+/* セッション曜日 */
+
+.box_session_week {
+    width: 15%;
+}
+
+.ul_session_week {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_week {
+    font-size: 2.2em;
+    text-align: left;
+}
+
+
+/* セッション時刻 */
+
+.box_session_time {
+    width: 30%;
+}
+
+.ul_session_time {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_time {
+    font-size: 2.2em;
+    text-align: left;
+}
+
+/********************* レース結果 *********************/
+
+.box_race_result {
+    background-color: #EEEEEE;
+    border-radius: 2em;
+    padding: 1em;
+    box-shadow: 0em 0.8em 0.8em -0.4em #999999;
+}
+
+/* 順位 */
+
+.box_race_result_ranking {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2% 2% 2%;
+}
+
+.ul_race_result_ranking {
+    list-style: none;
+    padding-left: 0;
+    width: 30%;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.li_race_result_ranking {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 1em;
+    height: 6em;
+}
+
+.img_crown {
+    height: 60%;
+    margin: 0 2em 1em 1em;
+}
+
+.str_race_result_ranking_number_1 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #e3aa00;
+    font-weight: bold;
+}
+
+.str_race_result_ranking_ordinal_1 {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    color: #e3aa00;
+    font-weight: bold;
+}
+
+.str_race_result_ranking_number_2 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #969a98;
+    font-weight: bold;
+}
+
+.str_race_result_ranking_ordinal_2 {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    color: #969a98;
+    font-weight: bold;
+}
+
+.str_race_result_ranking_number_3 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #C47022;
+    font-weight: bold;
+}
+
+.str_race_result_ranking_ordinal_3 {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    color: #C47022;
+    font-weight: bold;
+}
+
+
+
+/* ドライバー */
+
+.ul_race_result_driver {
+    list-style: none;
+    padding-left: 0;
+    width: 70%;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.li_race_result_driver {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 6em;
+    font-weight: bolder;
+    color: #555555;
+    margin-top: 1em;
+}
+
+.str_race_result_driver_number_1 {
+    font-size: 3em;
+    margin: 0;
+    width: 15%;
+    text-align: right;
+    border-left: solid 0.4em #1F3F6E;
+}
+
+.str_race_result_driver_number_2 {
+    font-size: 3em;
+    margin: 0;
+    width: 15%;
+    text-align: right;
+    border-left: solid 0.4em #FF2800;
+}
+
+.str_race_result_driver_number_3 {
+    font-size: 3em;
+    margin: 0;
+    width: 15%;
+    text-align: right;
+    border-left: solid 0.4em #FF2800;
+}
+
+.str_race_result_driver_name {
+    font-size: 3em;
+    margin: 0;
+    padding-left: 5%;
+    width: 25%;
+    text-align: left;
+}
+
+.str_race_result_driver_team {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    width: 60%;
+    text-align: left;
+}
+
+/* 詳細 */
+
+.box_race_result_detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+}
+
+.str_race_result_detail {
+    font-size: 2em;
+    color: #fff;
+    background-color: #555555;
+    font-weight: bolder;
+    text-align: center;
+    width: 70%;
+    padding: 0.5em;
+    border-radius: 0.3em;
+}
+
+/********************* 予選結果 *********************/
+
+.box_qualifying_result {
+    background-color: #EEEEEE;
+    border-radius: 2em;
+    padding: 1em;
+    box-shadow: 0em 0.8em 0.8em -0.4em #999999;
+}
+
+/* 順位 */
+
+.box_qualifying_result_ranking {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2% 2% 2%;
+}
+
+.ul_qualifying_result_ranking {
+    list-style: none;
+    padding-left: 0;
+    width: 30%;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.li_qualifying_result_ranking {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 1em;
+    height: 6em;
+}
+
+.img_crown {
+    height: 60%;
+    margin: 0 2em 1em 1em;
+}
+
+.str_qualifying_result_ranking_number_1 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #e3aa00;
+    font-weight: bold;
+}
+
+.str_qualifying_result_ranking_ordinal_1 {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    color: #e3aa00;
+    font-weight: bold;
+}
+
+.str_qualifying_result_ranking_number_2 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #969a98;
+    font-weight: bold;
+}
+
+.str_qualifying_result_ranking_ordinal_2 {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    color: #969a98;
+    font-weight: bold;
+}
+
+.str_qualifying_result_ranking_number_3 {
+    font-size: 3.5em;
+    margin: 0;
+    color: #C47022;
+    font-weight: bold;
+}
+
+.str_qualifying_result_ranking_ordinal_3 {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    color: #C47022;
+    font-weight: bold;
+}
+
+
+
+/* ドライバー */
+
+.ul_qualifying_result_driver {
+    list-style: none;
+    padding-left: 0;
+    width: 70%;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.li_qualifying_result_driver {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 6em;
+    font-weight: bolder;
+    color: #555555;
+    margin-top: 1em;
+}
+
+.str_qualifying_result_driver_number_1 {
+    font-size: 3em;
+    margin: 0;
+    width: 15%;
+    text-align: right;
+    border-left: solid 0.4em #1F3F6E;
+}
+
+.str_qualifying_result_driver_number_2 {
+    font-size: 3em;
+    margin: 0;
+    width: 15%;
+    text-align: right;
+    border-left: solid 0.4em #FF2800;
+}
+
+.str_qualifying_result_driver_number_3 {
+    font-size: 3em;
+    margin: 0;
+    width: 15%;
+    text-align: right;
+    border-left: solid 0.4em #FF2800;
+}
+
+.str_qualifying_result_driver_name {
+    font-size: 3em;
+    margin: 0;
+    padding-left: 5%;
+    width: 25%;
+    text-align: left;
+}
+
+.img_team_flag {
+    width: 15%;
+    margin-bottom: 0.2em;
+}
+
+.str_qualifying_result_driver_team {
+    font-size: 2em;
+    margin: 0 0 0.2em 0;
+    width: 45%;
+    text-align: left;
+}
+
+/* 詳細 */
+
+.box_qualifying_result_detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+}
+
+.str_qualifying_result_detail {
+    font-size: 2em;
+    color: #fff;
+    background-color: #555555;
+    font-weight: bolder;
+    text-align: center;
+    width: 70%;
+    padding: 0.5em;
+    border-radius: 0.3em;
+}
