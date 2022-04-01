@@ -12,8 +12,10 @@ body {
     flex-flow: column;
     min-height: 100vh;
     /* background-color: #fff; */
-    background-color: #D9E5FF;
-    /* background-image:repeating-linear-gradient(-45deg,#fff, #fff 14px,transparent 0, transparent 21px); */
+    /* background-color: #D9E5FF; */
+    /* background-color: #FFE4B5; */
+    background-color: #BAD3FF;
+    /* background-image: repeating-linear-gradient(-45deg, #5D99FF, #5D99FF 14px, transparent 0, transparent 21px); */
     margin: 0;
 }
 
@@ -46,6 +48,35 @@ header {
     box-shadow: 0em 0.6em 0.6em -0.3em #999999;
 }
 
+/********************* chapter *********************/
+
+.box_chapter {
+    width: 96%;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #EEEEEE; */
+    background-color: #000;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
+}
+
+.img_chapter {
+    width: 30%;
+    margin: 1% 0;
+}
+
+.str_chapter {
+    width: 60%;
+    font-size: 3em;
+    /* font-weight: bolder; */
+    margin: 0;
+    font-style: italic;
+    color: #E10600;
+    text-align: center;
+}
+
 /********************* main *********************/
 
 main {
@@ -54,7 +85,6 @@ main {
 }
 
 /********************* トピック *********************/
-
 
 .box_topic {
     display: flex;
@@ -106,6 +136,71 @@ main {
     margin: 0 0.5em 0 0.5em;
 }
 
+/********************* ニュース *********************/
+
+.box_news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box_news_topic {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #EEEEEE;
+    border-radius: 0.5em;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
+    margin: 1em 0;
+}
+
+.img_news_topic {
+    width: 20%;
+    margin: 2%;
+    border-radius: 1em;
+}
+
+.str_news_topic {
+    width: 76%;
+    font-size: 2.2em;
+    font-weight: bolder;
+    text-align: center;
+    margin-right: 1em;
+}
+
+/* 他の記事 */
+
+.box_news_topic_others {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #555555;
+    /* background-color: #EEEEEE; */
+    border-radius: 0.5em;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
+    width: 71%;
+    margin-top: 1em;
+    padding: 2%;
+}
+
+/* .img_news_topic_others {
+    width: 25%;
+    margin-left: 15%;
+    background-color: #fff;
+}
+*/
+
+.str_news_topic_others {
+    margin-right: 15%;
+    width: 45%;
+    font-size: 2.2em;
+    font-weight: bolder;
+    text-align: center;
+    margin: 0;
+    color: #EEEEEE;
+}
+
 /********************* スケジュール *********************/
 
 .box_schedule {
@@ -126,7 +221,7 @@ main {
 .str_gpname_en {
     margin: 0;
     width: 100%;
-    font-size: 2.6em;
+    font-size: 2.2em;
     color: #555555;
     text-align: center;
     vertical-align: bottom;
@@ -136,7 +231,7 @@ main {
 .str_gpname_jp {
     margin: 0;
     width: 100%;
-    font-size: 1.8em;
+    font-size: 1.2em;
     color: #555555;
     text-align: center;
 }
@@ -318,8 +413,6 @@ main {
     font-weight: bold;
 }
 
-
-
 /* ドライバー */
 
 .ul_race_result_driver {
@@ -482,8 +575,6 @@ main {
     font-weight: bold;
 }
 
-
-
 /* ドライバー */
 
 .ul_qualifying_result_driver {
@@ -568,4 +659,5 @@ main {
     width: 70%;
     padding: 0.5em;
     border-radius: 0.3em;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
 }
