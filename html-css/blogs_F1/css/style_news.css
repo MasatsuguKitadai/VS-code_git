@@ -133,6 +133,7 @@ main {
     flex-direction: row;
     align-items: center;
     vertical-align: middle;
+    margin: 3em 0;
 }
 
 .instagram-media {

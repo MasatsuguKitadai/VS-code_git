@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Yu Gothic Medium", "遊ゴシック Medium", "遊ゴシック体", "ヒラギノ角ゴ Pro w3", sans-serif;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    /* background-color: #fff; */
+    /* background-color: #D9E5FF; */
+    /* background-color: #FFE4B5; */
+    background-color: #BAD3FF;
+    /* background-image: repeating-linear-gradient(-45deg, #5D99FF, #5D99FF 14px, transparent 0, transparent 21px); */
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/********************* header *********************/
+
+header {
+    width: 100%;
+    margin: 0;
+    position: fixed;
+}
+
+.box_head {
+    width: 100%;
+    /* height: 150px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #5D99FF;
+    z-index: 99;
+}
+
+.str_head {
+    margin: 0;
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    padding: 0.5em;
+}
+
+/********************* menu *********************/
+
+.box_menu {
+    width: 100%;
+    height: 3em;
+    background-color: #5D99FF;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
+}
+
+.ul_menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+}
+
+.li_menu {
+    color: #EEEEEE;
+    font-size: 2em;
+    margin: 0;
+    text-align: center;
+}
+
+/********************* chapter *********************/
+
+.box_chapter {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #EEEEEE; */
+    background-color: #000;
+}
+
+.img_chapter {
+    width: 20%;
+    margin: 1% 0;
+}
+
+.str_chapter {
+    width: 50%;
+    font-size: 2.5em;
+    font-weight: bolder;
+    margin: 0;
+    font-style: italic;
+    color: #E10600;
+    text-align: center;
+}
+
+/********************* main *********************/
+
+main {
+    margin: 12em 6% 0 6%;
+    font-size: 16px;
+}
+
+/********************* トピック *********************/
+
+.box_topic {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-size: 16px;
+}
+
+/* .str_topic_en {
+    width: 100%;
+    height: 100%;
+    font-size: 44px;
+    color: #555555;
+    text-align: center;
+} */
+
+.h2_topic {
+    margin-top: 3em;
+    height: 4em;
+    background: #EEEEEE;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 0;
+    border-radius: 0.2em;
+    border-left: solid 0.8em #5D99FF;
+    box-shadow: 0em 0.4em 0.4em -0.2em #999999;
+}
+
+.str_topic_jp {
+    width: 35%;
+    color: #555555;
+    font-size: 2em;
+    margin: 0;
+    text-align: left;
+}
+
+/* .str_topic_en {
+    width: 35%;
+    color: #555555;
+    font-size: 2em;
+    margin: 0;
+    text-align: left;
+} */
+
+.img_topic {
+    height: 2em;
+    margin: 0 0.5em 0 0.5em;
+}
+
+/********************* スケジュール *********************/
+
+.box_schedule {
+    padding: 1em;
+    background-color: #EEEEEE;
+    border-radius: 2em;
+    box-shadow: 0em 0.8em 0.8em -0.4em #999999;
+    margin: 2em 0;
+}
+
+.box_schedule_2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.str_gpname_en {
+    margin: 0;
+    width: 100%;
+    font-size: 2.6em;
+    color: #555555;
+    text-align: center;
+    vertical-align: bottom;
+    font-weight: bold;
+}
+
+.str_gpname_jp {
+    margin: 0;
+    width: 100%;
+    font-size: 1.7em;
+    color: #555555;
+    text-align: center;
+}
+
+.str_year {
+    font-weight: normal;
+}
+
+.img_flag {
+    margin: 0;
+    height: 1em;
+}
+
+.box_countdown {
+    width: 100%;
+    height: 100px;
+    padding: 0.5em 0 0.5em 0;
+    font-size: 4em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/********************* セッション *********************/
+
+.box_session {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* セッション名 */
+
+.box_session_name {
+    width: 25%;
+}
+
+.ul_session_name {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_name {
+    font-size: 2.2em;
+    text-align: center;
+}
+
+/* セッション日 */
+
+.box_session_day {
+    width: 25%;
+}
+
+.ul_session_day {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_day {
+    font-size: 2.2em;
+    text-align: left;
+}
+
+/* セッション曜日 */
+
+.box_session_week {
+    width: 15%;
+}
+
+.ul_session_week {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_week {
+    font-size: 2.2em;
+    text-align: left;
+}
+
+
+/* セッション時刻 */
+
+.box_session_time {
+    width: 35%;
+}
+
+.ul_session_time {
+    list-style: none;
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.li_session_time {
+    font-size: 2.2em;
+    text-align: left;
+}

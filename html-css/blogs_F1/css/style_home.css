@@ -19,6 +19,15 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /********************* header *********************/
 
 header {
@@ -287,7 +296,7 @@ main {
 /* セッション名 */
 
 .box_session_name {
-    width: 30%;
+    width: 25%;
 }
 
 .ul_session_name {
@@ -339,7 +348,7 @@ main {
 /* セッション時刻 */
 
 .box_session_time {
-    width: 30%;
+    width: 35%;
 }
 
 .ul_session_time {
@@ -770,4 +779,17 @@ main {
     text-align: center;
     margin: 0;
     color: #EEEEEE;
+}
+
+/********************* Twitter *********************/
+
+.box_twitter {
+    margin-top: 1em;
+}
+
+.twitter-timeline {
+    border-radius: 1em;
+    width: 100%;
+    scroll-behavior: smooth;
+    box-shadow: 0em 0.6em 0.6em -0.3em #999999;
 }
