@@ -298,6 +298,7 @@ main {
 
 .box_session_name {
     width: 25%;
+    height: 20%;
 }
 
 .ul_session_name {
@@ -315,6 +316,7 @@ main {
 
 .box_session_day {
     width: 25%;
+    height: 20%;
 }
 
 .ul_session_day {
@@ -332,6 +334,7 @@ main {
 
 .box_session_week {
     width: 15%;
+    height: 20%;
 }
 
 .ul_session_week {
@@ -350,6 +353,7 @@ main {
 
 .box_session_time {
     width: 35%;
+    height: 20%;
 }
 
 .ul_session_time {
