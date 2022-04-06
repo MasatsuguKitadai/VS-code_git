@@ -175,6 +175,7 @@ main {
 
 .box_news_topic {
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     background-color: #EEEEEE;
@@ -726,6 +727,7 @@ main {
 .box_data_topic {
     display: flex;
     flex-direction: row;
+    width: 100%;
     align-items: center;
     background-color: #EEEEEE;
     border-radius: 0.5em;
