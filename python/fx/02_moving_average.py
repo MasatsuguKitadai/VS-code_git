@@ -17,3 +17,4 @@ print(usd)
 
 usd.plot()
 plt.savefig('test_usd.svg')
+plt.close('all')
