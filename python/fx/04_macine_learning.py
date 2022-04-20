@@ -3,12 +3,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-df = pd.read_csv('iris.csv')
+df = pd.read_csv('data/usd.csv')
 
 print(df)
 
 # 特徴量
-X = df[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]
+X = df[['High', 'Low', 'Open', 'Close']]
 
 # 正解
 y = df['Species']
