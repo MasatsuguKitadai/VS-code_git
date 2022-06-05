@@ -1,9 +1,9 @@
 from pandas_datareader.data import get_data_yahoo
 from sklearn.compose import ColumnTransformer
 
-jpyx = get_data_yahoo('JPY=X', start='2021-4-1', end='2022-4-1')
-eurx = get_data_yahoo('EUR=X', start='2021-4-1', end='2022-4-1')
-audx = get_data_yahoo('AUD=X', start='2021-4-1', end='2022-4-1')
+jpyx = get_data_yahoo('JPY=X', start='2000-4-1', end='2022-5-24')
+eurx = get_data_yahoo('EUR=X', start='2000-4-1', end='2022-5-24')
+audx = get_data_yahoo('AUD=X', start='2000-4-1', end='2022-5-24')
 
 # print(jpyx.columns.values.tolist()
 
