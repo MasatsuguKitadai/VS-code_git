@@ -1,0 +1,298 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{listings}
+\usepackage{listings,jvlisting} 
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{cancel}
+\usepackage{scalefnt}
+
+\renewcommand{\figurename}{fig.}
+\renewcommand{\tablename}{table }
+\newcommand{\redunderline}[1]{\textcolor{BrickRed}{\underline{\textcolor{black}{#1}}}} 
+
+\hypersetup{
+	colorlinks=false, % リンクに色をつけない設定
+	bookmarks=true, % 以下ブックマークに関する設定
+	bookmarksnumbered=true,
+	pdfborder={0 0 0},
+	bookmarkstype=toc
+}
+
+\lstset{
+basicstyle={\ttfamily},
+identifierstyle={\small},
+commentstyle={\smallitshape},
+keywordstyle={\small\bfseries},
+ndkeywordstyle={\small},
+stringstyle={\small\ttfamily},
+frame={tb},
+breaklines=true,
+columns=[l]{fullflexible},
+xrightmargin=0zw,
+xleftmargin=3zw,
+numberstyle={\scriptsize},
+stepnumber=1,
+numbersep=1zw,
+lineskip=-0.5ex
+}
+
+\setcounter{tocdepth}{3}
+
+\author{}
+\title{機械力学}
+\date{}
+
+\begin{document}
+
+\section*{数学 [1] : 解答}
+
+\subsection*{問(1)}
+
+\begin{itembox}[l]{POINT}
+	\begin{center}
+		$|\lambda - A|$ or $|A - \lambda|$ を落ち着いて因数分解する!!
+	\end{center}
+\end{itembox}
+
+\begin{eqnarray*}
+	|A - \lambda|
+	=
+	\begin{vmatrix}
+		2-\lambda & -1        & -1        \\
+		-1        & 2-\lambda & -1        \\
+		-1        & -1        & 2-\lambda \\
+	\end{vmatrix}
+	=
+	-\lambda(\lambda-3)^2
+\end{eqnarray*}
+
+\noindent
+
+特性方程式は，
+
+\begin{eqnarray*}
+	-\lambda(\lambda^2 -3) = 0
+\end{eqnarray*}
+
+\noindent
+これを解くと，$\lambda = 0, 3$．\\
+しがって，求める固有値は \underline{$\lambda = 0, 3$．}
+
+\subsection*{(2)}
+
+\subsubsection*{基底とは}
+
+\begin{itembox}[l]{定義}
+	$W$を部分空間とするとき,$W$内のベクトルの系$\left(v_1,v_2,\cdots,v_n\right)$に対して,
+	以下の2つの条件が成立するとき$\left(v_1,v_2,\cdots,v_n\right)$を$W$の\textgt{基底}であるという.
+	\begin{enumerate}[(1)]
+		\item $W$の任意のベクトルが,$\left(v_1,v_2,\cdots,v_n\right)$の一次結合で表される
+		\item $\left(v_1,v_2,\cdots,v_n\right)$は一次独立である
+	\end{enumerate}
+\end{itembox}
+条件より,$W$の任意のベクトル$\vec{v}$は
+\begin{eqnarray*}
+	\vec{v}=x_1v_1+x_2v_2+\cdots+x_nv_n
+\end{eqnarray*}
+とただ一通りに表すことができる.\\
+
+\begin{itembox}[l]{POINT}
+	\begin{enumerate}[(1)]
+		\item $|\lambda - A| = 0$ にそれぞれの固有値$\lambda$を代入して整理．
+		\item 任意定数を与えて，連立方程式を解く．
+		\item 好きな任意定数を固定して，その他の任意定数との関係を調べる．
+		\item [※] 解が定まらないときは，更に追加で任意定数を固定する!!
+		\item 出てきた値がベクトル空間の基底になる．
+	\end{enumerate}
+\end{itembox}
+
+\subsubsection*{(i) $\lambda = 0$ のとき}
+
+\begin{eqnarray*}
+	\begin{bmatrix}
+		2-\lambda & -1        & -1        \\
+		-1        & 2-\lambda & -1        \\
+		-1        & -1        & 2-\lambda \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		2-0 & -1  & -1  \\
+		-1  & 2-0 & -1  \\
+		-1  & -1  & 2-0 \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		2  & -1 & -1 \\
+		-1 & 2  & -1 \\
+		-1 & -1 & 2  \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		0  & -3 & 3  \\
+		0  & 3  & -3 \\
+		-1 & -1 & 2  \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		-1 & -1 & 2  \\
+		0  & 1  & -1 \\
+		0  & 0  & 0  \\
+	\end{bmatrix}\\
+\end{eqnarray*}
+
+任意定数を$C_1$，$C_2$，$C_3$とすると
+
+\begin{eqnarray*}
+	-C_1 -C_2 + 2C_3 &=& 0\\
+	C_2 -C_3 &=& 0
+\end{eqnarray*}
+
+\begin{eqnarray*}
+	C_1 = C_2 = C_3\\
+\end{eqnarray*}
+
+\noindent
+ここで，仮に$C_1 = 1$とすると，$C_2 = C_3 = 1$ となる．\\
+
+\noindent
+したがって，$\lambda = 0$ における基底は，
+\underline{$
+		\begin{bmatrix}
+			1 \\
+			1 \\
+			1 \\
+		\end{bmatrix}
+	$}
+
+\subsubsection*{(ii) $\lambda = 3$ のとき}
+
+\begin{eqnarray*}
+	\begin{bmatrix}
+		2-\lambda & -1        & -1        \\
+		-1        & 2-\lambda & -1        \\
+		-1        & -1        & 2-\lambda \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		2-3 & -1  & -1  \\
+		-1  & 2-3 & -1  \\
+		-1  & -1  & 2-3 \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		-1 & -1 & -1 \\
+		-1 & -1 & -1 \\
+		-1 & -1 & -1 \\
+	\end{bmatrix}
+	\rightarrow
+	\begin{bmatrix}
+		1 & 1 & 1 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+	\end{bmatrix} \\
+\end{eqnarray*}
+
+(1) と同様に任意定数 $C_1$，$C_2$，$C_3$ とすると，
+
+\begin{eqnarray*}
+	C_1 + C_2 + C_3 = 0
+\end{eqnarray*}
+
+$C_1 = 1$ としたとき，
+
+\begin{eqnarray*}
+	C_2 + C_3 = -1
+\end{eqnarray*}
+
+$C_2 = -1$ とすると，
+
+\begin{eqnarray*}
+	C_3 = 0
+\end{eqnarray*}\\
+
+このとき，$\lambda = 3$ における基底は
+\underline{$
+		\begin{bmatrix}
+			1  \\
+			-1 \\
+			0  \\
+		\end{bmatrix}
+	$}
+
+また，$C_3 = -1$ とすると，
+
+\begin{eqnarray*}
+	C_2 = 0
+\end{eqnarray*}
+
+このとき，$\lambda = 3$ における基底は
+\underline{$
+		\begin{bmatrix}
+			1  \\
+			0  \\
+			-1 \\
+		\end{bmatrix}
+	$}
+
+\section*{問(3)}
+
+\subsubsection*{行列の対角化}
+
+問(2)の基底のベクトルを正規直行化すると，$	\begin{bmatrix}
+		1/\sqrt{3} \\
+		1/\sqrt{3} \\
+		1/\sqrt{3} \\
+	\end{bmatrix} $
+，$
+	\begin{bmatrix}
+		1/\sqrt{2}  \\
+		-1/\sqrt{2} \\
+		0           \\
+	\end{bmatrix}
+$
+，$
+	\begin{bmatrix}
+		1/\sqrt{6}  \\
+		1/\sqrt{6}  \\
+		-2/\sqrt{6} \\
+	\end{bmatrix}\\
+$\\
+
+以上の正規直交基底より，
+$
+	P =
+	\begin{bmatrix}
+		1/\sqrt{3} & 1/\sqrt{2}  & 1/\sqrt{6}  \\
+		1/\sqrt{3} & -1/\sqrt{2} & 1/\sqrt{6}  \\
+		1/\sqrt{3} & 0           & -2/\sqrt{6} \\
+	\end{bmatrix}\\
+$\\
+
+これを用いて対角化すると，
+$P^tAP =
+	\begin{bmatrix}
+		0 & 0 & 0 \\
+		0 & 3 & 0 \\
+		0 & 0 & 3 \\
+	\end{bmatrix}
+$
+
+\end{document}
