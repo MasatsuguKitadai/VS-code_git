@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.7.12)  8 SEP 2021 22:19
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2022.4.18)  6 OCT 2022 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/home/masatsugu/git/code/tex/shiken/03_netsuriki/netsuriki
-(/home/masatsugu/git/code/tex/shiken/03_netsuriki/netsuriki.tex
+**/home/wsl_desktop/workspace_wsl/code/tex/shiken/03_netsuriki/netsuriki
+(/home/wsl_desktop/workspace_wsl/code/tex/shiken/03_netsuriki/netsuriki.tex
 pLaTeX2e <2020-02-02>+2 (based on LaTeX2e <2020-02-02> patch level 2)
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/02/02 jsclasses (okumura, texjporg)
@@ -435,59 +435,53 @@ LaTeX Info: Redefining \nameref on input line 63.
 \openout3 = `netsuriki.out'.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 65.
+(Font)              scaled to size 16.60605pt on input line 67.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 65.
+(Font)              scaled to size 16.60605pt on input line 67.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 65.
+(Font)              scaled to size 11.53198pt on input line 67.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 65.
+(Font)              scaled to size 11.53198pt on input line 67.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 65.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+(Font)              scaled to size 5.76599pt on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 65.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 65.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 65.
+(Font)              scaled to size 13.83836pt on input line 68.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 65.
+(Font)              scaled to size 13.83836pt on input line 68.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 65.
+(Font)              scaled to size 13.83836pt on input line 68.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 65.
- (./netsuriki.toc
+(Font)              scaled to size 13.83836pt on input line 68.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 71.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 71.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 2.
+(Font)              scaled to size 6.72699pt on input line 73.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 2.
-)
-\tf@toc=\write4
-\openout4 = `netsuriki.toc'.
-
+(Font)              scaled to size 4.805pt on input line 73.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 74.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 74.
  [1
 
 ]
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 74.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 74.
- [2]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 153.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 153.
- [3] [4] [5] [6] [7] [8]
+ [2] [3] [4] [5] [6] [7]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 394.
- [9]
+ [8]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 394.
  (./netsuriki.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 394.
@@ -497,12 +491,12 @@ Package rerunfilecheck Info: File `netsuriki.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 394.
  ) 
 Here is how much of TeX's memory you used:
- 8403 strings out of 481768
- 121836 string characters out of 5933620
- 412007 words of memory out of 5000000
- 23656 multiletter control sequences out of 15000+600000
- 547629 words of font info for 98 fonts, out of 8000000 for 9000
+ 8396 strings out of 481768
+ 121800 string characters out of 5933620
+ 414006 words of memory out of 5000000
+ 23653 multiletter control sequences out of 15000+600000
+ 547324 words of font info for 97 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 34i,10n,36p,277b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,10n,36p,289b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on netsuriki.dvi (9 pages, 41236 bytes).
+Output written on netsuriki.dvi (8 pages, 28200 bytes).
