@@ -1,0 +1,80 @@
+\documentclass[a4paper]{jsarticle}
+\setlength{\topmargin}{-20.4cm}
+\setlength{\oddsidemargin}{-10.4mm}
+\setlength{\evensidemargin}{-10.4mm}
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+
+\usepackage[top=15truemm,bottom=25truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{listings}
+\usepackage{listings,jvlisting}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{color}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{ascmac}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{cancel}
+\usepackage{scalefnt}
+
+\renewcommand{\figurename}{fig.}
+\renewcommand{\tablename}{table }
+\newcommand{\redunderline}[1]{\textcolor{BrickRed}{\underline{\textcolor{black}{#1}}}} 
+
+\hypersetup{
+	colorlinks=false, % リンクに色をつけない設定
+	bookmarks=true, % 以下ブックマークに関する設定
+	bookmarksnumbered=true,
+	pdfborder={0 0 0},
+	bookmarkstype=toc
+}
+
+\makeatletter
+\def\@maketitle
+{
+\begin{center}
+{\LARGE \@title \par}
+\end{center}
+\begin{flushright}
+{\large\@date\quad\@author}
+\end{flushright}
+\par\vskip 1.5em
+}
+\makeatother
+
+\setcounter{tocdepth}{3}
+
+\author{22623111 来代 勝胤}
+\title{知的構造システム学}
+\date{2022/10/26}
+
+\begin{document}
+\maketitle
+\section*{2.4.1}
+超臨界ポップ分岐の標準形を平衡点で線形化したヤコビ行列の固有値解析から，ホップ分岐点($mu = 0$)において
+固有値が虚軸をまたぐ分岐になっていることを示せ．また，線形化のダイナミクスと元の系の安定性が分岐点において
+異なることを確かめよ．
+
+\begin{eqnarray*}
+	\dot{x}&=&-y+x\left\{\mu - x^2 + y^2\right\}\\
+	\dot{y}&=&x+y\left\{\mu - x^2 + y^2\right\}
+\end{eqnarray*}
+
+\newpage
+
+\section*{2.4.2}
+総平面上でトランスクリティカル分岐の流れ図は?
+
+\begin{eqnarray*}
+	\dot{x} &=& \mu x - x^2\\
+	\dot{y} &=& -y
+\end{eqnarray*}
+
+\end{document}
