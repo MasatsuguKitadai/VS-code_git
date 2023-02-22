@@ -1,11 +1,11 @@
 INFO: latexindent version 3.7.1, 2019-09-07, a script to indent .tex files
       latexindent lives here: /usr/share/texlive/texmf-dist/scripts/latexindent/
-      Thu Jan 26 17:55:01 2023
-      Filename: /home/wsl_desktop/workspace_wsl/lab_2022/01_reports/2301/TOYOTIRES/__latexindent_temp_230131.tex
+      Wed Dec 21 10:40:21 2022
+      Filename: /home/wsl_desktop/workspace_wsl/lab_2022/01_reports/2212/monthly/__latexindent_temp_221221.tex
 INFO: Processing switches:
       -y|--yaml: YAML settings specified via command line
       -c|--cruft: cruft directory
-INFO: Directory for backup files and /home/wsl_desktop/workspace_wsl/code/tex/shiken/02_kiriki/indent.log: /home/wsl_desktop/workspace_wsl/code/tex/shiken/02_kiriki/
+INFO: Directory for backup files and /home/wsl_desktop/workspace_wsl/code/tex/shiken/03_netsuriki/indent.log: /home/wsl_desktop/workspace_wsl/code/tex/shiken/03_netsuriki/
 INFO: YAML settings read: defaultSettings.yaml
       Reading defaultSettings.yaml from /usr/share/texlive/texmf-dist/scripts/latexindent/defaultSettings.yaml
 INFO: YAML settings read: indentconfig.yaml or .indentconfig.yaml
